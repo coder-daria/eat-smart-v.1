@@ -1,7 +1,3 @@
-function sum(x, y){
-  return x + y;
-}
-
 export function countKcal(calories, fat, proteins, carbs) {
   var howMuchKcal = {
     fat: calories * (fat / 100),
