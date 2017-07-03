@@ -1,8 +1,8 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import {countGrams, countKcal} from './functions';
+import {countGrams, caloriesPerDay} from './functions';
 
-var goal = countKcal(2000, 20, 30, 50);
+var goal = caloriesPerDay(2000, 20, 30, 50);
 var diet = countGrams(goal);
 
 var data = {

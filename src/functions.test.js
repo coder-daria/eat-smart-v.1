@@ -1,4 +1,4 @@
-import { caloriesPerDay, countGrams } from './functions';
+import { caloriesPerDay, countGrams, aliment, portion, fetchProducts } from './functions';
 
 it('counts calories', () => {
     expect(caloriesPerDay(2000, 20, 30, 50)).toEqual({
@@ -38,4 +38,11 @@ it('creates a portion object', () => {
         protein: 18,
         carbs: 153
     })
+})
+
+it('fetches the products from the server', () => {
+    const products = fetchProducts();
+    const productsLength = Object.keys(products).length;
+    const expectedProducts = 19;
+    expect(productsLength).toEqual(19);
 })
