@@ -1,3 +1,5 @@
+import server from './server/serverMock';
+
 export function caloriesPerDay(calories, fat, protein, carbs) {
     var howMuchKcal = {
         fat: calories * (fat / 100),
@@ -16,7 +18,7 @@ export function countGrams(aliment) {
     return howMuchCalories;
 }
 
-function aliment(fat, protein, carbs) { // Nutritions in grams
+export function aliment(fat, protein, carbs) { // Nutritions in grams
     const aliment = {
         fat: fat * 9,
         protein: protein * 4,
@@ -25,11 +27,15 @@ function aliment(fat, protein, carbs) { // Nutritions in grams
     return aliment; // Object contains nutritions in kcal
 }
 
-function portion(aliment, quantity) { //Aliment contains nutritions in grams
+export function portion(aliment, quantity) { //Aliment contains nutritions in grams
     const portion = {
         fat: aliment.fat * quantity / 100,
         protein: aliment.protein * quantity / 100,
         carbs: aliment.carbs * quantity / 100
     }
     return portion;
+}
+
+export function fetchProducts(){
+    return server.listAllProducts();
 }
