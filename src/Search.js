@@ -18,6 +18,11 @@ class Search extends React.Component {
         )
     }
     render() {
+        let picture = (item) => {
+            if(item.properties.url){
+                return <img alt={item.name} src={item.properties.url} width="200" height="100"/>
+            }
+        }
         return (
             <div>
                 <Autocomplete
@@ -28,8 +33,7 @@ class Search extends React.Component {
                         <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
                             {item.name}
                         </div>
-                        <img src={item.properties.url} width="200" height="100">
-                        </img>
+                        {picture(item)}
                     </div>
                     }
                     value={this.state.input}
