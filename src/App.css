@@ -1,1 +1,9 @@
+.container {
+    max-width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
+label {
+    flex: 1;
+}
