@@ -36,6 +36,15 @@ export function portion(aliment, quantity) { //Aliment contains nutritions in gr
     return portion;
 }
 
-export function fetchProducts(){
+export function fetchProducts() {
     return server.listAllProducts();
+}
+
+export function convertToArray(products) {
+    const arrayOfProducts = [];
+    for (let property in products) {
+        const product = {name: property, properties: products[property]};
+        arrayOfProducts.push(product);
+    }
+    return arrayOfProducts;
 }
