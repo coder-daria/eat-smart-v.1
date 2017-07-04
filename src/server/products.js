@@ -4,7 +4,7 @@ export const jamonCuradoBodega = {
     protein: 31,
     carbs: 1,
     sal: 5.2,
-    fiber: 0 //NO INFO
+    url: "http://www.spain-recipes.com/images/jamon-iberico.jpg"
 }
 export const kefirMlekpol = {
     fat: 1.8,

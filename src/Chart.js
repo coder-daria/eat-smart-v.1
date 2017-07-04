@@ -15,7 +15,7 @@ var data = {
             borderWidth: 2,
             hoverBackgroundColor: "rgba(255,99,132,0.4)",
             hoverBorderColor: "rgba(255,99,132,1)",
-            data: [4, diet.proteins, diet.carbs],
+            data: [diet.fat, diet.protein, diet.carbs],
         }
     ],
 };

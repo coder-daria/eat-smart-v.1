@@ -5,6 +5,7 @@
   "dependencies": {
     "chart.js": "^2.6.0",
     "react": "^15.5.4",
+    "react-autocomplete": "^1.5.9",
     "react-chartjs-2": "^2.1.0",
     "react-dom": "^15.5.4"
   },

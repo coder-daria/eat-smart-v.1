@@ -1,4 +1,4 @@
-import { caloriesPerDay, countGrams, aliment, portion, fetchProducts } from './functions';
+import { caloriesPerDay, countGrams, aliment, portion, fetchProducts, convertToArray } from './functions';
 
 it('counts calories', () => {
     expect(caloriesPerDay(2000, 20, 30, 50)).toEqual({
@@ -45,4 +45,16 @@ it('fetches the products from the server', () => {
     const productsLength = Object.keys(products).length;
     const expectedProducts = 19;
     expect(productsLength).toEqual(19);
+})
+
+it('converts object of objects to array of objects', () => {
+    const objectOfObjects = {
+        jamon: { fat: 4 },
+        twarog: { fat: 5 }
+    };
+
+    const expected = [
+        { name: "jamon", properties: { fat: 4 } },
+        { name: "twarog", properties: { fat: 5 } }];
+    expect(convertToArray(objectOfObjects)).toEqual(expected);
 })
