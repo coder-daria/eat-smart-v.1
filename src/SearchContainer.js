@@ -1,5 +1,5 @@
 import Search from './Search';
-import {newProduct} from './Actions';
+import {newProduct, selectFood} from './Actions';
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      
+      onSelect: food => dispatch(selectFood(food))
   }
 }
 

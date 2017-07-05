@@ -3,6 +3,7 @@ import './App.css';
 import Chart from './Chart';
 import SearchContainer from './SearchContainer';
 import AddNewProductContainer from "./AddNewProductContainer";
+import FoodDetailsContainer from "./FoodDetailsContainer";
 
 class App extends Component {
   
@@ -11,6 +12,7 @@ class App extends Component {
       <div>
         <SearchContainer />
         <AddNewProductContainer/>
+        <FoodDetailsContainer/>
       </div>
     );
   }
