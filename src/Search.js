@@ -5,11 +5,6 @@ class Search extends React.Component {
     state = {
         input: "",
     }
-    style = {
-        backgroundColor: 'red',
-        borderRadius: '15px',
-        boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
-    }
 
     showItem = (item, value) => {
         return (

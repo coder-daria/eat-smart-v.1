@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Form extends React.Component {
+class AddNewProduct extends React.Component {
     state = {
         name: "",
         fat: "",
@@ -14,6 +14,7 @@ class Form extends React.Component {
     handleSubmit = event => {
         console.log(this.state);
         event.preventDefault();
+        this.props.onSubmit(this.state);
     }
 
     render() {
@@ -46,4 +47,4 @@ class Form extends React.Component {
     }
 }
 
-export default Form;
+export default AddNewProduct;
