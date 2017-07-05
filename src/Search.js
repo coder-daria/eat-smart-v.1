@@ -13,7 +13,7 @@ class Search extends React.Component {
     }
     render() {
         let picture = (item) => {
-            if(item.properties.url){
+            if(item.properties && item.properties.url){
                 return <img alt={item.name} src={item.properties.url} width="200" height="100"/>
             }
         }

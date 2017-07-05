@@ -1,19 +1,22 @@
-import React from 'react';
 import AddNewProduct from './AddNewProduct';
 import {newProduct} from './Actions';
+import { connect } from 'react-redux'
 
-class AddNewProductContainer extends React.Component {
-    onSubmit = product => {
-        console.log("Received in the AddNewProductContainer");
-        this.props.dispatch(newProduct(product));
-    }
-    render() {
-        return (
-            <div>
-                <AddNewProduct onSubmit={this.onSubmit}/>
-            </div>
-        )
-    }
+const mapStateToProps = state => {
+  return {
+  }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onSubmit: product => dispatch(newProduct(product))
+  }
+}
+
+//It sends objects to AddNewProducts so they can be used as properties
+const AddNewProductContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddNewProduct)
 
 export default AddNewProductContainer;

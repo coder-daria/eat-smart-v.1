@@ -1,14 +1,23 @@
-import React from 'react';
 import Search from './Search';
+import {newProduct} from './Actions';
+import { connect } from 'react-redux'
 
-class SearchContainer extends React.Component {
-    render() {
-        return (
-            <div>
-                <Search items={this.props.state.items} />
-            </div>
-        )
-    }
+const mapStateToProps = state => {
+  return {
+      items: state.items
+  }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+      
+  }
+}
+
+
+const SearchContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Search)
 
 export default SearchContainer;
