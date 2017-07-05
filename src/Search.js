@@ -1,15 +1,9 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import { fetchProducts, convertToArray } from './functions.js';
 
 class Search extends React.Component {
     state = {
         input: "",
-    }
-    style = {
-        backgroundColor: 'red',
-        borderRadius: '15px',
-        boxShadow: '0 2px 12px rgba(0, 0, 0, 0.1)',
     }
 
     showItem = (item, value) => {
@@ -19,7 +13,7 @@ class Search extends React.Component {
     }
     render() {
         let picture = (item) => {
-            if(item.properties.url){
+            if(item.properties && item.properties.url){
                 return <img alt={item.name} src={item.properties.url} width="200" height="100"/>
             }
         }
@@ -27,7 +21,7 @@ class Search extends React.Component {
             <div>
                 <Autocomplete
                     getItemValue={(item) => item.name}
-                    items={convertToArray(fetchProducts())}
+                    items={this.props.items}
                     renderItem={(item, isHighlighted) =>
                     <div>
                         <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
