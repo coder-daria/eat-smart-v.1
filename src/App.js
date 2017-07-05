@@ -4,7 +4,6 @@ import Chart from './Chart';
 import SearchContainer from './SearchContainer';
 import AddNewProductContainer from "./AddNewProductContainer";
 import { fetchProducts, convertToArray } from './functions.js';
-import reducer from './Reducer';
 
 class App extends Component {
   
