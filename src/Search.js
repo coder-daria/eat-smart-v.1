@@ -1,6 +1,5 @@
 import React from 'react';
 import Autocomplete from 'react-autocomplete';
-import { fetchProducts, convertToArray } from './functions.js';
 
 class Search extends React.Component {
     state = {
@@ -27,7 +26,7 @@ class Search extends React.Component {
             <div>
                 <Autocomplete
                     getItemValue={(item) => item.name}
-                    items={convertToArray(fetchProducts())}
+                    items={this.props.items}
                     renderItem={(item, isHighlighted) =>
                     <div>
                         <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>

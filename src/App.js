@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
 import Chart from './Chart';
-import Search from './Search';
+import SearchContainer from './SearchContainer';
 import Form from "./Form";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Search />
+        <SearchContainer />
         <Form />
       </div>
     );
