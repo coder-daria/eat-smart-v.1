@@ -37,9 +37,9 @@ class Search extends React.Component {
                             input: e.target.value
                         });
                     }}
-                    onSelect={(val) => this.setState({
-                        input: val
-                    })}
+                    onSelect={(val, item) => {
+                        this.props.onSelect(item);
+                    }}
                     shouldItemRender={this.showItem}
                 />
             </div>

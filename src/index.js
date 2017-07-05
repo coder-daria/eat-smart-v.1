@@ -10,7 +10,7 @@ import { fetchProducts, convertToArray } from './functions.js';
 
 const items = convertToArray(fetchProducts());
 
-const initialState = { items: items };
+const initialState = { items: items, selected: items[0] };
 let store = createStore(reducer, initialState);
 
 window.s = store;
