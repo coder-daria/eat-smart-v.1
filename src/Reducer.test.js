@@ -48,6 +48,16 @@ it('handles ADD_SELECTED_FOOD', () => {
     expect(newState.list.length).toEqual(initialState.list.length + 1);
 });
 
+it('handles REMOVE_SELECTED_FOOD', () => {
+    initialState = {items: [], selected: {}, list: [{name: "jamon"}]};
+    let action = actions.removeSelectedFood("jamon");
+
+    let newState = reducer(initialState, action);
+    
+    expect(newState).not.toEqual(initialState);
+    expect(newState.list.length).not.toEqual(initialState.list.length);
+});
+
 xit('TEMPLATE', () => {
     let action = {};
 

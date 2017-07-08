@@ -14,3 +14,7 @@ export function selectFood(food) {
 export function addSelectedFood(food) {
     return {type: ADD_SELECTED_FOOD, content: food}
 }
+
+export function removeSelectedFood(food) {
+    return {type: REMOVE_SELECTED_FOOD, content: food}
+}

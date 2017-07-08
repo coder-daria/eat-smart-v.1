@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ListOfFood from './ListOfFood';
+import {removeSelectedFood} from "./Actions";
 
 const mapStateToProps = state => {
   return {
@@ -9,6 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    onClick: food => dispatch(removeSelectedFood(food))
   }
 }
 
