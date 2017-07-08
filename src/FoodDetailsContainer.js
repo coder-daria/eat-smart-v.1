@@ -1,10 +1,9 @@
 import FoodDetails from './FoodDetails';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
-
   return {
-    food: state.selected
+    food: state.selected,
   }
 }
 

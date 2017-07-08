@@ -4,7 +4,7 @@ import Chart from './Chart';
 import SearchContainer from './SearchContainer';
 import AddNewProductContainer from "./AddNewProductContainer";
 import FoodDetailsContainer from "./FoodDetailsContainer";
-
+import ListOfFoodContainer from "./ListOfFoodContainer";
 class App extends Component {
   
   render() {
@@ -13,6 +13,7 @@ class App extends Component {
         <SearchContainer />
         <AddNewProductContainer/>
         <FoodDetailsContainer/>
+        <ListOfFoodContainer />
       </div>
     );
   }

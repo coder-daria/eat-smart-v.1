@@ -8,13 +8,13 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import { fetchProducts, convertToArray } from './functions.js';
 
-const items = convertToArray(fetchProducts());
+const foods = convertToArray(fetchProducts());
 
-const initialState = { items: items, selected: items[0] };
-let store = createStore(reducer, initialState);
+const initialState = { items: foods, selected: foods[0], list: []};
+let store = createStore(reducer, initialState,
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 window.s = store;
-
 
 ReactDOM.render(
     <Provider store={store}>

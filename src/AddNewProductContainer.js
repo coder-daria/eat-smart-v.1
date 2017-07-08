@@ -1,5 +1,5 @@
 import AddNewProduct from './AddNewProduct';
-import {newProduct} from './Actions';
+import {newFood} from './Actions';
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
@@ -9,7 +9,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onSubmit: product => dispatch(newProduct(product))
+      onSubmit: product => dispatch(newFood(product))
   }
 }
 
