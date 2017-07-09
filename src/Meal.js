@@ -26,7 +26,7 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    this.props.add(array)
+                    this.props.add(this.props.list)
                     this.setState({ mealName: "" })
                 }
                 }

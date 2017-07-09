@@ -19,11 +19,10 @@ export default function reducer(state, action) {
             let newArrayOfFood = state.list.filter(food => food.name !== action.content);
             return Object.assign({}, state, { list: newArrayOfFood });
         case ADD_LIST_TO_MEALS:
-            let list = state.list;
-            let meals = [...state.meals, ...list];
-            return Object.assign({}, state, {list: [], meals: meals});
+            let newMeal = action.content;
+            let newListOfMeals = [...state.meals, newMeal];
+            return Object.assign({}, state, {list: [], meals: newListOfMeals});
         default:
             return state;
     }
 }
-
