@@ -2,7 +2,7 @@ import Search from './Search';
 import {selectFood, addSelectedFood} from './Actions';
 import { connect } from 'react-redux'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
       items: state.items
   }

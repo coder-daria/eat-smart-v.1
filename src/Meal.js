@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ListOfFood extends React.Component {
+class Meal extends React.Component {
     render() {
         let array = this.props.list;
         let food = array.map((item) => {
@@ -22,4 +22,4 @@ class ListOfFood extends React.Component {
     }
 }
 
-export default ListOfFood;
+export default Meal;

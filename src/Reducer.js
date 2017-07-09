@@ -3,7 +3,12 @@ import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD } from '
 export default function reducer(state, action) {
     switch (action.type) {
         case NEW_FOOD:
-            let newItems = [...state.items, action.content];
+            let newItems = [...state.items, action.content];;
+            for (var key in state.items) {
+                if (state.items[key].name === action.content.name) {
+                    return state;
+                }
+            }
             return Object.assign({}, state, { items: newItems });
         case SELECT_FOOD:
             return Object.assign({}, state, { selected: action.content });

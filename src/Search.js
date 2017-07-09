@@ -18,7 +18,7 @@ class Search extends React.Component {
             }
         }
         return (
-            <div>
+            <div style ={this.props.style}>
                 <Autocomplete
                     getItemValue={(item) => item.name}
                     items={this.props.items}

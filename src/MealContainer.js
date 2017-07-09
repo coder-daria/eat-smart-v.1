@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ListOfFood from './ListOfFood';
+import Meal from './Meal';
 import {removeSelectedFood} from "./Actions";
 
 const mapStateToProps = state => {
@@ -14,9 +14,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const ListOfFoodContainer = connect(
+const MealsContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListOfFood)
+)(Meal)
 
-export default ListOfFoodContainer;
+export default MealsContainer;

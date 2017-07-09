@@ -10,7 +10,9 @@ import { fetchProducts, convertToArray } from './functions.js';
 
 const foods = convertToArray(fetchProducts());
 
-const initialState = { items: foods, selected: foods[0], list: []};
+const breakfast = {foods: [foods[0], foods[1], foods[3]]};
+
+const initialState = { items: foods, selected: foods[0], list: [], meals: [breakfast]};
 let store = createStore(reducer, initialState,
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
