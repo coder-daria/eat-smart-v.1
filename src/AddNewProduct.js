@@ -12,7 +12,7 @@ class AddNewProduct extends React.Component {
     }
 
     handleSubmit = event => {
-        console.log(this.state);
+        // console.log(this.state);
         event.preventDefault();
         this.props.onSubmit(this.state);
     }

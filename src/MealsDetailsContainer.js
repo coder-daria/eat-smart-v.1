@@ -4,7 +4,7 @@ import MealsDetails from './MealsDetails';
 
 const mapStateToProps = state => {
   return {
-        food: state.meals[0] //array of food for breakfast
+        meals: state.meals //array of food for breakfast
   }
 }
 

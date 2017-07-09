@@ -1,4 +1,4 @@
-import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD } from './Actions';
+import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS } from './Actions';
 
 export default function reducer(state, action) {
     switch (action.type) {
@@ -18,7 +18,10 @@ export default function reducer(state, action) {
         case REMOVE_SELECTED_FOOD:
             let newArrayOfFood = state.list.filter(food => food.name !== action.content);
             return Object.assign({}, state, { list: newArrayOfFood });
-
+        case ADD_LIST_TO_MEALS:
+            let list = state.list;
+            let meals = [...state.meals, ...list];
+            return Object.assign({}, state, {list: [], meals: meals});
         default:
             return state;
     }

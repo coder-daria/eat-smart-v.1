@@ -2,6 +2,7 @@ export const NEW_FOOD = "NEW_FOOD";
 export const SELECT_FOOD = "SELECT_FOOD";
 export const ADD_SELECTED_FOOD = "ADD_SELECTED_FOOD";
 export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
+export const ADD_LIST_TO_MEALS = "ADD_LIST_TO_MEALS"
 
 export function newFood(food){
     return {type: NEW_FOOD, content: food};
@@ -17,4 +18,8 @@ export function addSelectedFood(food) {
 
 export function removeSelectedFood(food) {
     return {type: REMOVE_SELECTED_FOOD, content: food}
+}
+
+export function addListToMeals(food) {
+    return {type: ADD_LIST_TO_MEALS, content: food}
 }
