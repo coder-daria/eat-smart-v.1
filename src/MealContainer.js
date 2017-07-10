@@ -4,7 +4,8 @@ import {removeSelectedFood, addListToMeals} from "./Actions";
 
 const mapStateToProps = state => {
   return {
-    list: state.list
+    list: state.list,
+    predefinedMealsNames: state.predefinedMealsNames
   }
 }
 

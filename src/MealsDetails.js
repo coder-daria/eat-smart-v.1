@@ -52,7 +52,7 @@ class MealsDetails extends React.Component {
                     onSelect={(val, item) => {
                         this.props.onSelect(item);
                         this.calculateTotal(item.details)
-                        {console.log(item.details)}
+                        {/*{console.log(item.details)}*/}
 
                     }}
                     shouldItemRender={this.showItem}

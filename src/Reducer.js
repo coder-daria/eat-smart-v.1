@@ -20,8 +20,12 @@ export default function reducer(state, action) {
             return Object.assign({}, state, { list: newArrayOfFood });
         case ADD_LIST_TO_MEALS:
             let newMeal = action.content;
+            let newMealName = action.content.mealName;
+
+            let listOfMealsNames = [...state.predefinedMealsNames, newMealName ]
             let newListOfMeals = [...state.meals, newMeal];
-            return Object.assign({}, state, { list: [], meals: newListOfMeals });
+            return Object.assign({}, state, { list: [], meals: newListOfMeals, predefinedMealsNames: listOfMealsNames});
+
         case SHOW_MEAL_DETAILS:
             let yourMeal = action.content;
             return Object.assign({}, state, {selectedMeal: yourMeal });
