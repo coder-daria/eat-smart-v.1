@@ -20,6 +20,6 @@ export function removeSelectedFood(food) {
     return {type: REMOVE_SELECTED_FOOD, content: food}
 }
 
-export function addListToMeals(food) {
-    return {type: ADD_LIST_TO_MEALS, content: food}
+export function addListToMeals(meal, mealName) {
+    return {type: ADD_LIST_TO_MEALS, content: {mealName: mealName, ingredients: meal}}
 }

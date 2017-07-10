@@ -11,7 +11,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onClick: food => dispatch(removeSelectedFood(food)),
-    add : food => dispatch(addListToMeals(food))
+    addMeal : (meal, mealName) => dispatch(addListToMeals(meal, mealName)),
+
   }
 }
 
