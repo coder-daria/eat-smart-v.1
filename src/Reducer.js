@@ -1,4 +1,4 @@
-import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS } from './Actions';
+import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS, SHOW_MEAL_DETAILS } from './Actions';
 
 export default function reducer(state, action) {
     switch (action.type) {
@@ -21,7 +21,10 @@ export default function reducer(state, action) {
         case ADD_LIST_TO_MEALS:
             let newMeal = action.content;
             let newListOfMeals = [...state.meals, newMeal];
-            return Object.assign({}, state, {list: [], meals: newListOfMeals});
+            return Object.assign({}, state, { list: [], meals: newListOfMeals });
+        case SHOW_MEAL_DETAILS:
+            let yourMeal = action.content;
+            return Object.assign({}, state, {selectedMeal: yourMeal });
         default:
             return state;
     }

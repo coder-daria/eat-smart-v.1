@@ -12,7 +12,6 @@ class Meal extends React.Component {
         let food = array.map((item) => {
             return (
                 <div>
-                    {/*{console.log(item)}*/}
                     <li>{item.name}</li>
                     <button onClick={() => this.props.onClick(item.name)}>-</button>
                 </div>
@@ -26,8 +25,6 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    let food = this.props.list;
-                    {/*{console.log(this.props.list)};*/}
                     this.props.addMeal(this.props.list, this.state.mealName);
                     this.setState({ mealName: "" })
                 }

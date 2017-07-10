@@ -1,16 +1,20 @@
 import { connect } from 'react-redux';
 import MealsDetails from './MealsDetails';
-// import {removeSelectedFood} from "./Actions";
+import {showMealDetails} from "./Actions";
 
-const mapStateToProps = state => {
+
+const mapStateToProps = (state) => {
   return {
-        meals: state.meals //array of food for breakfast
+    meals: state.meals,
+    selectedMeal: state.selectedMeal
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    onSelect: (meal) => {
+      dispatch(showMealDetails(meal))
+    }
   }
 }
 
