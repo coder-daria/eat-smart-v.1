@@ -14,12 +14,12 @@ class Meal extends React.Component {
         )
     }
     render() {
-        let array = this.props.list;
-        let food = array.map((item) => {
+        let arrayOfId = this.props.list;
+        let food = arrayOfId.map((id) => {
             return (
                 <div>
-                    <li>{item.name}</li>
-                    <button onClick={() => this.props.onClick(item.name)}>-</button>
+                    <li>{this.props.foods[id].name}</li>
+                    <button onClick={() => this.props.onClick(id)}>-</button>
                 </div>
             )
         });

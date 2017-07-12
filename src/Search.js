@@ -21,7 +21,7 @@ class Search extends React.Component {
             <div>
                 <Autocomplete
                     getItemValue={(item) => item.name}
-                    items={this.props.items}
+                    items={this.props.foods}
                     renderItem={(item, isHighlighted) =>
                     <div>
                         <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
@@ -37,8 +37,9 @@ class Search extends React.Component {
                             input: e.target.value
                         });
                     }}
-                    onSelect={(val, item) => {
-                        this.props.onSelect(item);
+                    onSelect={(val, food) => {
+                        console.log(food);
+                        this.props.onSelect(food);
                     }}
                     shouldItemRender={this.showItem}
                 />

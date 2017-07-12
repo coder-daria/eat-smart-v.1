@@ -27,6 +27,14 @@ export function aliment(fat, protein, carbs) { // Nutritions in grams
     return aliment; // Object contains nutritions in kcal
 }
 
+export function sumFoods(food1, food2){
+    return {
+        fat: food1.fat + food2.fat,
+        protein: food1.protein + food2.protein,
+        carbs: food1.carbs + food2.carbs
+    }
+}
+
 export function portion(aliment, quantity) { //Aliment contains nutritions in grams
     const portion = {
         fat: aliment.fat * quantity / 100,
@@ -40,11 +48,19 @@ export function fetchProducts() {
     return server.listAllProducts();
 }
 
-export function convertToArray(products) {
-    const arrayOfProducts = [];
-    for (let property in products) {
-        const product = {name: property, properties: products[property]};
-        arrayOfProducts.push(product);
+export function convertFoodsFromServer(productsFromServer) {
+    const products = {};
+    for (let name in productsFromServer) {
+        const product = {name: name, properties: productsFromServer[name]};
+        products[product.properties.id] = product;
     }
-    return arrayOfProducts;
+    return products;
+}
+
+export function convertObjectToArray(object){
+    const newArray = [];
+    for(let key in object){
+        newArray.push(object[key]);
+    }
+    return newArray;
 }

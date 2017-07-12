@@ -3,30 +3,12 @@ import Autocomplete from 'react-autocomplete';
 
 class MealsDetails extends React.Component {
     state = {
-        input: "",
-        fat: 0,
-        protein: 0,
-        carbs: 0
+        input: ""
     }
     showItem = (item, value) => {
         return (
             item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
         )
-    }
-    calculateTotal(meal) {
-        let details = {}
-        meal.reduce((total, num) => {
-            return details = {
-                fat: total.properties.fat + num.properties.fat,
-                protein: total.properties.protein + num.properties.protein,
-                carbs: total.properties.carbs + num.properties.carbs
-            }
-        })
-            this.setState({
-                fat: details.fat,
-                protein: details.protein,
-                carbs: details.carbs
-            });
     }
     render() {
         return (
@@ -49,19 +31,16 @@ class MealsDetails extends React.Component {
                             input: e.target.value
                         });
                     }}
-                    onSelect={(val, item) => {
-                        this.props.onSelect(item);
-                        this.calculateTotal(item.details)
-                        {/*{console.log(item.details)}*/}
-
+                    onSelect={(val, meal) => {
+                        this.props.onSelect(meal);
                     }}
                     shouldItemRender={this.showItem}
                 />
                 <ul>
-                    <li>Name: {this.props.selectedMeal.mealName}</li>
-                    <li>Fat: {this.state.fat} </li>
-                    <li>Protein: {this.state.protein}</li>
-                    <li>Carbs: {this.state.carbs}</li>
+                    <li>Name: {this.props.theWholeMeal.name}</li>
+                    <li>Fat: {this.props.theWholeMeal.mealDetails.fat} </li>
+                    <li>Protein: {this.props.theWholeMeal.mealDetails.protein}</li>
+                    <li>Carbs: {this.props.theWholeMeal.mealDetails.carbs}</li>
                 </ul>
             </div>
         )

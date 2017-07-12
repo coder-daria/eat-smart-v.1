@@ -3,21 +3,26 @@ import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIS
 export default function reducer(state, action) {
     switch (action.type) {
         case NEW_FOOD:
-            let newItems = [...state.items, action.content];;
-            for (var key in state.items) {
-                if (state.items[key].name === action.content.name) {
+            let newItems = [...state.foods, action.content];;
+            for (var key in state.foods) {
+                if (state.foods[key].name === action.content.name) {
                     return state;
                 }
             }
-            return Object.assign({}, state, { items: newItems });
+            return Object.assign({}, state, { foods: newItems });
         case SELECT_FOOD:
             return Object.assign({}, state, { selected: action.content });
+
+
         case ADD_SELECTED_FOOD:
-            let foodArray = [...state.list, action.content];
-            return Object.assign({}, state, { list: foodArray });
+            let arrayOfId = [...state.list, action.content];
+            return Object.assign({}, state, { list: arrayOfId });
+
+
         case REMOVE_SELECTED_FOOD:
-            let newArrayOfFood = state.list.filter(food => food.name !== action.content);
+            let newArrayOfFood = state.list.filter(foodId => foodId !== action.content);
             return Object.assign({}, state, { list: newArrayOfFood });
+            
         case ADD_LIST_TO_MEALS:
             let newMeal = action.content;
             let newMealName = action.content.mealName;

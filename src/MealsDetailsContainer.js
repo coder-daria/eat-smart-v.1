@@ -1,12 +1,20 @@
 import { connect } from 'react-redux';
 import MealsDetails from './MealsDetails';
-import {showMealDetails} from "./Actions";
+import { showMealDetails } from "./Actions";
+import { sumFoods } from "./functions";
 
 
 const mapStateToProps = (state) => {
+  const selectedMeal = state.selectedMeal || { details: [], name: "" };
+  const foodsOfMeal = selectedMeal.details.map(id => {
+    return state.foods[id];
+  });
+  let mealDetails = foodsOfMeal.reduce((total, food) => {
+    return sumFoods(total, food.properties);
+  }, { fat: 0, carbs: 0, protein: 0 });
   return {
-    meals: state.meals,
-    selectedMeal: state.selectedMeal
+    theWholeMeal: { name: selectedMeal.mealName, mealDetails: mealDetails },
+    meals: state.meals
   }
 }
 

@@ -4,7 +4,7 @@ class AddNewProduct extends React.Component {
     state = {
         name: "",
         fat: "",
-        proteins: "",
+        protein: "",
         carbs: ""
     }
     handleInGeneral = type => event => {

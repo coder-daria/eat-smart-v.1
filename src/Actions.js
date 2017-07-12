@@ -10,12 +10,12 @@ export function newFood(food){
     return {type: NEW_FOOD, content: food};
 }
 
-export function selectFood(food) {
-    return {type: SELECT_FOOD, content: food};
+export function selectFood(foodId) {
+    return {type: SELECT_FOOD, content: foodId};
 }
 
-export function addSelectedFood(food) {
-    return {type: ADD_SELECTED_FOOD, content: food}
+export function addSelectedFood(foodId) {
+    return {type: ADD_SELECTED_FOOD, content: foodId}
 }
 
 export function removeSelectedFood(food) {
