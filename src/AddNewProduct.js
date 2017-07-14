@@ -3,16 +3,15 @@ import React from 'react';
 class AddNewProduct extends React.Component {
     state = {
         name: "",
-        fat: "",
-        protein: "",
-        carbs: ""
+        fat: 0,
+        protein: 0,
+        carbs: 0
     }
     handleInGeneral = type => event => {
         this.setState({[type]: event.target.value})
     }
 
     handleSubmit = event => {
-        // console.log(this.state);
         event.preventDefault();
         this.props.onSubmit(this.state);
     }

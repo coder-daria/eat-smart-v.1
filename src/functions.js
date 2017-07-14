@@ -64,3 +64,14 @@ export function convertObjectToArray(object){
     }
     return newArray;
 }
+
+export function addIdToMyNewFood(newFood) {
+    let myNewFood = {
+        [newFood.name] : newFood
+    }
+    for(let key in myNewFood){
+        myNewFood[key].id = server.hashCode(key);
+    }
+
+    return convertFoodsFromServer(myNewFood);
+}

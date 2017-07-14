@@ -1,9 +1,12 @@
 import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS, SHOW_MEAL_DETAILS } from './Actions';
+import {addIdToMyNewFood} from './functions';
 
 export default function reducer(state, action) {
     switch (action.type) {
         case NEW_FOOD:
-            let newItems = [...state.foods, action.content];;
+            let newFoodWithId = addIdToMyNewFood(action.content);
+            let newItems = [...state.foods, newFoodWithId];
+
             for (var key in state.foods) {
                 if (state.foods[key].name === action.content.name) {
                     return state;
