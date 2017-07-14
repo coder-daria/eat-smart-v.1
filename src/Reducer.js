@@ -5,22 +5,22 @@ export default function reducer(state, action) {
     switch (action.type) {
         case NEW_FOOD:
             let newFoodWithId = addIdToMyNewFood(action.content);
-            let newItems = [...state.foods, newFoodWithId];
+            let newItems = {...state.foods, ...newFoodWithId};
 
-            for (var key in state.foods) {
+            for (let key in state.foods) {
                 if (state.foods[key].name === action.content.name) {
                     return state;
                 }
             }
+            
             return Object.assign({}, state, { foods: newItems });
+
         case SELECT_FOOD:
             return Object.assign({}, state, { selected: action.content });
-
 
         case ADD_SELECTED_FOOD:
             let arrayOfId = [...state.list, action.content];
             return Object.assign({}, state, { list: arrayOfId });
-
 
         case REMOVE_SELECTED_FOOD:
             let newArrayOfFood = state.list.filter(foodId => foodId !== action.content);
