@@ -32,7 +32,7 @@ class AddNewProduct extends React.Component {
                     <br />
                     <label>
                         Protein<br/>
-                        <input onChange={this.handleInGeneral("proteins")} type="text" name="protein" />
+                        <input onChange={this.handleInGeneral("protein")} type="text" name="protein" />
                     </label>
                     <br />
                     <label>

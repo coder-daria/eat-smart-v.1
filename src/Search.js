@@ -40,6 +40,9 @@ class Search extends React.Component {
                     onSelect={(val, food) => {
                         console.log(food);
                         this.props.onSelect(food);
+                        this.setState({
+                            input: ""
+                        })
                     }}
                     shouldItemRender={this.showItem}
                 />

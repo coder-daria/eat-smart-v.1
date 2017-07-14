@@ -29,9 +29,9 @@ export function aliment(fat, protein, carbs) { // Nutritions in grams
 
 export function sumFoods(food1, food2){
     return {
-        fat: food1.fat + food2.fat,
-        protein: food1.protein + food2.protein,
-        carbs: food1.carbs + food2.carbs
+        fat: Number(food1.fat) + Number(food2.fat),
+        protein: Number(food1.protein) + Number(food2.protein),
+        carbs: Number(food1.carbs) +Number(food2.carbs)
     }
 }
 

@@ -12,7 +12,7 @@ export default function reducer(state, action) {
                     return state;
                 }
             }
-            
+        
             return Object.assign({}, state, { foods: newItems });
 
         case SELECT_FOOD:
