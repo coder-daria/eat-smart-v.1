@@ -27,11 +27,11 @@ export function aliment(fat, protein, carbs) { // Nutritions in grams
     return aliment; // Object contains nutritions in kcal
 }
 
-export function sumFoods(food1, food2){
+export function sumFoods(food1, food2) {
     return {
         fat: Number(food1.fat) + Number(food2.fat),
         protein: Number(food1.protein) + Number(food2.protein),
-        carbs: Number(food1.carbs) +Number(food2.carbs)
+        carbs: Number(food1.carbs) + Number(food2.carbs)
     }
 }
 
@@ -51,26 +51,21 @@ export function fetchProducts() {
 export function convertFoodsFromServer(productsFromServer) {
     const products = {};
     for (let name in productsFromServer) {
-        const product = {name: name, properties: productsFromServer[name]};
+        const product = { name: name, properties: productsFromServer[name] };
         products[product.properties.id] = product;
     }
     return products;
 }
 
-export function convertObjectToArray(object){
+export function convertObjectToArray(object) {
     const newArray = [];
-    for(let key in object){
+    for (let key in object) {
         newArray.push(object[key]);
     }
     return newArray;
 }
 
 export function addIdToMyNewFood(newFood) {
-    let myNewFood = {
-        [newFood.name] : newFood
-    }
-    for(let key in myNewFood){
-        myNewFood[key].id = server.hashCode(key);
-    }
-    return convertFoodsFromServer(myNewFood);
+    let newFoodInServer = server.addNewFood(newFood);
+    return convertFoodsFromServer(newFoodInServer);
 }

@@ -5,21 +5,20 @@ class Meal extends React.Component {
     state = {
         mealName: ""
     }
+
     handleChange = (event) => {
         this.setState({ mealName: event.target.value })
     }
-    showItem = (item, value) => {
-        return (
-            item.toLowerCase().indexOf(value.toLowerCase()) !== -1
-        )
-    }
+
+    showItem = (item, value) => item.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+
     render() {
-        let arrayOfId = this.props.list;
+        let arrayOfId = this.props.foodsOfNewMeal;
         let food = arrayOfId.map((id) => {
             return (
                 <div>
                     <li>{this.props.foods[id].name}</li>
-                    <button onClick={() => this.props.onClick(id)}>-</button>
+                    <button onClick={() => this.props.removeFromMeal(id)}>-</button>
                 </div>
             )
         });
@@ -37,14 +36,10 @@ class Meal extends React.Component {
                         </div>
                     }
                     value={this.state.mealName}
-                    onChange={(e) => {
+                    onChange={e => {
                         this.setState({
                             mealName: e.target.value
                         });
-                    }}
-                    onSelect={(val, item) => {
-                        {/*this.props.onSelect(item);*/ }
-
                     }}
                     shouldItemRender={this.showItem}
                 />
@@ -52,8 +47,8 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    this.props.addMeal(this.props.list, this.state.mealName);
-                    this.setState({ mealName: "" })
+                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.mealName);
+                    this.setState({ mealName: "" });
                 }
                 }
                     disabled={!this.state.mealName}>Save meal</button>

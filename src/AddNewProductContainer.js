@@ -13,7 +13,6 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-//It sends objects to AddNewProducts so they can be used as properties
 const AddNewProductContainer = connect(
   mapStateToProps,
   mapDispatchToProps

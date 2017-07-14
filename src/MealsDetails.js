@@ -5,12 +5,9 @@ class MealsDetails extends React.Component {
     state = {
         input: ""
     }
-    showItem = (item, value) => {
-        return (
-            item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
-        )
-    }
+    showItem = (item, value) => item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
     render() {
+        let {theWholeMeal} = this.props;
         return (
             <div>
                 <h3>Meals details</h3>
@@ -26,7 +23,7 @@ class MealsDetails extends React.Component {
                         </div>
                     }
                     value={this.state.input}
-                    onChange={(e) => {
+                    onChange={e => {
                         this.setState({
                             input: e.target.value
                         });
@@ -37,10 +34,10 @@ class MealsDetails extends React.Component {
                     shouldItemRender={this.showItem}
                 />
                 <ul>
-                    <li>Name: {this.props.theWholeMeal.name}</li>
-                    <li>Fat: {this.props.theWholeMeal.mealDetails.fat} </li>
-                    <li>Protein: {this.props.theWholeMeal.mealDetails.protein}</li>
-                    <li>Carbs: {this.props.theWholeMeal.mealDetails.carbs}</li>
+                    <li>Name: {theWholeMeal.name}</li>
+                    <li>Fat: {theWholeMeal.mealDetails.fat} </li>
+                    <li>Protein: {theWholeMeal.mealDetails.protein}</li>
+                    <li>Carbs: {theWholeMeal.mealDetails.carbs}</li>
                 </ul>
             </div>
         )

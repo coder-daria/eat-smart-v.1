@@ -6,7 +6,7 @@ export default function reducer(state, action) {
         case NEW_FOOD:
             let newFoodWithId = addIdToMyNewFood(action.content);
             let newItems = {...state.foods, ...newFoodWithId};
-
+            
             for (let key in state.foods) {
                 if (state.foods[key].name === action.content.name) {
                     return state;
@@ -19,12 +19,12 @@ export default function reducer(state, action) {
             return Object.assign({}, state, { selected: action.content });
 
         case ADD_SELECTED_FOOD:
-            let arrayOfId = [...state.list, action.content];
-            return Object.assign({}, state, { list: arrayOfId });
+            let arrayOfId = [...state.foodsOfNewMeal, action.content];
+            return Object.assign({}, state, { foodsOfNewMeal: arrayOfId });
 
         case REMOVE_SELECTED_FOOD:
-            let newArrayOfFood = state.list.filter(foodId => foodId !== action.content);
-            return Object.assign({}, state, { list: newArrayOfFood });
+            let newArrayOfFood = state.foodsOfNewMeal.filter(foodId => foodId !== action.content);
+            return Object.assign({}, state, { foodsOfNewMeal: newArrayOfFood });
             
         case ADD_LIST_TO_MEALS:
             let newMeal = action.content;
@@ -32,7 +32,7 @@ export default function reducer(state, action) {
 
             let listOfMealsNames = [...state.predefinedMealsNames, newMealName ]
             let newListOfMeals = [...state.meals, newMeal];
-            return Object.assign({}, state, { list: [], meals: newListOfMeals, predefinedMealsNames: listOfMealsNames});
+            return Object.assign({}, state, { foodsOfNewMeal: [], meals: newListOfMeals, predefinedMealsNames: listOfMealsNames});
 
         case SHOW_MEAL_DETAILS:
             let yourMeal = action.content;

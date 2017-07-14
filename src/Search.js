@@ -6,11 +6,7 @@ class Search extends React.Component {
         input: "",
     }
 
-    showItem = (item, value) => {
-        return (
-            item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
-        )
-    }
+    showItem = (item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
     render() {
         let picture = (item) => {
             if(item.properties && item.properties.url){

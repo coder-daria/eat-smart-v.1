@@ -4,7 +4,7 @@ import {removeSelectedFood, addListToMeals} from "./Actions";
 
 const mapStateToProps = state => {
   return {
-    list: state.list,
+    foodsOfNewMeal: state.foodsOfNewMeal,
     foods: state.foods,
     predefinedMealsNames: state.predefinedMealsNames
   }
@@ -12,9 +12,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onClick: foodId => dispatch(removeSelectedFood(foodId)),
+    removeFromMeal: foodId => dispatch(removeSelectedFood(foodId)),
     addMeal : (meal, mealName) => dispatch(addListToMeals(meal, mealName)),
-
   }
 }
 
