@@ -24,7 +24,7 @@ class Meal extends React.Component {
         });
         return (
             <div>
-                <h3>Add meal</h3>
+                <h2>Meal name:</h2>
                 <Autocomplete
                     getItemValue={(item) => item}
                     items={this.props.predefinedMealsNames}

@@ -4,7 +4,7 @@ import { showMealDetails } from "./Actions";
 import { sumFoods } from "./functions";
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const selectedMeal = state.selectedMeal || { details: [], name: "" };
   const foodsOfMeal = selectedMeal.details.map(id => {
     return state.foods[id];

@@ -10,7 +10,7 @@ import { fetchProducts, convertFoodsFromServer } from './functions.js';
 
 const foods = convertFoodsFromServer(fetchProducts());
 const foodId = 73534323;
-const initialState = { foods: foods, selected: foodId, foodsOfNewMeal: [], meals: [], predefinedMealsNames: []};
+const initialState = { foods: foods, selected: foodId, foodsOfNewMeal: [], meals: [], predefinedMealsNames: [], mealsPreferences: []};
 let store = createStore(reducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 window.s = store;

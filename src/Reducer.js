@@ -1,4 +1,4 @@
-import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS, SHOW_MEAL_DETAILS } from './Actions';
+import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_LIST_TO_MEALS, SHOW_MEAL_DETAILS, ADD_PREFERENCE } from './Actions';
 import {addIdToMyNewFood} from './functions';
 
 export default function reducer(state, action) {
@@ -37,6 +37,9 @@ export default function reducer(state, action) {
         case SHOW_MEAL_DETAILS:
             let yourMeal = action.content;
             return Object.assign({}, state, {selectedMeal: yourMeal });
+
+        case ADD_PREFERENCE:
+            
         default:
             return state;
     }

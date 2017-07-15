@@ -4,7 +4,7 @@ export const ADD_SELECTED_FOOD = "ADD_SELECTED_FOOD";
 export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
 export const ADD_LIST_TO_MEALS = "ADD_LIST_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
-
+export const ADD_PREFERENCE = "ADD_PREFERENCE";
 
 export function newFood(food){
     return {type: NEW_FOOD, content: food};
@@ -28,4 +28,8 @@ export function addListToMeals(meal, mealName) {
 
 export function showMealDetails(meal) {
     return {type: SHOW_MEAL_DETAILS, content: meal}
+}
+
+export function addPreference(nameAndTime) {
+    return {type: ADD_PREFERENCE, content: nameAndTime}
 }
