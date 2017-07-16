@@ -1,12 +1,12 @@
 import React from 'react';
 import Preferences from './Preferences';
-import PreferencesForm from './PreferencesFormContainer';
+import PreferenceForm from './PreferenceForm';
 
 export const PreferencesParent = props => {
     return (
         <div>
             <Preferences {...props}/>
-            <PreferencesForm {...props}/>
+            <PreferenceForm {...props}/>
         </div>
     )
 }
