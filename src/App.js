@@ -7,8 +7,8 @@ import FoodDetailsContainer from "./FoodDetailsContainer";
 import MealContainer from "./MealContainer";
 import MealsDetailsContainer from "./MealsDetailsContainer";
 import MealsDetails from "./MealsDetails";
-import PreferencesContainer from './PreferencesContainer';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import PreferencesFormContainer from './PreferencesFormContainer';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Nav from './Nav';
 
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
           <Route path="/addMeal" component={SearchContainer} />
           <Route path="/addMeal" component={MealContainer} />
           <Route path="/mealsDetails" component ={MealsDetailsContainer} />
-          <Route path="/preferences" component={PreferencesContainer} />
+          <Route path="/preferences" component={PreferencesFormContainer} />
         </div>
       </Router>
     );

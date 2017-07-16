@@ -30,6 +30,6 @@ export function showMealDetails(meal) {
     return {type: SHOW_MEAL_DETAILS, content: meal}
 }
 
-export function addPreference(nameAndTime) {
-    return {type: ADD_PREFERENCE, content: nameAndTime}
+export function addPreference(mealPreference) {
+    return {type: ADD_PREFERENCE, content: mealPreference}
 }

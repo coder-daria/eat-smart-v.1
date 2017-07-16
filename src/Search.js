@@ -28,7 +28,6 @@ class Search extends React.Component {
                     }
                     value={this.state.input}
                     onChange={(e) => {
-                        console.log(e.target.value);
                         this.setState({
                             input: e.target.value
                         });

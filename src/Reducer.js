@@ -39,7 +39,10 @@ export default function reducer(state, action) {
             return Object.assign({}, state, {selectedMeal: yourMeal });
 
         case ADD_PREFERENCE:
-            
+            let preference = action.content;
+            let mealsPreferences = [...state.mealsPreferences, preference ]
+            console.log(mealsPreferences[0].name)
+            return Object.assign({}, state, {mealsPreferences: mealsPreferences});
         default:
             return state;
     }

@@ -1,33 +1,22 @@
 import React from 'react';
-import PreferencesBox from './PreferencesBox';
+import PreferenceForm from './PreferenceForm';
 
 class Preferences extends React.Component {
   state = {
-    showPreferences: false
+    listOfPreferencesForm: []
   }
-  handlePreferences = () => {
-    if (!this.state.showPreferences) {
-      this.setState({
-        showPreferences: true
-      })
-    }
-    else {
-        return (
-          <li>
-            <Preferences />
-          </li>
-        )
-      }
+  addPreference = () => {
+    const formList = this.state.listOfPreferencesForm;
+    this.setState({
+      listOfPreferencesForm: formList.concat(<PreferenceForm />)
+    })
+    console.log(this.state.listOfPreferencesForm)
   }
   render() {
     return (
       <div className='preferencesContainer'>
-        <ul>
-          <li>
-            {this.state.showPreferences ? <PreferencesBox /> : null}
-          </li>
-        </ul>
-        <button onClick={this.handlePreferences}>+</button>
+        <button onClick={this.addPreference}>+</button>
+            {this.state.listOfPreferencesForm}
       </div>
     )
   }
