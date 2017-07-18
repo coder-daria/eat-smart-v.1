@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Meal from './Meal';
-import {removeSelectedFood, addListToMeals} from "./Actions";
+import {removeSelectedFood, addFoodsOfNewMealToMeals} from "./Actions";
 
 const mapStateToProps = state => {
   return {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     removeFromMeal: foodId => dispatch(removeSelectedFood(foodId)),
-    addMeal : (meal, mealName) => dispatch(addListToMeals(meal, mealName)),
+    addMeal : (meal, mealName) => dispatch(addFoodsOfNewMealToMeals(meal, mealName)),
   }
 }
 
