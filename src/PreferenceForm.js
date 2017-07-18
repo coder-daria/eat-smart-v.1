@@ -7,8 +7,7 @@ class PreferenceForm extends React.Component {
   state = {
     name: "",
     hour: 0,
-    minutes: 0,
-    preference: <PreferenceForm />
+    minutes: 0
   }
   mealName = (event) => {
     this.setState({
@@ -30,18 +29,17 @@ class PreferenceForm extends React.Component {
   handleUpdate = event => {
     event.preventDefault();
     this.props.handleSubmit(this.state);
+    this.props.onClick();
   }
 
   render() {
     return (
-      <div>
-        <form className="preferencesContainer" onSubmit={this.handleUpdate}>
+        <form id="preferencesContainer" onSubmit={this.handleUpdate}>
           Meal name :<input onChange={this.mealName} type="text" />
           Time: <br />
           <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime}/>
-          <input type="submit" value="update" />
+          <button type="submit" id="saveButton">Save</button>
         </form>
-      </div>
       )
   }
 }

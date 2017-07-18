@@ -1,12 +1,31 @@
 import React from 'react';
-import Preferences from './Preferences';
+import PreferencesButton from './PreferencesButton';
 import PreferenceForm from './PreferenceForm';
 
-export const PreferencesParent = props => {
-    return (
-        <div>
-            <Preferences {...props}/>
-            <PreferenceForm {...props}/>
-        </div>
-    )
+
+class PreferencesParent extends React.Component {
+    state = {
+        showFormComponent: false
+    }
+    showForm = () => {
+    if (this.state.showFormComponent === false) {
+      this.setState({
+        showFormComponent: true
+      })
+    }
+    else {
+      this.setState({
+        showFormComponent: false
+      })
+    }
+  }
+    render() {
+        return (
+            <div>
+                {this.state.showFormComponent ? <PreferenceForm {...this.props} onClick={this.showForm}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
+            </div>
+        )
+    }
 }
+
+export default PreferencesParent;

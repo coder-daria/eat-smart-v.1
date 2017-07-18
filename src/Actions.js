@@ -5,6 +5,7 @@ export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
 export const ADD_LIST_TO_MEALS = "ADD_LIST_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
 export const ADD_PREFERENCE = "ADD_PREFERENCE";
+export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 
 export function newFood(food){
     return {type: NEW_FOOD, content: food};
