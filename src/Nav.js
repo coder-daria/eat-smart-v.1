@@ -9,6 +9,11 @@ const Nav = () => {
           Add new food
         </NavLink>
       </li>
+        <li>
+        <NavLink activeClassName='active' to='/editFood'>
+         Edit food
+        </NavLink>
+      </li>
        {/*<li>
         <NavLink activeClassName='active' to='/selectedFood'>
           Selected Food

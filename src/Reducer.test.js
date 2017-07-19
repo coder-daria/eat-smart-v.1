@@ -72,13 +72,13 @@ xit('handle SHOW_MEAL_DETAILS', () => {
 });
 
 it('handle ADD_PREFERENCE', () => {
-    let action = actions.addPreference({name: "breakfast", hour: 12, minutes: 12});
+    let action = actions.addPreference({name: "breakfast", seconds: 12});
     let newState = reducer(initialState, action);
 
     expect(newState).not.toEqual(initialState);
     expect(newState.mealsPreferences.length).not.toEqual(initialState.mealsPreferences.length);
     expect(newState.mealsPreferences[0].name).toEqual("breakfast");
-    expect(newState.mealsPreferences[0].hour).toEqual(12);
+    expect(newState.mealsPreferences[0].seconds).toEqual(12);
 });
 
 xit('TEMPLATE', () => {
@@ -90,14 +90,14 @@ xit('TEMPLATE', () => {
 });
 
 
-it('THINGS TO DO', () => {
+xit('THINGS TO DO', () => {
     // console.error("BUG: NOT CHOOSING A TIME IN PREFERED MEAL BREAKS THE APP");
     // console.error("USE TIMESTAMP");
-    console.error("SHOW TIME OF PREFERENCES MEAL");
+    // console.error("SHOW TIME OF PREFERENCES MEAL");
+    // console.error("FIX TEST ADD_PREFERENCE");
     console.error("EDIT EXISTING FOOD");
-    console.error("SHOW TIME (STATIC - doesnt change)");
-    console.error("extra points(+5): update the time every time I click a button");
-    console.error("extra points(+100): update the time every second");
+    // console.error("SHOW TIME (STATIC - doesnt change)");
+    // console.error("extra points(+100): update the time every second");
 
     fail();
 })
