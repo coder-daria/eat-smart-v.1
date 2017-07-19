@@ -6,8 +6,7 @@ import moment from 'moment';
 class PreferenceForm extends React.Component {
   state = {
     name: "",
-    hour: 0,
-    minutes: 0
+    seconds: 0
   }
   mealName = (event) => {
     this.setState({
@@ -16,25 +15,30 @@ class PreferenceForm extends React.Component {
   }
   
   handleTime = (hour) => {
-      let date = hour._d;
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
+
+      if(hour === null) {
+        return;
+      }
+
+      let chosenUnixTimestamp = (moment(hour).unix()) * 1000; // seconds
+      let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
 
       this.setState({
-        hour: hours,
-        minutes: minutes
+        seconds: chosenUnixTimestamp
       })
 
   }
-  handleUpdate = event => {
+  handleSave = event => {
     event.preventDefault();
     this.props.handleSubmit(this.state);
-    this.props.onClick();
+    this.props.showForm();
+    this.props.showPreferences();
   }
+
 
   render() {
     return (
-        <form id="preferencesContainer" onSubmit={this.handleUpdate}>
+        <form id="preferencesContainer" onSubmit={this.handleSave}>
           Meal name :<input onChange={this.mealName} type="text" />
           Time: <br />
           <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime}/>

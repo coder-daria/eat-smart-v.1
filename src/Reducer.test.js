@@ -91,10 +91,9 @@ xit('TEMPLATE', () => {
 
 
 it('THINGS TO DO', () => {
+    // console.error("BUG: NOT CHOOSING A TIME IN PREFERED MEAL BREAKS THE APP");
+    // console.error("USE TIMESTAMP");
     console.error("SHOW TIME OF PREFERENCES MEAL");
-    console.error("USE TIMESTAMP");
-    console.error("EDIT EXISTING FOOD");
-    console.error("BUG: NOT CHOOSING A TIME IN PREFERED MEAL BREAKS THE APP");
     console.error("EDIT EXISTING FOOD");
     console.error("SHOW TIME (STATIC - doesnt change)");
     console.error("extra points(+5): update the time every time I click a button");

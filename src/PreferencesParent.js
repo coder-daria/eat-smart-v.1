@@ -1,13 +1,26 @@
 import React from 'react';
 import PreferencesButton from './PreferencesButton';
 import PreferenceForm from './PreferenceForm';
-
+import PreferencesMeal from './PreferencesMeal';
 
 class PreferencesParent extends React.Component {
-    state = {
-        showFormComponent: false
+  state = {
+    showFormComponent: false,
+    showPreferences: false
+  }
+
+  showChosenPreference = () => {
+    if (this.props.mealsPreferences.length === 0) {
+      return;
     }
-    showForm = () => {
+    else {
+      this.setState({
+        showPreferences: true
+      })
+    }    
+  }
+
+  showForm = () => {
     if (this.state.showFormComponent === false) {
       this.setState({
         showFormComponent: true
@@ -19,13 +32,17 @@ class PreferencesParent extends React.Component {
       })
     }
   }
-    render() {
-        return (
-            <div>
-                {this.state.showFormComponent ? <PreferenceForm {...this.props} onClick={this.showForm}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
-            </div>
-        )
-    }
+
+  render() {
+
+    return (
+      <div>
+        {this.state.showPreferences ? <PreferencesMeal {...this.props} /> : <div>{"No preferences"}</div>}
+        <br />
+        {this.state.showFormComponent ? <PreferenceForm {...this.props} showForm={this.showForm} showPreferences={this.showChosenPreference}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
+      </div>
+    )
+  }
 }
 
 export default PreferencesParent;
