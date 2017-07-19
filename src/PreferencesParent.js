@@ -10,14 +10,9 @@ class PreferencesParent extends React.Component {
   }
 
   showChosenPreference = () => {
-    if (this.props.mealsPreferences.length === 0) {
-      return;
-    }
-    else {
       this.setState({
         showPreferences: true
       })
-    }    
   }
 
   showForm = () => {
@@ -37,7 +32,7 @@ class PreferencesParent extends React.Component {
 
     return (
       <div>
-        {this.state.showPreferences ? <PreferencesMeal {...this.props} /> : <div>{"No preferences"}</div>}
+        {this.state.showPreferences ? <PreferencesMeal {...this.props} /> : <div> {"No preferences"}</div>}
         <br />
         {this.state.showFormComponent ? <PreferenceForm {...this.props} showForm={this.showForm} showPreferences={this.showChosenPreference}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
       </div>

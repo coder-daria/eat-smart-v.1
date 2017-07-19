@@ -15,13 +15,11 @@ class PreferenceForm extends React.Component {
   }
   
   handleTime = (hour) => {
-
       if(hour === null) {
         return;
       }
 
       let chosenUnixTimestamp = (moment(hour).unix()) * 1000; // seconds
-      let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
 
       this.setState({
         seconds: chosenUnixTimestamp

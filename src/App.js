@@ -8,16 +8,21 @@ import MealContainer from "./MealContainer";
 import MealsDetailsContainer from "./MealsDetailsContainer";
 import MealsDetails from "./MealsDetails";
 import PreferencesFormContainer from './PreferencesFormContainer';
+import EditFoodContainer from './EditFoodContainer';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Nav from './Nav';
+import Time from './Time';
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div className='container'>
+          <Time/>
+          <br/><br/>
           <Nav />
           <Route path='/addFood' component={AddNewProductContainer} />
+          <Route path='/editFood' component={EditFoodContainer} />
           {/*<Route path="/selectedFood" component={FoodDetailsContainer} />*/}
           <Route path="/addMeal" component={SearchContainer} />
           <Route path="/addMeal" component={MealContainer} />
