@@ -91,13 +91,10 @@ xit('TEMPLATE', () => {
 
 
 xit('THINGS TO DO', () => {
-    // console.error("BUG: NOT CHOOSING A TIME IN PREFERED MEAL BREAKS THE APP");
-    // console.error("USE TIMESTAMP");
-    // console.error("SHOW TIME OF PREFERENCES MEAL");
-    // console.error("FIX TEST ADD_PREFERENCE");
     console.error("EDIT EXISTING FOOD");
-    // console.error("SHOW TIME (STATIC - doesnt change)");
-    // console.error("extra points(+100): update the time every second");
+    console.error("KEEP PREFERENCES AFTER CHANGING THE PATH");
+    console.error("HIDE THE FORM IF THE MEAL HAS NOT BEEN CHOSEN - IN MEALS DETAILS");
+
 
     fail();
 })

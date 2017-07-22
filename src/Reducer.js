@@ -1,4 +1,4 @@
-import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_FOODS_OF_NEW_MEAL_TO_MEALS, SHOW_MEAL_DETAILS, ADD_PREFERENCE, CHANGE_FOOD} from './Actions';
+import { NEW_FOOD, SELECT_FOOD, ADD_SELECTED_FOOD, REMOVE_SELECTED_FOOD, ADD_FOODS_OF_NEW_MEAL_TO_MEALS, SHOW_MEAL_DETAILS, ADD_PREFERENCE, EDIT_FOOD} from './Actions';
 import {addIdToMyNewFood} from './functions';
 
 export default function reducer(state, action) {
@@ -42,17 +42,17 @@ export default function reducer(state, action) {
             let preference = action.content;
             let mealsPreferences = [...state.mealsPreferences, preference]
             return Object.assign({}, state, {mealsPreferences: mealsPreferences});
-        case CHANGE_FOOD:
-            let food = action.content;
-            console.log(food)
-             for (let i in state.foods) {
-                if (state.foods[i].properties.id === food.properties.id) {
-                    state.foods[food.properties.id] = {...food}
-                }
+        case EDIT_FOOD:
+            let foodID = action.content.properties.id;
+
+             if (state.foods[foodID].properties.id === foodID) {
+                state.foods[foodID] = {...action.content}
             }
-            //finding and chainging properties of food in foods
             return Object.assign({}, state);
+
         default:
             return state;
     }
 }
+
+//TODO - cloneObject, cloneArray, freezeObject, freezeArray

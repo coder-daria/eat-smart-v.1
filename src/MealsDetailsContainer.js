@@ -5,7 +5,7 @@ import { sumFoods } from "./functions";
 
 
 const mapStateToProps = state => {
-  const selectedMeal = state.selectedMeal || { details: [], name: "" };
+  const selectedMeal = state.selectedMeal || { details: [], mealName: "" };
   const foodsOfMeal = selectedMeal.details.map(id => {
     return state.foods[id];
   });
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
     return sumFoods(total, food.properties);
   }, { fat: 0, carbs: 0, protein: 0 });
   return {
-    theWholeMeal: { name: selectedMeal.mealName, mealDetails: mealDetails },
+    theWholeMeal: { mealName: selectedMeal.mealName, mealDetails: mealDetails },
     meals: state.meals
   }
 }

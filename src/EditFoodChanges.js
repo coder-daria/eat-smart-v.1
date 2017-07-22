@@ -1,13 +1,12 @@
 import React from 'react';
 
 class EditFoodChanges extends React.Component {
-  constructor(props){
-    super(props);
-    
-    this.state = {
-      foodBeingChanged: props.selected,
-      foodBeingChanged1: Object.assign({}, props.selected)
-    };
+  state = {
+    foodBeingChanged: this.props.selected
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ foodBeingChanged: nextProps.selected });
   }
 
   handleName = event => {
@@ -30,6 +29,7 @@ class EditFoodChanges extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.onSubmit(this.state.foodBeingChanged);
   }
 
   render() {
@@ -52,7 +52,7 @@ class EditFoodChanges extends React.Component {
           <label>
             Protein<br />
             <input onChange={this.handleInGeneral("protein")}
-              type="text" name="protein" value={foodToEdit.properties.protein}/>
+              type="text" name="protein" value={foodToEdit.properties.protein} />
           </label>
           <br />
           <label>

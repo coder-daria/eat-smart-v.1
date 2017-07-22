@@ -30,7 +30,6 @@ class PreferenceForm extends React.Component {
     event.preventDefault();
     this.props.handleSubmit(this.state);
     this.props.showForm();
-    this.props.showPreferences();
   }
 
 

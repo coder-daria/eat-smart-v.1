@@ -2,12 +2,16 @@ import React from 'react';
 import Autocomplete from 'react-autocomplete';
 
 class MealsDetails extends React.Component {
-    state = {
-        input: ""
-    }
     showItem = (item, value) => item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
     render() {
         let {theWholeMeal} = this.props;
+        const foodDetailsList = theWholeMeal.mealName === "" ? "" :  (<ul>
+                    <li>Name: {theWholeMeal.mealName} </li>
+                    <li>Fat: {theWholeMeal.mealDetails.fat} </li>
+                    <li>Protein: {theWholeMeal.mealDetails.protein}</li>
+                    <li>Carbs: {theWholeMeal.mealDetails.carbs}</li>
+                    </ul> )
+
         return (
             <div>
                 <h3>Meals details</h3>
@@ -22,23 +26,14 @@ class MealsDetails extends React.Component {
                             </div>
                         </div>
                     }
-                    value={this.state.input}
-                    onChange={e => {
-                        this.setState({
-                            input: e.target.value
-                        });
-                    }}
+                    value={theWholeMeal.mealName}
+
                     onSelect={(val, meal) => {
                         this.props.onSelect(meal);
                     }}
-                    shouldItemRender={this.showItem}
+                    shouldItemRender1={this.showItem}
                 />
-                <ul>
-                    <li>Name: {theWholeMeal.name}</li>
-                    <li>Fat: {theWholeMeal.mealDetails.fat} </li>
-                    <li>Protein: {theWholeMeal.mealDetails.protein}</li>
-                    <li>Carbs: {theWholeMeal.mealDetails.carbs}</li>
-                </ul>
+                {foodDetailsList}
             </div>
         )
     }

@@ -6,7 +6,7 @@ export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
 export const ADD_PREFERENCE = "ADD_PREFERENCE";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
-export const CHANGE_FOOD = "CHANGE_FOOD";
+export const EDIT_FOOD = "EDIT_FOOD";
 
 export function newFood(food){
     return {type: NEW_FOOD, content: food};
@@ -36,6 +36,6 @@ export function addPreference(mealPreference) {
     return {type: ADD_PREFERENCE, content: mealPreference}
 }
 
-export function changeFood(food) {
-    return {type: CHANGE_FOOD, content: food}
+export function editFood(food) {
+    return {type: EDIT_FOOD, content: food}
 }
