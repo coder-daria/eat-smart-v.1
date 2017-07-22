@@ -1,20 +1,20 @@
 import EditFoodParent from './EditFoodParent';
 import { connect } from 'react-redux';
-import {selectFood} from './Actions';
+import {selectFood, changeFood} from './Actions';
 import {convertObjectToArray} from './functions';
+import R from 'ramda';
 
 const mapStateToProps = state => {
   return {
     foods: convertObjectToArray(state.foods),
-    selected : state.selected
+    selected : R.clone(state.foods[state.selected])
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelect: (food) => {
-        dispatch(selectFood(food.properties.id))
-    }
+    onSelect: food => {dispatch(selectFood(food.properties.id))},
+    onSubmit: food => {dispatch(changeFood(food))}
   }
 }
 
