@@ -5,7 +5,6 @@ export default function reducer(state, action) {
     switch (action.type) {
         case NEW_FOOD:
             let newFoodWithId = addIdToMyNewFood(action.content);
-            console.log(newFoodWithId);
             let newItems = {...state.foods, ...newFoodWithId};
             for (let key in state.foods) {
                 if (state.foods[key].name === action.content.name) {
@@ -35,7 +34,15 @@ export default function reducer(state, action) {
             return Object.assign({}, state, { foodsOfNewMeal: [], meals: newListOfMeals, predefinedMealsNames: listOfMealsNames});
 
         case SHOW_MEAL_DETAILS:
-            let yourMeal = action.content;
+            let yourMealName = action.content;
+            let yourMeal = {}
+
+            for(let key in state.meals) {
+                if(state.meals[key].mealName === yourMealName) {
+                    yourMeal = state.meals[key]
+                }
+            }
+
             return Object.assign({}, state, {selectedMeal: yourMeal });
 
         case ADD_PREFERENCE:
@@ -54,5 +61,3 @@ export default function reducer(state, action) {
             return state;
     }
 }
-
-//TODO - cloneObject, cloneArray, freezeObject, freezeArray

@@ -9,9 +9,9 @@ import './index.css';
 import { fetchProducts, convertFoodsFromServer } from './functions.js';
 
 const logger = store => next => action => {
-  console.log('dispatching', action)
+//   console.log('dispatching', action)
   let result = next(action)
-  console.log('next state', store.getState())
+//   console.log('next state', store.getState())
   return result
 }
 const foods = convertFoodsFromServer(fetchProducts());
