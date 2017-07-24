@@ -12,6 +12,7 @@ import EditFoodContainer from './EditFoodContainer';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Nav from './Nav';
 import Time from './Time';
+import Date from './Date';
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
       <Router>
         <div className='container'>
           <Time/>
+          <Date />
           <br/><br/>
           <Nav />
           <Route path='/addFood' component={AddNewProductContainer} />
