@@ -69,3 +69,10 @@ export function addIdToMyNewFood(newFood) {
     let newFoodInServer = server.addNewFood(newFood);
     return convertFoodsFromServer(newFoodInServer);
 }
+
+// //in preferences
+// let myMeal = ["14:30", "breakfast"]
+// let time = "15:40"
+// function showMealBasedOnTime (currentTime, predefinedMeal) {
+//     //return the meal which is closer
+// }
