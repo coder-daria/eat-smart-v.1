@@ -64,51 +64,62 @@ xit('shows the closest meal based on the current time', () => {
     const mealsPreferences = [
         {
             name: "breakfast",
-            seconds: 1500876046000 // 8:00
+            hour: 8,
+            time: "08:20"
         },
         {
             name: "lunch",
-            seconds: 1500894020000 // 13:00 
+            hour: 13,
+            time: "13:20"
         },
-        {
+          {
             name: "dinner",
-            seconds: 1500915649000 //15:00
+            hour: 15,
+            time: "15:20"
         },
         {
             name: "supper",
-            seconds: 1500915649000 //19:00
+            hour: 17,
+            time: "17:20"
         }
-
     ]
 
-    let currentTime = 1500876015000 // 8:00
-
-    let differences = [];
-    // checking for difference
-    for(let i = 0; i < mealsPreferences.length; i++) {
-
-        let timeDifference = Math.abs((currentTime - mealsPreferences[i].seconds)); //only positive value
-        let preference = {name: mealsPreferences[i].name, difference: timeDifference }
-
-        differences.push(preference);
-    }
-    //displaying the meal with the smalest difference
+    let currentTime = moment().format('HH:mm');
+    let currentHour = Number(moment().format('HH'));
+    let twoClosestMeals = [];
+    let twoDifferences = [];
     let theClosestMeal = {}
-     for(let y = 0; y < differences.length - 1; y++) {
-       if(differences[y].difference === 0) {
-           theClosestMeal = differences[y];
-       }
-       else if(differences[y].difference > differences[y+1].difference) {
-            y++;
-       }
-       else if(differences[y].difference === differences[y+1].difference) {
-            theClosestMeal = differences[y+1];
-       }
-       else {
-           theClosestMeal = differences[y];
-       }
-   }
-    //if there is only one mealPreference show only one meal constantly
-    //show the closes time, if it's o clock show the next meal so if the differences between two meals is the same show the next one
+
+    if (mealsPreferences.length === 0) {
+        console.log("No predefined meals")
+    }
+    else if (mealsPreferences.length === 1) {
+        theClosestMeal = mealsPreferences[0];
+    }
+    else {
+        for (let i = 0; i < mealsPreferences.length - 1; i++) {
+            let isBetween = moment(currentHour).isBetween(mealsPreferences[i].hour, mealsPreferences[i + 1].hour); //false
+            let isSameAs1stHour = moment(currentHour).isSame(mealsPreferences[i].hour); //true
+
+            if (isBetween || isSameAs1stHour) {
+                console.log(mealsPreferences[i]);
+                twoClosestMeals.push(mealsPreferences[i]);
+                twoClosestMeals.push(mealsPreferences[i + 1]);
+
+                twoDifferences.push(moment.utc(moment(currentTime, "HH:mm").diff(moment(mealsPreferences[i].time, "HH:mm"))).format("HH:mm"))
+                twoDifferences.push(moment.utc(moment(currentTime, "HH:mm").diff(moment(mealsPreferences[i + 1].time, "HH:mm"))).format("HH:mm"))
+            }
+            else {
+                // console.log(mealsPreferences[i]);
+                i++;
+            }
+        } //end of for loop
+            if (twoDifferences[0] < twoDifferences[1]) {
+                theClosestMeal = twoClosestMeals[0]
+            }
+            else if (twoDifferences[0] === twoDifferences[1]) {
+                theClosestMeal = twoClosestMeals[1]
+            }
+    }
 }
 )

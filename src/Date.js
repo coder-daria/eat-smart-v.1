@@ -11,7 +11,7 @@ class Date extends React.Component {
         }
     }
     handleChange = (date) => {
-        console.log(date);
+        // console.log(moment(date).second());
         this.setState({
             startDate: date
         })
