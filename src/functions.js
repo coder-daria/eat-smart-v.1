@@ -1,4 +1,5 @@
 import server from './server/serverMock';
+import moment from 'moment';
 
 export function caloriesPerDay(calories, fat, protein, carbs) {
     var howMuchKcal = {
@@ -70,9 +71,54 @@ export function addIdToMyNewFood(newFood) {
     return convertFoodsFromServer(newFoodInServer);
 }
 
-// //in preferences
-// let myMeal = ["14:30", "breakfast"]
-// let time = "15:40"
-// function showMealBasedOnTime (currentTime, predefinedMeal) {
-//     //return the meal which is closer
-// }
+export function findMealByClosestTime(currentTime, meals){
+    
+    function countTimeInMinutesFrom(time){
+        return time.hour() * 60 + time.minutes();
+    }
+    
+    let currentTimeInSeconds = countTimeInMinutesFrom(currentTime);
+    let twoClosestMeals = [];
+    let twoDifferences = [];
+    let theClosestMeal = {};
+    
+    if (meals.length === 1) {
+        theClosestMeal = meals[0];
+    }
+    else {
+        for (let i = 0; i < meals.length - 1; i++) {
+            let isBetween = moment(currentTimeInSeconds).isBetween(meals[i].seconds, meals[i + 1].seconds);
+            let isSameAs1stHour = moment(currentTimeInSeconds).isSame(meals[i].seconds);
+            let isAftertheLastMeal = moment(currentTimeInSeconds).isAfter(meals[meals.length-1].seconds)
+            let isBefore3AM = moment(currentTimeInSeconds).isBefore(180);
+            let isBefore8AM = moment(currentTimeInSeconds).isBefore(480);
+
+            if(isAftertheLastMeal || isBefore3AM) {
+               theClosestMeal = meals[meals.length-1];
+               return theClosestMeal;
+            }
+            else if(isBefore8AM && !isBetween && !isSameAs1stHour) {
+                theClosestMeal = meals[0];
+                return theClosestMeal;
+            }
+            else if (isBetween || isSameAs1stHour) { 
+                twoClosestMeals.push(meals[i]);
+                twoClosestMeals.push(meals[i + 1]);
+    
+                twoDifferences.push(currentTimeInSeconds - meals[i].seconds );
+                twoDifferences.push(meals[i + 1].seconds - currentTimeInSeconds);
+            }
+            // else {
+            //     i++;             //Why with else it doesn't work?
+            // }
+        } //end of for loop
+
+        if (twoDifferences[0] < twoDifferences[1]) {
+            theClosestMeal = twoClosestMeals[0]
+        }
+        else {
+            theClosestMeal = twoClosestMeals[1]
+        }
+    }
+    return theClosestMeal;
+}

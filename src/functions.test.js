@@ -1,8 +1,8 @@
-import { caloriesPerDay, countGrams, aliment, portion, fetchProducts, convertToArray } from './functions';
+import * as utils from './functions';
 import moment from 'moment';
 
 it('counts calories', () => {
-    expect(caloriesPerDay(2000, 20, 30, 50)).toEqual({
+    expect(utils.caloriesPerDay(2000, 20, 30, 50)).toEqual({
         fat: 400,
         protein: 600,
         carbs: 1000
@@ -10,7 +10,7 @@ it('counts calories', () => {
 });
 
 it('counts grams', () => {
-    expect(countGrams({
+    expect(utils.countGrams({
         fat: 400,
         protein: 600,
         carbs: 1200
@@ -22,7 +22,7 @@ it('counts grams', () => {
 })
 
 it('creates an aliment object', () => {
-    expect(aliment(2, 6, 51)).toEqual({
+    expect(utils.aliment(2, 6, 51)).toEqual({
         fat: 18,
         protein: 24,
         carbs: 204
@@ -30,7 +30,7 @@ it('creates an aliment object', () => {
 })
 
 it('creates a portion object', () => {
-    expect(portion({
+    expect(utils.portion({
         fat: 2,
         protein: 6,
         carbs: 51
@@ -42,13 +42,13 @@ it('creates a portion object', () => {
 })
 
 it('fetches the products from the server', () => {
-    const products = fetchProducts();
+    const products = utils.fetchProducts();
     const productsLength = Object.keys(products).length;
     const expectedProducts = 19;
     expect(productsLength).toEqual(19);
 })
 
-it('converts object of objects to array of objects', () => {
+xit('converts object of objects to array of objects', () => {
     const objectOfObjects = {
         jamon: { fat: 4 },
         twarog: { fat: 5 }
@@ -57,69 +57,99 @@ it('converts object of objects to array of objects', () => {
     const expected = [
         { name: "jamon", properties: { fat: 4 } },
         { name: "twarog", properties: { fat: 5 } }];
-    expect(convertToArray(objectOfObjects)).toEqual(expected);
+    expect(utils.convertToArray(objectOfObjects)).toEqual(expected);
 })
 
-xit('shows the closest meal based on the current time', () => {
+
+describe('shows the closest meal based on the current time', () => {
     const mealsPreferences = [
         {
             name: "breakfast",
-            hour: 8,
-            time: "08:20"
+            // hour: 8,
+            seconds: 480,
         },
         {
             name: "lunch",
-            hour: 13,
-            time: "13:20"
+            // hour: 13,
+            seconds: 780,
         },
-          {
+        {
             name: "dinner",
-            hour: 15,
-            time: "15:20"
+            // hour: 15,
+            seconds: 900
         },
         {
             name: "supper",
-            hour: 17,
-            time: "17:20"
+            // hour: 18:30,
+            seconds: 1110
+        },
+        {
+            name: "dessert",
+            // hour: 21:55,
+            seconds: 1315
         }
-    ]
+    ];
+    it('with a single meal, it returns it no matter what time is it', () => {
+        const currentTime = moment().hour(10).minutes(0);
+        const result = utils.findMealByClosestTime(currentTime, mealsPreferences.slice(0, 1));
 
-    let currentTime = moment().format('HH:mm');
-    let currentHour = Number(moment().format('HH'));
-    let twoClosestMeals = [];
-    let twoDifferences = [];
-    let theClosestMeal = {}
+        expect(result).toEqual(mealsPreferences[0]);
+    });
+    describe('with multiple meals', () => {
+          it('returns breakfast if the time is 3:00', () => {
+            const currentTime = moment().hour(3).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
-    if (mealsPreferences.length === 0) {
-        console.log("No predefined meals")
-    }
-    else if (mealsPreferences.length === 1) {
-        theClosestMeal = mealsPreferences[0];
-    }
-    else {
-        for (let i = 0; i < mealsPreferences.length - 1; i++) {
-            let isBetween = moment(currentHour).isBetween(mealsPreferences[i].hour, mealsPreferences[i + 1].hour); //false
-            let isSameAs1stHour = moment(currentHour).isSame(mealsPreferences[i].hour); //true
+            expect(result).toEqual(mealsPreferences[0]);
+            
+        });
+        it('returns breakfast if the time is 8:00', () => {
+            const currentTime = moment().hour(8).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
-            if (isBetween || isSameAs1stHour) {
-                console.log(mealsPreferences[i]);
-                twoClosestMeals.push(mealsPreferences[i]);
-                twoClosestMeals.push(mealsPreferences[i + 1]);
+            expect(result).toEqual(mealsPreferences[0]);
+        });
+        it('returns breakfast if the time is 10:00', () => {
+            const currentTime = moment().hour(10).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
-                twoDifferences.push(moment.utc(moment(currentTime, "HH:mm").diff(moment(mealsPreferences[i].time, "HH:mm"))).format("HH:mm"))
-                twoDifferences.push(moment.utc(moment(currentTime, "HH:mm").diff(moment(mealsPreferences[i + 1].time, "HH:mm"))).format("HH:mm"))
-            }
-            else {
-                // console.log(mealsPreferences[i]);
-                i++;
-            }
-        } //end of for loop
-            if (twoDifferences[0] < twoDifferences[1]) {
-                theClosestMeal = twoClosestMeals[0]
-            }
-            else if (twoDifferences[0] === twoDifferences[1]) {
-                theClosestMeal = twoClosestMeals[1]
-            }
-    }
-}
-)
+            expect(result).toEqual(mealsPreferences[0]);
+
+        });
+        it('returns lunch if the time is 12:00', () => {
+            const currentTime = moment().hour(12).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
+
+            expect(result).toEqual(mealsPreferences[1]);
+
+        });
+          it('returns dinner if the time is 15:00', () => {
+            const currentTime = moment().hour(15).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
+
+            expect(result).toEqual(mealsPreferences[2]);
+
+        });
+            it('returns supper if the time is 18:30', () => {
+            const currentTime = moment().hour(18).minutes(30);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
+
+            expect(result).toEqual(mealsPreferences[3]);
+
+        });
+         it('returns dessert if the time is 22:55', () => {
+            const currentTime = moment().hour(22).minutes(55);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
+
+            expect(result).toEqual(mealsPreferences[4]);
+
+        });
+         it('returns dessert if the time is 2:00', () => {
+            const currentTime = moment().hour(2).minutes(0);
+            const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
+
+            expect(result).toEqual(mealsPreferences[4]);
+            
+        });
+    })
+})
