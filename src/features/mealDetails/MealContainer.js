@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Meal from './Meal';
-import {removeSelectedFood, addFoodsOfNewMealToMeals} from "./Actions";
+import {removeSelectedFood, addFoodsOfNewMealToMeals} from "../../Actions";
 
 const mapStateToProps = state => {
   return {

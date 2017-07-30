@@ -6,33 +6,22 @@ import PreferencesMeal from './PreferencesMeal';
 class PreferencesParent extends React.Component {
   state = {
     showFormComponent: false,
-    showPreferences: false
-  }
-
-  showChosenPreference = () => {
-      this.setState({
-        showPreferences: true
-      })
   }
 
   showForm = () => {
-    if (this.state.showFormComponent === false) {
-      this.setState({
-        showFormComponent: true
-      })
-    }
-    else {
-      this.setState({
-        showFormComponent: false
-      })
-    }
+    this.setState(prevState => {
+      return {
+        showFormComponent : !prevState.showFormComponent
+      }
+    });
   }
 
   render() {
-
+    const areThereMeals = this.props.mealsPreferences.length > 0;
+    const preferedMeals = areThereMeals ? <PreferencesMeal {...this.props} /> : <div> {"No preferences"}</div>;
     return (
       <div>
-        {this.state.showPreferences ? <PreferencesMeal {...this.props} /> : <div> {"No preferences"}</div>}
+        {preferedMeals}
         <br />
         {this.state.showFormComponent ? <PreferenceForm {...this.props} showForm={this.showForm} showPreferences={this.showChosenPreference}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
       </div>

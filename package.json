@@ -5,16 +5,20 @@
   "dependencies": {
     "chart.js": "^2.6.0",
     "moment": "^2.18.1",
+    "ramda": "^0.24.1",
+    "rc-time-picker": "^2.4.1",
     "react": "^15.5.4",
     "react-autocomplete": "^1.5.9",
     "react-chartjs-2": "^2.1.0",
+    "react-datepicker": "^0.52.0",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.7.1"
+    "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.6"
+    "react-scripts": "1.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

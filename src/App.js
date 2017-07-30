@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './App.css';
-import Chart from './Chart';
-import SearchContainer from './SearchContainer';
-import AddNewProductContainer from "./AddNewProductContainer";
-import FoodDetailsContainer from "./FoodDetailsContainer";
-import MealContainer from "./MealContainer";
-import MealsDetailsContainer from "./MealsDetailsContainer";
-import MealsDetails from "./MealsDetails";
-import PreferencesFormContainer from './PreferencesFormContainer';
-import EditFoodContainer from './EditFoodContainer';
+// import Chart from './Chart';
+import SearchContainer from './features/search/SearchContainer';
+import AddNewProductContainer from "./features/addNewFood/AddNewProductContainer";
+// import FoodDetailsContainer from "./features/foodDetails/FoodDetailsContainer";
+import MealContainer from "./features/mealDetails/MealContainer";
+import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
+import EditFoodContainer from './features/editFood/EditFoodContainer';
+import PreferencesFormContainer from './features/preferences/PreferencesFormContainer';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Nav from './Nav';
 import Time from './Time';
+import Date from './Date';
 
 class App extends Component {
   render() {
@@ -19,6 +19,7 @@ class App extends Component {
       <Router>
         <div className='container'>
           <Time/>
+          <Date />
           <br/><br/>
           <Nav />
           <Route path='/addFood' component={AddNewProductContainer} />
