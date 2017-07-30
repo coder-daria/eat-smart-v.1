@@ -17,6 +17,7 @@ class AddNewProduct extends React.Component {
     }
 
     render() {
+        const loading = this.props.isLoading ? <p>loading</p> : null;
         return (
             <div>
                 <form className="container" onSubmit={this.handleSubmit}>
@@ -41,6 +42,7 @@ class AddNewProduct extends React.Component {
                     </label>
                     <input type="submit" value="Submit" />
                 </form>
+                {loading}
             </div>
         )
     }

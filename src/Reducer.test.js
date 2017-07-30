@@ -12,23 +12,29 @@ beforeEach(() => {
 
 it('does not change the state if the action type is unknown', () => {
     let action = {type: 'UNKNOWN', content:{anything: "anything"}};
-    // let newState = reducer(initialState, action);
     store.dispatch(action);
     let newState = store.getState();
+    // let newState = reducer(initialState, action);
     
     expect(newState).toEqual(initialState);
 });
 
 it('handles NEW_FOOD', () => {
-    let action = actions.newFood({name: "jamon", fat: "2", protein: "2", carbs: "2"});
-    let newState = reducer(initialState, action); // foods:{321: {name: "jamon"}, }
+    let action = actions.newFood({101:{
+    name: "honey",
+    properties: {
+     fat: "0", protein: "0", carbs: "40", id: 101
+     }
+    }});
+
+    let newState = reducer(initialState, action); // foods:{101: {name: "honey"}, }
     
-    let keysInFoods = Object.keys(newState.foods); //array
+    let keysInFoods = Object.keys(newState.foods); //array [101]
     let newNumberOfFoods = keysInFoods.length; //1
 
     expect(newState).not.toEqual(initialState);
     expect(newNumberOfFoods).toEqual(1);
-    expect(newState.foods[keysInFoods[0]].name).toEqual("jamon");
+    expect(newState.foods[keysInFoods[0]].name).toEqual("honey");
 
 });
 
@@ -60,18 +66,23 @@ it('handles REMOVE_SELECTED_FOOD', () =>{
     expect(newState.foodsOfNewMeal[0]).toEqual(undefined);
 });
 
-xit('handle SHOW_MEAL_DETAILS', () => {
-    initialState = {...initialState, selectedMeal: {}};
+it('handle SHOW_MEAL_DETAILS', () => {
+    initialState = {...initialState, selectedMeal: {}, meals : [{
+        mealName: "salad",
+        details: [928482960,100888247,100888247]
+    }]};
     
-    let action = actions.showMealDetails({mealname: "jamon", details: [73534323, 1426331547] });
+    let action = actions.showMealDetails(initialState.meals[0].mealName);
     let newState = reducer(initialState, action);
 
     expect(newState).not.toEqual(initialState);
-    expect(newState.selectedMeal.mealname).not.toEqual("jamon");
-    expect(newState.selectedMeal.details.length).not.toEqual(2);
+    expect(newState.selectedMeal.mealName).toEqual("salad");
+    expect(newState.selectedMeal.details.length).toEqual(3);
+    expect(newState.selectedMeal.details[0]).toEqual(928482960);
 });
 
 it('handle ADD_PREFERENCE', () => {
+    initialState = {...initialState, foods: {}}
     let action = actions.addPreference({name: "breakfast", seconds: 12});
     let newState = reducer(initialState, action);
 
@@ -81,22 +92,41 @@ it('handle ADD_PREFERENCE', () => {
     expect(newState.mealsPreferences[0].seconds).toEqual(12);
 });
 
+it('handle EDIT_FOOD', () => {
+    initialState = {...initialState, foods: {100888247 :{
+    name: "jajko", 
+    properties: {
+        carbs: "1",
+        fat: "9",
+        id : 100888247,
+        protein: "12"
+        }
+    }}}
+
+    let action = actions.editFood({
+    name: "jajko", 
+    properties: {
+        carbs: "0",
+        fat: "9",
+        id : 100888247,
+        protein: "12"
+    }});
+    let newState = reducer(initialState, action);
+
+    expect(newState.length).toEqual(initialState.length);
+    expect(newState.foods[100888247].properties.carbs).not.toEqual(1);
+    expect(newState.foods[100888247].properties.carbs).toEqual("0");
+});
+
 xit('TEMPLATE', () => {
     let action = {};
 
     let newState = reducer(initialState, action);
-
     expect(newState).not.toEqual(initialState);
 });
 
 
 xit('THINGS TO DO', () => {
-    console.error("EDIT EXISTING FOOD");
-    console.error("KEEP PREFERENCES AFTER CHANGING THE PATH");
-    console.error("HIDE THE FORM IF THE MEAL HAS NOT BEEN CHOSEN - IN MEALS DETAILS");
-
-
-    fail();
 })
 
 

@@ -45,7 +45,7 @@ it('fetches the products from the server', () => {
     const products = utils.fetchProducts();
     const productsLength = Object.keys(products).length;
     const expectedProducts = 19;
-    expect(productsLength).toEqual(19);
+    expect(productsLength).toEqual(expectedProducts);
 })
 
 xit('converts object of objects to array of objects', () => {

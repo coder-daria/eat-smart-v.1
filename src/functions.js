@@ -66,11 +66,6 @@ export function convertObjectToArray(object) {
     return newArray;
 }
 
-export function addIdToMyNewFood(newFood) {
-    let newFoodInServer = server.addNewFood(newFood);
-    return convertFoodsFromServer(newFoodInServer);
-}
-
 export function findMealByClosestTime(currentTime, meals){
     
     function countTimeInMinutesFrom(time){
@@ -90,8 +85,9 @@ export function findMealByClosestTime(currentTime, meals){
             let isBetween = moment(currentTimeInSeconds).isBetween(meals[i].seconds, meals[i + 1].seconds);
             let isSameAs1stHour = moment(currentTimeInSeconds).isSame(meals[i].seconds);
             let isAftertheLastMeal = moment(currentTimeInSeconds).isAfter(meals[meals.length-1].seconds)
-            let isBefore3AM = moment(currentTimeInSeconds).isBefore(180);
-            let isBefore8AM = moment(currentTimeInSeconds).isBefore(480);
+            let isBefore3AM1 = moment(currentTimeInSeconds).isBefore(180);
+            let isBefore3AM = currentTimeInSeconds < 180;
+            let isBefore8AM = currentTimeInSeconds < 480;
 
             if(isAftertheLastMeal || isBefore3AM) {
                theClosestMeal = meals[meals.length-1];

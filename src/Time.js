@@ -3,18 +3,21 @@ import moment from 'moment';
 
 class Time extends React.Component {
   state = {
+    intervalId: -1,
     date: moment(moment().unix() * 1000).format("HH:mm:ss")
   }
   componentDidMount = () => {
-    this.timerId = setInterval(
+    const intervalId = setInterval(
       () => this.tick(),
       1000
-    )
+    );
+    this.setState({intervalId});
   }
 
   componentWillUnmount = () => {
-    clearInterval(this.timerID);
+    clearInterval(this.state.intervalId);
   }
+
   tick = () => {
     this.setState({
       date: moment(moment().unix() * 1000).format("HH:mm:ss")

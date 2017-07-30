@@ -1,7 +1,7 @@
 import EditFoodParent from './EditFoodParent';
 import { connect } from 'react-redux';
-import {selectFood, editFood} from './Actions';
-import {convertObjectToArray} from './functions';
+import {selectFood, editFood} from '../../Actions';
+import {convertObjectToArray} from '../../functions.js';
 import R from 'ramda';
 
 const mapStateToProps = state => {
