@@ -3,22 +3,29 @@ import Autocomplete from 'react-autocomplete';
 
 class Meal extends React.Component {
     state = {
-        mealName: ""
+        foodName: "",
+        grams: []
     }
 
-    handleChange = (event) => {
-        this.setState({ mealName: event.target.value })
-    }
+    // handleChange = (event) => {
+    //     this.setState({ foodName: event.target.value })
+    // }
 
     showItem = (item, value) => item.toLowerCase().indexOf(value.toLowerCase()) !== -1;
 
     render() {
         let arrayOfId = this.props.foodsOfNewMeal;
-        let food = arrayOfId.map((id) => {
+        let food = arrayOfId.map((object) => {
             return (
                 <div>
-                    <li>{this.props.foods[id].name}</li>
-                    <button onClick={() => this.props.removeFromMeal(id)}>-</button>
+                    <li>{this.props.foods[object.id].name}</li>
+                    <input type="text" size="1" onChange={
+                        (e)=> {
+                            object.quantity = e.target.value
+                        }
+                    }/> 
+                    grams<br />
+                    <button onClick={() => this.props.removeFromMeal(object.id)}>-</button>
                 </div>
             )
         });
@@ -35,10 +42,10 @@ class Meal extends React.Component {
                             </div>
                         </div>
                     }
-                    value={this.state.mealName}
+                    value={this.state.foodName}
                     onChange={e => {
                         this.setState({
-                            mealName: e.target.value
+                            foodName: e.target.value
                         });
                     }}
                     shouldItemRender={this.showItem}
@@ -47,11 +54,11 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.mealName);
-                    this.setState({ mealName: "" });
+                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.foodName);
+                     this.setState({ foodName: "" }); 
                 }
                 }
-                    disabled={!this.state.mealName}>Save meal</button>
+                    disabled={!this.state.foodName}>Save meal</button>
             </div>
         )
     }

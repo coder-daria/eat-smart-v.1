@@ -3,7 +3,6 @@ import * as actions from './Actions';
 export default function reducer(state, action) {
     switch (action.type) {
         case actions.NEW_FOOD:
-            console.log(action.content)
             let newItems = {...state.foods, ...action.content};
             
             for (let key in state.foods) {
@@ -18,11 +17,12 @@ export default function reducer(state, action) {
             return Object.assign({}, state, { selected: action.content });
 
         case actions.ADD_SELECTED_FOOD:
-            let arrayOfId = [...state.foodsOfNewMeal, action.content];
+            let objectWithId = {id: action.content}
+            let arrayOfId = [...state.foodsOfNewMeal, objectWithId];
             return Object.assign({}, state, { foodsOfNewMeal: arrayOfId });
 
         case actions.REMOVE_SELECTED_FOOD:
-            let newArrayOfFoodsId = state.foodsOfNewMeal.filter(foodId => foodId !== action.content);
+            let newArrayOfFoodsId = state.foodsOfNewMeal.filter(food => food.id !== action.content);
             return Object.assign({}, state, { foodsOfNewMeal: newArrayOfFoodsId });
 
         case actions.ADD_FOODS_OF_NEW_MEAL_TO_MEALS:

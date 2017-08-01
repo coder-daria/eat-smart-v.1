@@ -6,13 +6,26 @@ import { sumFoods } from "../../functions";
 
 const mapStateToProps = state => {
   const selectedMeal = state.selectedMeal || { details: [], mealName: "" };
-  const foodsOfMeal = selectedMeal.details.map(id => {
-    return state.foods[id]; // array of ingredients' fat, carbs, protein
+  const foodsOfMeal = selectedMeal.details.map(object => {
+    return state.foods[object.id];
+    
   });
+
+ foodsOfMeal.map(object => {
+    for(let key in selectedMeal.details) {
+      if(selectedMeal.details[key].id === object.properties.id ) {
+        object.properties.carbs = ((object.properties.carbs * selectedMeal.details[key].quantity)/100).toFixed(2);
+        object.properties.protein = ((object.properties.protein * selectedMeal.details[key].quantity)/100).toFixed(2)
+        object.properties.fat = ((object.properties.fat * selectedMeal.details[key].quantity)/100).toFixed(2)
+      }
+    }
+  })
+
+
 
   let mealDetails = foodsOfMeal.reduce((total, food) => {
     return sumFoods(total, food.properties);
-  }, { fat: 0, carbs: 0, protein: 0 }); //sum of carbs, fat and protein
+  }, { fat: 0, carbs: 0, protein: 0 });
 
   return {
     theWholeMeal: { mealName: selectedMeal.mealName, mealDetails: mealDetails },

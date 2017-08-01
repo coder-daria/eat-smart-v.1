@@ -25,7 +25,7 @@ export const addNewFoodToServer = food => dispatch => {
     // .then(data => data.json())
     Promise.resolve({ message: "The server says hi" })
         .then(data => {
-            console.log(`the server says ${data}`);
+            // console.log(`the server says ${data}`);
             const newFoodFromServer = callServerAndConvertForUi(Object.assign({}, food));
 
             dispatch(newFood(newFoodFromServer));

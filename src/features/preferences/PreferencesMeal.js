@@ -7,7 +7,7 @@ class PreferencesMeal extends React.Component {
     let mealsPreferences = this.props.mealsPreferences;
     let preferencesArray = mealsPreferences.map((preference) => {
     let chosenUnixTimestamp = (moment(preference.seconds).unix()) * 1000; // seconds
-    console.log(chosenUnixTimestamp);
+    // console.log(chosenUnixTimestamp);
     let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
       return (
         <li>

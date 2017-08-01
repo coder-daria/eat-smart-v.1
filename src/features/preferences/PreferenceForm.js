@@ -18,7 +18,7 @@ class PreferenceForm extends React.Component {
       if(hour === null) {
         return;
       }
-      console.log(moment(hour).minutes());
+      // console.log(moment(hour).minutes());
       let chosenUnixTimestamp = (moment(hour).unix()) * 1000; // seconds
 
       this.setState({
