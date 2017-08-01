@@ -52,10 +52,15 @@ export function fetchProducts() {
 export function convertFoodsFromServer(productsFromServer) {
     const products = {};
     for (let name in productsFromServer) {
-        const product = { name: name, properties: productsFromServer[name] };
-        products[product.properties.id] = product;
+      const productFromServer = productsFromServer[name];
+      let foodConverted = convertFoodFromServer(productFromServer);
+      products[productFromServer.id] = foodConverted[productFromServer.id];
     }
     return products;
+}
+
+export function convertFoodFromServer(object) {
+  return {[object.id] : {name: object.name, properties: {...object}}};
 }
 
 export function convertObjectToArray(object) {

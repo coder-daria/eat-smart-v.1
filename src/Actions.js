@@ -1,4 +1,4 @@
-import { convertFoodsFromServer } from './functions';
+import { convertFoodFromServer } from './functions';
 import server from './server/serverMock';
 
 export const NEW_FOOD = "NEW_FOOD";
@@ -18,15 +18,11 @@ export const newFood = food => {
 }
 
 export const addNewFoodToServer = food => dispatch => {
-    debugger
     dispatch(isLoading(true));
-    // const fetchOptions = { mode: 'cors', method: 'GET' };
-    //   fetch('http://localhost:3001', fetchOptions)
-    // .then(data => data.json())
-    Promise.resolve({ message: "The server says hi" })
+  server.addFood(food)
         .then(data => {
-            // console.log(`the server says ${data}`);
-            const newFoodFromServer = callServerAndConvertForUi(Object.assign({}, food));
+            console.log(`the server says ${data}`);
+            const newFoodFromServer = convertFoodFromServer(data);
 
             dispatch(newFood(newFoodFromServer));
             dispatch(isLoading(false));
@@ -63,9 +59,4 @@ export function editFood(food) {
 
 export function isLoading(value) {
     return { type: IS_LOADING, content: value };
-}
-
-function callServerAndConvertForUi(foodFromUi) {
-    let newFoodInServer = server.addNewFood(foodFromUi);
-    return convertFoodsFromServer(newFoodInServer);
 }

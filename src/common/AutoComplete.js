@@ -1,21 +1,18 @@
 import React from 'react';
-import Autocomplete from 'react-autocomplete';
+import ReactAutoComplete from 'react-autocomplete';
 
-class OurAutoComplete extends React.Component {
+class AutoComplete extends React.Component {
     state = {
         input: "",
     }
 
-    /*
-    items
-    showItem
-    */
     onChange = (e) => {
         this.setState({
             input: e.target.value
         });
     };
 
+    showItem = (item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
     render() {
         let picture = (item) => {
             if (item.properties && item.properties.url) {
@@ -24,8 +21,7 @@ class OurAutoComplete extends React.Component {
         }
         return (
             <div>
-                <p>TODO...</p>
-                <Autocomplete
+                <ReactAutoComplete
                     getItemValue={(item) => item.name}
                     items={this.props.items}
                     renderItem={(item, isHighlighted) =>
@@ -39,7 +35,7 @@ class OurAutoComplete extends React.Component {
                     value={this.state.input}
                     onChange={this.onChange}
                     onSelect={this.props.onSelect}
-                    shouldItemRender={this.props.shouldItemRender}
+                    shouldItemRender={this.showItem}
                 />
             </div>
 
@@ -47,4 +43,4 @@ class OurAutoComplete extends React.Component {
     }
 }
 
-export default OurAutoComplete;
+export default AutoComplete;

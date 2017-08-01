@@ -4,7 +4,6 @@ export default function reducer(state, action) {
     switch (action.type) {
         case actions.NEW_FOOD:
             let newItems = {...state.foods, ...action.content};
-            
             for (let key in state.foods) {
                 if (state.foods[key].name === action.content.name) {
                     return state;
