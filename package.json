@@ -5,6 +5,7 @@
   "dependencies": {
     "chart.js": "^2.6.0",
     "moment": "^2.18.1",
+    "prop-types": "^15.5.10",
     "ramda": "^0.24.1",
     "rc-time-picker": "^2.4.1",
     "react": "^15.5.4",
@@ -15,7 +16,8 @@
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"

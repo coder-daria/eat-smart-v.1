@@ -11,9 +11,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-      onSelect: (food) => {
-        dispatch(selectFood(food.properties.id))
-        dispatch(addSelectedFood(food.properties.id))
+      onSelect: (foodId) => {
+        dispatch(selectFood(foodId))
+        dispatch(addSelectedFood(foodId))
       }
   }
 }

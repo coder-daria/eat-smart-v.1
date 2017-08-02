@@ -6,7 +6,7 @@ const mapStateToProps = state => {
   return {
     foodsOfNewMeal: state.foodsOfNewMeal,
     foods: state.foods,
-    predefinedMealsNames: state.predefinedMealsNames
+    mealsPreferences: state.mealsPreferences
   }
 }
 
