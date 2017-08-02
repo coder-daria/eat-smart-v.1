@@ -1,29 +1,36 @@
 import React from 'react';
-import Autocomplete from 'react-autocomplete';
+import AutoComplete from '../../common/AutoComplete';
+
 
 class Meal extends React.Component {
     state = {
-        foodName: "",
-        grams: []
+        name: ""
     }
 
-    // handleChange = (event) => {
-    //     this.setState({ foodName: event.target.value })
-    // }
+    onChange = name => {
+        this.setState({
+            name: name
+        });
+    }
 
-    showItem = (item, value) => item.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    onSelect = () => {
+        console.log('something selected')
+        const a = 5 + 5;
+    }
 
     render() {
+
+
         let arrayOfId = this.props.foodsOfNewMeal;
         let food = arrayOfId.map((object) => {
             return (
                 <div>
                     <li>{this.props.foods[object.id].name}</li>
                     <input type="text" size="1" onChange={
-                        (e)=> {
+                        (e) => {
                             object.quantity = e.target.value
                         }
-                    }/> 
+                    } />
                     grams<br />
                     <button onClick={() => this.props.removeFromMeal(object.id)}>-</button>
                 </div>
@@ -32,33 +39,23 @@ class Meal extends React.Component {
         return (
             <div>
                 <h2>Meal name:</h2>
-                <Autocomplete
-                    getItemValue={(item) => item}
-                    items={this.props.predefinedMealsNames}
-                    renderItem={(item, isHighlighted) =>
-                        <div>
-                            <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
-                                {item}
-                            </div>
-                        </div>
-                    }
-                    value={this.state.foodName}
-                    onChange={e => {
-                        this.setState({
-                            foodName: e.target.value
-                        });
-                    }}
-                    shouldItemRender={this.showItem}
+                <AutoComplete
+                    items={this.props.mealsPreferences}
+                    onSelect={() => { }}
+                    onChange={this.onChange}
                 />
-                <ul>
+
+
+                 <ul>
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.foodName);
-                     this.setState({ foodName: "" }); 
+                    debugger
+                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.name);
+                    this.setState({ name: "" });
                 }
                 }
-                    disabled={!this.state.foodName}>Save meal</button>
+                    disabled={!this.state.name}>Save meal</button> 
             </div>
         )
     }

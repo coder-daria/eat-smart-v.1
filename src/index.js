@@ -56,17 +56,17 @@ store.dispatch({
   }
 });
 
-store.dispatch({
-  type: 'ADD_FOODS_OF_NEW_MEAL_TO_MEALS',
-  content: {
-    mealName: 'breakfast',
-    details: [
-      {
-        id: '46218af1-900a-437c-8cdc-5685f26f3974',
-        quantity: '100'
-      }
-    ]
-  }
-});
+// store.dispatch({
+//   type: 'ADD_FOODS_OF_NEW_MEAL_TO_MEALS',
+//   content: {
+//     mealName: 'breakfast',
+//     details: [
+//       {
+//         id: '46218af1-900a-437c-8cdc-5685f26f3974',
+//         quantity: '100'
+//       }
+//     ]
+//   }
+// });
 
 registerServiceWorker();

@@ -1,5 +1,4 @@
 import React from 'react';
-import Autocomplete from 'react-autocomplete';
 
 class MealsDetails extends React.Component {
     showItem = (item, value) => item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1

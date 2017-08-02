@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactAutoComplete from 'react-autocomplete';
+import PropTypes from 'prop-types';
 
 class AutoComplete extends React.Component {
     state = {
@@ -7,12 +8,34 @@ class AutoComplete extends React.Component {
     }
 
     onChange = (e) => {
-        this.setState({
-            input: e.target.value
-        });
+        const value = e.target.value;
+        this.setState({ input: value });
+
+        if (this.props.onChange) {
+            this.props.onChange(value)
+        }
     };
 
-    showItem = (item, value) => item.name.toLowerCase().indexOf(value.toLowerCase()) !== -1
+    propertyUsedToFilter = item => {
+        if (this.props.propertyUsedToFilter) {
+            return this.props.propertyUsedToFilter(item);
+        } else {
+            return item.name;
+        }
+    };
+
+    getItemValue = item => {
+        if (this.props.getItemValue) {
+            return this.props.getItemValue(item);
+        } else {
+            return item.name;
+        }
+    };
+
+    shouldItemRender = (item, value) => {
+        const thingToCompare = this.propertyUsedToFilter(item);
+        return thingToCompare.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    }
     render() {
         let picture = (item) => {
             if (item.properties && item.properties.url) {
@@ -22,8 +45,7 @@ class AutoComplete extends React.Component {
         return (
             <div>
                 <ReactAutoComplete
-                    getItemValue={(item) => item.name}
-                    items={this.props.items}
+                    getItemValue={this.getItemValue}
                     renderItem={(item, isHighlighted) =>
                         <div>
                             <div style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
@@ -32,15 +54,24 @@ class AutoComplete extends React.Component {
                             {picture(item)}
                         </div>
                     }
+                    items={this.props.items}
                     value={this.state.input}
                     onChange={this.onChange}
-                    onSelect={this.props.onSelect}
-                    shouldItemRender={this.showItem}
+                    onSelect={this.props.onSelect} // The this.props.onSelect refers to what?
+                    shouldItemRender={this.shouldItemRender}
                 />
             </div>
 
         )
     }
 }
+
+AutoComplete.propTypes = {
+    items: PropTypes.array.isRequired,
+    onSelect: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
+    getItemValue: PropTypes.func,
+    propertyUsedToFilter: PropTypes.func
+};
 
 export default AutoComplete;
