@@ -41,7 +41,7 @@ class Meal extends React.Component {
                 <h2>Meal name:</h2>
                 <AutoComplete
                     items={this.props.mealsPreferences}
-                    onSelect={() => { }}
+                    onSelect={(mealName) => this.setState({name: mealName})}
                     onChange={this.onChange}
                 />
 

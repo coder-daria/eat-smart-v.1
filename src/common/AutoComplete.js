@@ -24,6 +24,13 @@ class AutoComplete extends React.Component {
         }
     };
 
+    
+    onSelect = (name, item) => {
+        this.setState({ input: name });
+
+        this.props.onSelect(name, item);
+    };
+
     getItemValue = item => {
         if (this.props.getItemValue) {
             return this.props.getItemValue(item);
@@ -57,7 +64,7 @@ class AutoComplete extends React.Component {
                     items={this.props.items}
                     value={this.state.input}
                     onChange={this.onChange}
-                    onSelect={this.props.onSelect} // The this.props.onSelect refers to what?
+                    onSelect={this.onSelect} // The this.props.onSelect refers to what?
                     shouldItemRender={this.shouldItemRender}
                 />
             </div>
