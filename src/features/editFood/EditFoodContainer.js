@@ -2,12 +2,10 @@ import EditFoodParent from './EditFoodParent';
 import { connect } from 'react-redux';
 import {selectFood, editFood} from '../../Actions';
 import {convertObjectToArray} from '../../functions.js';
-import R from 'ramda';
 
 const mapStateToProps = state => {
   return {
-    foods: convertObjectToArray(state.foods),
-    selected : R.clone(state.foods[state.selected])
+    foods: convertObjectToArray(state.foods)
   }
 }
 

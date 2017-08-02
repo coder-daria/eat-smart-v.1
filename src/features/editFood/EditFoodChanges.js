@@ -1,8 +1,13 @@
 import React from 'react';
+import R from 'ramda';
 
 class EditFoodChanges extends React.Component {
-  state = {
-    foodBeingChanged: this.props.selected
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      foodBeingChanged:this.props.selected
+    }
   }
 
   componentWillReceiveProps(nextProps) {

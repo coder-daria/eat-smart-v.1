@@ -3,10 +3,6 @@ import EditFoodChanges from './EditFoodChanges';
 import AutoComplete from '../../common/AutoComplete';
 
 class EditFoodSearch extends React.Component {
-  state = {
-    selectedFood: {}
-  }
-
   render() {
     let picture = (item) => {
       if (item.properties && item.properties.url) {
@@ -19,10 +15,7 @@ class EditFoodSearch extends React.Component {
         <AutoComplete
           items={this.props.foods}
           onSelect={(val, food) => {
-            this.props.onSelect(food);
-            this.setState({
-              selectedFood: food
-            })
+            this.props.onSelect(food)
           }}
         />
       </div>
