@@ -50,7 +50,6 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    debugger
                     this.props.addMeal(this.props.foodsOfNewMeal, this.state.name);
                     this.setState({ name: "" });
                 }

@@ -43,16 +43,49 @@ if (process.env.NODE_ENV !== "production") {
 store.dispatch({
   type: 'NEW_FOOD',
   content: {
-    'f400558e-251a-4f7e-8d05-66e35b729f0f': {
+    'f400558e-251a-4f7e-8d05-66e35btomato': {
       name: 'tomato',
       properties: {
         name: 'tomato',
-        fat: '0.2',
-        protein: '0.9',
-        carbs: '3.9',
-        id: 'f400558e-251a-4f7e-8d05-66e35b729f0f'
+        fat: '50',
+        protein: '100',
+        carbs: '50',
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato'
       }
     }
+  }
+});
+
+store.dispatch({
+  type: 'NEW_FOOD',
+  content: {
+    'f400558e-251a-4f7e-8d05-66e35b729egg': {
+      name: 'egg',
+      properties: {
+        name: 'egg',
+        fat: '100',
+        protein: '50',
+        carbs: '100',
+        id: 'f400558e-251a-4f7e-8d05-66e35b729egg'
+      }
+    }
+  }
+});
+
+store.dispatch({
+  type: 'ADD_FOODS_OF_NEW_MEAL_TO_MEALS',
+  content: {
+    mealName: 'qwe',
+    details: [
+      {
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+        quantity: '50'
+      },
+      {
+        id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
+        quantity: '50'
+      }
+    ]
   }
 });
 
