@@ -28,9 +28,8 @@ export default function reducer(state, action) {
             let newMeal = action.content;
             let newMealName = action.content.mealName;
 
-            let listOfMealsNames = [...state.predefinedMealsNames, newMealName ]
             let newListOfMeals = [...state.meals, newMeal];
-            return Object.assign({}, state, { foodsOfNewMeal: [], meals: newListOfMeals, predefinedMealsNames: listOfMealsNames});
+            return Object.assign({}, state, { foodsOfNewMeal: [], meals: newListOfMeals});
 
         case actions.SHOW_MEAL_DETAILS:
             let mealName = action.content;
