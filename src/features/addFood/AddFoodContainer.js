@@ -1,4 +1,4 @@
-import AddNewProduct from './AddNewProduct';
+import AddFood from './AddFood';
 import {addNewFoodToServer} from '../../Actions';
 import { connect } from 'react-redux'
 
@@ -14,9 +14,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const AddNewProductContainer = connect(
+const AddFoodContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddNewProduct)
+)(AddFood)
 
-export default AddNewProductContainer;
+export default AddFoodContainer;

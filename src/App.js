@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 // import Chart from './Chart';
 import SearchContainer from './features/search/SearchContainer';
-import AddNewProductContainer from "./features/addNewFood/AddNewProductContainer";
+import AddFoodContainer from "./features/addFood/AddFoodContainer";
 import MealContainer from "./features/mealDetails/MealContainer";
 import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
@@ -21,7 +21,7 @@ class App extends Component {
           <Date />
           <br/><br/>
           <Nav />
-          <Route path='/addFood' component={AddNewProductContainer} />
+          <Route path='/addFood' component={AddFoodContainer} />
           <Route path='/editFood' component={EditFoodContainer} />
           <Route path="/addMeal" component={SearchContainer} />
           <Route path="/addMeal" component={MealContainer} />
