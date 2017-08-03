@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddNewProduct extends React.Component {
     state = {
@@ -47,5 +48,9 @@ class AddNewProduct extends React.Component {
         )
     }
 }
+
+AddNewProduct.propTypes = {
+    isLoading: PropTypes.bool,
+};
 
 export default AddNewProduct;

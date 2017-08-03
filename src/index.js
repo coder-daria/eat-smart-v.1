@@ -14,7 +14,6 @@ const initialState = {
   selected: 0,
   foodsOfNewMeal: [],
   meals: [],
-  predefinedMealsNames: [],
   mealsPreferences: []
 };
 let store = createStore(initialState);

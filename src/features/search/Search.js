@@ -1,9 +1,8 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
+import PropTypes from 'prop-types';
 
 class Search extends React.Component {
-
-
     render() {
         const onSelect= (value, food) => {
             this.props.onSelect(food.properties.id);
@@ -24,5 +23,10 @@ class Search extends React.Component {
         )
     }
 }
+
+Search.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    foods: PropTypes.array.isRequired
+};
 
 export default Search;

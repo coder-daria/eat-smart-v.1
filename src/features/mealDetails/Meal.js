@@ -1,6 +1,6 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
-
+import PropTypes from 'prop-types';
 
 class Meal extends React.Component {
     state = {
@@ -59,5 +59,15 @@ class Meal extends React.Component {
         )
     }
 }
+
+Meal.propTypes = {
+    foodsOfNewMeal: PropTypes.array.isRequired,
+    foods: PropTypes.object.isRequired,
+    removeFromMeal: PropTypes.func.isRequired, 
+    addMeal: PropTypes.func.isRequired, 
+    mealsPreferences: PropTypes.array,
+
+
+};
 
 export default Meal;

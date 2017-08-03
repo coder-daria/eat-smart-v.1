@@ -1,6 +1,5 @@
 import React from 'react';
-import PreferenceForm from './PreferenceForm';
-
+import PropTypes from 'prop-types';
 
 class PreferencesButton extends React.Component {
   render() {
@@ -11,5 +10,9 @@ class PreferencesButton extends React.Component {
     )
   }
 }
+
+PreferencesButton.propTypes = {
+    onClick: PropTypes.func.isRequired
+};
 
 export default PreferencesButton;
