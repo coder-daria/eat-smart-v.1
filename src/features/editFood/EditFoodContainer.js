@@ -11,7 +11,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelect: food => {dispatch(selectFood(food.properties.id))},
     onSubmit: food => {dispatch(editFood(food))}
   }
 }
