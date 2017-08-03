@@ -6,7 +6,7 @@ let initialState;
 let store;
 
 beforeEach(() => {
-    initialState = {foods: {}, foodsOfNewMeal: [], meals: [], mealsPreferences: []};
+    initialState = {foods: {}, foodsBeingAddedToNewMeal: [], meals: [], mealsPreferences: []};
     store = createStore(reducer, initialState);
 });
 
@@ -42,20 +42,20 @@ it('handles ADD_SELECTED_FOOD', () => {
     let newState = reducer(initialState, action);
     
     expect(newState).not.toEqual(initialState);
-    expect(newState.foodsOfNewMeal[0]).toEqual({id:73534323});
-    expect(newState.foodsOfNewMeal.length).toEqual(initialState.foodsOfNewMeal.length + 1);
+    expect(newState.foodsBeingAddedToNewMeal[0]).toEqual({id:73534323});
+    expect(newState.foodsBeingAddedToNewMeal.length).toEqual(initialState.foodsBeingAddedToNewMeal.length + 1);
 });
 
 
 it('handles REMOVE_SELECTED_FOOD', () =>{
-    initialState = {foods: {}, foodsOfNewMeal: [{id: 73534323}, {id: 73534324}]};
+    initialState = {foods: {}, foodsBeingAddedToNewMeal: [{id: 73534323}, {id: 73534324}]};
     let action = actions.removeSelectedFood(73534323);
     let newState = reducer(initialState, action);
     
     expect(newState).not.toEqual(initialState);
-    expect(newState.foodsOfNewMeal.length).not.toEqual(initialState.foodsOfNewMeal.length);
-    expect(newState.foodsOfNewMeal.length).toEqual(1);
-    expect(newState.foodsOfNewMeal[0].id).toEqual(73534324);
+    expect(newState.foodsBeingAddedToNewMeal.length).not.toEqual(initialState.foodsBeingAddedToNewMeal.length);
+    expect(newState.foodsBeingAddedToNewMeal.length).toEqual(1);
+    expect(newState.foodsBeingAddedToNewMeal[0].id).toEqual(73534324);
 });
 
 it('handle SHOW_MEAL_DETAILS', () => {
