@@ -13,11 +13,6 @@ class Meal extends React.Component {
         });
     }
 
-    onSelect = () => {
-        console.log('something selected')
-        const a = 5 + 5;
-    }
-
     render() {
 
 
@@ -28,7 +23,8 @@ class Meal extends React.Component {
                     <li>{this.props.foods[object.id].name}</li>
                     <input type="text" size="1" onChange={
                         (e) => {
-                            object.quantity = e.target.value
+                            object.quantity = e.target.value,
+                            object.unit = "grams"
                         }
                     } />
                     grams<br />
