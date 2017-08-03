@@ -1,13 +1,42 @@
 import React from 'react';
+import Autocomplete from 'react-autocomplete';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 class MealsDetails extends React.Component {
+    state = {
+        value: 1,
+    };
     showItem = (item, value) => item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
-
-    handleChange = (event) => {
-        if(event.target.value !== "empty") {
-         this.props.onSelect(event.target.value);
+    handleChange = (event, index, value) => {
+        console.log(`event: ${event}, value: ${value}, index: ${index}`)
+        if (value !== "empty") {
+            this.props.onSelect(value);
         }
     }
+    handleChange1 = (event, index, value) => {
+        console.log(value)
+        this.setState({ value })
+    };
+
+    material() {
+        return (
+            <div>
+                <SelectField
+                    floatingLabelText="Frequency"
+                    value={this.state.value}
+                    onChange={this.handleChange1}
+                >
+                    <MenuItem value={1} primaryText="Never" />
+                    <MenuItem value={2} primaryText="Every Night" />
+                    <MenuItem value={3} primaryText="Weeknights" />
+                    <MenuItem value={4} primaryText="Weekends" />
+                    <MenuItem value={5} primaryText="Weekly" />
+                </SelectField>
+            </div>
+        );
+    }
+
     render() {
         // for(let key in this.props.meals) {
         //     console.log(this.props.meals[key])
@@ -26,16 +55,18 @@ class MealsDetails extends React.Component {
 
         const meals = this.props.meals;
         const meal = meals.map(item => {
-            return <option value={item.mealName}>{item.mealName}</option>
-        })
+            return <MenuItem value={item.mealName} primaryText={item.mealName} />
+        });
+
+        const coolSelect = this.material();
 
         return (
             <div>
-                <h3>Meals details</h3>< br/>
-                <select onChange={this.handleChange}>
-                    <option value="empty">Choose meal</option>
+                {/* {coolSelect} */}
+                <h3>Meals details</h3><br />
+                <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
                     {meal}
-                </select>
+                </SelectField>
                 {foodDetailsList}
             </div>
         )
