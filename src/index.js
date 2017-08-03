@@ -8,8 +8,8 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import {fetchProducts, convertFoodsFromServer} from './functions.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
 
+injectTapEventPlugin();
 const foods = convertFoodsFromServer(fetchProducts());
 const initialState = {
   foods: foods,
