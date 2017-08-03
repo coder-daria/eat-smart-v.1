@@ -14,7 +14,6 @@ it('does not change the state if the action type is unknown', () => {
     let action = {type: 'UNKNOWN', content:{anything: "anything"}};
     store.dispatch(action);
     let newState = store.getState();
-    // let newState = reducer(initialState, action);
     
     expect(newState).toEqual(initialState);
 });
@@ -38,7 +37,7 @@ it('handles NEW_FOOD', () => {
 
 });
 
-it('handles SELECT_FOOD', () => { //done
+it('handles SELECT_FOOD', () => {
     let action = actions.selectFood(73534323);
     let newState = reducer(initialState, action);
 
@@ -51,19 +50,20 @@ it('handles ADD_SELECTED_FOOD', () => {
     let newState = reducer(initialState, action);
     
     expect(newState).not.toEqual(initialState);
-    expect(newState.foodsOfNewMeal[0]).toEqual(73534323);
+    expect(newState.foodsOfNewMeal[0]).toEqual({id:73534323});
     expect(newState.foodsOfNewMeal.length).toEqual(initialState.foodsOfNewMeal.length + 1);
 });
 
 
 it('handles REMOVE_SELECTED_FOOD', () =>{
-    initialState = {foods: {}, selected: 73534323, foodsOfNewMeal: [73534323], meals: [], mealsPreferences: []};
+    initialState = {foods: {}, selected: 73534324, foodsOfNewMeal: [{id: 73534323}, {id: 73534324}]};
     let action = actions.removeSelectedFood(73534323);
     let newState = reducer(initialState, action);
     
     expect(newState).not.toEqual(initialState);
     expect(newState.foodsOfNewMeal.length).not.toEqual(initialState.foodsOfNewMeal.length);
-    expect(newState.foodsOfNewMeal[0]).toEqual(undefined);
+    expect(newState.foodsOfNewMeal.length).toEqual(1);
+    expect(newState.foodsOfNewMeal[0].id).toEqual(73534324);
 });
 
 it('handle SHOW_MEAL_DETAILS', () => {
@@ -124,12 +124,6 @@ xit('TEMPLATE', () => {
     let newState = reducer(initialState, action);
     expect(newState).not.toEqual(initialState);
 });
-
-
-xit('THINGS TO DO', () => {
-})
-
-
 
 
 // expect(newState.foods.length).toEqual(y);

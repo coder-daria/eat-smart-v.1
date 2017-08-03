@@ -22,6 +22,7 @@ export default function reducer(state, action) {
 
         case actions.REMOVE_SELECTED_FOOD:
             let newArrayOfFoodsId = state.foodsOfNewMeal.filter(food => food.id !== action.content);
+            console.log(newArrayOfFoodsId)
             return Object.assign({}, state, { foodsOfNewMeal: newArrayOfFoodsId });
 
         case actions.ADD_FOODS_OF_NEW_MEAL_TO_MEALS:
@@ -40,8 +41,6 @@ export default function reducer(state, action) {
                     yourMeal = state.meals[key]
                 }
             }
-
-
             return Object.assign({}, state, {selectedMeal: yourMeal });
 
         case actions.ADD_PREFERENCE:
