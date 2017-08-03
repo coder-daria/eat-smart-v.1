@@ -11,7 +11,6 @@ import {fetchProducts, convertFoodsFromServer} from './functions.js';
 const foods = convertFoodsFromServer(fetchProducts());
 const initialState = {
   foods: foods,
-  selected: 0,
   foodsOfNewMeal: [],
   meals: [],
   mealsPreferences: []

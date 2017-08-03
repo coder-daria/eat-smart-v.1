@@ -6,7 +6,7 @@ let initialState;
 let store;
 
 beforeEach(() => {
-    initialState = {foods: {}, selected: 0, foodsOfNewMeal: [], meals: [], mealsPreferences: []};
+    initialState = {foods: {}, foodsOfNewMeal: [], meals: [], mealsPreferences: []};
     store = createStore(reducer, initialState);
 });
 
@@ -48,7 +48,7 @@ it('handles ADD_SELECTED_FOOD', () => {
 
 
 it('handles REMOVE_SELECTED_FOOD', () =>{
-    initialState = {foods: {}, selected: 73534324, foodsOfNewMeal: [{id: 73534323}, {id: 73534324}]};
+    initialState = {foods: {}, foodsOfNewMeal: [{id: 73534323}, {id: 73534324}]};
     let action = actions.removeSelectedFood(73534323);
     let newState = reducer(initialState, action);
     
