@@ -1,5 +1,5 @@
 import AddFood from './AddFood';
-import {addNewFoodToServer} from '../../Actions';
+import addNewFoodToServer from './addNewFoodToServer';
 import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
