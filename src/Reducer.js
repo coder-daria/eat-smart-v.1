@@ -12,9 +12,6 @@ export default function reducer(state, action) {
 
             return Object.assign({}, state, { foods: newItems });
 
-        case actions.SELECT_FOOD:
-            return Object.assign({}, state, { selected: action.content });
-
         case actions.ADD_SELECTED_FOOD:
             let objectWithId = {id: action.content}
             let arrayOfId = [...state.foodsOfNewMeal, objectWithId];

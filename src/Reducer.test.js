@@ -37,14 +37,6 @@ it('handles NEW_FOOD', () => {
 
 });
 
-it('handles SELECT_FOOD', () => {
-    let action = actions.selectFood(73534323);
-    let newState = reducer(initialState, action);
-
-    expect(newState).not.toEqual(initialState);
-    expect(newState.selected).toEqual(73534323);
-});
-
 it('handles ADD_SELECTED_FOOD', () => {
     let action = actions.addSelectedFood(73534323);
     let newState = reducer(initialState, action);

@@ -1,6 +1,6 @@
 import EditFoodParent from './EditFoodParent';
 import { connect } from 'react-redux';
-import {selectFood, editFood} from '../../Actions';
+import {editFood} from '../../Actions';
 import {convertObjectToArray} from '../../functions.js';
 
 const mapStateToProps = state => {

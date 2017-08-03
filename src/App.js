@@ -3,7 +3,6 @@ import './App.css';
 // import Chart from './Chart';
 import SearchContainer from './features/search/SearchContainer';
 import AddNewProductContainer from "./features/addNewFood/AddNewProductContainer";
-// import FoodDetailsContainer from "./features/foodDetails/FoodDetailsContainer";
 import MealContainer from "./features/mealDetails/MealContainer";
 import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
@@ -24,7 +23,6 @@ class App extends Component {
           <Nav />
           <Route path='/addFood' component={AddNewProductContainer} />
           <Route path='/editFood' component={EditFoodContainer} />
-          {/*<Route path="/selectedFood" component={FoodDetailsContainer} />*/}
           <Route path="/addMeal" component={SearchContainer} />
           <Route path="/addMeal" component={MealContainer} />
           <Route path="/mealsDetails" component ={MealsDetailsContainer} />
