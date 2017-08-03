@@ -2,6 +2,7 @@ import React from 'react';
 import EditFoodSearch from './EditFoodSearch'
 import EditFoodChanges from './EditFoodChanges';
 import R from 'ramda';
+import PropTypes from 'prop-types';
 
 class EditFoodParent extends React.Component {
   state = {
@@ -22,5 +23,10 @@ class EditFoodParent extends React.Component {
     )
   }
 }
+
+EditFoodParent.propTypes = {
+    onSubmit: PropTypes.func,
+};
+
 
 export default EditFoodParent;

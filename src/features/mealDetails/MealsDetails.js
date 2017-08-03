@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MealsDetails extends React.Component {
     showItem = (item, value) => item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1
@@ -31,7 +32,7 @@ class MealsDetails extends React.Component {
 
         return (
             <div>
-                <h3>Meals details</h3>< br/>
+                <h3>Meals details</h3><br/>
                 <select onChange={this.handleChange}>
                     <option value="empty">Choose meal</option>
                     {meal}
@@ -41,5 +42,12 @@ class MealsDetails extends React.Component {
         )
     }
 }
+
+MealsDetails.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    theWholeMeal: PropTypes.object.isRequired,
+    meals: PropTypes.array.isRequired
+};
+
 
 export default MealsDetails;

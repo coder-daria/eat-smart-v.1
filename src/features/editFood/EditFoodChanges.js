@@ -1,12 +1,11 @@
 import React from 'react';
-import R from 'ramda';
+import PropTypes from 'prop-types';
 
 class EditFoodChanges extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      foodBeingChanged:this.props.selected
+      foodBeingChanged: this.props.selected
     }
   }
 
@@ -71,5 +70,10 @@ class EditFoodChanges extends React.Component {
     )
   }
 }
+
+EditFoodChanges.propTypes = {
+    onSubmit: PropTypes.func,
+    selected: PropTypes.object
+};
 
 export default EditFoodChanges;

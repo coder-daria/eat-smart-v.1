@@ -2,6 +2,7 @@ import React from 'react';
 import PreferencesButton from './PreferencesButton';
 import PreferenceForm from './PreferenceForm';
 import PreferencesMeal from './PreferencesMeal';
+import PropTypes from 'prop-types';
 
 class PreferencesParent extends React.Component {
   state = {
@@ -28,5 +29,9 @@ class PreferencesParent extends React.Component {
     )
   }
 }
+
+PreferencesParent.propTypes = {
+    mealsPreferences: PropTypes.array 
+};
 
 export default PreferencesParent;
