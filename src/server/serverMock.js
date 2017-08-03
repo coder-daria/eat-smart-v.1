@@ -31,6 +31,22 @@ function addFood(food){
   return new Promise(fn);
 }
 
+function addMeal(meal){
 
-const exports = {listAllProducts, addFood};
+  // const fetchOptions = { mode: 'cors', method: 'GET' };
+  //   fetch('http://localhost:3001', fetchOptions)
+  // .then(data => data.json())
+
+  function fn(resolve, reject){
+    setTimeout(() => {
+      const mealFromServer = Object.assign({}, meal, {id: uuidv4()});
+      resolve(mealFromServer);
+    }, 1000)
+  }
+
+  return new Promise(fn);
+}
+
+
+const exports = {listAllProducts, addFood, addMeal};
 export default exports;
