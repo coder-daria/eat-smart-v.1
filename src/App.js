@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 // import Chart from './Chart';
 import SearchContainer from './features/search/SearchContainer';
-import AddNewProductContainer from "./features/addNewFood/AddNewProductContainer";
-// import FoodDetailsContainer from "./features/foodDetails/FoodDetailsContainer";
-import MealContainer from "./features/mealDetails/MealContainer";
+import AddFoodContainer from "./features/addFood/AddFoodContainer";
+import MealContainer from "./features/addMeal/MealContainer";
 import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesFormContainer from './features/preferences/PreferencesFormContainer';
@@ -22,9 +21,8 @@ class App extends Component {
           <Date />
           <br/><br/>
           <Nav />
-          <Route path='/addFood' component={AddNewProductContainer} />
+          <Route path='/addFood' component={AddFoodContainer} />
           <Route path='/editFood' component={EditFoodContainer} />
-          {/*<Route path="/selectedFood" component={FoodDetailsContainer} />*/}
           <Route path="/addMeal" component={SearchContainer} />
           <Route path="/addMeal" component={MealContainer} />
           <Route path="/mealsDetails" component ={MealsDetailsContainer} />

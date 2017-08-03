@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class AddNewProduct extends React.Component {
+class AddFood extends React.Component {
     state = {
         name: "",
         fat: 0,
@@ -49,8 +49,8 @@ class AddNewProduct extends React.Component {
     }
 }
 
-AddNewProduct.propTypes = {
+AddFood.propTypes = {
     isLoading: PropTypes.bool,
 };
 
-export default AddNewProduct;
+export default AddFood;
