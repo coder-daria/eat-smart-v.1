@@ -19,6 +19,7 @@ class App extends Component {
   render() {
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Router>
         <div className='container'>
           <Time/>
@@ -34,6 +35,8 @@ class App extends Component {
         </div>
       </Router>
 =======
+=======
+>>>>>>> 363ec1aebf014c95f092865a8672e3914301b483
       <MuiThemeProvider>
         <Router>
           <div className='container'>
@@ -51,7 +54,10 @@ class App extends Component {
           </div>
         </Router>
       </MuiThemeProvider>
+<<<<<<< HEAD
 >>>>>>> fixing conflict by  adding changes
+=======
+>>>>>>> 363ec1aebf014c95f092865a8672e3914301b483
     );
   }
 }
