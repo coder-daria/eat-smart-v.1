@@ -1,6 +1,16 @@
 import * as actions from './Actions';
+import {fetchProducts, convertFoodsFromServer} from './functions.js';
 
-export default function reducer(state, action) {
+const foods = convertFoodsFromServer(fetchProducts());
+
+const initialState = {
+  foods: foods,
+  foodsBeingAddedToNewMeal: [],
+  meals: [],
+  mealsPreferences: []
+};
+
+export default function reducer(state = initialState, action) {
     switch (action.type) {
         case actions.NEW_FOOD:
             let newItems = { ...state.foods, ...action.content };

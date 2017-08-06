@@ -34,6 +34,16 @@ const Nav = () => {
           Preferences
         </NavLink>
       </li>
+       <li>
+        <NavLink activeClassName='active' to='/demo'>
+          DemoForm
+        </NavLink>
+      </li>
+       <li>
+        <NavLink activeClassName='active' to='/demoArray'>
+          DemoFormArray
+        </NavLink>
+      </li>
     </ul>
   )
 }

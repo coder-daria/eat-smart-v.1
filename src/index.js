@@ -6,16 +6,8 @@ import reducer from './Reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import {fetchProducts, convertFoodsFromServer} from './functions.js';
 
-const foods = convertFoodsFromServer(fetchProducts());
-const initialState = {
-  foods: foods,
-  foodsBeingAddedToNewMeal: [],
-  meals: [],
-  mealsPreferences: []
-};
-let store = createStore(initialState);
+let store = createStore();
 
 window.s = store;
 

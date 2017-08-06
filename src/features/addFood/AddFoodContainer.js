@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const mapStateToProps = state => {
   return {
-    isLoading: state.isLoading
+    isLoading: state.foods.isLoading
   }
 }
 
