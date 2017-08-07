@@ -1,56 +1,77 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form'
 
-class AddFood extends React.Component {
-    state = {
-        name: "",
-        fat: 0,
-        protein: 0,
-        carbs: 0
+const validate = values => {
+    const errors = {}
+    if (!values.name || values.name.length < 2) {
+        errors.name = 'Required'
     }
-    handleInGeneral = type => event => {
-        this.setState({[type]: event.target.value})
+    if (!values.fat) {
+        errors.fat = 'Required'
     }
-
-    handleSubmit = event => {
-        event.preventDefault();
-        this.props.onSubmit(this.state);
+    if (!values.protein) {
+        errors.protein = "Required";
     }
-
-    render() {
-        const loading = this.props.isLoading ? <p>loading</p> : null;
-        return (
-            <div>
-                <form className="container" onSubmit={this.handleSubmit}>
-                    <label>
-                        Name<br/>
-                        <input onChange={this.handleInGeneral("name")} type="text" name="name" />
-                    </label>
-                    <br />
-                    <label>
-                        Fat <br/>
-                        <input onChange={this.handleInGeneral("fat")} type="text" name="fat" />
-                    </label>
-                    <br />
-                    <label>
-                        Protein<br/>
-                        <input onChange={this.handleInGeneral("protein")} type="text" name="protein" />
-                    </label>
-                    <br />
-                    <label>
-                        Carbs<br/>
-                        <input onChange={this.handleInGeneral("carbs")} type="text" name="carbs" />
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                {loading}
-            </div>
-        )
+    if (!values.carbs) {
+        errors.carbs = "Required";
     }
+    return errors
 }
 
+const wrongField = {
+    border: "2px solid lightcoral",
+    outline: "none" 
+}
+
+const renderField = field => {
+    const style = field.meta.dirty && field.meta.error ? wrongField : undefined;
+    return (
+        <div>
+            <label>
+                {field.label}
+            </label>
+            <div>
+                <input style={style} {...field.input} placeholder={field.label} type={field.type} />
+                {field.meta.touched &&
+                    ((field.meta.error &&
+                        <span>
+                            {field.meta.error}
+                        </span>))}
+            </div>
+        </div>
+    )
+}
+const AddFood = props => {
+    const { pristine, reset, invalid, handleSubmit } = props
+    const loading = props.isLoading ? <p>loading</p> : null;
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <Field name="name" type="text" component={renderField} label="Name" />
+                <Field name="fat" type="number" component={renderField} label="Fat" />
+                <Field name="protein" type="number" component={renderField} label="Protein" />
+                <Field name="carbs" type="number" component={renderField} label="Carbs" />
+                <div>
+                    <button type="submit" disabled={invalid}>
+                        Submit
+                </button>
+                    <button type="button" disabled={pristine} onClick={reset}>
+                        Clear Values
+                </button>
+                </div>
+            </form>
+             {loading} 
+        </div>
+    )
+}
 AddFood.propTypes = {
     isLoading: PropTypes.bool,
 };
 
-export default AddFood;
+export default reduxForm({
+    form: 'addFood',
+    validate
+})(AddFood)
+
+
