@@ -1,17 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import PropTypes from 'prop-types';
-=======
 import Autocomplete from 'react-autocomplete';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
->>>>>>> fixing conflict by  adding changes
-=======
-import Autocomplete from 'react-autocomplete';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
->>>>>>> 363ec1aebf014c95f092865a8672e3914301b483
 
 class MealsDetails extends React.Component {
     state = {
@@ -72,21 +63,9 @@ class MealsDetails extends React.Component {
 
         return (
             <div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <h3>Meals details</h3><br/>
-                <select onChange={this.handleChange}>
-                    <option value="empty">Choose meal</option>
-=======
                 {/* {coolSelect} */}
                 <h3>Meals details</h3><br />
                 <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
->>>>>>> fixing conflict by  adding changes
-=======
-                {/* {coolSelect} */}
-                <h3>Meals details</h3><br />
-                <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
->>>>>>> 363ec1aebf014c95f092865a8672e3914301b483
                     {meal}
                 </SelectField>
                 {foodDetailsList}
