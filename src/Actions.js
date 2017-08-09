@@ -1,8 +1,5 @@
-import { convertFoodFromServer } from './functions';
-import server from './server/serverMock';
 
 export const NEW_FOOD = "NEW_FOOD";
-export const SELECT_FOOD = "SELECT_FOOD";
 export const ADD_SELECTED_FOOD = "ADD_SELECTED_FOOD";
 export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
 export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
@@ -15,22 +12,6 @@ export const IS_LOADING = "IS_LOADING";
 
 export const newFood = food => {
     return { type: NEW_FOOD, content: food };
-}
-
-export const addNewFoodToServer = food => dispatch => {
-    dispatch(isLoading(true));
-  server.addFood(food)
-        .then(data => {
-            console.log(`the server says ${data}`);
-            const newFoodFromServer = convertFoodFromServer(data);
-
-            dispatch(newFood(newFoodFromServer));
-            dispatch(isLoading(false));
-        });
-}
-
-export function selectFood(foodId) {
-    return { type: SELECT_FOOD, content: foodId };
 }
 
 export function addSelectedFood(foodId) {

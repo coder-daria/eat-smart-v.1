@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
@@ -72,5 +73,12 @@ class MealsDetails extends React.Component {
         )
     }
 }
+
+MealsDetails.propTypes = {
+    onSelect: PropTypes.func.isRequired,
+    theWholeMeal: PropTypes.object.isRequired,
+    meals: PropTypes.array.isRequired
+};
+
 
 export default MealsDetails;

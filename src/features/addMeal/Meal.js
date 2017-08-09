@@ -1,6 +1,6 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
-
+import PropTypes from 'prop-types';
 
 class Meal extends React.Component {
     state = {
@@ -13,22 +13,18 @@ class Meal extends React.Component {
         });
     }
 
-    onSelect = () => {
-        console.log('something selected')
-        const a = 5 + 5;
-    }
-
     render() {
 
 
-        let arrayOfId = this.props.foodsOfNewMeal;
+        let arrayOfId = this.props.foodsBeingAddedToNewMeal;
         let food = arrayOfId.map((object) => {
             return (
                 <div>
                     <li>{this.props.foods[object.id].name}</li>
                     <input type="text" size="1" onChange={
                         (e) => {
-                            object.quantity = e.target.value
+                            object.quantity = e.target.value,
+                            object.unit = "grams"
                         }
                     } />
                     grams<br />
@@ -50,7 +46,7 @@ class Meal extends React.Component {
                     {food}
                 </ul>
                 <button type="button" onClick={() => {
-                    this.props.addMeal(this.props.foodsOfNewMeal, this.state.name);
+                    this.props.addMeal(this.props.foodsBeingAddedToNewMeal, this.state.name);
                     this.setState({ name: "" });
                 }
                 }
@@ -59,5 +55,15 @@ class Meal extends React.Component {
         )
     }
 }
+
+Meal.propTypes = {
+    foodsBeingAddedToNewMeal: PropTypes.array.isRequired,
+    foods: PropTypes.object.isRequired,
+    removeFromMeal: PropTypes.func.isRequired, 
+    addMeal: PropTypes.func.isRequired, 
+    mealsPreferences: PropTypes.array,
+
+
+};
 
 export default Meal;

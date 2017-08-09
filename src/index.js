@@ -13,10 +13,8 @@ injectTapEventPlugin();
 const foods = convertFoodsFromServer(fetchProducts());
 const initialState = {
   foods: foods,
-  selected: 0,
-  foodsOfNewMeal: [],
+  foodsBeingAddedToNewMeal: [],
   meals: [],
-  predefinedMealsNames: [],
   mealsPreferences: []
 };
 let store = createStore(initialState);
@@ -77,31 +75,20 @@ store.dispatch({
 store.dispatch({
   type: 'ADD_FOODS_OF_NEW_MEAL_TO_MEALS',
   content: {
-    mealName: 'qwe',
+    mealName: 'breakfast',
     details: [
       {
         id: 'f400558e-251a-4f7e-8d05-66e35btomato',
-        quantity: '50'
+        quantity: '50',
+        unit: 'grams'
       },
       {
         id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
-        quantity: '50'
+        quantity: '50',
+        unit: 'grams'
       }
     ]
   }
 });
-
-// store.dispatch({
-//   type: 'ADD_FOODS_OF_NEW_MEAL_TO_MEALS',
-//   content: {
-//     mealName: 'breakfast',
-//     details: [
-//       {
-//         id: '46218af1-900a-437c-8cdc-5685f26f3974',
-//         quantity: '100'
-//       }
-//     ]
-//   }
-// });
 
 registerServiceWorker();

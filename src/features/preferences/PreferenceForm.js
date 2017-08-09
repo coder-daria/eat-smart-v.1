@@ -2,6 +2,7 @@ import React from 'react';
 import TimePicker from 'rc-time-picker';
 import 'rc-time-picker/assets/index.css';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 class PreferenceForm extends React.Component {
   state = {
@@ -18,7 +19,7 @@ class PreferenceForm extends React.Component {
       if(hour === null) {
         return;
       }
-      // console.log(moment(hour).minutes());
+
       let chosenUnixTimestamp = (moment(hour).unix()) * 1000; // seconds
 
       this.setState({
@@ -44,5 +45,10 @@ class PreferenceForm extends React.Component {
       )
   }
 }
+
+PreferenceForm.propTypes = {
+    handleSubmit: PropTypes.func.isRequired,
+    showForm: PropTypes.func.isRequired
+};
 
 export default PreferenceForm;

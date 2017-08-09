@@ -1,14 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import CircularProgress from 'material-ui/CircularProgress';
 
-class AddNewProduct extends React.Component {
+class AddFood extends React.Component {
     state = {
         name: "",
         fat: 0,
         protein: 0,
-        carbs: 0
+        carbs: 0,
+        completed: 0
     }
     handleInGeneral = type => event => {
-        this.setState({[type]: event.target.value})
+        this.setState({ [type]: event.target.value })
     }
 
     handleSubmit = event => {
@@ -17,35 +20,39 @@ class AddNewProduct extends React.Component {
     }
 
     render() {
-        const loading = this.props.isLoading ? <p>loading</p> : null;
+        const loading = this.props.isLoading ?  <CircularProgress /> : null;
         return (
             <div>
                 <form className="container" onSubmit={this.handleSubmit}>
                     <label>
-                        Name<br/>
+                        Name<br />
                         <input onChange={this.handleInGeneral("name")} type="text" name="name" />
                     </label>
                     <br />
                     <label>
-                        Fat <br/>
+                        Fat <br />
                         <input onChange={this.handleInGeneral("fat")} type="text" name="fat" />
                     </label>
                     <br />
                     <label>
-                        Protein<br/>
+                        Protein<br />
                         <input onChange={this.handleInGeneral("protein")} type="text" name="protein" />
                     </label>
                     <br />
                     <label>
-                        Carbs<br/>
+                        Carbs<br />
                         <input onChange={this.handleInGeneral("carbs")} type="text" name="carbs" />
                     </label>
                     <input type="submit" value="Submit" />
-                </form>
+                </form><br />
                 {loading}
             </div>
         )
     }
 }
 
-export default AddNewProduct;
+AddFood.propTypes = {
+    isLoading: PropTypes.bool,
+};
+
+export default AddFood;
