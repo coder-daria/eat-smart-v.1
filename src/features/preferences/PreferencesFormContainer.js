@@ -4,7 +4,7 @@ import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
   return {
-    mealsPreferences: state.mealsPreferences
+    mealsPreferences: state.foods.mealsPreferences
   }
 }
 

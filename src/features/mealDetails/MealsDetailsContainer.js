@@ -6,9 +6,9 @@ import R from 'ramda';
 
 
 const mapStateToProps = state => {
-  const selectedMeal = state.selectedMeal || { details: [], mealName: "" };
+  const selectedMeal = state.foods.selectedMeal || { details: [], mealName: "" };
   const foodsOfMeal = selectedMeal.details.map(object => {
-    return state.foods[object.id];
+    return state.foods.foods[object.id];
 
   });
 
@@ -31,7 +31,7 @@ const mapStateToProps = state => {
 
   return {
     theWholeMeal: { mealName: selectedMeal.mealName, mealDetails: mealDetails },
-    meals: state.meals
+    meals: state.foods.meals
   }
 }
 

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
-      foods: convertObjectToArray(state.foods)
+      foods: convertObjectToArray(state.foods.foods)
   }
 }
 
