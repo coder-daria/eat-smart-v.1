@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <Router>
-          <div className='container'>
+          <div>
             <Time />
             <Date />
             <MenuIcon />

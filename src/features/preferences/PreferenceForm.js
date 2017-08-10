@@ -36,10 +36,10 @@ class PreferenceForm extends React.Component {
 
   render() {
     return (
-        <form id="preferencesContainer" onSubmit={this.handleSave}>
-          Meal name :<input onChange={this.mealName} type="text" />
+        <form onSubmit={this.handleSave}>
+          Meal name :<br /><input onChange={this.mealName} type="text" /><br />
           Time: <br />
-          <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime}/>
+          <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime}/><br />
           <button type="submit" id="saveButton">Save</button>
         </form>
       )
