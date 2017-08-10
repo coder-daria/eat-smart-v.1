@@ -37,7 +37,6 @@ class Menu extends React.Component {
 
     render() {
         return (
- 
             <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -60,8 +59,8 @@ class Menu extends React.Component {
 const Nav = () => {
     return (
         <div className="menuContainer">
-            <NavigationMenu className="navigation"/>
-            <MenuIcon className="navigation"/>
+            <NavigationMenu className="navigation" />
+            <MenuIcon className="navigation" />
         </div>
     )
 

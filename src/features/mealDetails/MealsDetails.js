@@ -62,8 +62,7 @@ class MealsDetails extends React.Component {
         const coolSelect = this.material();
 
         return (
-            <div>
-                {/* {coolSelect} */}
+            <div className="MainContainer">
                 <h3>Meals details</h3><br />
                 <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
                     {meal}

@@ -40,7 +40,7 @@ class EditFoodChanges extends React.Component {
     const foodToEdit = this.state.foodBeingChanged;
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="MainContainer">
           <label>
             Name<br />
             <input onChange={this.handleName}

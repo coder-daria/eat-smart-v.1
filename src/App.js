@@ -20,9 +20,10 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 class App extends Component {
   render() {
     return (
+      <div className="appContainer">
       <MuiThemeProvider>
         <Router>
-          <div>
+          <div className="routerContainer">
             <Time />
             <Date />
             <br /><br />
@@ -36,6 +37,7 @@ class App extends Component {
           </div>
         </Router>
       </MuiThemeProvider>
+      </div>
     );
   }
 }

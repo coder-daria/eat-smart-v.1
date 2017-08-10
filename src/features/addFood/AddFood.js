@@ -20,10 +20,10 @@ class AddFood extends React.Component {
     }
 
     render() {
-        const loading = this.props.isLoading ?  <CircularProgress /> : null;
+        const loading = this.props.isLoading ? <CircularProgress /> : null;
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className="MainContainer">
+                <form onSubmit={this.handleSubmit} className="MainContainer">
                     <label>
                         Name<br />
                         <input onChange={this.handleInGeneral("name")} type="text" name="name" />
@@ -44,8 +44,8 @@ class AddFood extends React.Component {
                         <input onChange={this.handleInGeneral("carbs")} type="text" name="carbs" />
                     </label>
                     <input type="submit" value="Submit" />
+                    {loading}
                 </form><br />
-                {loading}
             </div>
         )
     }

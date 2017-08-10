@@ -19,11 +19,10 @@ class PreferencesParent extends React.Component {
 
   render() {
     const areThereMeals = this.props.mealsPreferences.length > 0;
-    const preferedMeals = areThereMeals ? <PreferencesMeal {...this.props} /> : <div> {"No preferences"}</div>;
+    const preferedMeals = areThereMeals ? <PreferencesMeal {...this.props} /> : <h2>{"No preferences"}</h2>;
     return (
-      <div>
+      <div className="MainContainer">
         {preferedMeals}
-        <br />
         {this.state.showFormComponent ? <PreferenceForm {...this.props} showForm={this.showForm} showPreferences={this.showChosenPreference}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
       </div>
     )
