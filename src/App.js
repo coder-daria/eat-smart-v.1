@@ -25,7 +25,6 @@ class App extends Component {
           <div>
             <Time />
             <Date />
-            <MenuIcon />
             <br /><br />
             <Nav />
             <Route path='/addFood' component={AddFoodContainer} />
