@@ -5,6 +5,7 @@ import TimePicker from 'material-ui/TimePicker';
 import AutoComplete from 'material-ui/AutoComplete';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class PreferenceForm extends React.Component {
   state = {
@@ -39,14 +40,18 @@ class PreferenceForm extends React.Component {
 
 
   render() {
+    const buttonStyles = {
+      backgroundColor: "rgb(0, 188, 212)",
+    }
     return (
       <form onSubmit={this.handleSave}>
         {/* Meal name :<br /><input onChange={this.mealName} type="text" /> */}
-         Meal name :<br />  
-          <AutoComplete hintText="Type anything" dataSource={this.state.dataSource} onUpdateInput={this.mealName}/><br />
-         {/* <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime} /><br />    */}
+        Meal name :<br />
+        <AutoComplete hintText="Type anything" dataSource={this.state.dataSource} onUpdateInput={this.mealName} /><br />
+        {/* <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime} /><br />    */}
         <TimePicker format="24hr" hintText="Choose time" onChange={this.handleTime} />
-        <button type="submit" id="saveButton">Save</button>
+        {/* <button type="submit" id="saveButton">Save</button> */}
+        <RaisedButton label="Save" type="submit" buttonStyle={buttonStyles} labelColor="white" />
       </form>
     )
   }

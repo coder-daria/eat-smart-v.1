@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class EditFoodChanges extends React.Component {
   constructor(props) {
@@ -38,6 +39,9 @@ class EditFoodChanges extends React.Component {
 
   render() {
     const foodToEdit = this.state.foodBeingChanged;
+    const buttonStyles = {
+      backgroundColor: "rgb(0, 188, 212)",
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit} className="MainContainer">
@@ -64,7 +68,8 @@ class EditFoodChanges extends React.Component {
             <input onChange={this.handleInGeneral("carbs")}
               type="text" name="carbs" value={foodToEdit.properties.carbs} />
           </label>
-          <input type="submit" value="Submit" />
+           {/* <input type="submit" value="Submit" />  */}
+           <RaisedButton label="Submit" type="submit" buttonStyle={buttonStyles} labelColor="white" /> 
         </form>
       </div>
     )
