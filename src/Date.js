@@ -1,6 +1,4 @@
 import React from 'react';
-// import DatePicker from 'react-datepicker';
-// import moment from 'moment';
 import DatePicker from 'material-ui/DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -15,12 +13,17 @@ class Date extends React.Component {
         this.setState({
             controlledDate: date,
         });
+
+        console.log("Hola!!");
+    }
+    today = () => {
+        return "2017-08-12";
     }
     render() {
         return (
             <div>
                 <DatePicker
-                    hintText="Choose date"
+                    hintText={this.today()}
                     value={this.state.controlledDate}
                     onChange={this.handleChange}
                 />
