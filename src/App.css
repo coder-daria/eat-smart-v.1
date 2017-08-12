@@ -3,7 +3,7 @@
       /* border: 2px solid red;   */
 }
 .mainContainer {
-     border: 2px solid blue; 
+     /* border: 2px solid blue;  */
     display: flex;
     flex-direction: column;
     align-items: left;
