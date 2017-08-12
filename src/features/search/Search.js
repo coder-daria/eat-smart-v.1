@@ -13,7 +13,7 @@ class Search extends React.Component {
             }
         }
         return (
-            <div>
+            <div className="mainContainer">
                 Search
                 <AutoComplete
                     items={this.props.foods}

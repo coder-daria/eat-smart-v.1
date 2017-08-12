@@ -1,10 +1,20 @@
-.container {
-    max-width: 200px;
-    display: flex;
-    flex-wrap: wrap;
+ .appContainer {
+      width: 100%; 
+      /* border: 2px solid red;   */
 }
+.mainContainer {
+     border: 2px solid blue; 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width:52%;
+    margin-left: auto;
+    margin-right: auto;
 
-label {
+}
+.mainContainer label, .mainContainer searchAutoComplete {
     flex: 1;
 }
+/*editFood.js*/
+
 

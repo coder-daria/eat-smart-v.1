@@ -6,8 +6,18 @@ import reducer from './Reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
+import {fetchProducts, convertFoodsFromServer} from './functions.js';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-let store = createStore();
+injectTapEventPlugin();
+const foods = convertFoodsFromServer(fetchProducts());
+const initialState = {
+  foods: foods,
+  foodsBeingAddedToNewMeal: [],
+  meals: [],
+  mealsPreferences: []
+};
+let store = createStore(initialState);
 
 window.s = store;
 

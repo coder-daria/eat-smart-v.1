@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
+
 class EditFoodSearch extends React.Component {
   state = {
     idOfFoodSelected: null
