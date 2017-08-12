@@ -47,7 +47,7 @@ const AddFood = props => {
     const { pristine, reset, invalid, handleSubmit } = props
     const loading = props.isLoading ? <CircularProgress />: null;
     return (
-        <div className="MainContainer">
+        <div className="mainContainer">
             <form onSubmit={handleSubmit}>
                 <Field name="name" type="text" component={renderField} label="Name" />
                 <Field name="fat" type="number" component={renderField} label="Fat" />

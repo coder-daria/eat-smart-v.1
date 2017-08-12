@@ -52,7 +52,7 @@ class EditFoodChanges extends React.Component {
     }
     return (
       <div>
-        <form onSubmit={this.handleSubmit} className="MainContainer">
+        <form onSubmit={this.handleSubmit}>
           <label>
             Name<br />
             <AutoComplete hintText="Name" dataSource={this.state.dataSource} onUpdateInput={this.handleName} searchText={foodToEdit.name}/><br />

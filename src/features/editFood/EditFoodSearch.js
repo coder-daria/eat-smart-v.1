@@ -18,7 +18,7 @@ class EditFoodSearch extends React.Component {
     //   }
     // }                   
     return (
-      <div className="MainContainer">
+      <div>
         Search
         <AutoComplete
           items={this.props.foods}

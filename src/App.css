@@ -1,22 +1,20 @@
  .appContainer {
       width: 100%; 
-     /* border: 2px solid red; */
+      /* border: 2px solid red;   */
 }
-.routerContainer {
-    position: relative;
-    /* border: 2px solid yellowgreen; */
-}
-.MainContainer {
-    /* border: 2px solid blue; */
+.mainContainer {
+     border: 2px solid blue; 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
+    width:52%;
+    margin-left: auto;
+    margin-right: auto;
 
 }
-.MainContainer label, .MainContainer searchAutoComplete {
+.mainContainer label, .mainContainer searchAutoComplete {
     flex: 1;
 }
-/* 
-.MainContainer .searchAutoComplete {
-    flex: 1;
-} */
+/*editFood.js*/
+
+

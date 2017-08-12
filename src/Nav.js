@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { withRouter } from 'react-router-dom'
 import MenuIcon from './MenuIcon';
@@ -11,12 +10,12 @@ const NavigationMenu = withRouter(({ history }) => (
 
 const styles = {
     tabs: {
-        width: 1500,
+        width: 1000,
         marginRight: "auto",
         marginLeft: "auto"
     },
     tab: {
-        width: 300
+        width: 250
     },
 };
 
@@ -24,7 +23,7 @@ class Menu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '/',
+            value: '/addMeal',
         };
     }
 
@@ -46,8 +45,6 @@ class Menu extends React.Component {
                 <Tab label="Edit Food" value="/editFood" style={styles.tab}>
                 </Tab>
                 <Tab label="Add meal" value="/addMeal" style={styles.tab}>
-                </Tab>
-                <Tab label="Meals details" value="/mealsDetails" style={styles.tab}>
                 </Tab>
                 <Tab label="Preferences" value="/preferences" style={styles.tab}>
                 </Tab>
