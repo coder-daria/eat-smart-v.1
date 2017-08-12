@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import {countGrams, caloriesPerDay} from './functions';
 
 var goal = caloriesPerDay(2000, 20, 30, 50);
@@ -23,7 +23,7 @@ var data = {
 class Chart extends React.Component {
     render() {
         return (
-            <Line data={data} width={600} height={250} />
+            <Doughnut data={data} width={600} height={250} />
         )
     }
 }

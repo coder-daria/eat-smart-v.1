@@ -1,8 +1,8 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
-import DatePickerr from 'material-ui/DatePicker';
+// import DatePicker from 'react-datepicker';
+// import moment from 'moment';
+import DatePicker from 'material-ui/DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
 
 class Date extends React.Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class Date extends React.Component {
     render() {
         return (
             <div>
-                <DatePickerr
+                <DatePicker
                     hintText="Choose date"
                     value={this.state.controlledDate}
                     onChange={this.handleChange}

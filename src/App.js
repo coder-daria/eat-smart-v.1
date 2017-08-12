@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Chart from './Chart';
+import Chart from './Chart';
 import SearchContainer from './features/search/SearchContainer';
 import AddFoodContainer from "./features/addFood/AddFoodContainer";
 import MealContainer from "./features/addMeal/MealContainer";
