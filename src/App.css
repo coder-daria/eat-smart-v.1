@@ -1,10 +1,22 @@
-.container {
-    max-width: 200px;
-    display: flex;
-    flex-wrap: wrap;
+ .appContainer {
+      width: 100%; 
+     /* border: 2px solid red; */
 }
+.routerContainer {
+    position: relative;
+    /* border: 2px solid yellowgreen; */
+}
+.MainContainer {
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-label {
+}
+.MainContainer label, .MainContainer searchAutoComplete {
     flex: 1;
 }
-
+/* 
+.MainContainer .searchAutoComplete {
+    flex: 1;
+} */

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddButton from "../../AddButton";
 
 class PreferencesButton extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.onClick} id='addButton'>+</button>
+        <AddButton onTouchTap={this.props.onClick}/>
       </div>
     )
   }

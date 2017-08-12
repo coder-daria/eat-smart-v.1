@@ -1,6 +1,11 @@
 import React from 'react';
 import moment from 'moment';
 
+const timeStyles = {
+  fontSize: 50,
+  color: "#67BCC7"
+}
+
 class Time extends React.Component {
   state = {
     intervalId: -1,
@@ -25,7 +30,7 @@ class Time extends React.Component {
   }
   render() {
     return (
-      <h2> {this.state.date} </h2>
+      <p style={timeStyles}>{this.state.date} </p>
      
     )
   }

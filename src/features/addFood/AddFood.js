@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form'
+import CircularProgress from 'material-ui/CircularProgress';
 
 const validate = values => {
     const errors = {}
@@ -44,9 +45,9 @@ const renderField = field => {
 }
 const AddFood = props => {
     const { pristine, reset, invalid, handleSubmit } = props
-    const loading = props.isLoading ? <p>loading</p> : null;
+    const loading = props.isLoading ? <CircularProgress />: null;
     return (
-        <div>
+        <div className="MainContainer">
             <form onSubmit={handleSubmit}>
                 <Field name="name" type="text" component={renderField} label="Name" />
                 <Field name="fat" type="number" component={renderField} label="Fat" />

@@ -1,31 +1,28 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
+// import moment from 'moment';
+import DatePicker from 'material-ui/DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import moment from 'moment';
 
 class Date extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            startDate: moment()
+            controlledDate: null,
         }
     }
-    handleChange = (date) => {
-        // console.log(moment(date).second());
+    handleChange = (event, date) => {
         this.setState({
-            startDate: date
-        })
+            controlledDate: date,
+        });
     }
     render() {
         return (
             <div>
                 <DatePicker
-                    dateFormat="DD/MM/YYYY"
-                    selected={this.state.startDate}
+                    hintText="Choose date"
+                    value={this.state.controlledDate}
                     onChange={this.handleChange}
-                    showMonthDropdown
-                    showYearDropdown
-                    withPortal
                 />
             </div>
         )

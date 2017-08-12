@@ -65,7 +65,7 @@ class Meal extends React.Component {
             )
         });
         return (
-            <div>
+            <div className="MainContainer">
                 <h2>Meal name:</h2>
                 <AutoComplete
                     items={this.props.mealsPreferences}
