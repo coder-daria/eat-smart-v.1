@@ -44,7 +44,7 @@ table {
 }
 /* end of HTML5 display-role reset for older browsers */
  body {
-	 	border: 2px solid grey;
+	 	/* border: 2px solid grey; */
 		background-color: #F0F4F5;
 		margin-right: auto;
 		margin-left: auto;

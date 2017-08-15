@@ -53,9 +53,6 @@ class EditFoodChanges extends React.Component {
 
   render() {
     const foodToEdit = this.state.foodBeingChanged;
-    const buttonStyles = {
-      backgroundColor: "rgb(0, 188, 212)",
-    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -78,7 +75,7 @@ class EditFoodChanges extends React.Component {
             Carbs<br />
             <AutoComplete hintText="Carbs" dataSource={this.state.dataSource} onUpdateInput={this.handleInGeneral1("carbs")} searchText={foodToEdit.properties.carbs}/><br />
           </label>
-           <RaisedButton label="Submit" type="submit" buttonStyle={buttonStyles} labelColor="white" /> 
+           <RaisedButton label="Submit" type="submit" primary={true}/> 
         </form>
       </div>
     )
