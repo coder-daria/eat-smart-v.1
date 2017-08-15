@@ -1,18 +1,29 @@
  .appContainer {
-      width: 100%; 
-      /* border: 2px solid red;   */
-}
-.mainContainer {
-     /* border: 2px solid blue;  */
-    display: flex;
-    flex-direction: column;
+     /* border: 2px solid red;      */
+    display: flex; 
+    flex-direction: column; 
     align-items: left;
-    width:52%;
+    width: 52%;
     margin-left: auto;
     margin-right: auto;
 }
-.mainContainer label, .mainContainer searchAutoComplete {
-    flex: 1;
+.header {
+    /* border: 2px solid yellowgreen; */
+    width: 100%;
+    flex: 1; 
+    display: flex;    
+    flex-direction: row; 
+    justify-content: space-between;
 }
+Time, Date, MenuIcon {
+    flex: 1;
+    border: 2px solid pink;
+}
+ .body {
+    /* border: 2px solid blueviolet; */
+    flex: 1;
+    align-self: flex-start;
+} 
+
 
 

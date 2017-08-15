@@ -24,9 +24,7 @@ class MenuIcon extends Component {
                     onChange={this.handleChangeSingle}
                     value={this.state.valueSingle}
                 >
-                    <MenuItem value="1" primaryText="Refresh" />
-                    <MenuItem value="2" primaryText="Settings" />
-                    <MenuItem value="3" primaryText="Help" />
+                    <MenuItem value="2" primaryText="Preference" />
                     <MenuItem value="4" primaryText="Sign out" />
                 </IconMenu>
             </div>

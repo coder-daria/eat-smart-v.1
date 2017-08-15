@@ -1,8 +1,6 @@
 import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { withRouter } from 'react-router-dom'
-import MenuIcon from './MenuIcon';
-
 
 const NavigationMenu = withRouter(({ history }) => (
     <Menu history={history} />
@@ -57,7 +55,6 @@ const Nav = () => {
     return (
         <div className="menuContainer">
             <NavigationMenu className="navigation" />
-            <MenuIcon className="navigation" />
         </div>
     )
 

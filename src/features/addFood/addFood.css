@@ -2,8 +2,9 @@
     /* border: 2px solid orangered; */
     display: flex;
     flex-direction: column;
-    align-items: left;
+    margin-left: 3%;
+    /* align-items: left;
     width:52%;
     margin-left: auto;
-    margin-right: auto;
+    margin-right: auto; */
 }
