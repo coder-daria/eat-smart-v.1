@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Autocomplete from 'react-autocomplete';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-
+import Chart from '../../Chart.js'
 class MealsDetails extends React.Component {
     state = {
         value: 1,
@@ -63,11 +63,16 @@ class MealsDetails extends React.Component {
 
         return (
             <div className="mainContainer">
+                <div>
                 <h3>Meals details</h3><br />
                 <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
                     {meal}
                 </SelectField>
                 {foodDetailsList}
+                </div>
+                <div>
+                <Chart />
+                </div>
             </div>
         )
     }

@@ -10,11 +10,11 @@ var data = {
     datasets: [
         {
             label: "Calories",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
+            backgroundColor: ["#F5F176", "#76E6F5","#F576B9"],
+            borderColor: "#FFFFFF",
             borderWidth: 2,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
+            hoverBackgroundColor: ["#F5EF31","#2FDDF5", "#F5409F"],
+            hoverBorderColor: ["#F5EF31","#2FDDF5", "#F5409F"],
             data: [diet.fat, diet.protein, diet.carbs],
         }
     ],
