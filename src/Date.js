@@ -17,7 +17,7 @@ class Date extends React.Component {
         this.setState({
             fullDate: date,
         });
-
+        
         if (this.state.fullDate !== null) {
             let prevMonth = this.state.fullDate.getMonth();
             let currentMonth = date.getMonth();
@@ -39,6 +39,7 @@ class Date extends React.Component {
             <div>
                 {calendarIcon}
                 <DatePicker
+                    autoOk={true}
                     hintText={this.today()}
                     value={this.state.controlledDate}
                     onChange={this.handleChange}
