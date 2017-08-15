@@ -16,7 +16,7 @@ class Search extends React.Component {
             <div>
                 Search
                 <AutoComplete
-                    items={this.props.foods}
+                    items={this.props.foodsToSearch}
                     onSelect={onSelect}
                 />
             </div>

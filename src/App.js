@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Chart from './Chart';
-import SearchContainer from './features/search/SearchContainer';
 import AddFoodContainer from "./features/addFood/AddFoodContainer";
-import MealContainer from "./features/addMeal/MealContainer";
+import MealParentContainer from "./features/addMeal/MealParentContainer";
 import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesFormContainer from './features/preferences/PreferencesFormContainer';
@@ -14,7 +13,6 @@ import Date from './Date';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-
 
 class App extends Component {
   render() {
@@ -28,8 +26,7 @@ class App extends Component {
             <Nav />
             <Route path='/addFood' component={AddFoodContainer} />
             <Route path='/editFood' component={EditFoodContainer} />
-            <Route path="/addMeal" component={SearchContainer} />
-            <Route path="/addMeal" component={MealContainer} />
+            <Route path="/addMeal" component={MealParentContainer} />
             <Route path="/addMeal" component={MealsDetailsContainer} />
             <Route path="/preferences" component={PreferencesFormContainer} />
           </div>

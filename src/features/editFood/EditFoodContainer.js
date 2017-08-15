@@ -1,5 +1,5 @@
-import EditFoodParent from './EditFoodParent';
 import { connect } from 'react-redux';
+import EditFoodParent from './EditFoodParent';
 import {editFood} from '../../Actions';
 import {convertObjectToArray} from '../../functions.js';
 
