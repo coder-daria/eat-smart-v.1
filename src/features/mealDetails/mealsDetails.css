@@ -1,0 +1,15 @@
+.mealsDetailsContainer {
+    /* border: 2px solid blueviolet; */
+    display: flex;
+    align-items: left;
+    width:52%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mealsDetails {
+  flex: 1;
+}
+
+.chart {
+  flex: 1;
+}

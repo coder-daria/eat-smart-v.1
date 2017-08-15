@@ -1,6 +1,8 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
+import Search from '../search/Search'
+import './meal.css';
 
 class Meal extends React.Component {
     state = {
@@ -65,7 +67,7 @@ class Meal extends React.Component {
             )
         });
         return (
-            <div className="mainContainer">
+            <div className="mealContainer">
                 <h2>Meal name:</h2>
                 <AutoComplete
                     items={this.props.mealsPreferences}

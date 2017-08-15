@@ -3,6 +3,7 @@ import EditFoodSearch from './EditFoodSearch'
 import EditFoodChanges from './EditFoodChanges';
 import R from 'ramda';
 import PropTypes from 'prop-types';
+import './editFoodParent.css';
 
 class EditFoodParent extends React.Component {
   state = {
@@ -16,9 +17,16 @@ class EditFoodParent extends React.Component {
   render() {
     const editFoodChanges = this.state.foodToEdit ? <EditFoodChanges selected={R.clone(this.state.foodToEdit)} onSubmit={this.props.onSubmit}/> : <p>Choose a food</p>;
     return (
-      <div className="mainContainer">
+      <div className="editFoodParentContainer">
+        <div className="search">
         <EditFoodSearch {...this.props} onSelect={this.onSelect}/>
-          {editFoodChanges} 
+        </div>
+        <div className="food">
+         {editFoodChanges} 
+        </div>
+        <div className="img">
+         <img width="500" height="300" src="http://del.h-cdn.co/assets/16/17/980x653/gallery-1461593822-delish-mexican-chicken-pasta-1.jpg" />
+        </div>
       </div>
     )
   }
