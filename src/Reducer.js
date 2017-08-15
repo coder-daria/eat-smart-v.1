@@ -69,7 +69,9 @@ export default function reducer(state = initialState, action) {
 
         case actions.IS_LOADING:
             return Object.assign({}, state, { isLoading: action.content });
-
+        
+        case actions.ADD_KCAL_PREFERENCES:
+            return Object.assign({},state,{kcalPreferences: Number(action.content)})
         default:
             return state;
     }

@@ -8,6 +8,7 @@ export const ADD_PREFERENCE = "ADD_PREFERENCE";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 export const EDIT_FOOD = "EDIT_FOOD";
 export const IS_LOADING = "IS_LOADING";
+export const ADD_KCAL_PREFERENCES = "ADD_KCAL_PREFERENCES";
 
 
 export const newFood = food => {
@@ -40,4 +41,7 @@ export function editFood(food) {
 
 export function isLoading(value) {
     return { type: IS_LOADING, content: value };
+}
+export function addKcalPreferences(value) {
+    return { type: ADD_KCAL_PREFERENCES, content: value };
 }
