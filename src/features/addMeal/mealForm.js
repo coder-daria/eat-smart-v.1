@@ -73,8 +73,8 @@ class awesomeForm extends React.Component {
           {field.label}
           <AutoComplete
                     items={this.props.mealsPreferences}
-                    onSelect={mealName => this.setState({name: mealName})}
-                    onChange={this.onChange}
+                    onSelect={field.input.onChange}
+                    onChange={field.input.onChange}
                 />
         </div>
       )
