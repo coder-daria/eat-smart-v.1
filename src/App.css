@@ -1,5 +1,5 @@
  .appContainer {
-     /* border: 2px solid red;      */
+      /* border: 2px solid red;       */
     display: flex; 
     flex-direction: column; 
     align-items: left;
@@ -8,7 +8,7 @@
     margin-right: auto;
 }
 .header {
-    /* border: 2px solid yellowgreen; */
+     /* border: 2px solid yellowgreen;  */
     width: 100%;
     flex: 1; 
     display: flex;    
@@ -20,9 +20,10 @@ Time, Date, MenuIcon {
     border: 2px solid pink;
 }
  .body {
-    /* border: 2px solid blueviolet; */
+     border: 2px solid blueviolet; 
     flex: 1;
-    align-self: flex-start;
+    width: 100%;
+    /* align-self: flex-start; */
 } 
 
 
