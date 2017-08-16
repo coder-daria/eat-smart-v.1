@@ -1,0 +1,7 @@
+.mealParentContainer {
+     /* border: 2px solid palegreen;  */
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-right: 3%;
+}

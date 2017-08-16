@@ -1,0 +1,6 @@
+.addFoodContainer {
+    /* border: 2px solid orangered; */
+    display: flex;
+    flex-direction: column;
+    margin: 0 3% 3% 3%;
+}

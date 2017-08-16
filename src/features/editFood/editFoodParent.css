@@ -1,0 +1,16 @@
+.editFoodParentContainer {
+    /* border: 2px solid orangered;  */
+    display: flex;
+    margin-left: 3%;
+    margin-right: 3%;
+    flex-flow: row wrap;
+}
+.search, .food, .img {
+    /* border: 2px solid orange;  */
+    flex: 1;
+}
+img {
+    max-width: 600px;  
+    min-width: 400px;
+    width: 100%
+}

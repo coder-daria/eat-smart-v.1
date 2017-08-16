@@ -1,0 +1,14 @@
+.mealsDetailsContainer {
+    /* border: 2px solid blueviolet; */
+    display: flex;
+    margin: 8% 3% 3% 3%;
+    flex-flow: row wrap;
+}
+.mealsDetails {
+  flex: 1;
+}
+
+.chart {
+  flex: 1;
+  max-width: 100%;
+}

@@ -4,6 +4,7 @@ import PreferenceForm from './PreferenceForm';
 import PreferencesMeal from './PreferencesMeal';
 import PreferencesKcalContainer from './PreferencesKcalContainer';
 import PropTypes from 'prop-types';
+import './preferencesParent.css';
 
 class PreferencesParent extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class PreferencesParent extends React.Component {
     const areThereMeals = this.props.mealsPreferences.length > 0;
     const preferedMeals = areThereMeals ? <PreferencesMeal {...this.props} /> : <h2>{"No preferences"}</h2>;
     return (
-      <div className="mainContainer">
+      <div className="preferencesContainer">
       <div className="kcalContainer">
         <PreferencesKcalContainer />
       </div>

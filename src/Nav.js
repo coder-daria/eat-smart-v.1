@@ -1,23 +1,10 @@
 import React from 'react';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import { withRouter } from 'react-router-dom'
-import MenuIcon from './MenuIcon';
-
 
 const NavigationMenu = withRouter(({ history }) => (
     <Menu history={history} />
 ))
-
-const styles = {
-    tabs: {
-        width: 1000,
-        marginRight: "auto",
-        marginLeft: "auto"
-    },
-    tab: {
-        width: 250
-    },
-};
 
 class Menu extends React.Component {
     constructor(props) {
@@ -39,14 +26,14 @@ class Menu extends React.Component {
             <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
-                style={styles.tabs}>
-                <Tab label="Add food" value="/addFood" style={styles.tab}>
+                className="tabs">
+                <Tab label="Add food" value="/addFood">
                 </Tab>
-                <Tab label="Edit Food" value="/editFood" style={styles.tab}>
+                <Tab label="Edit Food" value="/editFood">
                 </Tab>
-                <Tab label="Add meal" value="/addMeal" style={styles.tab}>
+                <Tab label="Add meal" value="/addMeal">
                 </Tab>
-                <Tab label="Preferences" value="/preferences" style={styles.tab}>
+                <Tab label="Preferences" value="/preferences">
                 </Tab>
             </Tabs>
         );
@@ -55,9 +42,8 @@ class Menu extends React.Component {
 
 const Nav = () => {
     return (
-        <div className="menuContainer">
-            <NavigationMenu className="navigation" />
-            <MenuIcon className="navigation" />
+        <div>
+            <NavigationMenu/>
         </div>
     )
 

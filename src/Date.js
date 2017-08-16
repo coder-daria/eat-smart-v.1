@@ -34,7 +34,6 @@ class Date extends React.Component {
 
         let datePicker;
         const calendarIcon = <IconButton type="submit" onTouchTap={() => datePicker.focus()} ><FontIcon className="material-icons" color={cyan600}>date_range</FontIcon></IconButton>;
-        // const button = <RaisedButton label={"Calendar"} type="submit" primary={true} onTouchTap={() => datePicker.focus()} />;
         return (
             <div>
                 {calendarIcon}
