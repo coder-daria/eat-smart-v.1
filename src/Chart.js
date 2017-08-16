@@ -23,7 +23,7 @@ var data = {
 class Chart extends React.Component {
     render() {
         return (
-            <Doughnut data={data} width={110} height={100} />
+            <Doughnut data={data} width="300px" height="300px"/>
         )
     }
 }

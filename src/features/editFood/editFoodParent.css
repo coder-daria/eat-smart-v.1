@@ -2,12 +2,15 @@
     /* border: 2px solid orangered;  */
     display: flex;
     margin-left: 3%;
-    /* align-items: left;
-    width:52%;
-    /* margin-left: auto; */
-    /* margin-right: auto; */ 
+    margin-right: 3%;
+    flex-flow: row wrap;
 }
 .search, .food, .img {
     /* border: 2px solid orange;  */
     flex: 1;
+}
+img {
+    max-width: 600px;  
+    min-width: 400px;
+    width: 100%
 }

@@ -72,8 +72,8 @@ class MealsDetails extends React.Component {
                     </SelectField>
                     {foodDetailsList}
                 </div>
-                <div className="chart">
-                    <Chart />
+                <div>
+                    <Chart className="chart"/>
                 </div>
             </div>
         )

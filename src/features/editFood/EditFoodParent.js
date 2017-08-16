@@ -25,7 +25,7 @@ class EditFoodParent extends React.Component {
          {editFoodChanges} 
         </div>
         <div className="img">
-         <img width="500" height="300" src="http://del.h-cdn.co/assets/16/17/980x653/gallery-1461593822-delish-mexican-chicken-pasta-1.jpg" />
+         <img alt="img" src="http://del.h-cdn.co/assets/16/17/980x653/gallery-1461593822-delish-mexican-chicken-pasta-1.jpg" />
         </div>
       </div>
     )
