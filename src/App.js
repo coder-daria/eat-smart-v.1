@@ -23,7 +23,9 @@ class App extends Component {
             <div className="appContainer">
               <div className="header">
                 <Time />
+                Time for dinner
                 <Date />
+                Username
                 <MenuIcon />
               </div>
               <div className="body">
