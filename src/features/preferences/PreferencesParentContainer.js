@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import {addPreference, updatePreference} from '../../Actions';
+import {addPreference} from '../../Actions';
 import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
   return {
-    mealsPreferences: state.foods.mealsPreferences
+    mealsPreferences: state.foods.preferences.meals
   }
 }
 
@@ -14,9 +14,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const PreferencesFormContainer = connect(
+const PreferencesParentContainer = connect(
   mapStateToProps, 
   mapDispatchToProps
 )(PreferencesParent)
 
-export default PreferencesFormContainer;
+export default PreferencesParentContainer;

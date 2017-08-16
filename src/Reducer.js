@@ -7,7 +7,10 @@ const initialState = {
   foods: foods,
   foodsBeingAddedToNewMeal: [],
   meals: [],
-  mealsPreferences: []
+  preferences: {
+    kcal: 0,
+    meals: []
+  }
 };
 
 export default function reducer(state = initialState, action) {
@@ -57,8 +60,12 @@ export default function reducer(state = initialState, action) {
 
         case actions.ADD_PREFERENCE:
             let preference = action.content;
-            let mealsPreferences = [...state.mealsPreferences, preference]
-            return Object.assign({}, state, { mealsPreferences: mealsPreferences });
+            let mealsPreferences = [...state.preferences.meals, preference]
+            return Object.assign({}, state, { preferences: {
+                kcal: state.preferences.kcal,
+                meals: mealsPreferences
+            }
+         });
 
         case actions.EDIT_FOOD:
             let foodID = action.content.properties.id;
@@ -71,7 +78,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { isLoading: action.content });
         
         case actions.ADD_KCAL_PREFERENCES:
-            return Object.assign({},state,{kcalPreferences: Number(action.content)})
+            let kcalPerDay = Number(action.content)
+            return Object.assign({}, state, { preferences: { kcal: kcalPerDay, meals: [...state.preferences.meals]}})
         default:
             return state;
     }
