@@ -1,52 +1,60 @@
 import React from 'react';
 import DatePicker from 'material-ui/DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
-import {cyan600} from 'material-ui/styles/colors';
+import { cyan600 } from 'material-ui/styles/colors';
+import moment from 'moment';
 
 class Date extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            fullDate: null,
+            fullDateDisplay: this.today(),
+            currentMonth: moment().month() 
         }
     }
     handleChange = (event, date) => {
+        let choosenDay = moment(date).format('DD MMMM YYYY');
         this.setState({
-            fullDate: date,
-        });
-        
-        if (this.state.fullDate !== null) {
-            let prevMonth = this.state.fullDate.getMonth();
-            let currentMonth = date.getMonth();
+            fullDateDisplay: choosenDay
+        })
 
-            if (prevMonth !== currentMonth) {
-                console.dir("New month!!");
-            }
-        }
-    }
-    today = () => {
-        return "2017-08-12";
-    }
-    render() {
+        let previous = this.state.currentMonth; 
+        let current = moment(date).month(); 
 
-        let datePicker;
-        const calendarIcon = <IconButton type="submit" onTouchTap={() => datePicker.focus()} ><FontIcon className="material-icons" color={cyan600}>date_range</FontIcon></IconButton>;
-        return (
-            <div>
-                {calendarIcon}
-                <DatePicker
-                    autoOk={true}
-                    hintText={this.today()}
-                    value={this.state.controlledDate}
-                    onChange={this.handleChange}
-                    ref={c => datePicker = c}
-                />
-            </div>
-        )
+        if (previous !== current) {
+            console.dir("New month!!");
+            this.setState({
+                currentMonth: moment(date).month() 
+            });
+        } 
     }
+
+today = () => {
+    let today = moment().format('DD MMMM YYYY');
+    return today;
+}
+render() {
+
+    let datePicker;
+    const calendarIcon = <IconButton type="submit" onTouchTap={() => datePicker.focus()} ><FontIcon className="material-icons" color={cyan600}>date_range</FontIcon></IconButton>;
+    return (
+        <div>
+            {calendarIcon}
+            <DatePicker
+                autoOk={true}
+                hintText={this.state.fullDateDisplay}
+                value={this.state.controlledDate}
+                onChange={this.handleChange}
+                ref={c => {
+                    console.log(c);
+                    return datePicker = c
+                }}
+            />
+        </div>
+    )
+}
 }
 
 export default Date;
