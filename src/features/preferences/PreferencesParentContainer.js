@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {addPreference} from '../../Actions';
+import {addPreference, removePreference} from '../../Actions';
 import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
@@ -10,7 +10,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleSubmit : mealPreference => dispatch(addPreference(mealPreference))
+    handleSubmit : mealPreference => dispatch(addPreference(mealPreference)),
+    removePreference : name => dispatch(removePreference(name))
   }
 }
 

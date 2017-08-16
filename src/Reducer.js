@@ -1,16 +1,16 @@
 import * as actions from './Actions';
-import {fetchProducts, convertFoodsFromServer} from './functions.js';
+import { fetchProducts, convertFoodsFromServer } from './functions.js';
 
 const foods = convertFoodsFromServer(fetchProducts());
 
 const initialState = {
-  foods: foods,
-  foodsBeingAddedToNewMeal: [],
-  meals: [],
-  preferences: {
-    kcal: 0,
-    meals: []
-  }
+    foods: foods,
+    foodsBeingAddedToNewMeal: [],
+    meals: [],
+    preferences: {
+        kcal: 0,
+        meals: []
+    }
 };
 
 export default function reducer(state = initialState, action) {
@@ -61,11 +61,22 @@ export default function reducer(state = initialState, action) {
         case actions.ADD_PREFERENCE:
             let preference = action.content;
             let mealsPreferences = [...state.preferences.meals, preference]
-            return Object.assign({}, state, { preferences: {
-                kcal: state.preferences.kcal,
-                meals: mealsPreferences
-            }
-         });
+            return Object.assign({}, state, {
+                preferences: {
+                    kcal: state.preferences.kcal,
+                    meals: mealsPreferences
+                }
+            });
+        case actions.REMOVE_PREFERENCE:
+            let preferenceToRemove = action.content; //name
+            let newUserPreferences = state.preferences.meals.filter(meal => meal.name !== preferenceToRemove);
+
+            return Object.assign({}, state, {
+                preferences: {
+                    kcal: state.preferences.kcal,
+                    meals: newUserPreferences
+                }
+            });
 
         case actions.EDIT_FOOD:
             let foodID = action.content.properties.id;
@@ -76,10 +87,10 @@ export default function reducer(state = initialState, action) {
 
         case actions.IS_LOADING:
             return Object.assign({}, state, { isLoading: action.content });
-        
+
         case actions.ADD_KCAL_PREFERENCES:
             let kcalPerDay = Number(action.content)
-            return Object.assign({}, state, { preferences: { kcal: kcalPerDay, meals: [...state.preferences.meals]}})
+            return Object.assign({}, state, { preferences: { kcal: kcalPerDay, meals: [...state.preferences.meals] } })
         default:
             return state;
     }
