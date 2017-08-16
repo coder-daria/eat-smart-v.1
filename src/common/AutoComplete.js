@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactAutoComplete from 'react-autocomplete';
 import PropTypes from 'prop-types';
+import AutoComplete1 from 'material-ui/AutoComplete';
 
 class AutoComplete extends React.Component {
     state = {
@@ -49,9 +50,7 @@ class AutoComplete extends React.Component {
                 return <img alt={item.name} src={item.properties.url} width="200" height="100" />
             }
         }
-        return (
-            <div>
-                <ReactAutoComplete
+        const previousAutoComplete = <ReactAutoComplete
                     getItemValue={this.getItemValue}
                     renderItem={(item, isHighlighted) =>
                         <div>
@@ -66,7 +65,18 @@ class AutoComplete extends React.Component {
                     onChange={this.onChange}
                     onSelect={this.onSelect} // The this.props.onSelect refers to what?
                     shouldItemRender={this.shouldItemRender}
-                />
+                />;
+        const config = {text: 'name', value: 'name'};
+        return (
+            <div>
+                {previousAutoComplete}
+                <AutoComplete1
+                    floatingLabelText="showAllItems"
+                    hintText="Type anything"
+                    openOnFocus={true}
+                    filter={AutoComplete1.noFilter}
+                    dataSource={this.props.items}
+                    dataSourceConfig={config} />
             </div>
 
         )

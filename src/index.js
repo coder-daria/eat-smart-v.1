@@ -94,4 +94,22 @@ store.dispatch({
   }
 });
 
+store.dispatch({
+  type: 'ADD_PREFERENCE',
+  content: {
+    name: 'breakfast',
+    seconds: 1502857821000,
+    dataSource: []
+  }
+})
+
+store.dispatch({
+  type: 'ADD_PREFERENCE',
+  content: {
+    name: 'lunch',
+    seconds: 1502857821000,
+    dataSource: []
+  }
+})
+
 registerServiceWorker();

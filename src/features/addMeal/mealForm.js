@@ -80,6 +80,18 @@ class awesomeForm extends React.Component {
         )
     }
 
+    renderSelectField = field => {
+        return (
+            <TextField
+                hintText={field.label}
+                floatingLabelText={field.label}
+                errorText={field.meta.touched && field.meta.error}
+                {...field.input}
+                {...field.custom}
+            />
+        )
+    }
+
     renderMealPreferences = field => {
       return(
         <div>
