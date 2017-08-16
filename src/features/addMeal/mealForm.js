@@ -2,6 +2,7 @@ import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import {Field, FieldArray, reduxForm} from 'redux-form';
+import TextField from 'material-ui/TextField';
 import './mealForm.css';
 
 class awesomeForm extends React.Component {
@@ -46,7 +47,7 @@ class awesomeForm extends React.Component {
         return (
             <li key={index}>
                 <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name"/>
-                <Field name={`${food}.quantity`} type="number" component={renderFoodQuantity} label="Quantity"/>
+                <Field name={`${food}.quantity`} component={this.renderTextField} label="Quantity"/>
                 <button type="button" onClick={remove(index)}>Remove</button>
             </li>
         )
@@ -64,6 +65,18 @@ class awesomeForm extends React.Component {
                     {foods.fields.map(this.renderSingleFood)}
                 </ul>
             </div>
+        )
+    }
+
+    renderTextField = field => {
+        return (
+            <TextField
+                hintText={field.label}
+                floatingLabelText={field.label}
+                errorText={field.meta.touched && field.meta.error}
+                {...field.input}
+                {...field.custom}
+            />
         )
     }
 
