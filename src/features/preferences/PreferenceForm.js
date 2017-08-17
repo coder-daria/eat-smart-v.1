@@ -1,6 +1,6 @@
 import React from 'react';
 import TimePicker from 'material-ui/TimePicker';
-import AutoComplete from 'material-ui/AutoComplete';
+import TextField from 'material-ui/TextField';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -9,9 +9,8 @@ class PreferenceForm extends React.Component {
   state = {
     name: "",
     seconds: 0,
-    dataSource: []
   }
-  mealName = (value) => {
+  mealName = (event, value) => {
     this.setState({
       name: value,
     })
@@ -40,7 +39,7 @@ class PreferenceForm extends React.Component {
     return (
       <form onSubmit={this.handleSave}>
         Meal name :<br />
-        <AutoComplete hintText="Type anything" dataSource={this.state.dataSource} onUpdateInput={this.mealName} /><br />
+        <TextField hintText="Type anything"  type="text" onChange={this.mealName}/><br />
         <TimePicker format="24hr" hintText="Choose time" onChange={this.handleTime} />
         <RaisedButton label="Save" type="submit" primary={true} />
       </form>

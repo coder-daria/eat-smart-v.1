@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import AutoComplete from 'material-ui/AutoComplete';
 
 class EditFoodChanges extends React.Component {
   constructor(props) {
@@ -16,29 +16,14 @@ class EditFoodChanges extends React.Component {
     this.setState({ foodBeingChanged: nextProps.selected });
   }
 
-  handleName = (searchText,dataSource, params) => {
+  handleName = (event, searchText) => {
     this.setState(prevState => {
       const foodBeingChanged = prevState.foodBeingChanged;
       foodBeingChanged.name = searchText;
       return { foodBeingChanged: foodBeingChanged }
     });
   }
-    // handleName = event => {
-    // const value = event.target.value;
-    // this.setState(prevState => {
-    //   const foodBeingChanged = prevState.foodBeingChanged;
-    //   foodBeingChanged.name = value;
-    //   return { foodBeingChanged: foodBeingChanged }
-    // });
-//  handleInGeneral = type => event => {
-//     const value = event.target.value;
-//     this.setState(prevState => {
-//       const foodBeingChanged = prevState.foodBeingChanged;
-//       foodBeingChanged.properties[type] = value;
-//       return { foodBeingChanged: foodBeingChanged }
-//     });
-//   }
-  handleInGeneral1 = type => (searchText,dataSource, params) => {
+  handleInGeneral1 = type => (event, searchText) => {
     this.setState(prevState => {
       const foodBeingChanged = prevState.foodBeingChanged;
       foodBeingChanged.properties[type] = searchText;
@@ -58,24 +43,24 @@ class EditFoodChanges extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name<br />
-            <AutoComplete hintText="Name" dataSource={this.state.dataSource} onUpdateInput={this.handleName} searchText={foodToEdit.name}/><br />
+            <TextField hintText="Name" onChange={this.handleName} value={foodToEdit.name} type="text"/><br />
           </label>
           <br />
           <label>
             Fat <br />
-             <AutoComplete hintText="Fat" dataSource={this.state.dataSource} onUpdateInput={this.handleInGeneral1("fat")} searchText={foodToEdit.properties.fat}/><br />
+            <TextField hintText="Fat" onChange={this.handleInGeneral1("fat")} value={foodToEdit.properties.fat} type="number"/><br />
           </label>
           <br />
           <label>
             Protein<br />
-            <AutoComplete hintText="Protein" dataSource={this.state.dataSource} onUpdateInput={this.handleInGeneral1("protein")} searchText={foodToEdit.properties.protein}/><br />
+            <TextField hintText="Protein" onChange={this.handleInGeneral1("protein")} value={foodToEdit.properties.protein} type="number"/><br />
           </label>
           <br />
           <label>
             Carbs<br />
-            <AutoComplete hintText="Carbs" dataSource={this.state.dataSource} onUpdateInput={this.handleInGeneral1("carbs")} searchText={foodToEdit.properties.carbs}/><br />
+            <TextField hintText="Carbs" onChange={this.handleInGeneral1("carbs")} value={foodToEdit.properties.carbs} type="number"/><br />
           </label>
-           <RaisedButton label="Submit" type="submit" primary={true}/> 
+          <RaisedButton label="Submit" type="submit" primary={true} />
         </form>
       </div>
     )
@@ -83,8 +68,8 @@ class EditFoodChanges extends React.Component {
 }
 
 EditFoodChanges.propTypes = {
-    onSubmit: PropTypes.func,
-    selected: PropTypes.object
+  onSubmit: PropTypes.func,
+  selected: PropTypes.object
 };
 
 export default EditFoodChanges;

@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
-import MealParent from './MealParent';
+import mealForm from './mealForm';
 import {removeSelectedFood, addFoodsOfNewMealToMeals, addSelectedFood} from "../../Actions";
 import {convertObjectToArray} from '../../functions';
-
-
 
 const mapStateToProps = state => {
   return {
@@ -18,13 +16,14 @@ const mapDispatchToProps = dispatch => {
   return {
     removeFromMeal: foodId => dispatch(removeSelectedFood(foodId)),
     addMeal : (meal, mealName) => dispatch(addFoodsOfNewMealToMeals(meal, mealName)),
-    onSelect: (foodId) => {dispatch(addSelectedFood(foodId))}
+    onSelect: (foodId) => {dispatch(addSelectedFood(foodId))},
+    awesomeAddMeal: values => console.log(values),
   }
 }
 
 const MealParentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MealParent)
+)(mealForm)
 
 export default MealParentContainer;
