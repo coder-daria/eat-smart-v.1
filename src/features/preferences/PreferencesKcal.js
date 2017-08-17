@@ -1,14 +1,13 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import AutoComplete from 'material-ui/AutoComplete';
+import TextField from 'material-ui/TextField';
 import PropTypes from 'prop-types';
 
 class PreferencesKcal extends React.Component {
     state = {
         kcal: 0,
-        dataSource: []
     }
-    handleKcal = (value) => {
+    handleKcal = (event, value) => {
         this.setState({
             kcal: value
         })
@@ -20,7 +19,7 @@ class PreferencesKcal extends React.Component {
     render() {
         return (
             <form onSubmit={this.handleSave}>
-                <AutoComplete hintText="Kcal" dataSource={this.state.dataSource} onUpdateInput={this.handleKcal} /><br />
+                <TextField hintText="Daily kcal" type="number" onChange={this.handleKcal} /><br />
                 <RaisedButton label="Save" type="submit" primary={true} />
             </form>
         )

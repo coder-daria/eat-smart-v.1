@@ -23,21 +23,6 @@ class EditFoodChanges extends React.Component {
       return { foodBeingChanged: foodBeingChanged }
     });
   }
-  // handleName = event => {
-  // const value = event.target.value;
-  // this.setState(prevState => {
-  //   const foodBeingChanged = prevState.foodBeingChanged;
-  //   foodBeingChanged.name = value;
-  //   return { foodBeingChanged: foodBeingChanged }
-  // });
-  //  handleInGeneral = type => event => {
-  //     const value = event.target.value;
-  //     this.setState(prevState => {
-  //       const foodBeingChanged = prevState.foodBeingChanged;
-  //       foodBeingChanged.properties[type] = value;
-  //       return { foodBeingChanged: foodBeingChanged }
-  //     });
-  //   }
   handleInGeneral1 = type => (event, searchText) => {
     this.setState(prevState => {
       const foodBeingChanged = prevState.foodBeingChanged;
