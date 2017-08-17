@@ -27,22 +27,14 @@ const validate = values => {
 }
 
 const renderField = field => {
-    const wrongField = {
-        border: "1px solid #F72A45",
-    }
-    const errorMessage = {
-        color: "#F72A45",
-        fontWeight: "bold"
-    }
-    const style = field.meta.dirty && field.meta.error ? wrongField : undefined;
+    const errorText = field.meta.touched ? field.meta.error : null;
     return (
         <div>
             <label>
                 {field.label}
             </label>
             <div>
-                <TextField hintText={field.label} {...field.input} type={field.type} underlineStyle={style} /><br />
-                {field.meta.touched && ((field.meta.error && <span style={errorMessage}>{field.meta.error}</span>))}
+                <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
             </div><br />
         </div>
     )
