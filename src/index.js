@@ -15,7 +15,10 @@ const initialState = {
   foods: foods,
   foodsBeingAddedToNewMeal: [],
   meals: [],
-  mealsPreferences: []
+  preferences: {
+    kcal: 0,
+    meals: []
+  }
 };
 let store = createStore(initialState);
 

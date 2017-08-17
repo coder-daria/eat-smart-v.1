@@ -10,7 +10,7 @@ const mapStateToProps = state => {
     foodsBeingAddedToNewMeal: state.foods.foodsBeingAddedToNewMeal,
     foods: state.foods.foods,
     foodsToSearch: convertObjectToArray(state.foods.foods),
-    mealsPreferences: state.foods.mealsPreferences
+    mealsPreferences: state.foods.preferences.meals
   }
 }
 

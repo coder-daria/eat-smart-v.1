@@ -6,7 +6,7 @@ let initialState;
 let store;
 
 beforeEach(() => {
-    initialState = {foods: {}, foodsBeingAddedToNewMeal: [], meals: [], mealsPreferences: []};
+    initialState = {foods: {}, foodsBeingAddedToNewMeal: [], meals: [], preferences: {kcal: 0, meals: []}};
     store = createStore(reducer, initialState);
 });
 
@@ -79,9 +79,9 @@ it('handle ADD_PREFERENCE', () => {
     let newState = reducer(initialState, action);
 
     expect(newState).not.toEqual(initialState);
-    expect(newState.mealsPreferences.length).not.toEqual(initialState.mealsPreferences.length);
-    expect(newState.mealsPreferences[0].name).toEqual("breakfast");
-    expect(newState.mealsPreferences[0].seconds).toEqual(12);
+    expect(newState.preferences.meals.length).not.toEqual(initialState.preferences.meals.length);
+    expect(newState.preferences.meals[0].name).toEqual("breakfast");
+    expect(newState.preferences.meals[0].seconds).toEqual(12);
 });
 
 it('handle EDIT_FOOD', () => {

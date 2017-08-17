@@ -1,6 +1,4 @@
 import React from 'react';
-// import TimePicker from 'rc-time-picker';
-// import 'rc-time-picker/assets/index.css';
 import TimePicker from 'material-ui/TimePicker';
 import AutoComplete from 'material-ui/AutoComplete';
 import moment from 'moment';
@@ -11,7 +9,7 @@ class PreferenceForm extends React.Component {
   state = {
     name: "",
     seconds: 0,
-    dataSource: [] //`dataSource` is marked as required in `AutoComplete`;
+    dataSource: []
   }
   mealName = (value) => {
     this.setState({
@@ -26,7 +24,6 @@ class PreferenceForm extends React.Component {
     if (object === null) {
       return;
     }
-    // let chosenUnixTimestamp = (moment(time).unix()) * 1000; // seconds
     this.setState({
       seconds: chosenUnixTimestamp
     })
@@ -40,18 +37,12 @@ class PreferenceForm extends React.Component {
 
 
   render() {
-    const buttonStyles = {
-      backgroundColor: "rgb(0, 188, 212)",
-    }
     return (
       <form onSubmit={this.handleSave}>
-        {/* Meal name :<br /><input onChange={this.mealName} type="text" /> */}
         Meal name :<br />
         <AutoComplete hintText="Type anything" dataSource={this.state.dataSource} onUpdateInput={this.mealName} /><br />
-        {/* <TimePicker defaultValue={moment()} showSecond={false} onChange={this.handleTime} /><br />    */}
         <TimePicker format="24hr" hintText="Choose time" onChange={this.handleTime} />
-        {/* <button type="submit" id="saveButton">Save</button> */}
-        <RaisedButton label="Save" type="submit" buttonStyle={buttonStyles} labelColor="white" />
+        <RaisedButton label="Save" type="submit" primary={true} />
       </form>
     )
   }
