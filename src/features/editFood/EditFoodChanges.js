@@ -16,7 +16,7 @@ class EditFoodChanges extends React.Component {
     this.setState({ foodBeingChanged: nextProps.selected });
   }
 
-  handleName = (searchText, dataSource, params) => {
+  handleName = (event, searchText) => {
     this.setState(prevState => {
       const foodBeingChanged = prevState.foodBeingChanged;
       foodBeingChanged.name = searchText;
@@ -58,22 +58,22 @@ class EditFoodChanges extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Name<br />
-            <TextField hintText="Name" onChange={this.handleName} value={foodToEdit.name} /><br />
+            <TextField hintText="Name" onChange={this.handleName} value={foodToEdit.name} type="text"/><br />
           </label>
           <br />
           <label>
             Fat <br />
-            <TextField hintText="Fat" onChange={this.handleInGeneral1("fat")} value={foodToEdit.properties.fat} /><br />
+            <TextField hintText="Fat" onChange={this.handleInGeneral1("fat")} value={foodToEdit.properties.fat} type="number"/><br />
           </label>
           <br />
           <label>
             Protein<br />
-            <TextField hintText="Protein" onChange={this.handleInGeneral1("protein")} value={foodToEdit.properties.protein} /><br />
+            <TextField hintText="Protein" onChange={this.handleInGeneral1("protein")} value={foodToEdit.properties.protein} type="number"/><br />
           </label>
           <br />
           <label>
             Carbs<br />
-            <TextField hintText="Carbs" onChange={this.handleInGeneral1("carbs")} value={foodToEdit.properties.carbs} /><br />
+            <TextField hintText="Carbs" onChange={this.handleInGeneral1("carbs")} value={foodToEdit.properties.carbs} type="number"/><br />
           </label>
           <RaisedButton label="Submit" type="submit" primary={true} />
         </form>
