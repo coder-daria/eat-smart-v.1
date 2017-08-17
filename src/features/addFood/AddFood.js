@@ -2,12 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form'
 import CircularProgress from 'material-ui/CircularProgress';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import './addFood.css';
 
 const validate = values => {
     const errors = {}
-    if (!values.name || values.name.length < 2) {
+    if (!values.name) {
         errors.name = 'Required'
+    }
+    else if (values.name.length < 2) {
+        errors.name = 'Chosen name is too short'
     }
     if (!values.fat) {
         errors.fat = 'Required'
@@ -21,12 +26,14 @@ const validate = values => {
     return errors
 }
 
-const wrongField = {
-    border: "2px solid lightcoral",
-    outline: "none" 
-}
-
 const renderField = field => {
+    const wrongField = {
+        border: "1px solid #F72A45",
+    }
+    const errorMessage = {
+        color: "#F72A45",
+        fontWeight: "bold"
+    }
     const style = field.meta.dirty && field.meta.error ? wrongField : undefined;
     return (
         <div>
@@ -34,19 +41,15 @@ const renderField = field => {
                 {field.label}
             </label>
             <div>
-                <input style={style} {...field.input} placeholder={field.label} type={field.type} />
-                {field.meta.touched &&
-                    ((field.meta.error &&
-                        <span>
-                            {field.meta.error}
-                        </span>))}
-            </div>
+                <TextField hintText={field.label} {...field.input} type={field.type} underlineStyle={style} /><br />
+                {field.meta.touched && ((field.meta.error && <span style={errorMessage}>{field.meta.error}</span>))}
+            </div><br />
         </div>
     )
 }
 const AddFood = props => {
     const { pristine, reset, invalid, handleSubmit } = props
-    const loading = props.isLoading ? <CircularProgress />: null;
+    const loading = props.isLoading ? <CircularProgress /> : null;
     return (
         <div className="addFoodContainer">
             <form onSubmit={handleSubmit}>
@@ -54,16 +57,9 @@ const AddFood = props => {
                 <Field name="fat" type="number" component={renderField} label="Fat" />
                 <Field name="protein" type="number" component={renderField} label="Protein" />
                 <Field name="carbs" type="number" component={renderField} label="Carbs" />
-                <div>
-                    <button type="submit" disabled={invalid}>
-                        Submit
-                </button>
-                    <button type="button" disabled={pristine} onClick={reset}>
-                        Clear Values
-                </button>
-                </div>
+                <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} /> <RaisedButton label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2"/>
             </form>
-             {loading} 
+            {loading}
         </div>
     )
 }
