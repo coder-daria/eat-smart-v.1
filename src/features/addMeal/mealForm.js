@@ -3,6 +3,7 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import {Field, FieldArray, reduxForm} from 'redux-form';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 import './mealForm.css';
 
 class awesomeForm extends React.Component {
@@ -18,37 +19,51 @@ class awesomeForm extends React.Component {
         });
     }
 
-    isValidQuantity(q) {
-        return !isNaN(q) && q > 0;
+    // isValidQuantity(q) {
+    //     return !isNaN(q) && q > 0;
+    // }
+
+    // validateQuantities(quantitiesArray) {
+    //     function allTrue(x, y) {
+    //         return x && y;
+    //     }
+
+    //     return quantitiesArray.map(this.isValidQuantity).reduce(allTrue, true);
+    // }
+
+    // styleForQuantity(quantity) {
+    //     if (!this.isValidQuantity(quantity)) {
+    //         return {backgroundColor: "red"};
+    //     } else {
+    //         return {backgroundColor: "white"};
+
+    //     }
+    // }
+
+    renderMealPreferences = field => {  //working
+      return(
+        <div>
+          {field.label}
+          <AutoComplete
+                    floatingLabelText="Meal preference"
+                    value="Chose meal preference"
+                    items={this.props.mealsPreferences}
+                    onSelect={field.input.onChange}
+                    onChange={field.input.onChange}
+                />
+        </div>
+      )
     }
-
-    validateQuantities(quantitiesArray) {
-        function allTrue(x, y) {
-            return x && y;
-        }
-
-        return quantitiesArray.map(this.isValidQuantity).reduce(allTrue, true);
-    }
-
-    styleForQuantity(quantity) {
-        if (!this.isValidQuantity(quantity)) {
-            return {backgroundColor: "red"};
-        } else {
-            return {backgroundColor: "white"};
-
-        }
-    }
-
-    //http://redux-form.com/7.0.3/docs/api/FieldArray.md/#iteration
-    renderSingleFood = (food, index, fields) => {
+    renderSingleFood = (food, index, fields) => { // ok
         const remove = (index) => () => fields.remove(index);
         const renderFoodName = field => <div>{field.input.value}</div>;
-        const renderFoodQuantity = field => <div><input {...field.input} placeholder={field.label} type={field.type}/></div>;
+        // const renderFoodQuantity = field => <div><input {...field.input} placeholder={field.label} type={field.type}/></div>;
+
         return (
             <li key={index}>
                 <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name"/>
-                <Field name={`${food}.quantity`} component={this.renderTextField} label="Quantity"/>
-                <button type="button" onClick={remove(index)}>Remove</button>
+                <Field name={`${food}.quantity`} component={this.renderTextField} label="Quantity"/><br />
+                <RaisedButton type="button" label="Remove" secondary={true} onClick={remove(index)}/>
             </li>
         )
     }
@@ -67,8 +82,13 @@ class awesomeForm extends React.Component {
             </div>
         )
     }
-
+    fieldRequired = field => {
+        
+    }
     renderTextField = field => {
+        const allFieldsFullfilled = field.meta.touched; 
+        const error = field.meta.error; 
+        console.log(error);
         return (
             <TextField
                 hintText={field.label}
@@ -84,25 +104,12 @@ class awesomeForm extends React.Component {
         return (
             <TextField
                 hintText={field.label}
-                floatingLabelText={field.label}
                 errorText={field.meta.touched && field.meta.error}
                 {...field.input}
                 {...field.custom}
+                floatingLabelText={field.label}
             />
         )
-    }
-
-    renderMealPreferences = field => {
-      return(
-        <div>
-          {field.label}
-          <AutoComplete
-                    items={this.props.mealsPreferences}
-                    onSelect={field.input.onChange}
-                    onChange={field.input.onChange}
-                />
-        </div>
-      )
     }
 
     render() {
@@ -112,7 +119,7 @@ class awesomeForm extends React.Component {
                 <form onSubmit={submit}>
                     <Field name="meal" component={this.renderMealPreferences} label="Meal" />
                     <FieldArray name="foods" component={this.renderFoods}/>
-                    <button type="submit">Submit && look at the console</button>
+                    <RaisedButton type="submit" label="Submit" primary={true}/>
                 </form>
             </div>
         )
