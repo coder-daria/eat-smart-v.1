@@ -41,7 +41,7 @@ class PreferenceForm extends React.Component {
         Meal name :<br />
         <TextField hintText="Type anything"  type="text" onChange={this.mealName}/><br />
         <TimePicker format="24hr" hintText="Choose time" onChange={this.handleTime} />
-        <RaisedButton label="Save" type="submit" buttonStyle={buttonStyles} labelColor="white" />
+        <RaisedButton label="Save" type="submit" primary={true} />
       </form>
     )
   }
