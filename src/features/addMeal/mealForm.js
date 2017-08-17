@@ -40,7 +40,7 @@ class awesomeForm extends React.Component {
     //     }
     // }
 
-    renderMealPreferences = field => {  //working
+    renderMealPreferences = field => {
       return(
         <div>
           {field.label}
@@ -54,10 +54,9 @@ class awesomeForm extends React.Component {
         </div>
       )
     }
-    renderSingleFood = (food, index, fields) => { // ok
+    renderSingleFood = (food, index, fields) => {
         const remove = (index) => () => fields.remove(index);
         const renderFoodName = field => <div>{field.input.value}</div>;
-        // const renderFoodQuantity = field => <div><input {...field.input} placeholder={field.label} type={field.type}/></div>;
 
         return (
             <li key={index}>
@@ -82,13 +81,7 @@ class awesomeForm extends React.Component {
             </div>
         )
     }
-    fieldRequired = field => {
-        
-    }
     renderTextField = field => {
-        const allFieldsFullfilled = field.meta.touched; 
-        const error = field.meta.error; 
-        console.log(error);
         return (
             <TextField
                 hintText={field.label}
