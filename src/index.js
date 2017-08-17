@@ -98,8 +98,7 @@ store.dispatch({
   type: 'ADD_PREFERENCE',
   content: {
     name: 'breakfast',
-    seconds: 1502857821000,
-    dataSource: []
+    seconds: 1502857821000
   }
 })
 
@@ -107,8 +106,7 @@ store.dispatch({
   type: 'ADD_PREFERENCE',
   content: {
     name: 'lunch',
-    seconds: 1502857821000,
-    dataSource: []
+    seconds: 1502857821000
   }
 })
 
