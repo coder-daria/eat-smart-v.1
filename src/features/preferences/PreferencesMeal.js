@@ -6,22 +6,22 @@ import Chip from 'material-ui/Chip';
 
 class PreferencesMeal extends React.Component {
   handleRequestDelete = (key) => {
-   this.props.removePreference(key);
+    this.props.removePreference(key);
   };
   render() {
     let mealsPreferences = this.props.mealsPreferences;
     let preferencesArray = mealsPreferences.map((preference) => {
       let chosenUnixTimestamp = (moment(preference.seconds).unix()) * 1000;
-      let formatedTime = moment(chosenUnixTimestamp).format("HH:mm"); 
+      let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
       return (
         <li>
           <br/>
-         <Chip
-          key={preference.name}
-          onRequestDelete={() => this.handleRequestDelete(preference.name)}
-        >
-        {preference.name} at {formatedTime}
-      </Chip>
+          <Chip
+            key={preference.name}
+            onRequestDelete={() => this.handleRequestDelete(preference.name)}
+            onClick={() => this.props.showForm()}>
+            {preference.name} at {formatedTime}
+          </Chip>
         </li>
       )
     })
