@@ -124,18 +124,20 @@ it('handle EDIT_FOOD', () => {
 });
 
 it('handle IS_LOADING', () => {
-    let action = actions.isLoading(true);
     initialState = {...initialState, isLoading: false}
+    let action = actions.isLoading(true);
     let newState = reducer(initialState, action);
 
     expect(newState).not.toEqual(initialState);
     expect(newState.isLoading).toEqual(true);
 });
-xit('handle ADD_KCAL_PREFERENCES', () => {
-    let action = {};
-
+it('handle ADD_KCAL_PREFERENCES', () => {
+    initialState = {...initialState}
+    let action = actions.addKcalPreferences("2000");
     let newState = reducer(initialState, action);
+
     expect(newState).not.toEqual(initialState);
+    expect(newState.preferences.kcal).toEqual(2000);
 });
 
 
