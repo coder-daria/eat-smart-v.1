@@ -59,18 +59,19 @@ it('handles REMOVE_SELECTED_FOOD', () => {
     expect(newState.foodsBeingAddedToNewMeal.length).toEqual(1);
     expect(newState.foodsBeingAddedToNewMeal[0].id).toEqual(73534324);
 });
-xit('handle ADD_FOODS_OF_NEW_MEAL_TO_MEALS', () => {
-    let action = actions.addFoodsOfNewMealToMeals({meal: "breakfast", foods: [
-{name: "jamonCuradoBodega", id: "ff13607c-0e74-4176-9407-cb27e196eff1", units: "grams", quantity: "12"},
-{name: "twarogChudyMlekpol", id: "ae973f2a-f7e1-4ad5-b6ed-885e8aee399b", units: "grams", quantity: "15"}
-]});
+it('handle ADD_FOODS_OF_NEW_MEAL_TO_MEALS', () => {
+    let action = actions.addFoodsOfNewMealToMeals({
+        meal: "breakfast", foods: [
+            { name: "jamonCuradoBodega", id: "ff13607c-0e74-4176-9407-cb27e196eff1", units: "grams", quantity: "12" },
+            { name: "twarogChudyMlekpol", id: "ae973f2a-f7e1-4ad5-b6ed-885e8aee399b", units: "grams", quantity: "15" }
+        ]
+    }, "breakfast");
     let newState = reducer(initialState, action);
 
     expect(newState).not.toEqual(initialState);
-    expect(newState.meals.length).toEqual(1);
     expect(newState.meals[0].details.meal).toEqual("breakfast");
-    // expect(newState.meals[0].details.length).toEqual(2);
-    expect(newState.meals[0].details[0].name).toEqual("jamonCuradoBodega");
+    expect(newState.meals[0].details.foods.length).toEqual(2);
+    expect(newState.meals[0].details.foods[0].quantity).toEqual("12");
 });
 
 it('handle SHOW_MEAL_DETAILS', () => {
