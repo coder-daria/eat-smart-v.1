@@ -15,9 +15,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     removeFromMeal: foodId => dispatch(removeSelectedFood(foodId)),
-    addMeal : (meal, mealName) => dispatch(addFoodsOfNewMealToMeals(meal, mealName)),
     onSelect: (foodId) => {dispatch(addSelectedFood(foodId))},
-    awesomeAddMeal: values => console.log(values),
+    addMeal: values => dispatch(addFoodsOfNewMealToMeals(values, values.meal)),
   }
 }
 
