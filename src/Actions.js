@@ -46,6 +46,6 @@ export function editFood(food) {
     return { type: EDIT_FOOD, content: food }
 }
 
-export function isLoading(value) {
-    return { type: IS_LOADING, content: value };
+export function isLoading(boolean) {
+    return { type: IS_LOADING, content: boolean };
 }

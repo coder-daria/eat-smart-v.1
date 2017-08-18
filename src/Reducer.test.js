@@ -77,7 +77,7 @@ it('handle SHOW_MEAL_DETAILS', () => {
 });
 
 it('handle ADD_PREFERENCE', () => {
-    initialState = {...initialState, foods: {}}
+    initialState = {...initialState}
     let action = actions.addPreference({name: "breakfast", seconds: 12});
     let newState = reducer(initialState, action);
 
@@ -123,11 +123,13 @@ it('handle EDIT_FOOD', () => {
     expect(newState.foods[100888247].properties.carbs).toEqual("0");
 });
 
-xit('handle IS_LOADING', () => {
-    let action = {};
-
+it('handle IS_LOADING', () => {
+    let action = actions.isLoading(true);
+    initialState = {...initialState, isLoading: false}
     let newState = reducer(initialState, action);
+
     expect(newState).not.toEqual(initialState);
+    expect(newState.isLoading).toEqual(true);
 });
 xit('handle ADD_KCAL_PREFERENCES', () => {
     let action = {};

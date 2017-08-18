@@ -86,6 +86,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state);
 
         case actions.IS_LOADING:
+        console.log(action.content);
             return Object.assign({}, state, { isLoading: action.content });
 
         case actions.ADD_KCAL_PREFERENCES:
