@@ -42,8 +42,8 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state, { foodsBeingAddedToNewMeal: newArrayOfFoodsId });
 
         case actions.ADD_FOODS_OF_NEW_MEAL_TO_MEALS:
+            console.log(action.content);
             let newMeal = action.content;
-
             let newListOfMeals = [...state.meals, newMeal];
             return Object.assign({}, state, { foodsBeingAddedToNewMeal: [], meals: newListOfMeals });
 
@@ -86,6 +86,7 @@ export default function reducer(state = initialState, action) {
             return Object.assign({}, state);
 
         case actions.IS_LOADING:
+        console.log(action.content);
             return Object.assign({}, state, { isLoading: action.content });
 
         case actions.ADD_KCAL_PREFERENCES:
