@@ -36,21 +36,19 @@ class EditFoodChanges extends React.Component {
     this.setState({ foodBeingChanged: nextProps.selected });
   }
 
+   handleName = (event, searchText) => {
+    this.setState(prevState => {
+      const foodBeingChanged = prevState.foodBeingChanged;
+      foodBeingChanged.name = searchText;
+      return { foodBeingChanged: foodBeingChanged }
+    });
+  }
   handleInGeneral = type => (event, searchText) => {
-    if (type === "name") {
-      this.setState(prevState => {
-        const foodBeingChanged = prevState.foodBeingChanged;
-        foodBeingChanged.name = searchText;
-        return { foodBeingChanged: foodBeingChanged }
-      });
-    }
-    else {
       this.setState(prevState => {
         const foodBeingChanged = prevState.foodBeingChanged;
         foodBeingChanged.properties[type] = searchText;
         return { foodBeingChanged: foodBeingChanged }
       });
-    }
   }
 
   handleSubmit = event => {
@@ -58,8 +56,21 @@ class EditFoodChanges extends React.Component {
     this.props.onSubmit(this.state.foodBeingChanged);
   }
 
-  renderField = field => {
-    // state stays the same
+  renderName = field => {
+    const foodToEdit = this.state.foodBeingChanged;
+    const errorText = field.meta.touched ? field.meta.error : null;
+    return (
+      <div>
+        <label>
+          {field.label}
+        </label>
+        <div>
+          <TextField hintText={field.label} onChange={this.handleName} value={foodToEdit.name} type="text" errorText={errorText}/><br />
+        </div>
+      </div>
+    )
+  }
+  renderProperties = field => {
     const foodToEdit = this.state.foodBeingChanged;
     const errorText = field.meta.touched ? field.meta.error : null;
     return (
@@ -78,13 +89,12 @@ class EditFoodChanges extends React.Component {
     return (
       <div className="addFoodContainer">
         <form onSubmit={this.handleSubmit}>
-          <Field name="name" type="text" component={this.renderField} label="name" />
-          <Field name="fat" type="number" component={this.renderField} label="fat" />
-          <Field name="protein" type="number" component={this.renderField} label="protein" />
-          <Field name="carbs" type="number" component={this.renderField} label="carbs" />
+          <Field name="name" type="text" component={this.renderName} label="name" />
+          <Field name="fat" type="number" component={this.renderProperties} label="fat" />
+          <Field name="protein" type="number" component={this.renderProperties} label="protein" />
+          <Field name="carbs" type="number" component={this.renderProperties} label="carbs" />
           <RaisedButton label="Submit" type="submit" primary={true} />
         </form>
-
       </div>
     )
   }
