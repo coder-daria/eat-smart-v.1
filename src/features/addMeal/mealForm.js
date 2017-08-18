@@ -106,7 +106,7 @@ class awesomeForm extends React.Component {
     }
 
     render() {
-        const submit = this.props.handleSubmit(this.props.awesomeAddMeal);
+        const submit = this.props.handleSubmit(this.props.addMeal);
         return (
             <div className="mealParentContainer">
                 <form onSubmit={submit}>
