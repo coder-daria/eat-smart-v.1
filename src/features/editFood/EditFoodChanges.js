@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 
 const validate = values => {
   const errors = {}
@@ -33,14 +33,15 @@ class EditFoodChanges extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ foodBeingChanged: nextProps.selected });
+    this.setState({foodBeingChanged: nextProps.selected});
   }
 
-   handleName = (event, searchText) => {
+   changeName = (event, value) => {
     this.setState(prevState => {
-      const foodBeingChanged = prevState.foodBeingChanged;
-      foodBeingChanged.name = searchText;
-      return { foodBeingChanged: foodBeingChanged }
+      prevState.foodBeingChanged.name = value;
+      return { 
+        foodBeingChanged: prevState.foodBeingChanged 
+      }
     });
   }
   handleInGeneral = type => (event, searchText) => {
@@ -65,7 +66,7 @@ class EditFoodChanges extends React.Component {
           {field.label}
         </label>
         <div>
-          <TextField hintText={field.label} onChange={this.handleName} value={foodToEdit.name} type="text" errorText={errorText}/><br />
+          <TextField hintText={field.label} value={foodToEdit.name} onChange={this.changeName} errorText={errorText} type="text"/>
         </div>
       </div>
     )
