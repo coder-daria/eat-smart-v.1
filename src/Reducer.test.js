@@ -57,6 +57,9 @@ it('handles REMOVE_SELECTED_FOOD', () =>{
     expect(newState.foodsBeingAddedToNewMeal.length).toEqual(1);
     expect(newState.foodsBeingAddedToNewMeal[0].id).toEqual(73534324);
 });
+xit('handle ADD_FOODS_OF_NEW_MEAL_TO_MEALS', () => {
+   
+});
 
 it('handle SHOW_MEAL_DETAILS', () => {
     initialState = {...initialState, selectedMeal: {}, meals : [{
@@ -82,6 +85,16 @@ it('handle ADD_PREFERENCE', () => {
     expect(newState.preferences.meals.length).not.toEqual(initialState.preferences.meals.length);
     expect(newState.preferences.meals[0].name).toEqual("breakfast");
     expect(newState.preferences.meals[0].seconds).toEqual(12);
+});
+it('handle REMOVE_PREFERENCE', () => {
+    initialState = {...initialState, preferences: {kcal: 0, meals: [{name:"breakfast", seconds:1502857821000}, {name:"supper", seconds:15028578210}]}}
+    let action = actions.removePreference("supper");
+    let newState = reducer(initialState, action);
+
+    expect(newState).not.toEqual(initialState);
+    expect(newState.preferences.meals.length).not.toEqual(initialState.preferences.meals.length);
+    expect(newState.preferences.meals.length).toEqual(1);
+    expect(newState.preferences.meals[0].name).toEqual("breakfast");
 });
 
 it('handle EDIT_FOOD', () => {
@@ -109,6 +122,20 @@ it('handle EDIT_FOOD', () => {
     expect(newState.foods[100888247].properties.carbs).not.toEqual(1);
     expect(newState.foods[100888247].properties.carbs).toEqual("0");
 });
+
+xit('handle IS_LOADING', () => {
+    let action = {};
+
+    let newState = reducer(initialState, action);
+    expect(newState).not.toEqual(initialState);
+});
+xit('handle ADD_KCAL_PREFERENCES', () => {
+    let action = {};
+
+    let newState = reducer(initialState, action);
+    expect(newState).not.toEqual(initialState);
+});
+
 
 xit('TEMPLATE', () => {
     let action = {};
