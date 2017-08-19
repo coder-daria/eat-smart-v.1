@@ -25,7 +25,6 @@ class App extends Component {
                 <Time />
                 Time for dinner
                 <Date />
-                Username
                 <MenuIcon />
               </div>
               <div className="body">

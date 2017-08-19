@@ -6,6 +6,7 @@ export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
 export const ADD_PREFERENCE = "ADD_PREFERENCE";
 export const REMOVE_PREFERENCE = "REMOVE_PREFERENCE";
+export const SAVE_PREFERENCES = "SAVE_PREFERENCES";
 export const ADD_KCAL_PREFERENCES = "ADD_KCAL_PREFERENCES";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 export const EDIT_FOOD = "EDIT_FOOD";
@@ -48,4 +49,8 @@ export function editFood(food) {
 
 export function isLoading(value) {
     return { type: IS_LOADING, content: value };
+}
+
+export function savePreferences(value) {
+    return { type: SAVE_PREFERENCES, content: value };
 }

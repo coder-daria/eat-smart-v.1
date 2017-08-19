@@ -1,4 +1,4 @@
-import reducer from './Reducer.js';
+import reducer from './Foods.js';
 import * as actions from './Actions';
 import { createStore } from 'redux';
 

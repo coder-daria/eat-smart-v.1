@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createStore from './createStore';
+import createStore from './redux/createStore';
 import {Provider} from 'react-redux';
-import reducer from './Reducer';
+// import reducer from './Reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
@@ -11,16 +11,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 const foods = convertFoodsFromServer(fetchProducts());
-const initialState = {
-  foods: foods,
-  foodsBeingAddedToNewMeal: [],
-  meals: [],
-  preferences: {
-    kcal: 0,
-    meals: []
-  }
-};
-let store = createStore(initialState);
+
+let store = createStore();
 
 window.s = store;
 
