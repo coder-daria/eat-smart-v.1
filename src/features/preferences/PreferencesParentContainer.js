@@ -6,7 +6,7 @@ import PreferencesParent from './PreferencesParent';
 const mapStateToProps = state => {
   return {
     mealsPreferences: state.preferences.meals,
-    initialValues: {kcal: state.preferences.kcal}
+    initialValues: {kcal: state.preferences.kcal, meals: state.preferences.meals}
   }
 }
 

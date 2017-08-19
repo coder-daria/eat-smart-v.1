@@ -3,10 +3,10 @@ import PreferencesButton from './PreferencesButton';
 import PreferenceForm from './PreferenceForm';
 import PreferencesMeal from './PreferencesMeal';
 import PropTypes from 'prop-types';
-import { renderTextField } from '../../common/FormFields';
+import { renderTextField, renderFieldArray } from '../../common/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { Field, reduxForm } from 'redux-form';
+import { Field, FieldArray } from 'redux-form';
 import './preferencesParent.css';
 
 class PreferencesParent extends React.Component {
@@ -14,7 +14,7 @@ class PreferencesParent extends React.Component {
     showFormComponent: false,
   }
 
-  showForm = () => {
+  showForm = () => { 
     this.setState(prevState => {
       return {
         showFormComponent: !prevState.showFormComponent
@@ -30,6 +30,7 @@ class PreferencesParent extends React.Component {
       <div>
         <form onSubmit={this.props.handleSubmit}>
           <Field name="kcal" type="text" component={renderTextField} label="Kcal" />
+          <FieldArray name="meals" component={renderFieldArray} />
           <RaisedButton label="Save" type="submit" primary={true} disabled={disabled} />
 
           <h3> END OF FORM </h3>
