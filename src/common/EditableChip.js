@@ -40,7 +40,7 @@ class EditableChip extends React.Component {
         Meal name :<br />
         <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
         <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
-        <MaterialIcon onTouchTap={this.updatePreference}>
+        <MaterialIcon onClick={this.updatePreference}>
           <ActionDone  hoverColor={cyan500}/>
         </MaterialIcon>
       </div>
