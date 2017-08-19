@@ -7,6 +7,10 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
+        case actions.SAVE_PREFERENCES:
+
+            return Object.assign({}, state, {kcal: action.content.kcal});
+
         case actions.ADD_PREFERENCE:
             let preference = action.content;
             let mealsPreferences = [...state.meals, preference]
