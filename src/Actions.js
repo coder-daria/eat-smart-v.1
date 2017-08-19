@@ -4,10 +4,7 @@ export const ADD_SELECTED_FOOD = "ADD_SELECTED_FOOD";
 export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
 export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
-export const ADD_PREFERENCE = "ADD_PREFERENCE";
-export const REMOVE_PREFERENCE = "REMOVE_PREFERENCE";
 export const SAVE_PREFERENCES = "SAVE_PREFERENCES";
-export const ADD_KCAL_PREFERENCES = "ADD_KCAL_PREFERENCES";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 export const EDIT_FOOD = "EDIT_FOOD";
 export const IS_LOADING = "IS_LOADING";
@@ -33,16 +30,6 @@ export function showMealDetails(mealName) {
     return { type: SHOW_MEAL_DETAILS, content: mealName }
 }
 
-export function addPreference(mealPreference) {
-    return { type: ADD_PREFERENCE, content: mealPreference }
-}
-export function removePreference(mealPreference) {
-    return { type: REMOVE_PREFERENCE, content: mealPreference }
-}
-
-export function addKcalPreferences(value) {
-    return { type: ADD_KCAL_PREFERENCES, content: value };
-}
 export function editFood(food) {
     return { type: EDIT_FOOD, content: food }
 }

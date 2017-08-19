@@ -2,10 +2,14 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Chip from 'material-ui/Chip';
-import TextField from 'material-ui/TextField';
+import { Field } from 'redux-form';
+import { renderTextField, renderTimePicker } from './FormFields'
+import MaterialIcon from './MaterialIcon';
+
+import ActionDone from 'material-ui/svg-icons/action/done';
 
 import R from 'ramda';
-// import { blue300, indigo900 } from 'material-ui/styles/colors';
+import { cyan500} from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
 
@@ -21,31 +25,24 @@ class EditableChip extends React.Component {
     this.setState({ preference: R.clone(nextProps.preference) });
   }
 
-  handleRequestDelete = (key) => {
-    this.props.removePreference(key);
+  handleRequestDelete = (e) => {
+    e.stopPropagation();
+    this.props.onDelete();
   };
 
   updatePreference = () => {
     this.setState({ editing: false });
-    this.props.onSave(this.state.preference);
-  }
-
-  changeName = (e, value) =>{
-    this.setState(prevState => {
-      prevState.preference.name = value;
-      prevState.preference.index = this.props.index;
-      return {
-        preference: prevState.preference
-      }
-    })
   }
 
   form = (preference) => {
     return (
       <div>
         Meal name :<br />
-        <TextField hintText="Type anything" value={preference.name} type="text" onChange={this.changeName} /><br />
-        <button onClick={this.updatePreference}> click me </button>
+        <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+        <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+        <MaterialIcon onTouchTap={this.updatePreference}>
+          <ActionDone  hoverColor={cyan500}/>
+        </MaterialIcon>
       </div>
     )
   }
@@ -56,7 +53,7 @@ class EditableChip extends React.Component {
     return (
       <Chip
         key={preference.name}
-        onRequestDelete={() => this.handleRequestDelete(preference.name)}
+        onRequestDelete={this.handleRequestDelete}
         onClick={() => this.setState({ editing: true })}>
         {preference.name} at {formatedTime}
       </Chip>
@@ -75,8 +72,9 @@ class EditableChip extends React.Component {
 
 EditableChip.propTypes = {
   preference: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
-  onSave: PropTypes.func.isRequired
+  name: PropTypes.string.isRequired,
+  // onChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default EditableChip;
