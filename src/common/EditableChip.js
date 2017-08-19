@@ -9,28 +9,15 @@ import MaterialIcon from './MaterialIcon';
 import ActionDone from 'material-ui/svg-icons/action/done';
 
 import R from 'ramda';
-import { cyan500} from 'material-ui/styles/colors';
+import { cyan500 } from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      editing: false,
-      preference: R.clone(props.preference)
-    }
+  state = {
+    editing: false
   }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({ preference: R.clone(nextProps.preference) });
-  }
-
-  handleRequestDelete = (e) => {
-    e.stopPropagation();
-    this.props.onDelete();
-  };
-
-  updatePreference = () => {
+  
+  toggleEdit = () => {
     this.setState({ editing: false });
   }
 
@@ -40,20 +27,21 @@ class EditableChip extends React.Component {
         Meal name :<br />
         <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
         <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
-        <MaterialIcon onClick={this.updatePreference}>
-          <ActionDone  hoverColor={cyan500}/>
+        <MaterialIcon onClick={this.toggleEdit}>
+          <ActionDone hoverColor={cyan500} />
         </MaterialIcon>
       </div>
     )
   }
 
-  chip = (preference) => {
+  chip = () => {
+    const preference = this.props.preference;
     let chosenUnixTimestamp = (moment(preference.seconds).unix()) * 1000;
     let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
     return (
       <Chip
         key={preference.name}
-        onRequestDelete={this.handleRequestDelete}
+        onRequestDelete={this.props.onDelete}
         onClick={() => this.setState({ editing: true })}>
         {preference.name} at {formatedTime}
       </Chip>
@@ -61,7 +49,8 @@ class EditableChip extends React.Component {
   }
 
   render() {
-    const content = this.state.editing ? this.form(this.state.preference) : this.chip(this.state.preference);
+    const preference = this.props.preference;
+    const content = this.state.editing ? this.form() : this.chip();
     return (
       <div>
         {content}
@@ -73,7 +62,6 @@ class EditableChip extends React.Component {
 EditableChip.propTypes = {
   preference: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
-  // onChange: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
 };
 

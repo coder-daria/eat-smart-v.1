@@ -37,7 +37,7 @@ export const renderTimePicker = field => {
         {field.label}
       </label>
       <div>
-        <TimePicker format="24hr" hintText={field.label} value={new Date(field.input.value)} onChange={onChange} /><br />
+        <TimePicker format="24hr" hintText={field.label} name={field.input.name} value={new Date(field.input.value)} onChange={onChange} /><br />
       </div><br />
     </div>
   )
