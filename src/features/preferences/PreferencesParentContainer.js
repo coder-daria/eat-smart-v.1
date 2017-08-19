@@ -5,7 +5,6 @@ import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
   return {
-    mealsPreferences: state.preferences.meals,
     initialValues: {kcal: state.preferences.kcal, meals: state.preferences.meals}
   }
 }
@@ -18,7 +17,8 @@ const mapDispatchToProps = dispatch => {
 
 
 const PreferencesParentForm =  reduxForm({
-  form: 'preferences'
+  form: 'preferences',
+  enableReinitialize: true
 })(PreferencesParent)
 
 const PreferencesParentContainer = connect(

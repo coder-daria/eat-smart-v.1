@@ -22,8 +22,4 @@ class PreferencesParent extends React.Component {
   }
 }
 
-PreferencesParent.propTypes = {
-  mealsPreferences: PropTypes.array
-};
-
 export default PreferencesParent;
