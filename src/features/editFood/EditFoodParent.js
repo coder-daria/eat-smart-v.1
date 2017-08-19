@@ -15,7 +15,7 @@ class EditFoodParent extends React.Component {
     })
   }
   render() {
-    const editFoodChanges = this.state.foodToEdit ? <EditFoodChanges selected={R.clone(this.state.foodToEdit)} onSubmit={this.props.onSubmit}/> : <p>Choose a food</p>;
+    const editFoodChanges = this.state.foodToEdit ? <EditFoodChanges initialValues={R.clone(this.state.foodToEdit)} selected={R.clone(this.state.foodToEdit)} onSubmit={this.props.onSubmit}/> : <p>Choose a food</p>;
     return (
       <div className="editFoodParentContainer">
         <div className="search">
