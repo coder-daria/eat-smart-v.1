@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { reducer as form } from 'redux-form'
 import FoodsReducer from './reducers/Foods';
 import PreferencesReducer from './reducers/Preferences';
+import MealsReducer from './reducers/Meals';
 import { convertFoodsFromServer } from '../functions';
 import server from '../server/serverMock';
 import * as actions from '../Actions';
@@ -18,7 +19,7 @@ const configureStore = () => {
   }
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const rootReducer = combineReducers({foods: FoodsReducer, preferences: PreferencesReducer, form});
+  const rootReducer = combineReducers({foods: FoodsReducer, preferences: PreferencesReducer, meals: MealsReducer, form});
   let store = createStore(rootReducer, undefined, composeEnhancers(applyMiddleware(logger, thunk)));
 
   if (process.env.NODE_ENV !== "production") {

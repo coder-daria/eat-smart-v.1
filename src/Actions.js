@@ -6,6 +6,7 @@ export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
 export const SAVE_PREFERENCES = "SAVE_PREFERENCES";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
+export const SELECTED_DATE = "SELECTED_DATE";
 export const EDIT_FOOD = "EDIT_FOOD";
 export const IS_LOADING = "IS_LOADING";
 
@@ -40,4 +41,8 @@ export function isLoading(value) {
 
 export function savePreferences(value) {
     return { type: SAVE_PREFERENCES, content: value };
+}
+
+export function selectedDate(date) {
+    return { type: SELECTED_DATE, content: date };
 }
