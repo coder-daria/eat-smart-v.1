@@ -93,6 +93,7 @@ class MealForm extends React.Component {
 
     render() {
         const submit = this.props.handleSubmit(this.clearAndSubmit);
+        const disabled = this.props.invalid || this.props.pristine;
         return (
             <div className="mealForm">
                 <form className="mealParentContainer" onSubmit={submit}>
@@ -103,7 +104,7 @@ class MealForm extends React.Component {
                         <FieldArray name="foods" component={this.renderFoods} />
                     </div>
                     <div className="raisedButton">
-                        <RaisedButton type="submit" label="Submit" primary={true} disabled={this.props.invalid} />
+                        <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
                     </div>
                 </form>
             </div>
