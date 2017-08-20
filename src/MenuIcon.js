@@ -3,6 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
+import './menuIcon.css';
 
 class MenuIcon extends Component {
     state = {
@@ -16,10 +17,9 @@ class MenuIcon extends Component {
     };
 
     render() {
-
         return (
-            <div>
-                Daria
+            <div className="menuIconContainer">
+                <p>Daria</p>
                 <IconMenu
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     onChange={this.handleChangeSingle}

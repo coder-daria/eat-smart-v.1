@@ -2,14 +2,14 @@ import React from 'react';
 import moment from 'moment';
 
 const timeStyles = {
-  fontSize: 50,
+  fontSize: 25,
   color: "#67BCC7"
 }
 
 class Time extends React.Component {
   state = {
     intervalId: -1,
-    date: moment(moment().unix() * 1000).format("HH:mm:ss")
+    date: moment(moment().unix() * 1000).format("HH:mm")
   }
   componentDidMount = () => {
     const intervalId = setInterval(
@@ -25,12 +25,14 @@ class Time extends React.Component {
 
   tick = () => {
     this.setState({
-      date: moment(moment().unix() * 1000).format("HH:mm:ss")
+      date: moment(moment().unix() * 1000).format("HH:mm")
     })
   }
   render() {
     return (
+      <div>
       <p style={timeStyles}>{this.state.date} </p>
+      </div>
      
     )
   }

@@ -11,7 +11,7 @@
 
 /*HEADER - TIME, DATE, SETTING*/
 .header {
-     /* border: 2px solid yellowgreen;  */
+    /* border: 2px solid yellowgreen;   */
     width: 100%;
     flex: 1; 
     display: flex;    
@@ -25,7 +25,7 @@ Time, Date, MenuIcon {
 }
 /*BODY - NAVIGATION BAR, COMPONENTS*/
  .body {
-    /* border: 2px solid blueviolet; */
+     /* border: 2px solid blueviolet;  */
     flex: 1;
     width: 100%;
     display: flex;
