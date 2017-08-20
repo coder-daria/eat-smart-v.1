@@ -47,10 +47,7 @@ render() {
                 hintText={this.state.fullDateDisplay}
                 value={this.state.controlledDate}
                 onChange={this.handleChange}
-                ref={c => {
-                    console.log(c);
-                    return datePicker = c
-                }}
+                ref={c => datePicker = c}
             />
         </div>
     )

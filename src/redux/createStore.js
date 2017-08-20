@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { reducer as form } from 'redux-form'
-import FoodsReducer from './Reducer';
-import { convertFoodsFromServer } from './functions';
-import server from './server/serverMock';
-import * as actions from './Actions';
+import FoodsReducer from './reducers/Foods';
+import PreferencesReducer from './reducers/Preferences';
+import { convertFoodsFromServer } from '../functions';
+import server from '../server/serverMock';
+import * as actions from '../Actions';
 import thunk from 'redux-thunk';
 
 const configureStore = () => {
@@ -17,12 +18,12 @@ const configureStore = () => {
   }
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const rootReducer = combineReducers({foods: FoodsReducer, form});
+  const rootReducer = combineReducers({foods: FoodsReducer, preferences: PreferencesReducer, form});
   let store = createStore(rootReducer, undefined, composeEnhancers(applyMiddleware(logger, thunk)));
 
   if (process.env.NODE_ENV !== "production") {
     if (module.hot) {
-      module.hot.accept('./Reducer', () => {
+      module.hot.accept('./reducers/Foods', () => {
         store.replaceReducer(rootReducer)
       })
     }

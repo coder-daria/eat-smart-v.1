@@ -1,5 +1,5 @@
-import reducer from './Reducer.js';
-import * as actions from './Actions';
+import reducer from './Foods.js';
+import * as actions from '../../Actions';
 import { createStore } from 'redux';
 
 let initialState;
@@ -91,27 +91,6 @@ it('handle SHOW_MEAL_DETAILS', () => {
     expect(newState.selectedMeal.details[0]).toEqual(928482960);
 });
 
-it('handle ADD_PREFERENCE', () => {
-    initialState = { ...initialState }
-    let action = actions.addPreference({ name: "breakfast", seconds: 12 });
-    let newState = reducer(initialState, action);
-
-    expect(newState).not.toEqual(initialState);
-    expect(newState.preferences.meals.length).not.toEqual(initialState.preferences.meals.length);
-    expect(newState.preferences.meals[0].name).toEqual("breakfast");
-    expect(newState.preferences.meals[0].seconds).toEqual(12);
-});
-it('handle REMOVE_PREFERENCE', () => {
-    initialState = { ...initialState, preferences: { kcal: 0, meals: [{ name: "breakfast", seconds: 1502857821000 }, { name: "supper", seconds: 15028578210 }] } }
-    let action = actions.removePreference("supper");
-    let newState = reducer(initialState, action);
-
-    expect(newState).not.toEqual(initialState);
-    expect(newState.preferences.meals.length).not.toEqual(initialState.preferences.meals.length);
-    expect(newState.preferences.meals.length).toEqual(1);
-    expect(newState.preferences.meals[0].name).toEqual("breakfast");
-});
-
 it('handle EDIT_FOOD', () => {
     initialState = {
         ...initialState, foods: {
@@ -150,14 +129,6 @@ it('handle IS_LOADING', () => {
 
     expect(newState).not.toEqual(initialState);
     expect(newState.isLoading).toEqual(true);
-});
-it('handle ADD_KCAL_PREFERENCES', () => {
-    initialState = { ...initialState }
-    let action = actions.addKcalPreferences("2000");
-    let newState = reducer(initialState, action);
-
-    expect(newState).not.toEqual(initialState);
-    expect(newState.preferences.kcal).toEqual(2000);
 });
 
 xit('TEMPLATE', () => {

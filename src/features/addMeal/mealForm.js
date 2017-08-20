@@ -125,7 +125,7 @@ awesomeForm.propTypes = {
     foodsToSearch: PropTypes.array.isRequired,
     removeFromMeal: PropTypes.func.isRequired,
     addMeal: PropTypes.func.isRequired,
-    mealsPreferences: PropTypes.array,
+    mealsPreferences: PropTypes.array.isRequired
 
 
 };

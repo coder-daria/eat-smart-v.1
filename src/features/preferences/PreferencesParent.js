@@ -1,44 +1,25 @@
 import React from 'react';
-import PreferencesButton from './PreferencesButton';
-import PreferenceForm from './PreferenceForm';
-import PreferencesMeal from './PreferencesMeal';
-import PreferencesKcalContainer from './PreferencesKcalContainer';
 import PropTypes from 'prop-types';
+import { renderTextField, renderFieldArray } from '../../common/FormFields';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import { Field, FieldArray } from 'redux-form';
 import './preferencesParent.css';
 
 class PreferencesParent extends React.Component {
-  state = {
-    showFormComponent: false,
-  }
-
-  showForm = () => {
-    this.setState(prevState => {
-      return {
-        showFormComponent : !prevState.showFormComponent
-      }
-    });
-  }
 
   render() {
-    const areThereMeals = this.props.mealsPreferences.length > 0;
-    const preferedMeals = areThereMeals ? <PreferencesMeal {...this.props} /> : <h2>{"No preferences"}</h2>;
+    const disabled = this.props.invalid || this.props.pristine;
     return (
-      <div className="preferencesContainer">
-      <div className="kcalContainer">
-        <PreferencesKcalContainer />
-      </div>
-      <br />
-      <div className="formContainer">
-        {preferedMeals} <br />
-        {this.state.showFormComponent ? <PreferenceForm {...this.props} showForm={this.showForm} showPreferences={this.showChosenPreference}/> : <PreferencesButton onClick={this.showForm} {...this.props} />}
-      </div>
+      <div>
+        <form onSubmit={this.props.handleSubmit}>
+          <Field name="kcal" type="text" component={renderTextField} label="Kcal" />
+          <FieldArray name="meals" component={renderFieldArray} />
+          <RaisedButton label="Save" type="submit" primary={true} disabled={disabled} />
+        </form>
       </div>
     )
   }
 }
-
-PreferencesParent.propTypes = {
-    mealsPreferences: PropTypes.array 
-};
 
 export default PreferencesParent;

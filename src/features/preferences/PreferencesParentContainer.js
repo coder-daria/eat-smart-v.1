@@ -1,23 +1,29 @@
 import { connect } from 'react-redux';
-import {addPreference, removePreference} from '../../Actions';
+import {savePreferences} from '../../Actions';
+import { reduxForm } from 'redux-form';
 import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
   return {
-    mealsPreferences: state.foods.preferences.meals
+    initialValues: {kcal: state.preferences.kcal, meals: state.preferences.meals}
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleSubmit : mealPreference => dispatch(addPreference(mealPreference)),
-    removePreference : name => dispatch(removePreference(name))
+    onSubmit: preferences => dispatch(savePreferences(preferences)),
   }
 }
+
+
+const PreferencesParentForm =  reduxForm({
+  form: 'preferences',
+  enableReinitialize: true
+})(PreferencesParent)
 
 const PreferencesParentContainer = connect(
   mapStateToProps, 
   mapDispatchToProps
-)(PreferencesParent)
+)(PreferencesParentForm)
 
 export default PreferencesParentContainer;

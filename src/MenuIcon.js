@@ -19,6 +19,7 @@ class MenuIcon extends Component {
 
         return (
             <div>
+                Daria
                 <IconMenu
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     onChange={this.handleChangeSingle}

@@ -1,32 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createStore from './createStore';
-import {Provider} from 'react-redux';
-import reducer from './Reducer';
+import createStore from './redux/createStore';
+import { Provider } from 'react-redux';
+// import reducer from './Reducer';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import {fetchProducts, convertFoodsFromServer} from './functions.js';
+import { fetchProducts, convertFoodsFromServer } from './functions.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
 const foods = convertFoodsFromServer(fetchProducts());
-const initialState = {
-  foods: foods,
-  foodsBeingAddedToNewMeal: [],
-  meals: [],
-  preferences: {
-    kcal: 0,
-    meals: []
-  }
-};
-let store = createStore(initialState);
+
+let store = createStore();
 
 window.s = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
   document.getElementById('root'));
 
@@ -35,7 +27,7 @@ if (process.env.NODE_ENV !== "production") {
     module.hot.accept('./App', () => {
       ReactDOM.render(
         <Provider store={store}>
-          <App/>
+          <App />
         </Provider>,
         document.getElementById('root'),
       )
@@ -95,20 +87,19 @@ store.dispatch({
 });
 
 store.dispatch({
-  type: 'ADD_PREFERENCE',
+  type: 'SAVE_PREFERENCES',
   content: {
-    name: 'breakfast',
-    seconds: 1502857821000,
-    dataSource: []
-  }
-})
-
-store.dispatch({
-  type: 'ADD_PREFERENCE',
-  content: {
-    name: 'lunch',
-    seconds: 1502857821000,
-    dataSource: []
+    kcal: 12345,
+    meals: [
+      {
+        name: 'breakfast',
+        seconds: 1502857821000
+      },
+      {
+        name: 'lunch',
+        seconds: 1502857821000
+      }
+    ]
   }
 })
 
