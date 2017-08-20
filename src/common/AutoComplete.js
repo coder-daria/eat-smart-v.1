@@ -15,6 +15,7 @@ class AutoComplete extends React.Component {
     };
 
     onSelect = (food, index) => {
+        // console.log(food);
         this.setState({ input: food.name });
         this.props.onSelect(food.name, food);
     };
@@ -43,7 +44,6 @@ AutoComplete.propTypes = {
     onSelect: PropTypes.func.isRequired,
     onChange: PropTypes.func,
     getItemValue: PropTypes.func,
-    // propertyUsedToFilter: PropTypes.func
 };
 
 export default AutoComplete;

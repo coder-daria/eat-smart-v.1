@@ -37,7 +37,8 @@ const AddFood = props => {
                 <Field name="fat" type="number" component={renderTextField} label="Fat" />
                 <Field name="protein" type="number" component={renderTextField} label="Protein" />
                 <Field name="carbs" type="number" component={renderTextField} label="Carbs" />
-                <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} /> <RaisedButton label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2"/>
+                <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
+                <RaisedButton label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2"/>
             </form>
             {loading}
         </div>
