@@ -2,7 +2,6 @@ import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-// import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {renderTextField} from '../../common/FormFields';
 import MaterialIcon from '../../common/MaterialIcon';

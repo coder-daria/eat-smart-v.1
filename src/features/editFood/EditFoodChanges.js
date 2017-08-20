@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import TextField from 'material-ui/TextField';
+import {renderTextField} from '../../common/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const validate = values => {
@@ -22,20 +22,6 @@ const validate = values => {
     errors.properties.carbs = "Required";
   }
   return errors;
-}
-
-const renderTextField = field => {
-  const errorText = field.meta.touched ? field.meta.error : null;
-  return (
-    <div>
-      <label>
-        {field.label}
-      </label>
-      <div>
-        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
-      </div><br />
-    </div>
-  )
 }
 
 const EditFoodChanges = props => {
