@@ -4,26 +4,21 @@ import PropTypes from 'prop-types';
 
 class EditFoodSearch extends React.Component {
   state = {
-    idOfFoodSelected: null
+    idOfSelectedFood: null
   }
   componentWillReceiveProps(newProps) {
     if (this.props.foods !== newProps.foods) {
-      newProps.onSelect(newProps.foods.filter(f => f.properties.id === this.state.idOfFoodSelected)[0]);
+      newProps.onSelect(newProps.foods.filter(f => f.properties.id === this.state.idOfSelectedFood)[0]);
     }
   }
-  render() {
-    // let picture = (item) => {
-    //   if (item.properties && item.properties.url) {
-    //     return <img alt={item.name} src={item.properties.url} width="200" height="100" />
-    //   }
-    // }                   
+  render() {              
     return (
       <div>
         Search
         <AutoComplete
           items={this.props.foods}
           onSelect={(val, food) => {
-            this.setState({ idOfFoodSelected: food.properties.id });
+            this.setState({ idOfSelectedFood: food.properties.id });
             this.props.onSelect(food)
           }}
         />

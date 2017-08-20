@@ -1,75 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
-class EditFoodChanges extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      foodBeingChanged: this.props.selected,
-      dataSource: []
-    }
+const validate = values => {
+  const errors = { properties: {} }
+  if (!values.name) {
+    errors.name = 'Required'
   }
+  else if (values.name.length < 2) {
+    errors.name = 'Chosen name is too short'
+  }
+  if (!values.properties.fat) {
+    errors.properties.fat = 'Required'
+  }
+  if (!values.properties.protein) {
+    errors.properties.protein = "Required";
+  }
+  if (!values.properties.carbs) {
+    errors.properties.carbs = "Required";
+  }
+  return errors;
+}
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({ foodBeingChanged: nextProps.selected });
-  }
-
-  handleName = (event, searchText) => {
-    this.setState(prevState => {
-      const foodBeingChanged = prevState.foodBeingChanged;
-      foodBeingChanged.name = searchText;
-      return { foodBeingChanged: foodBeingChanged }
-    });
-  }
-  handleInGeneral1 = type => (event, searchText) => {
-    this.setState(prevState => {
-      const foodBeingChanged = prevState.foodBeingChanged;
-      foodBeingChanged.properties[type] = searchText;
-      return { foodBeingChanged: foodBeingChanged }
-    });
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    this.props.onSubmit(this.state.foodBeingChanged);
-  }
-
-  render() {
-    const foodToEdit = this.state.foodBeingChanged;
-    return (
+const renderTextField = field => {
+  const errorText = field.meta.touched ? field.meta.error : null;
+  return (
+    <div>
+      <label>
+        {field.label}
+      </label>
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name<br />
-            <TextField hintText="Name" onChange={this.handleName} value={foodToEdit.name} type="text"/><br />
-          </label>
-          <br />
-          <label>
-            Fat <br />
-            <TextField hintText="Fat" onChange={this.handleInGeneral1("fat")} value={foodToEdit.properties.fat} type="number"/><br />
-          </label>
-          <br />
-          <label>
-            Protein<br />
-            <TextField hintText="Protein" onChange={this.handleInGeneral1("protein")} value={foodToEdit.properties.protein} type="number"/><br />
-          </label>
-          <br />
-          <label>
-            Carbs<br />
-            <TextField hintText="Carbs" onChange={this.handleInGeneral1("carbs")} value={foodToEdit.properties.carbs} type="number"/><br />
-          </label>
-          <RaisedButton label="Submit" type="submit" primary={true} />
+        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
+      </div><br />
+    </div>
+  )
+}
+
+const EditFoodChanges = props => {
+  const {invalid, handleSubmit } = props;
+   return (
+      <div className="addFoodContainer">
+        <form onSubmit={handleSubmit}>
+          <Field name="name" type="text" component={renderTextField} label="name" />
+          <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
+          <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
+          <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
+          <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
         </form>
       </div>
     )
-  }
 }
 
 EditFoodChanges.propTypes = {
-  onSubmit: PropTypes.func,
-  selected: PropTypes.object
+  onSubmit: PropTypes.func
 };
 
-export default EditFoodChanges;
+export default reduxForm({
+  form: 'EditFoodChanges',
+  enableReinitialize: true,
+  validate
+})(EditFoodChanges)

@@ -1,7 +1,6 @@
 import AddFood from './AddFood';
 import addNewFoodToServer from './addNewFoodToServer';
-import { connect } from 'react-redux'
-import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
   return {
