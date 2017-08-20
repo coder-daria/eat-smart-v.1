@@ -8,7 +8,7 @@ import PreferencesParentContainer from './features/preferences/PreferencesParent
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Time from './Time';
-import Date from './Date';
+import DayPickerContainer from './features/changeDate/DayPickerContainer';
 import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -24,8 +24,8 @@ class App extends Component {
             <div className="appContainer">
               <div className="header">
                 <Time />
-                <TimeFor />
-                <Date />
+                Time for dinner
+                <DayPickerContainer />
                 <MenuIcon />
               </div>
               <div className="body">

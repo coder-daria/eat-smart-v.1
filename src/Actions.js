@@ -5,6 +5,7 @@ export const REMOVE_SELECTED_FOOD = "REMOVE_SELECTED_FOOD";
 export const ADD_FOODS_OF_NEW_MEAL_TO_MEALS = "ADD_FOODS_OF_NEW_MEAL_TO_MEALS"
 export const SHOW_MEAL_DETAILS = "SHOW_MEAL_DETAILS";
 export const SAVE_PREFERENCES = "SAVE_PREFERENCES";
+export const MEAL_HISTORY_FOR_DAY = "MEAL_HISTORY_FOR_DAY";
 export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 export const SELECTED_DATE = "SELECTED_DATE";
 export const EDIT_FOOD = "EDIT_FOOD";
@@ -45,4 +46,8 @@ export function savePreferences(value) {
 
 export function selectedDate(date) {
     return { type: SELECTED_DATE, content: date };
+}
+
+export function mealHistoryForDay(meals) {
+    return { type: MEAL_HISTORY_FOR_DAY, content: meals };
 }
