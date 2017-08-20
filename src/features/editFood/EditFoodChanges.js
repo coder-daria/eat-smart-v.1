@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Field, reduxForm } from 'redux-form';
 
 const validate = values => {
-  const errors = {properties: {}}
+  const errors = { properties: {} }
   if (!values.name) {
     errors.name = 'Required'
   }
@@ -24,35 +24,33 @@ const validate = values => {
   return errors;
 }
 
-class EditFoodChanges extends React.Component {
-
-  renderTextField = field => {
-    const errorText = field.meta.touched ? field.meta.error : null;
-    return (
+const renderTextField = field => {
+  const errorText = field.meta.touched ? field.meta.error : null;
+  return (
+    <div>
+      <label>
+        {field.label}
+      </label>
       <div>
-        <label>
-          {field.label}
-        </label>
-        <div>
-          <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
-        </div><br />
-      </div>
-    )
-  }
+        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
+      </div><br />
+    </div>
+  )
+}
 
-  render() {
-    return (
+const EditFoodChanges = props => {
+  const {invalid, handleSubmit } = props;
+   return (
       <div className="addFoodContainer">
-        <form onSubmit={this.props.handleSubmit}>
-          <Field name="name" type="text" component={this.renderTextField} label="name" />
-          <Field name="properties.fat" type="number" component={this.renderTextField} label="fat" />
-          <Field name="properties.protein" type="number" component={this.renderTextField} label="protein" />
-          <Field name="properties.carbs" type="number" component={this.renderTextField} label="carbs" />
-          <RaisedButton label="Submit" type="submit" primary={true} />
+        <form onSubmit={handleSubmit}>
+          <Field name="name" type="text" component={renderTextField} label="name" />
+          <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
+          <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
+          <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
+          <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
         </form>
       </div>
     )
-  }
 }
 
 EditFoodChanges.propTypes = {
