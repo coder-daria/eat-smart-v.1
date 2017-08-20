@@ -55,8 +55,8 @@ export default function reducer(state = initialState, action) {
 
 
         case actions.EDIT_FOOD:
-            let foodID = action.content.properties.id;
-            if (state.foods[foodID].properties.id === foodID) {
+            let foodID = action.content.id;
+            if (state.foods[foodID].id === foodID) {
                 state.foods[foodID] = { ...action.content };
             }
             return Object.assign({}, state);

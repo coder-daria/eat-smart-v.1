@@ -6,12 +6,9 @@ import { Provider } from 'react-redux';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
-import { fetchProducts, convertFoodsFromServer } from './functions.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
-const foods = convertFoodsFromServer(fetchProducts());
-
 let store = createStore();
 
 window.s = store;
@@ -39,14 +36,11 @@ store.dispatch({
   type: 'NEW_FOOD',
   content: {
     'f400558e-251a-4f7e-8d05-66e35btomato': {
-      name: 'tomato',
-      properties: {
         name: 'tomato',
         fat: '50',
         protein: '100',
         carbs: '50',
         id: 'f400558e-251a-4f7e-8d05-66e35btomato'
-      }
     }
   }
 });
@@ -55,14 +49,11 @@ store.dispatch({
   type: 'NEW_FOOD',
   content: {
     'f400558e-251a-4f7e-8d05-66e35b729egg': {
-      name: 'egg',
-      properties: {
         name: 'egg',
         fat: '100',
         protein: '50',
         carbs: '100',
         id: 'f400558e-251a-4f7e-8d05-66e35b729egg'
-      }
     }
   }
 });

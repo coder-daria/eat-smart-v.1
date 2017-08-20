@@ -8,7 +8,7 @@ class EditFoodSearch extends React.Component {
   }
   componentWillReceiveProps(newProps) {
     if (this.props.foods !== newProps.foods) {
-      newProps.onSelect(newProps.foods.filter(f => f.properties.id === this.state.idOfSelectedFood)[0]);
+      newProps.onSelect(newProps.foods.filter(f => f.id === this.state.idOfSelectedFood)[0]);
     }
   }
   render() {              
@@ -18,7 +18,7 @@ class EditFoodSearch extends React.Component {
         <AutoComplete
           items={this.props.foods}
           onSelect={(val, food) => {
-            this.setState({ idOfSelectedFood: food.properties.id });
+            this.setState({ idOfSelectedFood: food.id });
             this.props.onSelect(food)
           }}
         />

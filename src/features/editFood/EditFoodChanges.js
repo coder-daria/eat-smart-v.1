@@ -5,21 +5,21 @@ import {renderTextField} from '../../common/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const validate = values => {
-  const errors = { properties: {} }
+  const errors = {  }
   if (!values.name) {
     errors.name = 'Required'
   }
   else if (values.name.length < 2) {
     errors.name = 'Chosen name is too short'
   }
-  if (!values.properties.fat) {
-    errors.properties.fat = 'Required'
+  if (!values.fat) {
+    errors.fat = 'Required'
   }
-  if (!values.properties.protein) {
-    errors.properties.protein = "Required";
+  if (!values.protein) {
+    errors.protein = "Required";
   }
-  if (!values.properties.carbs) {
-    errors.properties.carbs = "Required";
+  if (!values.carbs) {
+    errors.carbs = "Required";
   }
   return errors;
 }
@@ -30,9 +30,9 @@ const EditFoodChanges = props => {
       <div className="addFoodContainer">
         <form onSubmit={handleSubmit}>
           <Field name="name" type="text" component={renderTextField} label="name" />
-          <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
-          <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
-          <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
+          <Field name="fat" type="number" component={renderTextField} label="fat" />
+          <Field name="protein" type="number" component={renderTextField} label="protein" />
+          <Field name="carbs" type="number" component={renderTextField} label="carbs" />
           <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
         </form>
       </div>

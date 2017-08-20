@@ -55,8 +55,8 @@ xit('converts object of objects to array of objects', () => {
     };
 
     const expected = [
-        { name: "jamon", properties: { fat: 4 } },
-        { name: "twarog", properties: { fat: 5 } }];
+        { name: "jamon", fat: 4 },
+        { name: "twarog", fat: 5 }];
     expect(utils.convertToArray(objectOfObjects)).toEqual(expected);
 })
 
