@@ -70,7 +70,7 @@ class MealForm extends React.Component {
             <div>
                 {field.label}
                 <AutoComplete
-                    items={this.props.meal}
+                    items={this.props.mealsPreferences}
                     onSelect={field.input.onChange}
                     onChange={field.input.onChange}
                 />
@@ -103,11 +103,10 @@ MealForm.propTypes = {
     foodsToSearch: PropTypes.array.isRequired,
     removeFromMeal: PropTypes.func.isRequired,
     addMeal: PropTypes.func.isRequired,
-    meal: PropTypes.array.isRequired
+    mealsPreferences: PropTypes.array.isRequired
 };
 
 export default reduxForm({
     form: 'addMeal',
-    enableReinitialize: true,
     validate
 })(MealForm);

@@ -17,8 +17,7 @@ const mapDispatchToProps = dispatch => {
 
 
 const PreferencesParentForm =  reduxForm({
-  form: 'preferences',
-  enableReinitialize: true
+  form: 'preferences'
 })(PreferencesParent)
 
 const PreferencesParentContainer = connect(
