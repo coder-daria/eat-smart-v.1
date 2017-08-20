@@ -12,21 +12,25 @@ import R from 'ramda';
 import { cyan500 } from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
-
   state = {
     editing: false
   }
-  
+
   toggleEdit = () => {
     this.setState({ editing: false });
   }
 
   form = (preference) => {
     return (
-      <div>
-        Meal name :<br />
-        <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
-        <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+      <div className="chipContainer">
+        <div className="chipName">
+          <h3>Meal name :</h3>
+          <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+        </div>
+        <div className="chipTime">
+          <h3>Time:</h3>
+          <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+        </div>
         <MaterialIcon onClick={this.toggleEdit}>
           <ActionDone hoverColor={cyan500} />
         </MaterialIcon>

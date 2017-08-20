@@ -5,17 +5,18 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import EditableChip from './EditableChip';
 import React from 'react';
 import moment from 'moment';
+import '../features/preferences/preferencesParent.css';
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
-    <div>
-      <label>
-        {field.label}
-      </label>
-      <div>
-        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} /><br />
-      </div><br />
+    <div className="textFieldContainer">
+      <div className="textFieldLabel">
+        <label>{field.label}</label>
+      </div>
+      <div className="textField">
+        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} />
+      </div>
     </div>
   )
 }
@@ -28,7 +29,7 @@ export const renderTimePicker = field => {
     if (date === null) {
       return;
     }
-    field.input.onChange( chosenUnixTimestamp);
+    field.input.onChange(chosenUnixTimestamp);
 
   }
   return (
@@ -59,17 +60,21 @@ export const renderFieldArray = fieldArray => {
   const addField = (field, index, fields) => {
     const removeField = () => fieldArray.fields.remove(index);
     return (
-      <li key={index}>
+      <li key={index} className="chip">
         <EditableChip name={field} onDelete={removeField} preference={fields.get(index)} onSave={() => { }} />
       </li>
     )
   }
   return (
-    <div>
-      <ul>
-        {fieldArray.fields.map(addField)}
-      </ul>
-      <RenderAddButton onClick={addMeal} />
+    <div className="fieldsAndButtonContainer">
+      <div className="array">
+        <ul className="fieldsContainer">
+          {fieldArray.fields.map(addField)}
+        </ul>
+      </div>
+      <div className="button" >
+        <RenderAddButton onClick={addMeal}/>
+      </div>
     </div>
   )
 }
