@@ -20,7 +20,7 @@
 /*********************/
 /*renderFieldArray */
 .fieldsContainer {
-     /* border: 2px solid yellow;          */
+      /* border: 2px solid yellow;           */
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
@@ -42,17 +42,23 @@
     /* border: 2px solid orange;           */
     display: flex;
     flex-direction: column;  
-      margin: 2% 0;     
+    margin-right: 20px;     
 }
 
 .chipName, .chipTime {
     display: flex;
     flex-flow: row wrap;  
     align-items: baseline; 
-    margin-right: 10px; 
 }
 
 .chipName h3, .chipTime h3{ 
-      margin-right: 5px;  
+    margin-right: 5px;  
+}
+
+.chipTime h3 {
+    margin-right: 57px;
+}
+.chip {
+    margin-right: 10px;
 }
 /*********************/
