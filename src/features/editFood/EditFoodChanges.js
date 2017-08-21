@@ -28,7 +28,7 @@ const EditFoodChanges = props => {
   const {invalid, handleSubmit } = props;
    return (
       <div>
-        <form className="addFoodContainer" onSubmit={handleSubmit}>
+        <form className="editFoodForm" onSubmit={handleSubmit}>
           <h2>Name</h2>
           <Field name="name" type="text" component={renderTextField} label="name" />
           <h2>Fat</h2>
