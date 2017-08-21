@@ -52,14 +52,22 @@ class MealForm extends React.Component {
     }
     renderSingleFood = (food, index, fields) => {
         const remove = (index) => () => fields.remove(index);
-        const renderFoodName = field => <div>{field.input.value}</div>;
+        const renderFoodName = field => <div className="specificName">{field.input.value}</div>;
         return (
-            <li key={index}>
+            <li key={index} className="mealContainer">
+                <div className="mealHeader">
+                <div className="name">
                 <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name" />
-                <Field name={`${food}.quantity`} component={renderTextField} label="Quantity" />
+                </div>
+                <div className="icon">
                 <MaterialIcon type="button" label="Remove" secondary={true} onClick={remove(index)}>
                     <ContentClear hoverColor={pink500} />
                 </MaterialIcon>
+                </div>
+                </div>
+                <div className="quantity">
+                <Field name={`${food}.quantity`} component={renderTextField} label="Quantity" />
+                </div>
             </li>
         )
     }
@@ -85,11 +93,17 @@ class MealForm extends React.Component {
     render() {
         const submit = this.props.handleSubmit(this.clearAndSubmit);
         return (
-            <div className="mealParentContainer">
-                <form onSubmit={submit}>
+            <div className="mealForm">
+                <form className="mealParentContainer" onSubmit={submit}>
+                    <div>
                     <Field name="meal" component={this.renderMealPreferences} label="Meal" />
+                    </div>
+                    <div>
                     <FieldArray name="foods" component={this.renderFoods} />
+                    </div>
+                    <div className="raisedButton">
                     <RaisedButton type="submit" label="Submit" primary={true} disabled={this.props.invalid} />
+                    </div>
                 </form>
             </div>
         )
