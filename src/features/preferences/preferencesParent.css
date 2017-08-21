@@ -39,22 +39,29 @@
 /*********************/
 /*chips*/
 .chipContainer {
-    /* border: 2px solid orange;           */
+    border: 2px solid #77C0D9;
+    border-style: ridge; 
+    border-radius: 4px;           
     display: flex;
-    flex-direction: column;  
-    margin-right: 20px;     
+    flex-flow: column wrap;
+    width: 100%; 
 }
 
 .chipName, .chipTime {
+    position: relative;
     display: flex;
     flex-flow: row wrap;  
     align-items: baseline; 
+    margin-left: 5px; 
 }
 
 .chipName h3, .chipTime h3{ 
     margin-right: 5px;  
 }
-
+.chipButton {
+    margin-top: -40px;
+    align-self: flex-end;
+}
 .chipTime h3 {
     margin-right: 57px;
 }

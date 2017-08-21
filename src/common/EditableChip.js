@@ -31,9 +31,11 @@ class EditableChip extends React.Component {
           <h3>Time:</h3>
           <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
         </div>
+        <div className="chipButton">
         <MaterialIcon onClick={this.toggleEdit}>
           <ActionDone hoverColor={cyan500} />
         </MaterialIcon>
+        </div>
       </div>
     )
   }
@@ -46,7 +48,9 @@ class EditableChip extends React.Component {
       <Chip
         key={preference.name}
         onRequestDelete={this.props.onDelete}
-        onClick={() => this.setState({ editing: true })}>
+        onClick={() => this.setState({ editing: true })}
+        labelColor="#353738"
+        backgroundColor="#BEDEE8">
         {preference.name} at {formatedTime}
       </Chip>
     )
