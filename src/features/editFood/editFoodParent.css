@@ -14,3 +14,7 @@ img {
     min-width: 400px;
     width: 100%
 }
+
+.raisedButton {
+    margin-top: 22px;
+}

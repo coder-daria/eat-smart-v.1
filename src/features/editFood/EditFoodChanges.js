@@ -27,13 +27,13 @@ const validate = values => {
 const EditFoodChanges = props => {
   const {invalid, handleSubmit } = props;
    return (
-      <div className="addFoodContainer">
-        <form onSubmit={handleSubmit}>
+      <div>
+        <form className="addFoodContainer" onSubmit={handleSubmit}>
           <Field name="name" type="text" component={renderTextField} label="name" />
           <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
           <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
           <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
-          <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
+          <RaisedButton className="raisedButton" label="Submit" type="submit" primary={true} disabled={invalid} />
         </form>
       </div>
     )
