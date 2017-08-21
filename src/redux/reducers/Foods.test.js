@@ -22,9 +22,7 @@ it('handles NEW_FOOD', () => {
     let action = actions.newFood({
         101: {
             name: "honey",
-            properties: {
-                fat: "0", protein: "0", carbs: "40", id: 101
-            }
+            fat: "0", protein: "0", carbs: "40", id: 101
         }
     });
 
@@ -96,30 +94,26 @@ it('handle EDIT_FOOD', () => {
         ...initialState, foods: {
             100888247: {
                 name: "jajko",
-                properties: {
                     carbs: "1",
                     fat: "9",
                     id: 100888247,
                     protein: "12"
-                }
             }
         }
     }
 
     let action = actions.editFood({
         name: "jajko",
-        properties: {
             carbs: "0",
             fat: "9",
             id: 100888247,
             protein: "12"
-        }
     });
     let newState = reducer(initialState, action);
 
     expect(newState.length).toEqual(initialState.length);
-    expect(newState.foods[100888247].properties.carbs).not.toEqual(1);
-    expect(newState.foods[100888247].properties.carbs).toEqual("0");
+    expect(newState.foods[100888247].carbs).not.toEqual(1);
+    expect(newState.foods[100888247].carbs).toEqual("0");
 });
 
 it('handle IS_LOADING', () => {

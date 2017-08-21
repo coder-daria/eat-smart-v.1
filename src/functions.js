@@ -60,7 +60,7 @@ export function convertFoodsFromServer(productsFromServer) {
 }
 
 export function convertFoodFromServer(object) {
-  return {[object.id] : {name: object.name, properties: {...object}}};
+  return {[object.id] : object};
 }
 
 export function convertObjectToArray(object) {

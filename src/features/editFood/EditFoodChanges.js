@@ -5,21 +5,21 @@ import {renderTextField} from '../../common/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const validate = values => {
-  const errors = { properties: {} }
+  const errors = {  }
   if (!values.name) {
     errors.name = 'Required'
   }
   else if (values.name.length < 2) {
     errors.name = 'Chosen name is too short'
   }
-  if (!values.properties.fat) {
-    errors.properties.fat = 'Required'
+  if (!values.fat) {
+    errors.fat = 'Required'
   }
-  if (!values.properties.protein) {
-    errors.properties.protein = "Required";
+  if (!values.protein) {
+    errors.protein = "Required";
   }
-  if (!values.properties.carbs) {
-    errors.properties.carbs = "Required";
+  if (!values.carbs) {
+    errors.carbs = "Required";
   }
   return errors;
 }

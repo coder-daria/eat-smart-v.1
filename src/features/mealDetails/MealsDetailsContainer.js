@@ -15,10 +15,10 @@ const mapStateToProps = state => {
   const copyOfFoodsOfMeal = R.clone(foodsOfMeal);
   copyOfFoodsOfMeal.map(object => {
     for (let key in selectedMeal.details) {
-      if (selectedMeal.details[key].id === object.properties.id) {
-        object.properties.carbs = ((object.properties.carbs * selectedMeal.details[key].quantity) / 100).toFixed(2);
-        object.properties.protein = ((object.properties.protein * selectedMeal.details[key].quantity) / 100).toFixed(2)
-        object.properties.fat = ((object.properties.fat * selectedMeal.details[key].quantity) / 100).toFixed(2)
+      if (selectedMeal.details[key].id === object.id) {
+        object.carbs = ((object.carbs * selectedMeal.details[key].quantity) / 100).toFixed(2);
+        object.protein = ((object.protein * selectedMeal.details[key].quantity) / 100).toFixed(2)
+        object.fat = ((object.fat * selectedMeal.details[key].quantity) / 100).toFixed(2)
       }
     }
   })
@@ -26,7 +26,7 @@ const mapStateToProps = state => {
 
 
   let mealDetails = copyOfFoodsOfMeal.reduce((total, food) => {
-    return sumFoods(total, food.properties);
+    return sumFoods(total, food);
   }, { fat: 0, carbs: 0, protein: 0 });
 
   return {
