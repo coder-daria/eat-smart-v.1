@@ -12,24 +12,38 @@ import R from 'ramda';
 import { cyan500 } from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
-
   state = {
     editing: false
   }
-  
+
   toggleEdit = () => {
     this.setState({ editing: false });
   }
 
   form = (preference) => {
     return (
-      <div>
-        Meal name :<br />
-        <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
-        <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
-        <MaterialIcon onClick={this.toggleEdit}>
-          <ActionDone hoverColor={cyan500} />
-        </MaterialIcon>
+      <div className="chipContainer">
+        <div className="chipName">
+          <div>
+            <h3>Meal name:</h3>
+          </div>
+            <div className="chipTextField">
+              <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+            </div>
+        </div>
+        <div className="chipTime">
+          <div>
+            <h3>Time:</h3>
+          </div>
+          <div>
+            <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+          </div>
+        </div>
+        <div className="chipButton">
+          <MaterialIcon onClick={this.toggleEdit}>
+            <ActionDone hoverColor={cyan500} />
+          </MaterialIcon>
+        </div>
       </div>
     )
   }
@@ -42,7 +56,9 @@ class EditableChip extends React.Component {
       <Chip
         key={preference.name}
         onRequestDelete={this.props.onDelete}
-        onClick={() => this.setState({ editing: true })}>
+        onClick={() => this.setState({ editing: true })}
+        labelColor="#353738"
+        backgroundColor="#BEDEE8">
         {preference.name} at {formatedTime}
       </Chip>
     )

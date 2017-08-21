@@ -1,6 +1,21 @@
 .addFoodContainer {
-    /* border: 2px solid orangered; */
+    /* border: 2px solid orangered;   */
+     width: 35%;
+     display: flex; 
+    flex-direction: column;  
+     margin-left: 1%; 
+}
+.addFoodContainer div {
     display: flex;
-    flex-direction: column;
-    margin: 0 3% 3% 3%;
+    align-items: center; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.buttons {
+    display: flex;
+    align-self: flex-end;
+}
+.button1, .button2 {
+    margin-top: 28px;
+    margin-right: 10px;
 }

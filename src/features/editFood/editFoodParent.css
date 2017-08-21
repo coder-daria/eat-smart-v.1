@@ -14,3 +14,21 @@ img {
     min-width: 400px;
     width: 100%
 }
+
+.raisedButton {
+    margin-top: 22px;
+}
+
+/* editFoodChanges*/
+
+ .editFoodForm {
+    display: flex;
+    flex-direction: column;
+}
+ .editFoodForm h2 {
+    margin-top: 15px;  
+    margin-bottom: -5px;
+    font-size: 17px;
+    text-shadow: 0px 0px black;   
+
+}   

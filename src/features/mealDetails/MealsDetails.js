@@ -49,12 +49,33 @@ class MealsDetails extends React.Component {
         // }
 
         let { theWholeMeal } = this.props;
-        const foodDetailsList = theWholeMeal.mealName === "" ? "" : (<ul>
-            <li>Name: {theWholeMeal.mealName} </li>
-            <li>Fat: {theWholeMeal.mealDetails.fat} </li>
-            <li>Protein: {theWholeMeal.mealDetails.protein}</li>
-            <li>Carbs: {theWholeMeal.mealDetails.carbs}</li>
-        </ul>)
+        const foodDetailsList = theWholeMeal.mealName === "" ? "" : (
+            <ul className="specificDetails">
+                <li>
+                    <h3>Name</h3>
+                    <div>
+                    {theWholeMeal.mealName}
+                    </div>
+                </li>
+                <li>
+                    <h3>Fat</h3>
+                    <div>
+                    {theWholeMeal.mealDetails.fat} g
+                    </div>
+                </li>
+                <li>
+                    <h3>Protein</h3>
+                    <div>
+                    {theWholeMeal.mealDetails.protein} g
+                    </div>
+                 </li>
+                <li>
+                    <h3>Carbs</h3>
+                    <div>
+                    {theWholeMeal.mealDetails.carbs} g
+                    </div>
+                </li>
+            </ul>)
 
         const meals = this.props.meals;
         const meal = meals.map(item => {
@@ -66,14 +87,14 @@ class MealsDetails extends React.Component {
         return (
             <div className="mealsDetailsContainer">
                 <div className="mealsDetails">
-                    <h3>Meals details</h3><br />
+                    <h2>Meals details</h2>
                     <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
                         {meal}
                     </SelectField>
                     {foodDetailsList}
                 </div>
                 <div>
-                    <Chart className="chart"/>
+                    <Chart className="chart" />
                 </div>
             </div>
         )

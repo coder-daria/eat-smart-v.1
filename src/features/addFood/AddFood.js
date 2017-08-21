@@ -31,14 +31,28 @@ const AddFood = props => {
     const { pristine, reset, invalid, handleSubmit } = props
     const loading = props.isLoading ? <CircularProgress /> : null;
     return (
-        <div className="addFoodContainer">
-            <form onSubmit={handleSubmit}>
+        <div>
+            <form onSubmit={handleSubmit} className="addFoodContainer">
+                <div >
+                <h2>Name</h2>
                 <Field name="name" type="text" component={renderTextField} label="Name" />
+                </div>
+                <div>
+                <h2>Fat</h2>
                 <Field name="fat" type="number" component={renderTextField} label="Fat" />
+                </div>
+                <div>
+                <h2>Protein</h2>
                 <Field name="protein" type="number" component={renderTextField} label="Protein" />
+                </div>
+                <div>
+                <h2>Carbs</h2>
                 <Field name="carbs" type="number" component={renderTextField} label="Carbs" />
-                <RaisedButton label="Submit" type="submit" primary={true} disabled={invalid} />
-                <RaisedButton label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2"/>
+                </div>
+                <div className="buttons">
+                <RaisedButton className="button1" label="Submit" type="submit" primary={true} disabled={invalid} />
+                <RaisedButton className="button2" label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2"/>
+                </div>
             </form>
             {loading}
         </div>
