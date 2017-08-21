@@ -2,6 +2,7 @@
     /* border: 2px solid palegreen;     */
     display: flex; 
     flex-direction: column;
+    margin-left: 3%;
 }
 .mealParentContainer .raisedButton {
     margin-top: 1%;  
@@ -17,12 +18,23 @@
     border-style: ridge; 
     border-radius: 4px;  
 }
-.specificName {
-    font-size: 17px;
-    color: #384B52;
-}
 .mealHeader{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.specificName {
+    font-size: 17px;
+    color: #384B52;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.mealPreferences h2 {
+    font-size: 19px;
+    margin-bottom: 15px;
 }

@@ -5,10 +5,39 @@
     flex-flow: row wrap;
 }
 .mealsDetails {
-  flex: 1;
+   flex: 1; 
 }
+
+.specificDetails {
+  /* border: 2px solid red; */
+   margin-top: 10px; 
+  display: flex;
+  flex-direction: column;
+}
+
+
+.specificDetails li {
+  margin-top: 15px;
+  display: flex;
+  max-width: 120px;
+}
+.specificDetails li h3 {
+   flex: 1 0 30px; 
+   font-size: 17px;
+   text-shadow: 0px 0px black;
+}
+
+.specificDetails li div {
+   flex: 1 0 20px; 
+}
+
 
 .chart {
   flex: 1;
   max-width: 100%;
+}
+
+.mealsDetails h2 {
+    font-size: 19px;
+    margin-bottom: 15px;
 }
