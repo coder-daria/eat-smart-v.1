@@ -1,34 +1,41 @@
  .preferencesContainer {
-        /* border: 2px solid blue;         */
+         /* border: 2px solid blue;          */
     flex:1;
     display: flex;
     flex-direction: column;
     margin: 0 3% 3% 3%;
-     justify-content: flex-start; 
+    justify-content: flex-start; 
 }
 /*renderTextField*/
 .textFieldLabel label {
     margin-right: 10px;
 }
 .textFieldContainer {
-     /* border: 2px solid orange;        */
+    /* border: 2px solid orange;           */
     display: flex;
-    margin-bottom: 2%;
-    align-items: center; 
-    flex-flow: row wrap;
+    flex-flow: wrap;
+    align-items: center;  
+    /* margin-bottom: 2%; */
+}
+.textFieldLabel {
+  flex: 1 0 120px;
+  max-width: 80px;
+}
+.textField {       
+    flex: 1 0 220px;
 }
 /*********************/
 /*renderFieldArray */
 .fieldsContainer {
-      /* border: 2px solid yellow;           */
+    /* border: 2px solid yellow;            */
     display: flex;
     flex-direction: row;
     flex-flow: row wrap;
 }
 .fieldsAndButtonContainer {
-    /* border: 2px solid green;          */
+    /* border: 2px solid green;           */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
 }
 .button {
      margin-top: 2%; 
@@ -45,29 +52,28 @@
     border-style: ridge; 
     border-radius: 4px;           
     display: flex;
-    flex-flow: column wrap;
-    width: 100%; 
+    flex-flow: column wrap; 
+    width: 100%;  
 }
-
-.chipName, .chipTime {
-    position: relative;
-    display: flex;
-    flex-flow: row wrap;  
-    align-items: baseline; 
+.chip {
+    margin-right: 10px;
+}
+.chipName, .chipTime  {
+    /* border: 2px solid rgba(203, 155, 130, .7); */
+    display: flex;  
+    align-items: center;  
     margin-left: 5px; 
 }
 
-.chipName h3, .chipTime h3{ 
+.chipName div, .chipTime div{ 
+    /* border: 2px solid rgba(3, 155, 130, .7); */
     margin-right: 5px;  
+}
+.chipTime h3 {
+     margin-right: 57px; 
 }
 .chipButton {
     margin-top: -40px;
     align-self: flex-end;
-}
-.chipTime h3 {
-    margin-right: 57px;
-}
-.chip {
-    margin-right: 10px;
 }
 /*********************/

@@ -12,7 +12,7 @@ export const renderTextField = field => {
   return (
     <div className="textFieldContainer">
       <div className="textFieldLabel">
-        <label>{field.label}</label>
+        {/* <label>{field.label}</label> */}
       </div>
       <div className="textField">
         <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} />
@@ -39,7 +39,7 @@ export const renderTimePicker = field => {
       </label>
       <div>
         <TimePicker format="24hr" hintText={field.label} name={field.input.name} value={new Date(field.input.value)} onChange={onChange} /><br />
-      </div><br />
+      </div>
     </div>
   )
 }

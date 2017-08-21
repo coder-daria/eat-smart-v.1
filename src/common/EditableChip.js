@@ -24,17 +24,27 @@ class EditableChip extends React.Component {
     return (
       <div className="chipContainer">
         <div className="chipName">
-          <h3>Meal name:</h3>
-          <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+          <div>
+            <h3>Meal name:</h3>
+          </div>
+          <div>
+            <div className="chipTextField">
+              <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+            </div>
+          </div>
         </div>
         <div className="chipTime">
-          <h3>Time:</h3>
-          <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+          <div>
+            <h3>Time:</h3>
+          </div>
+          <div>
+            <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+          </div>
         </div>
         <div className="chipButton">
-        <MaterialIcon onClick={this.toggleEdit}>
-          <ActionDone hoverColor={cyan500} />
-        </MaterialIcon>
+          <MaterialIcon onClick={this.toggleEdit}>
+            <ActionDone hoverColor={cyan500} />
+          </MaterialIcon>
         </div>
       </div>
     )
