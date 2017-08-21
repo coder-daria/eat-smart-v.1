@@ -18,3 +18,15 @@ img {
 .raisedButton {
     margin-top: 22px;
 }
+
+/*editFoodChanges*/
+
+.addFoodContainer {
+    display: flex;
+    flex-direction: column;
+}
+.addFoodContainer h2 {
+      margin-top: 25px;  
+      margin-bottom: -5px;  
+
+}
