@@ -27,11 +27,9 @@ class EditableChip extends React.Component {
           <div>
             <h3>Meal name:</h3>
           </div>
-          <div>
             <div className="chipTextField">
               <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
             </div>
-          </div>
         </div>
         <div className="chipTime">
           <div>
