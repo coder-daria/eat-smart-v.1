@@ -1,11 +1,20 @@
  .preferencesContainer {
-         /* border: 2px solid blue;          */
     flex:1;
     display: flex;
     flex-direction: column;
     margin: 0 3% 3% 3%;
     justify-content: flex-start; 
 }
+.preferencesKcalContainer {          
+    /* border: 2px solid orange;    */
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+.preferencesKcalContainer h3 {
+    margin-right: 10px;
+}
+
 /*renderTextField*/
 .textFieldLabel label {
     margin-right: 10px;
@@ -27,10 +36,11 @@
 /*********************/
 /*renderFieldArray */
 .fieldsContainer {
-    /* border: 2px solid yellow;            */
+    /* border: 2px solid yellow;             */
     display: flex;
-    flex-direction: row;
     flex-flow: row wrap;
+    max-width: 120%;
+    justify-content: flex-start;
 }
 .fieldsAndButtonContainer {
     /* border: 2px solid green;           */
@@ -40,8 +50,7 @@
 .button {
      margin-top: 2%; 
      margin-bottom: 2%; 
-} 
-
+}
 
 /*********************/
 /*chips*/
@@ -53,10 +62,11 @@
     border-radius: 4px;           
     display: flex;
     flex-flow: column wrap; 
-    width: 100%;  
+    width: 100%; 
 }
 .chip {
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 .chipName, .chipTime  {
     /* border: 2px solid rgba(203, 155, 130, .7); */

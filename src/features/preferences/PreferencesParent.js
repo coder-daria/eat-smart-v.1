@@ -12,7 +12,8 @@ class PreferencesParent extends React.Component {
     return (
       <div>
         <form onSubmit={this.props.handleSubmit} className="preferencesContainer">
-          <div>
+          <div className="preferencesKcalContainer">
+            <h3>Kcal</h3>
             <Field name="kcal" type="text" component={renderTextField} label="Kcal" />
           </div>
           <div>

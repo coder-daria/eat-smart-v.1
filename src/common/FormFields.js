@@ -12,7 +12,7 @@ export const renderTextField = field => {
   return (
     <div className="textFieldContainer">
       <div className="textFieldLabel">
-        {/* <label>{field.label}</label> */}
+        {/* <label>{field.label}</label> */} 
       </div>
       <div className="textField">
         <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} />
