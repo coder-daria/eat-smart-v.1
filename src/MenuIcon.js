@@ -41,7 +41,8 @@ class MenuIcon extends Component {
                 <IconMenu
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     menuItemStyle={styles.item}
-                    targetOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+                    anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                     onChange={this.handleChangeSingle}
                     value={this.state.valueSingle}
                     onItemTouchTap={this.handleClick}
