@@ -31,7 +31,7 @@ const mapStateToProps = state => {
 
   return {
     theWholeMeal: { mealName: selectedMeal.mealName, mealDetails: mealDetails },
-    meals: state.foods.meals
+    meals: state.meals.meals || []
   }
 }
 

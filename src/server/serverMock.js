@@ -1,5 +1,7 @@
 import * as products from './products';
 import uuidv4 from 'uuid/v4';
+import moment from 'moment';
+import R from 'ramda';
 
 function listAllProducts() {
   for (let productName in products) {
@@ -31,12 +33,35 @@ function addFood(food) {
   return new Promise(fn);
 }
 
+const randomMeals = [
+  {
+    mealName: "Morning snack", details: [
+      {
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+        quantity: '50',
+        unit: 'grams'
+      }
+    ]
+  },
+  {
+    mealName: "Evening snack", details: [
+      {
+        id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
+        quantity: '70',
+        unit: 'grams'
+      }
+    ]
+  }
+];
+
+const mealsAddedByUser = {};
+
 /*
 input
 {year: 2017, month: 12, day: 5,}
 
 output
-{2017: {12: {5: [{mealName: "breakfast", details: [foods...]}, {mealName: "lunch", details: [foods...]}]} }}
+{meals: [{mealName: "breakfast", details: [foods...]}, {mealName: "lunch", details: [foods...]}]}
  */
 function findMealsIn(date) {
 
@@ -45,23 +70,25 @@ function findMealsIn(date) {
   // .then(data => data.json())
 
   function fn(resolve, reject) {
+    const seconds = moment(date).startOf('day').unix();
+    if (!mealsAddedByUser[seconds]) {
+      mealsAddedByUser[seconds] = R.clone(randomMeals);
+    }
     setTimeout(() => {
-      const result = {
-        [date.year]: {
-          [date.month]: {
-            [date.day]: [
-              { mealName: "breakfast", details: [] },
-              { mealName: "lunch", details: [] }]
-          }
-        }
-      };
-      resolve(result);
+      resolve(mealsAddedByUser[seconds]);
     }, 1000)
   }
 
   return new Promise(fn);
 }
 
+function addMeal(meal, date){
+  return findMealsIn(date).then(meals => {
+    const seconds = moment(date).startOf('day').unix();
+    mealsAddedByUser[seconds].push(meal);
+    return mealsAddedByUser[seconds];
+  })
+}
 
-const exports = { listAllProducts, addFood, findMealsIn };
+const exports = { listAllProducts, addFood, findMealsIn, addMeal };
 export default exports;

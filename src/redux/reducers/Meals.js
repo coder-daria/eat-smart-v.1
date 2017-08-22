@@ -1,7 +1,8 @@
 import * as actions from '../../Actions';
 
 const initialState = {
-  date: new Date()
+  date: new Date(),
+  meals: []
 };
 
 export default function reducer(state = initialState, action) {
@@ -9,7 +10,19 @@ export default function reducer(state = initialState, action) {
     case actions.SELECTED_DATE:
       return Object.assign({}, state, { date: action.content });
     case actions.MEAL_HISTORY_FOR_DAY:
-      return Object.assign({}, state, action.content);
+      return Object.assign({}, state, {meals: action.content});
+
+    case actions.SHOW_MEAL_DETAILS:
+      let mealName = action.content;
+      let yourMeal = {}
+
+      for (let key in state.meals) {
+        if (state.meals[key].mealName === mealName) {
+          yourMeal = state.meals[key]
+        }
+      }
+      return Object.assign({}, state, { selectedMeal: yourMeal });
+
 
     default:
       return state;
