@@ -8,7 +8,6 @@ import MaterialIcon from '../../common/MaterialIcon';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import { pink500 } from 'material-ui/styles/colors';
 import './mealForm.css';
-import * as styles from './demoCss';
 import MenuItem from 'material-ui/MenuItem';
 
 const validate = values => {
