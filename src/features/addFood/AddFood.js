@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import CircularProgress from 'material-ui/CircularProgress';
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import './addFood.css';
 import { renderTextField} from '../../common/FormFields';

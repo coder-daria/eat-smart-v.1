@@ -5,10 +5,7 @@ import Chip from 'material-ui/Chip';
 import { Field } from 'redux-form';
 import { renderTextField, renderTimePicker } from './FormFields'
 import MaterialIcon from './MaterialIcon';
-
 import ActionDone from 'material-ui/svg-icons/action/done';
-
-import R from 'ramda';
 import { cyan500 } from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
@@ -67,7 +64,6 @@ class EditableChip extends React.Component {
   }
 
   render() {
-    const preference = this.props.preference;
     const content = this.state.editing ? this.form() : this.chip();
     return (
       <div>

@@ -5,7 +5,6 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import './menuIcon.css';
-import ListItem from 'material-ui/List/ListItem';
 import Avatar from 'material-ui/Avatar';
 
 class MenuIcon extends Component {
@@ -21,13 +20,13 @@ class MenuIcon extends Component {
 
     handleClick = (event, child) => {
         let value = child.props.value;
-        if (value == 2) {
+        if (value === "2") {
             // window.location.assign = 'http://localhost:3000/preferences';
         }
-        if (value == 3) {
+        if (value === "3") {
             // window.location = 'http://localhost:3000/addFood';
         }
-        if (value == 4) {
+        if (value === "4") {
             // window.location = 'http://localhost:3000/editFood';
         }
     }

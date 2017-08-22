@@ -3,11 +3,13 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import { renderTextField } from '../../common/FormFields';
+import { renderTextField, renderSelectField } from '../../common/FormFields';
 import MaterialIcon from '../../common/MaterialIcon';
 import ContentClear from 'material-ui/svg-icons/content/clear';
 import { pink500 } from 'material-ui/styles/colors';
 import './mealForm.css';
+import * as styles from './demoCss';
+import MenuItem from 'material-ui/MenuItem';
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -74,14 +76,14 @@ class MealForm extends React.Component {
     }
 
     renderMealPreferences = field => {
+        let selectPreference = this.props.mealsPreferences.map(preference => {
+            return <MenuItem value={preference} primaryText={preference.name} />
+        })
         return (
             <div className="mealPreferences">
-                <h2>Create your meal</h2>
-                <AutoComplete
-                    items={this.props.mealsPreferences}
-                    onSelect={field.input.onChange}
-                    onChange={field.input.onChange}
-                />
+                <Field name="meal" component={renderSelectField} className="someClass" label="Meal">
+                    {selectPreference}
+                </Field>
             </div>
         )
     }
