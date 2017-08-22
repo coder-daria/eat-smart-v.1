@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Autocomplete from 'react-autocomplete';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Chart from '../../Chart.js';
@@ -21,24 +20,6 @@ class MealsDetails extends React.Component {
         console.log(value)
         this.setState({ value })
     };
-
-    material() {
-        return (
-            <div>
-                <SelectField
-                    floatingLabelText="Frequency"
-                    value={this.state.value}
-                    onChange={this.handleChange1}
-                >
-                    <MenuItem value={1} primaryText="Never" />
-                    <MenuItem value={2} primaryText="Every Night" />
-                    <MenuItem value={3} primaryText="Weeknights" />
-                    <MenuItem value={4} primaryText="Weekends" />
-                    <MenuItem value={5} primaryText="Weekly" />
-                </SelectField>
-            </div>
-        );
-    }
 
     render() {
         // for(let key in this.props.meals) {
@@ -81,8 +62,6 @@ class MealsDetails extends React.Component {
         const meal = meals.map(item => {
             return <MenuItem value={item.mealName} primaryText={item.mealName} />
         });
-
-        const coolSelect = this.material();
 
         return (
             <div className="mealsDetailsContainer">
