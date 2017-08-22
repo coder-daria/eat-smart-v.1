@@ -27,9 +27,9 @@ class EditableChip extends React.Component {
           <div>
             <h3>Meal name:</h3>
           </div>
-            <div className="chipTextField">
-              <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
-            </div>
+          <div className="chipTextField">
+            <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+          </div>
         </div>
         <div className="chipTime">
           <div>
@@ -54,12 +54,14 @@ class EditableChip extends React.Component {
     let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
     return (
       <Chip
+        className="Chip"
         key={preference.name}
         onRequestDelete={this.props.onDelete}
         onClick={() => this.setState({ editing: true })}
         labelColor="#353738"
         backgroundColor="#BEDEE8">
         {preference.name} at {formatedTime}
+
       </Chip>
     )
   }

@@ -53,8 +53,10 @@
 
 /*********************/
 /*chips*/
+.Chip {
+    width: 300px;
+}
 .chipContainer {
-     /* border: 2px solid #77C0D9;  */
     border: 2px solid rgba(103, 205, 230, .7);
     background-color: rgba(103, 205, 230, .06);  
     border-style: ridge; 

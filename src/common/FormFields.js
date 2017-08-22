@@ -7,8 +7,6 @@ import React from 'react';
 import moment from 'moment';
 import '../features/preferences/preferencesParent.css';
 
-{/* <label>{field.label}</label>  */}
-
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
