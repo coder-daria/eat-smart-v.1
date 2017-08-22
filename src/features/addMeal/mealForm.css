@@ -4,7 +4,7 @@
     flex-direction: column;
     margin-left: 3%;
 }
-.mealParentContainer .raisedButton {
+.mealParentContainer .mealRaisedButton {
     margin-top: 1%;  
 }
 .mealContainer {  

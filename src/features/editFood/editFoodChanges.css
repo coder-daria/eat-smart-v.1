@@ -1,0 +1,15 @@
+.editFoodFormContainer {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.editFoodFormContainer div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.editFoodRaisedButton {
+  align-self: flex-end;
+  margin-right: 10px;
+}

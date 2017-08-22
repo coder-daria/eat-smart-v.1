@@ -103,8 +103,8 @@ class MealForm extends React.Component {
                     <div>
                         <FieldArray name="foods" component={this.renderFoods} />
                     </div>
-                    <div className="raisedButton">
-                        <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
+                    <div className="mealRaisedButton">
+                        <RaisedButton type="submit" label="Submit" primary={true} disabled={this.props.invalid} />
                     </div>
                 </form>
             </div>
