@@ -37,23 +37,6 @@ it('handles NEW_FOOD', () => {
 
 });
 
-it('handle SHOW_MEAL_DETAILS', () => {
-    initialState = {
-        ...initialState, selectedMeal: {}, meals: [{
-            mealName: "salad",
-            details: [928482960, 100888247, 100888247]
-        }]
-    };
-
-    let action = actions.showMealDetails(initialState.meals[0].mealName);
-    let newState = reducer(initialState, action);
-
-    expect(newState).not.toEqual(initialState);
-    expect(newState.selectedMeal.mealName).toEqual("salad");
-    expect(newState.selectedMeal.details.length).toEqual(3);
-    expect(newState.selectedMeal.details[0]).toEqual(928482960);
-});
-
 it('handle EDIT_FOOD', () => {
     initialState = {
         ...initialState, foods: {
