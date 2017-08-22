@@ -5,6 +5,8 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import './menuIcon.css';
+import ListItem from 'material-ui/List/ListItem';
+import Avatar from 'material-ui/Avatar';
 
 class MenuIcon extends Component {
     state = {
@@ -37,11 +39,14 @@ class MenuIcon extends Component {
         }
         return (
             <div className="menuIconContainer">
-                <p>Daria</p>
+                <Avatar
+                    src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
+                    size={30}
+                />
                 <IconMenu
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     menuItemStyle={styles.item}
-                    anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
+                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
                     targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                     onChange={this.handleChangeSingle}
                     value={this.state.valueSingle}
