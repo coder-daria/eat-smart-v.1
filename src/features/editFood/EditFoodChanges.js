@@ -32,11 +32,11 @@ const EditFoodChanges = props => {
           <h2>Name</h2>
           <Field name="name" type="text" component={renderTextField} label="name" />
           <h2>Fat</h2>
-          <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
+          <Field name="fat" type="number" component={renderTextField} label="fat" />
           <h2>Protein</h2>
-          <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
+          <Field name="protein" type="number" component={renderTextField} label="protein" />
           <h2>Carbs</h2>
-          <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
+          <Field name="carbs" type="number" component={renderTextField} label="carbs" />
           <RaisedButton className="raisedButton" label="Submit" type="submit" primary={true} disabled={invalid} />
         </form>
       </div>

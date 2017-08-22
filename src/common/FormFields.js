@@ -7,15 +7,16 @@ import React from 'react';
 import moment from 'moment';
 import '../features/preferences/preferencesParent.css';
 
+{/* <label>{field.label}</label>  */}
+
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
     <div className="textFieldContainer">
       <div className="textFieldLabel">
-        {/* <label>{field.label}</label> */} 
       </div>
       <div className="textField">
-        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} />
+        <TextField {...field.input} type={field.type} errorText={errorText} />
       </div>
     </div>
   )
