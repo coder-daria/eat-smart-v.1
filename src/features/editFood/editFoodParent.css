@@ -1,26 +1,26 @@
 .editFoodParentContainer {
     /* border: 2px solid orangered;  */
     display: flex;
-    margin-left: 3%;
-    margin-right: 3%;
     flex-flow: row wrap;
 }
 
 .search {
     flex: 1;
-    /* margin-right: 10px; */
+    margin-right: 15px;
 }
-.food, .img {
+.food {
+    margin-left: 15px;
     flex: 2;
 }
 .img {
-    align-self: center;
-    margin-left: 15px;
+    flex: 2;
+    display: flex;
+    justify-content: center;
 }
 img {
-    max-width: 300px;  
-    min-width: 200px;
-    width: 100%;
+    align-self: center;
+    max-width: 300px;
+    margin-left: 15px;
 }
 .raisedButton {
     margin-top: 22px;
