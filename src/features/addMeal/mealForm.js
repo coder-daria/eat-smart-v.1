@@ -86,13 +86,14 @@ class MealForm extends React.Component {
         )
     }
 
-    clearAndSubmit = values => {
-        this.props.addMeal(values);
+    clearAndSubmit= values => {
+        this.props.addMeal(values, this.props.date);
         this.props.reset();
     }
 
     render() {
         const submit = this.props.handleSubmit(this.clearAndSubmit);
+        const disabled = this.props.invalid || this.props.pristine;
         return (
             <div className="mealForm">
                 <form className="mealParentContainer" onSubmit={submit}>
@@ -103,7 +104,7 @@ class MealForm extends React.Component {
                         <FieldArray name="foods" component={this.renderFoods} />
                     </div>
                     <div className="raisedButton">
-                        <RaisedButton type="submit" label="Submit" primary={true} disabled={this.props.invalid} />
+                        <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
                     </div>
                 </form>
             </div>
@@ -112,12 +113,10 @@ class MealForm extends React.Component {
 }
 
 MealForm.propTypes = {
-    foodsBeingAddedToNewMeal: PropTypes.array.isRequired,
     foods: PropTypes.object.isRequired,
+    date: PropTypes.object.isRequired,
     foodsToSearch: PropTypes.array.isRequired,
-    removeFromMeal: PropTypes.func.isRequired,
     addMeal: PropTypes.func.isRequired,
-    mealsPreferences: PropTypes.array.isRequired
 };
 
 export default reduxForm({
