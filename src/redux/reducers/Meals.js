@@ -7,15 +7,14 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-
     case actions.SELECTED_DATE:
-      return Object.assign({}, state, {date: action.content });
+      return Object.assign({}, state, { date: action.content });
 
     case actions.MEAL_HISTORY_FOR_DAY:
-      return Object.assign({}, state, {meals: action.content});
+      return Object.assign({}, state, { meals: action.content });
 
     case actions.SHOW_MEAL_DETAILS:
-    let mealName = action.content;
+      let mealName = action.content;
       let yourMeal = {}
 
       for (let key in state.meals) {
@@ -24,8 +23,6 @@ export default function reducer(state = initialState, action) {
         }
       }
       return Object.assign({}, state, { selectedMeal: yourMeal });
-
-
     default:
       return state;
   }
