@@ -6,7 +6,6 @@ import { Field, FieldArray } from 'redux-form';
 import './preferencesParent.css';
 
 class PreferencesParent extends React.Component {
-
   render() {
     const disabled = this.props.invalid || this.props.pristine;
     return (
@@ -26,5 +25,9 @@ class PreferencesParent extends React.Component {
     )
   }
 }
+
+PreferencesParent.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
 
 export default PreferencesParent;
