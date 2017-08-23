@@ -60,7 +60,7 @@ class MealsDetails extends React.Component {
 
         const meals = this.props.meals;
         const meal = meals.map(item => {
-            return <MenuItem value={item.mealName} primaryText={item.mealName} />
+            return <MenuItem value={item.mealName} primaryText={item.mealName} key={item.mealName}/>
         });
 
         return (

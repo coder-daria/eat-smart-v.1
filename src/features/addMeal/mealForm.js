@@ -76,7 +76,7 @@ class MealForm extends React.Component {
 
     renderMealPreferences = field => {
         let selectPreference = this.props.mealsPreferences.map(preference => {
-            return <MenuItem value={preference} primaryText={preference.name} />
+            return <MenuItem value={preference} primaryText={preference.name} key={preference.name}/>
         })
         return (
             <div className="mealPreferences">
