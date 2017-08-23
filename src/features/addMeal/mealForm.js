@@ -37,7 +37,6 @@ const validate = values => {
 
 
 class MealForm extends React.Component {
-
     renderFoods = foods => {
         const addFood = (name, food) => foods.fields.push({ name: food.name, id: food.id, units: "grams" });
         return (
