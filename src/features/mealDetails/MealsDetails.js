@@ -65,17 +65,17 @@ class MealsDetails extends React.Component {
 
         return (
             <div className="mealsDetailsContainer">
-                <div className="mealsDetails">
                     <h2>Meals details</h2>
+                    <div className="chart">
+                    <Chart/>
+                    </div>
                     <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
                         {meal}
                     </SelectField>
+                    <div>
                     {foodDetailsList}
+                    </div>
                 </div>
-                <div>
-                    <Chart className="chart" />
-                </div>
-            </div>
         )
     }
 }

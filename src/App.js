@@ -34,7 +34,6 @@ class App extends Component {
                 <Route path='/addFood' component={AddFoodContainer} />
                 <Route path='/editFood' component={EditFoodContainer} />
                 <Route path="/addMeal" component={MealParentContainer} />
-                <Route path="/addMeal" component={MealsDetailsContainer} />
                 <Route path="/preferences" component={PreferencesParentContainer} />
               </div>
             </div>
