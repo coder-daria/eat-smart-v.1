@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import AddFoodContainer from "./features/addFood/AddFoodContainer";
 import MealParentContainer from "./features/addMeal/MealParentContainer";
-import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesParentContainer from './features/preferences/PreferencesParentContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
