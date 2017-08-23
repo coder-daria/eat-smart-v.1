@@ -1,10 +1,13 @@
 import { connect } from 'react-redux';
-import EditFoodParent from './EditFoodParent';
+import EditFoodChanges from './EditFoodChanges';
 import {editFood} from '../../Actions';
 import {convertObjectToArray} from '../../functions.js';
+import { formValueSelector } from 'redux-form';
 
 const mapStateToProps = state => {
+  const selector = formValueSelector('EditFoodChanges');
   return {
+    isSelected: selector(state, 'selected'),
     foods: convertObjectToArray(state.foods.foods)
   }
 }
@@ -18,6 +21,6 @@ const mapDispatchToProps = dispatch => {
 const EditFoodContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditFoodParent)
+)(EditFoodChanges)
 
 export default EditFoodContainer;
