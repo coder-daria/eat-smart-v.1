@@ -12,9 +12,7 @@ export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
     <div className="textFieldContainer">
-      <div className="textFieldLabel">
-      </div>
-      <div className="textField">
+      <div className={field.className}>
         <TextField floatingLabelText={field.label} {...field.input} type={field.type} errorText={errorText} autoComplete="off" />
       </div>
     </div>
