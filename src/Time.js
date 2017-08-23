@@ -29,12 +29,7 @@ class Time extends React.Component {
     })
   }
   render() {
-    return (
-      <div>
-      <p style={timeStyles}>{this.state.date} </p>
-      </div>
-     
-    )
+    return <p style={timeStyles}>{this.state.date}</p>;
   }
 }
 
