@@ -5,10 +5,7 @@ import Chip from 'material-ui/Chip';
 import { Field } from 'redux-form';
 import { renderTextField, renderTimePicker } from './FormFields'
 import MaterialIcon from './MaterialIcon';
-
 import ActionDone from 'material-ui/svg-icons/action/done';
-
-import R from 'ramda';
 import { cyan500 } from 'material-ui/styles/colors';
 
 class EditableChip extends React.Component {
@@ -27,9 +24,9 @@ class EditableChip extends React.Component {
           <div>
             <h3>Meal name:</h3>
           </div>
-            <div className="chipTextField">
-              <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
-            </div>
+          <div className="chipTextField">
+            <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+          </div>
         </div>
         <div className="chipTime">
           <div>
@@ -54,18 +51,19 @@ class EditableChip extends React.Component {
     let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
     return (
       <Chip
+        className="Chip"
         key={preference.name}
         onRequestDelete={this.props.onDelete}
         onClick={() => this.setState({ editing: true })}
         labelColor="#353738"
         backgroundColor="#BEDEE8">
         {preference.name} at {formatedTime}
+
       </Chip>
     )
   }
 
   render() {
-    const preference = this.props.preference;
     const content = this.state.editing ? this.form() : this.chip();
     return (
       <div>

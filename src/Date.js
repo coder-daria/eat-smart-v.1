@@ -37,19 +37,18 @@ class Date extends React.Component {
         return today;
     }
     render() {
-
         let datePicker;
         const calendarIcon = <IconButton type="submit" onTouchTap={() => datePicker.focus()} ><FontIcon className="material-icons" color={cyan600}>date_range</FontIcon></IconButton>;
         return (
             <div className="dateContainer">
-                    {calendarIcon}
-                    <DatePicker
-                        autoOk={true}
-                        hintText={this.state.fullDateDisplay}
-                        value={this.state.controlledDate}
-                        onChange={this.handleChange}
-                        ref={c => datePicker = c}
-                    />
+                {calendarIcon}
+                <DatePicker
+                    autoOk={true}
+                    hintText={this.state.fullDateDisplay}
+                    onChange={this.handleChange}
+                    ref={c => datePicker = c}
+                    formatDate={(date)=> moment(date).format('DD MMMM YYYY')}
+                />
             </div>
         )
     }

@@ -89,8 +89,7 @@ export function findMealByClosestTime(currentTime, meals){
         for (let i = 0; i < meals.length - 1; i++) {
             let isBetween = moment(currentTimeInSeconds).isBetween(meals[i].seconds, meals[i + 1].seconds);
             let isSameAs1stHour = moment(currentTimeInSeconds).isSame(meals[i].seconds);
-            let isAftertheLastMeal = moment(currentTimeInSeconds).isAfter(meals[meals.length-1].seconds)
-            let isBefore3AM1 = moment(currentTimeInSeconds).isBefore(180);
+            let isAftertheLastMeal = moment(currentTimeInSeconds).isAfter(meals[meals.length-1].seconds);
             let isBefore3AM = currentTimeInSeconds < 180;
             let isBefore8AM = currentTimeInSeconds < 480;
 
@@ -109,9 +108,6 @@ export function findMealByClosestTime(currentTime, meals){
                 twoDifferences.push(currentTimeInSeconds - meals[i].seconds );
                 twoDifferences.push(meals[i + 1].seconds - currentTimeInSeconds);
             }
-            // else {
-            //     i++;             //Why with else it doesn't work?
-            // }
         } //end of for loop
 
         if (twoDifferences[0] < twoDifferences[1]) {

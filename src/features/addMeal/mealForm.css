@@ -4,7 +4,7 @@
     flex-direction: column;
     margin-left: 3%;
 }
-.mealParentContainer .raisedButton {
+.mealParentContainer .mealRaisedButton {
     margin-top: 1%;  
 }
 .mealContainer {  
@@ -37,4 +37,11 @@
 .mealPreferences h2 {
     font-size: 19px;
     margin-bottom: 15px;
+}
+
+.someClass {
+    border: 2px solid rgba(103, 205, 230, .5); 
+    background-color: rgba(103, 205, 230, .06);  
+    border-style: ridge; 
+    border-radius: 4px; 
 }

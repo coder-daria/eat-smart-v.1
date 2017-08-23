@@ -5,6 +5,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import EditableChip from './EditableChip';
 import React from 'react';
 import moment from 'moment';
+import SelectField from 'material-ui/SelectField';
 import '../features/preferences/preferencesParent.css';
 
 export const renderTextField = field => {
@@ -12,10 +13,9 @@ export const renderTextField = field => {
   return (
     <div className="textFieldContainer">
       <div className="textFieldLabel">
-        {/* <label>{field.label}</label> */} 
       </div>
       <div className="textField">
-        <TextField hintText={field.label} {...field.input} type={field.type} errorText={errorText} />
+        <TextField floatingLabelText={field.label} {...field.input} type={field.type} errorText={errorText} autoComplete="off" />
       </div>
     </div>
   )
@@ -76,5 +76,17 @@ export const renderFieldArray = fieldArray => {
         <RenderAddButton onClick={addMeal}/>
       </div>
     </div>
+  )
+}
+
+export const renderSelectField = field => {
+  return (
+      <div className={field.className}>
+          <SelectField
+              floatingLabelText={field.label}
+              {...field.input}
+              children={field.children}
+              onChange={(event, index, value) => field.input.onChange(value)} />
+      </div>
   )
 }

@@ -20,11 +20,10 @@
     margin-right: 10px;
 }
 .textFieldContainer {
-     /* border: 2px solid orange;             */
+    /* border: 2px solid orange;             */
     display: flex;
     flex-flow: wrap;
     align-items: center;  
-    /* margin-bottom: 2%; */
 }
 .textFieldLabel {
   flex: 1 0 120px;
@@ -43,19 +42,21 @@
     justify-content: flex-start;
 }
 .fieldsAndButtonContainer {
-     /* border: 2px solid green;            */
     display: flex;
     flex-direction: column; 
 }
 .button {
+    /* border: 2px solid green;            */
      margin-top: 2%; 
      margin-bottom: 2%; 
 }
 
 /*********************/
 /*chips*/
+.Chip {
+    width: 300px;
+}
 .chipContainer {
-     /* border: 2px solid #77C0D9;  */
     border: 2px solid rgba(103, 205, 230, .7);
     background-color: rgba(103, 205, 230, .06);  
     border-style: ridge; 

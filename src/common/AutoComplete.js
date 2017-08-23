@@ -19,11 +19,16 @@ class AutoComplete extends React.Component {
         this.setState({ input: food.name });
         this.props.onSelect(food.name, food);
     };
+    
     render() {
+        const menuProps = {
+            desktop: true,
+          };
         const config = {text: 'name', value: 'name'};
         return (
             <div>
                 <AutoComplete1
+                    maxSearchResults= {20}
                     floatingLabelText=""
                     hintText="Click to choose"
                     openOnFocus={true}
@@ -32,6 +37,7 @@ class AutoComplete extends React.Component {
                     dataSourceConfig={config}
                     onUpdateInput={this.onChange}
                     onNewRequest={this.onSelect}
+                    menuProps={menuProps}
                      />
             </div>
 

@@ -5,6 +5,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import './menuIcon.css';
+import Avatar from 'material-ui/Avatar';
 
 class MenuIcon extends Component {
     state = {
@@ -19,13 +20,13 @@ class MenuIcon extends Component {
 
     handleClick = (event, child) => {
         let value = child.props.value;
-        if (value == 2) {
+        if (value === "2") {
             // window.location.assign = 'http://localhost:3000/preferences';
         }
-        if (value == 3) {
+        if (value === "3") {
             // window.location = 'http://localhost:3000/addFood';
         }
-        if (value == 4) {
+        if (value === "4") {
             // window.location = 'http://localhost:3000/editFood';
         }
     }
@@ -37,11 +38,15 @@ class MenuIcon extends Component {
         }
         return (
             <div className="menuIconContainer">
-                <p>Daria</p>
+                <Avatar
+                    src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
+                    size={30}
+                />
                 <IconMenu
                     iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                     menuItemStyle={styles.item}
-                    targetOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                     onChange={this.handleChangeSingle}
                     value={this.state.valueSingle}
                     onItemTouchTap={this.handleClick}

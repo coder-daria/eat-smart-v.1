@@ -1,6 +1,7 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
+import './editFoodSearch.css';
 
 class EditFoodSearch extends React.Component {
   state = {
@@ -11,10 +12,10 @@ class EditFoodSearch extends React.Component {
       newProps.onSelect(newProps.foods.filter(f => f.id === this.state.idOfSelectedFood)[0]);
     }
   }
-  render() {              
+  render() {
     return (
-      <div>
-        Search
+      <div className="editFoodSearchContainer">
+        <h3>Search food</h3>
         <AutoComplete
           items={this.props.foods}
           onSelect={(val, food) => {

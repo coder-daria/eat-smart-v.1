@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import {renderTextField} from '../../common/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
+import './editFoodChanges.css';
 
 const validate = values => {
   const errors = {  }
@@ -28,17 +29,25 @@ const EditFoodChanges = props => {
   const {invalid, handleSubmit } = props;
    return (
       <div>
-        <form className="editFoodForm" onSubmit={handleSubmit}>
+        <form className="editFoodFormContainer" onSubmit={handleSubmit}>
+          <div>
           <h2>Name</h2>
           <Field name="name" type="text" component={renderTextField} label="name" />
+          </div>
+          <div>
           <h2>Fat</h2>
-          <Field name="properties.fat" type="number" component={renderTextField} label="fat" />
+          <Field name="fat" type="number" component={renderTextField} label="fat" />
+          </div>
+          <div>
           <h2>Protein</h2>
-          <Field name="properties.protein" type="number" component={renderTextField} label="protein" />
+          <Field name="protein" type="number" component={renderTextField} label="protein" />
+          </div>
+          <div>
           <h2>Carbs</h2>
-          <Field name="properties.carbs" type="number" component={renderTextField} label="carbs" />
-          <RaisedButton className="raisedButton" label="Submit" type="submit" primary={true} disabled={invalid} />
-        </form>
+          <Field name="carbs" type="number" component={renderTextField} label="carbs" />
+          </div>
+          <RaisedButton className="editFoodRaisedButton" label="Submit" type="submit" primary={true} disabled={invalid} />
+          </form>
       </div>
     )
 }

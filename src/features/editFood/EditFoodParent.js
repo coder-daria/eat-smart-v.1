@@ -27,14 +27,14 @@ class EditFoodParent extends React.Component {
         <div className="img">
          <img alt="img" src="http://del.h-cdn.co/assets/16/17/980x653/gallery-1461593822-delish-mexican-chicken-pasta-1.jpg" />
         </div>
-      </div>
-    )
+        </div>
+      )
+    }
   }
-}
-
-EditFoodParent.propTypes = {
+  
+  EditFoodParent.propTypes = {
     onSubmit: PropTypes.func,
-};
-
-
-export default EditFoodParent;
+  };
+  
+  
+  export default EditFoodParent;
