@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import MealForm from './MealForm';
+import mealForm from './mealForm';
 import addMealToServer from "./addMealToServer";
 import {convertObjectToArray} from '../../functions';
 
@@ -22,6 +22,6 @@ const mapDispatchToProps = dispatch => {
 const MealParentContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(MealForm)
+)(mealForm)
 
 export default MealParentContainer;
