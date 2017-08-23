@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import FontIcon from 'material-ui/FontIcon';
 import { cyan600 } from 'material-ui/styles/colors';
 import moment from 'moment';
+import './dayPicker.css';
 
 class DayPicker extends React.Component {
     constructor(props) {
@@ -33,20 +34,27 @@ class DayPicker extends React.Component {
 
         this.props.onSelect(momentDate);
     }
+    formatDate = (date) => {
+        return moment(date).format('DD MMMM YYYY');
+    }
     render() {
-
         let datePicker;
         const calendarIcon = <IconButton type="submit" onTouchTap={() => datePicker.focus()} ><FontIcon className="material-icons" color={cyan600}>date_range</FontIcon></IconButton>;
         return (
-            <div>
+            <div className="dateContainer">
+                <div>
                 {calendarIcon}
+                </div>
+                <div>   
                 <DatePicker
                     autoOk={true}
                     defaultDate={this.props.date}
                     hintText={this.state.fullDateDisplay}
                     onChange={this.handleChange}
                     ref={c => datePicker = c}
+                    formatDate={this.formatDate}
                 />
+                </div>
             </div>
         )
     }

@@ -22,10 +22,18 @@ class App extends Component {
           <Router>
             <div className="appContainer">
               <div className="header">
-                <Time />
-                <TimeFor />
-                <DayPickerContainer />
-                <MenuIcon />
+                <div>
+                  <Time />
+                </div>
+                <div>
+                  <TimeFor />
+                </div>
+                <div>
+                  <DayPickerContainer />
+                </div>
+                <div>
+                  <MenuIcon />
+                </div>
               </div>
               <div className="body">
                 <Nav />
