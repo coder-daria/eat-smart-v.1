@@ -31,20 +31,16 @@ const EditFoodChanges = props => {
       <div>
         <form className="editFoodFormContainer" onSubmit={handleSubmit}>
           <div>
-          <h2>Name</h2>
-          <Field name="name" type="text" component={renderTextField} label="name" />
+          <Field className="editFoodField" name="name" type="text" component={renderTextField} label="Name" />
           </div>
           <div>
-          <h2>Fat</h2>
-          <Field name="fat" type="number" component={renderTextField} label="fat" />
+          <Field className="editFoodField" name="fat" type="number" component={renderTextField} label="Fat" />
           </div>
           <div>
-          <h2>Protein</h2>
-          <Field name="protein" type="number" component={renderTextField} label="protein" />
+          <Field className="editFoodField" name="protein" type="number" component={renderTextField} label="Protein" />
           </div>
           <div>
-          <h2>Carbs</h2>
-          <Field name="carbs" type="number" component={renderTextField} label="carbs" />
+          <Field className="editFoodField" name="carbs" type="number" component={renderTextField} label="Carbs" />
           </div>
           <RaisedButton className="editFoodRaisedButton" label="Submit" type="submit" primary={true} disabled={invalid} />
           </form>
