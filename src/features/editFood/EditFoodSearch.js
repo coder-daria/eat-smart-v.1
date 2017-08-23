@@ -15,7 +15,6 @@ class EditFoodSearch extends React.Component {
   render() {
     return (
       <div className="editFoodSearchContainer">
-        <h3>Search food</h3>
         <AutoComplete
           items={this.props.foods}
           onSelect={(val, food) => {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import AddFoodContainer from "./features/addFood/AddFoodContainer";
 import MealParentContainer from "./features/addMeal/MealParentContainer";
-import MealsDetailsContainer from "./features/mealDetails/MealsDetailsContainer";
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesParentContainer from './features/preferences/PreferencesParentContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -34,7 +33,6 @@ class App extends Component {
                 <Route path='/addFood' component={AddFoodContainer} />
                 <Route path='/editFood' component={EditFoodContainer} />
                 <Route path="/addMeal" component={MealParentContainer} />
-                <Route path="/addMeal" component={MealsDetailsContainer} />
                 <Route path="/preferences" component={PreferencesParentContainer} />
               </div>
             </div>

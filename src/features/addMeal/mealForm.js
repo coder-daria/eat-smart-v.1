@@ -9,6 +9,7 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 import { pink500 } from 'material-ui/styles/colors';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
+import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -67,7 +68,6 @@ class MealForm extends React.Component {
                     </div>
                 </div>
                 <div className="quantity">
-                    <h2>Quantity</h2>
                     <Field name={`${food}.quantity`} component={renderTextField} label="Quantity" />
                 </div>
             </li>
@@ -96,7 +96,7 @@ class MealForm extends React.Component {
         const submit = this.props.handleSubmit(this.clearAndSubmit);
         const disabled = this.props.invalid || this.props.pristine;
         return (
-            <div className="mealForm">
+            <div className="addMealContainer">
                 <form className="mealParentContainer" onSubmit={submit}>
                     <div>
                         <Field name="meal" component={this.renderMealPreferences} label="Meal" />
@@ -105,9 +105,10 @@ class MealForm extends React.Component {
                         <FieldArray name="foods" component={this.renderFoods} />
                     </div>
                     <div className="mealRaisedButton">
-                        <RaisedButton type="submit" label="Submit" primary={true} disabled={this.props.invalid} />
+                        <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
                     </div>
                 </form>
+                    <MealsDetailsContainer/>
             </div>
         )
     }

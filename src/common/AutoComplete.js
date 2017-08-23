@@ -15,7 +15,6 @@ class AutoComplete extends React.Component {
     };
 
     onSelect = (food, index) => {
-        // console.log(food);
         this.setState({ input: food.name });
         this.props.onSelect(food.name, food);
     };
@@ -29,8 +28,7 @@ class AutoComplete extends React.Component {
             <div>
                 <AutoComplete1
                     maxSearchResults= {20}
-                    floatingLabelText=""
-                    hintText="Click to choose"
+                    floatingLabelText="Search"
                     openOnFocus={true}
                     filter={AutoComplete1.fuzzyFilter}
                     dataSource={this.props.items}

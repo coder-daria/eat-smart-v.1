@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import CircularProgress from 'material-ui/CircularProgress';
 import RaisedButton from 'material-ui/RaisedButton';
-import './addFood.css';
 import { renderTextField} from '../../common/FormFields';
+import './addFood.css';
 
 const validate = values => {
     const errors = {}
@@ -32,21 +32,17 @@ const AddFood = props => {
     return (
         <div>
             <form onSubmit={handleSubmit} className="addFoodContainer">
-                <div >
-                <h2>Name</h2>
-                <Field name="name" type="text" component={renderTextField} label="Name" />
+                <div>
+                <Field className="addFoodField" name="name" type="text" component={renderTextField} label="Name" />
                 </div>
                 <div>
-                <h2>Fat</h2>
-                <Field name="fat" type="number" component={renderTextField} label="Fat" />
+                <Field className="addFoodField" name="fat" type="number" component={renderTextField} label="Fat" />
                 </div>
                 <div>
-                <h2>Protein</h2>
-                <Field name="protein" type="number" component={renderTextField} label="Protein" />
+                <Field className="addFoodField" name="protein" type="number" component={renderTextField} label="Protein" />
                 </div>
                 <div>
-                <h2>Carbs</h2>
-                <Field name="carbs" type="number" component={renderTextField} label="Carbs" />
+                <Field className="addFoodField" name="carbs" type="number" component={renderTextField} label="Carbs" />
                 </div>
                 <div className="buttons">
                 <RaisedButton className="button1" label="Submit" type="submit" primary={true} disabled={invalid} />

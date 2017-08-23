@@ -1,5 +1,9 @@
+.addMealContainer {
+    display: flex;
+}
 .mealParentContainer {
-    /* border: 2px solid palegreen;     */
+    /* border: 2px solid palegreen; */
+    flex: 1;  
     display: flex; 
     flex-direction: column;
     margin-left: 3%;
@@ -10,13 +14,14 @@
 .mealContainer {  
     display: flex;
     flex-direction: column; 
-    width: 35%; 
+    width: 98%; 
     margin-top: 2%;
     padding-left: 5px;
     border: 2px solid rgba(103, 205, 230, .5); 
     background-color: rgba(103, 205, 230, .06);  
     border-style: ridge; 
     border-radius: 4px;  
+    align-content: flex-start;
 }
 .mealHeader{
     display: flex;
@@ -29,10 +34,11 @@
 }
 
 .quantity {
+    /* border: 2px solid brown; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-top: -5%;
 }
 .mealPreferences h2 {
     font-size: 19px;
@@ -40,8 +46,8 @@
 }
 
 .someClass {
-    border: 2px solid rgba(103, 205, 230, .5); 
-    background-color: rgba(103, 205, 230, .06);  
+    /* border: 2px solid rgba(103, 205, 230, .5);  */
+    /* background-color: rgba(103, 205, 230, .06);   */
     border-style: ridge; 
     border-radius: 4px; 
 }
