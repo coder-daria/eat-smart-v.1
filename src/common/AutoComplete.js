@@ -15,10 +15,12 @@ class AutoComplete extends React.Component {
     };
 
     onSelect = (food, index) => {
-        this.setState({ input: food.name });
+        this.setState({ input: "" });
         this.props.onSelect(food.name, food);
     };
-    
+    searchText = () => {
+        return this.state.input;
+    }
     render() {
         const menuProps = {
             desktop: true,
@@ -27,6 +29,7 @@ class AutoComplete extends React.Component {
         return (
             <div>
                 <AutoComplete1
+                    searchText={this.searchText()}
                     maxSearchResults= {20}
                     floatingLabelText="Search"
                     openOnFocus={true}
@@ -36,6 +39,7 @@ class AutoComplete extends React.Component {
                     onUpdateInput={this.onChange}
                     onNewRequest={this.onSelect}
                     menuProps={menuProps}
+                    
                      />
             </div>
 

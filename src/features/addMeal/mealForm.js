@@ -87,6 +87,7 @@ class MealForm extends React.Component {
     }
 
     clearAndSubmit= values => {
+        // let changedNaming = {mealName: values.meal.name, details: values.foods};
         this.props.addMeal(values, this.props.date);
         this.props.reset();
     }
