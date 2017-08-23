@@ -67,7 +67,7 @@ class MealForm extends React.Component {
                     </div>
                 </div>
                 <div className="quantity">
-                    <Field name={`${food}.quantity`} component={renderTextField} label="Quantity" />
+                    <Field name={`${food}.quantity`} type="number" component={renderTextField} label="Quantity" />
                 </div>
             </li>
         )

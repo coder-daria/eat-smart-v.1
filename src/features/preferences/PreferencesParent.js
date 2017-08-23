@@ -12,7 +12,7 @@ class PreferencesParent extends React.Component {
       <div>
         <form onSubmit={this.props.handleSubmit} className="preferencesContainer">
           <div className="preferencesKcalContainer">
-            <Field name="kcal" type="text" component={renderTextField} label="Kcal" />
+            <Field name="kcal" type="number" component={renderTextField} label="Kcal" />
           </div>
           <div>
             <FieldArray name="meals" component={renderFieldArray} />
