@@ -10,9 +10,9 @@ import Time from './Time';
 import DayPickerContainer from './features/changeDate/DayPickerContainer';
 import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import TimeFor from './TimeFor';
+// import getMuiTheme from 'material-ui/styles/getMuiTheme';
+// import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
 class App extends Component {
   render() {
@@ -23,7 +23,7 @@ class App extends Component {
             <div className="appContainer">
               <div className="header">
                 <Time />
-                Time for dinner
+                <TimeFor />
                 <DayPickerContainer />
                 <MenuIcon />
               </div>
