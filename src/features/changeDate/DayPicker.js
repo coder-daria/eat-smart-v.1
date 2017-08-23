@@ -10,7 +10,7 @@ class DayPicker extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            fullDateDisplay: this.today(),
+            fullDateDisplay: "Choose a date",
             currentMonth: moment().month()
         }
     }
@@ -32,12 +32,6 @@ class DayPicker extends React.Component {
         }
 
         this.props.onSelect(momentDate);
-    }
-
-    today = () => {
-        let today = moment().format('DD MMMM YYYY');
-        return "Choose a date";
-        // return today;
     }
     render() {
 
