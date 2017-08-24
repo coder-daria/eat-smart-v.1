@@ -7,7 +7,6 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import AppContainer from './AppContainer';
 
 injectTapEventPlugin();
 let store = createStore();
@@ -16,7 +15,7 @@ window.s = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <AppContainer />
+    <App />
   </Provider>,
   document.getElementById('root'));
 
@@ -25,7 +24,7 @@ if (process.env.NODE_ENV !== "production") {
     module.hot.accept('./App', () => {
       ReactDOM.render(
         <Provider store={store}>
-          <AppContainer />
+          <App />
         </Provider>,
         document.getElementById('root'),
       )

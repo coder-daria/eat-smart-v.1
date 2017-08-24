@@ -5,7 +5,6 @@ import CircularProgress from 'material-ui/CircularProgress';
 import RaisedButton from 'material-ui/RaisedButton';
 import { renderTextField } from '../../common/FormFields';
 import './addFood.css';
-import LinearProgressBar from '../../common/LinearProgress';
 
 const validate = values => {
     const errors = {}

@@ -1,5 +1,5 @@
-import App from './App';
-import { connect } from 'react-redux';
+import Loading from './Loading';
+import {connect} from 'react-redux';
 
 const mapStateToProps = state => {
   return {
@@ -12,9 +12,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const AppContainer = connect(
+const LoadingContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(App)
+)(Loading)
 
-export default AppContainer;
+export default LoadingContainer;
