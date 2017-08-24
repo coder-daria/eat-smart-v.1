@@ -1,5 +1,5 @@
 .mealsDetailsContainer {
-  /* border: 2px solid blueviolet;  */
+   /* border: 2px solid blueviolet;   */
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -7,13 +7,14 @@
 }
 .mealsDetailsContainer h2 {
   font-size: 19px;
-  margin-bottom: 10%;
-  
 }
-/*Details list*/
+.mealsDetailsContainer div {
+  margin-bottom: 3%;
+}
 
+/*Details list*/
 .specificDetails {
-  /* border: 2px solid red; */
+   /* border: 2px solid red;  */
    margin-top: 10px; 
   display: flex;
   flex-direction: column;

@@ -28,47 +28,51 @@ class MealsDetails extends React.Component {
                 <li>
                     <h3>Name</h3>
                     <div>
-                    {theWholeMeal.mealName}
+                        {theWholeMeal.mealName}
                     </div>
                 </li>
                 <li>
                     <h3>Fat</h3>
                     <div>
-                    {theWholeMeal.mealDetails.fat} g
+                        {theWholeMeal.mealDetails.fat} g
                     </div>
                 </li>
                 <li>
                     <h3>Protein</h3>
                     <div>
-                    {theWholeMeal.mealDetails.protein} g
+                        {theWholeMeal.mealDetails.protein} g
                     </div>
-                 </li>
+                </li>
                 <li>
                     <h3>Carbs</h3>
                     <div>
-                    {theWholeMeal.mealDetails.carbs} g
+                        {theWholeMeal.mealDetails.carbs} g
                     </div>
                 </li>
             </ul>)
 
         const meals = this.props.meals;
         const meal = meals.map(item => {
-            return <MenuItem key={item.mealName} value={item.mealName} primaryText={item.mealName}/>
+            return <MenuItem key={item.mealName} value={item.mealName} primaryText={item.mealName} />
         });
 
         return (
             <div className="mealsDetailsContainer">
-                    <h2>Meals details</h2>
-                    <div className="chart">
-                    <Chart/>
-                    </div>
-                    <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
-                        {meal}
-                    </SelectField>
-                    <div>
-                    {foodDetailsList}
-                    </div>
+                <div>
+                <h2>Meal details</h2>
                 </div>
+                <div className="chooseMeal">
+                <SelectField onChange={this.handleChange} floatingLabelText="Choose a meal">
+                    {meal}
+                </SelectField>
+                </div>
+                <div className="chart">
+                    <Chart />
+                </div>
+                <div>
+                    {foodDetailsList}
+                </div>
+            </div>
         )
     }
 }
