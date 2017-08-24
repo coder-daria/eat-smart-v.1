@@ -1,11 +1,11 @@
-.addFoodContainer {
-    /* border: 2px solid orangered;   */
+.addFoodFormContainer {
+     /* border: 2px solid orangered;    */
      width: 26.5%;
      display: flex; 
     flex-direction: column;  
      margin-left: 1%; 
 }
-.addFoodContainer div {
+.addFoodFormContainer div {
     display: flex;
     align-items: center; 
     justify-content: space-between;
@@ -14,7 +14,10 @@
     display: flex;
     align-self: flex-end;
 }
-.button1, .button2 {
+.addFoodSubmitButton, .addFoodCleanButton {
     margin-top: 28px;
     margin-right: 10px;
+}
+.addFoodLinearProgress {
+    margin-top: 45%;
 }

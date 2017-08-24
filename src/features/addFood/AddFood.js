@@ -27,36 +27,35 @@ const validate = values => {
 }
 
 const AddFood = props => {
-
     const clearAndSubmit = values => {
         props.onSubmit(values);
         props.reset();
     }
 
-    const { pristine, reset, invalid, handleSubmit } = props
-    const loading = props.isLoading ? <CircularProgress /> : null;
+    const { pristine, reset, invalid, handleSubmit } = props;
     const submit = handleSubmit(clearAndSubmit);
     return (
-        <div>
-            <form onSubmit={submit} className="addFoodContainer">
-                <div>
-                    <Field className="addFoodField" name="name" type="text" component={renderTextField} label="Name" />
-                </div>
-                <div>
-                    <Field className="addFoodField" name="fat" type="number" component={renderTextField} label="Fat" />
-                </div>
-                <div>
-                    <Field className="addFoodField" name="protein" type="number" component={renderTextField} label="Protein" />
-                </div>
-                <div>
-                    <Field className="addFoodField" name="carbs" type="number" component={renderTextField} label="Carbs" />
-                </div>
-                <div className="buttons">
-                    <RaisedButton className="button1" label="Submit" type="submit" primary={true} disabled={invalid} />
-                    <RaisedButton className="button2" label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2" />
-                </div>
-            </form>
-            {loading}
+        <div className="addFoodContainer">
+            <div>
+                <form onSubmit={submit} className="addFoodFormContainer">
+                    <div>
+                        <Field className="addFoodField" name="name" type="text" component={renderTextField} label="Name" />
+                    </div>
+                    <div>
+                        <Field className="addFoodField" name="fat" type="number" component={renderTextField} label="Fat" />
+                    </div>
+                    <div>
+                        <Field className="addFoodField" name="protein" type="number" component={renderTextField} label="Protein" />
+                    </div>
+                    <div>
+                        <Field className="addFoodField" name="carbs" type="number" component={renderTextField} label="Carbs" />
+                    </div>
+                    <div className="buttons">
+                        <RaisedButton className="addFoodSubmitButton" label="Submit" type="submit" primary={true} disabled={invalid} />
+                        <RaisedButton className="addFoodCleanButton" label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2" />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
