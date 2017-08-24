@@ -22,13 +22,6 @@ class MealsDetails extends React.Component {
     };
 
     render() {
-        // for(let key in this.props.meals) {
-        //     console.log(this.props.meals[key])
-        //     // if(this.props.meals[key].mealName === theWholeMeal.mealName) {
-        //     //     theWholeMeal.mealDetails.fat = (theWholeMeal.mealDetails.fat * this.props.meals[key].details.quantity)/100
-        //     // }
-        // }
-
         let { theWholeMeal } = this.props;
         const foodDetailsList = theWholeMeal.mealName === "" ? "" : (
             <ul className="specificDetails">

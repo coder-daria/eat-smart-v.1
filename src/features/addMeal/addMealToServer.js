@@ -5,8 +5,8 @@ const addMealToServer = (meal, date) => dispatch => {
     dispatch(isLoading(true));
     server.addMeal(meal, date)
         .then(data => {
-            console.log("the server says");
-            console.dir(data);
+            // console.log("the server says");
+            // console.dir(data);
             dispatch(mealHistoryForDay(data))
             dispatch(isLoading(false));
         });
