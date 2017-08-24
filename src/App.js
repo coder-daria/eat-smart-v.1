@@ -11,6 +11,7 @@ import DayPickerContainer from './features/changeDate/DayPickerContainer';
 import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TimeFor from './TimeFor';
+import LoadingContainer from './common/LoadingContainer';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
@@ -42,6 +43,9 @@ class App extends Component {
                 <Route path='/editFood' component={EditFoodContainer} />
                 <Route path="/addMeal" component={MealParentContainer} />
                 <Route path="/preferences" component={PreferencesParentContainer} />
+              </div>
+              <div>
+                <LoadingContainer/>
               </div>
             </div>
           </Router>
