@@ -44,7 +44,7 @@ const EditFoodChanges = props => {
 
   const renderEditFood = () => {
     return (
-      <div className="food editFoodFormContainer">
+      <div className="innerEditFoodFormContainer">
         <div>
           <Field className="editFoodField" name="selected.name" type="text" component={renderTextField} label="Name" />
         </div>
@@ -78,14 +78,16 @@ const EditFoodChanges = props => {
   const editFood = props.isSelected ? renderEditFood() : null;
   return (
     <div className="editFoodParentContainer">
-      <form onSubmit={submit}>
+      <form onSubmit={submit} className="outerEditFormContainer">
         <div className="search">
           <Field name="selected" component={renderAutoComplete} label="Select food" />
         </div>
+        <div>
         {editFood}
+        </div>
       </form>
       <div className="img">
-        <img alt="img" src="http://del.h-cdn.co/assets/16/17/980x653/gallery-1461593822-delish-mexican-chicken-pasta-1.jpg" />
+        <img alt="img" width="250px" height="200px" src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg" />
       </div>
     </div>
   )
