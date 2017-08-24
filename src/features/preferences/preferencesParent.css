@@ -54,7 +54,13 @@
 /*********************/
 /*chips*/
 .Chip {
-    width: 300px;
+    min-width: 200px;
+    display: flex;
+}
+.Chip span {
+    flex: 2;
+    display: flex;
+    justify-content: center;
 }
 .chipContainer {
     border: 2px solid rgba(103, 205, 230, .7);
@@ -63,14 +69,12 @@
     border-radius: 4px;           
     display: flex;
     flex-flow: column wrap; 
-    width: 100%; 
 }
 .chip {
     margin-right: 10px;
     margin-bottom: 10px;
 }
 .chipName, .chipTime  {
-    /* border: 2px solid rgba(203, 155, 130, .7); */
     display: flex;  
     align-items: center; 
     justify-content: space-between; 

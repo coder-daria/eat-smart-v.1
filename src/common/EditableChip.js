@@ -58,7 +58,6 @@ class EditableChip extends React.Component {
         labelColor="#353738"
         backgroundColor="#BEDEE8">
         {preference.name} at {formatedTime}
-
       </Chip>
     )
   }
