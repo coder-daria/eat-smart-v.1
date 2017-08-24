@@ -14,7 +14,7 @@ import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
 const validate = values => {
     const errors = { meal: "", foods: [] }
     if (!values.meal) {
-        errors.name = 'Required'
+        errors.meal = 'Required'
     }
     if (!values.foods || !values.foods.length) {
         errors.foods = { _error: 'Select at least one food' };
@@ -73,7 +73,7 @@ class MealForm extends React.Component {
         )
     }
 
-    renderMealPreferences = field => {
+    renderMealPreferences = () => {
         let selectPreference = this.props.mealsPreferences.map(preference => {
             return <MenuItem value={preference} primaryText={preference.name} key={preference.name}/>
         })
@@ -98,7 +98,7 @@ class MealForm extends React.Component {
             <div className="addMealContainer">
                 <form className="mealParentContainer" onSubmit={submit}>
                     <div>
-                        <Field name="meal" component={this.renderMealPreferences} label="Meal" />
+                        {this.renderMealPreferences()}
                     </div>
                     <div>
                         <FieldArray name="foods" component={this.renderFoods} />
