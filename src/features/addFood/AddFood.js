@@ -28,14 +28,12 @@ const validate = values => {
 }
 
 const AddFood = props => {
-
     const clearAndSubmit = values => {
         props.onSubmit(values);
         props.reset();
     }
 
-    const { pristine, reset, invalid, handleSubmit } = props
-    const loading = props.isLoading ? <LinearProgressBar /> : null;
+    const { pristine, reset, invalid, handleSubmit } = props;
     const submit = handleSubmit(clearAndSubmit);
     return (
         <div className="addFoodContainer">
@@ -58,9 +56,6 @@ const AddFood = props => {
                         <RaisedButton className="addFoodCleanButton" label=" Clear values" type="submit" disabled={pristine} onClick={reset} backgroundColor="#6DBEC2" labelColor="#F0F2F2" />
                     </div>
                 </form>
-            </div>
-            <div className="addFoodLinearProgress">
-                {loading}
             </div>
         </div>
     )
