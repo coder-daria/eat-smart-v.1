@@ -4,7 +4,8 @@ import { fetchProducts, convertFoodsFromServer } from '../../functions.js';
 const foods = convertFoodsFromServer(fetchProducts());
 
 const initialState = {
-    foods: foods
+    foods: foods,
+    dataReceived: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -16,9 +17,7 @@ export default function reducer(state = initialState, action) {
                     return state;
                 }
             }
-
             return Object.assign({}, state, { foods: newItems });
-
         case actions.EDIT_FOOD:
             let foodID = action.content.id;
             if (state.foods[foodID].id === foodID) {
@@ -28,7 +27,8 @@ export default function reducer(state = initialState, action) {
 
         case actions.IS_LOADING:
             return Object.assign({}, state, { isLoading: action.content });
-
+        case actions.DATA_RECEIVED:
+            return Object.assign({}, state, { dataReceived: action.content });
         default:
             return state;
     }

@@ -1,4 +1,4 @@
-import {isLoading, newFood} from '../../Actions';
+import {isLoading, newFood, dataReceived} from '../../Actions';
 import { convertFoodFromServer } from '../../functions';
 import server from '../../server/serverMock';
 
@@ -11,6 +11,8 @@ const addNewFoodToServer = food => dispatch => {
 
             dispatch(newFood(newFoodFromServer));
             dispatch(isLoading(false));
+        }).then((data)=> {
+            dispatch(dataReceived(true));
         });
 }
 

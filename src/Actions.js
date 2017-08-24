@@ -7,6 +7,7 @@ export const UPDATE_PREFERENCE = "UPDATE_PREFERENCE";
 export const SELECTED_DATE = "SELECTED_DATE";
 export const EDIT_FOOD = "EDIT_FOOD";
 export const IS_LOADING = "IS_LOADING";
+export const DATA_RECEIVED = "DATA_RECEIVED";
 
 
 export const newFood = food => {
@@ -35,4 +36,7 @@ export function selectedDate(date) {
 
 export function mealHistoryForDay(meals) {
     return { type: MEAL_HISTORY_FOR_DAY, content: meals };
+}
+export function dataReceived(boolean) {
+    return { type: DATA_RECEIVED, content: boolean };
 }
