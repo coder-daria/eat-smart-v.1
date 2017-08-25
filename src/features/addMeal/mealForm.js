@@ -3,13 +3,11 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import { renderTextField, renderSelectField } from '../../common/FormFields';
-import MaterialIcon from '../../common/MaterialIcon';
-import ContentClear from 'material-ui/svg-icons/content/clear';
-import { pink500 } from 'material-ui/styles/colors';
+import {  renderSelectField } from '../../common/FormFields';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
 import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
+import EditableChip1 from "../../common/EditableChip1";
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -35,10 +33,29 @@ const validate = values => {
     return errors;
 }
 
-
 class MealForm extends React.Component {
+    state = {
+        editing: false
+    }
+
     renderFoods = foods => {
-        const addFood = (name, food) => foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+        const addFood = (name, food) => {
+            if (foods.fields.length === 0) {
+                foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+            }
+            else {
+                let itEquals = false;
+                for (let i = 0; i < foods.fields.length; i++) {
+                    if (foods.fields.get(i).name === name) {
+                        itEquals = true;
+                    }
+                }
+                if (itEquals === false) {
+                    return foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+                }
+            }
+        };
+
         return (
             <div>
                 <AutoComplete
@@ -51,31 +68,21 @@ class MealForm extends React.Component {
             </div>
         )
     }
+
     renderSingleFood = (food, index, fields) => {
-        const remove = (index) => () => fields.remove(index);
-        const renderFoodName = field => <div className="specificName">{field.input.value}</div>;
+        const remove = () => fields.remove(index);
         return (
-            <li key={index} className="mealContainer">
-                <div className="mealHeader">
-                    <div className="name">
-                        <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name" />
-                    </div>
-                    <div className="icon">
-                        <MaterialIcon type="button" label="Remove" secondary={true} onClick={remove(index)}>
-                            <ContentClear hoverColor={pink500} />
-                        </MaterialIcon>
-                    </div>
-                </div>
-                <div className="quantity">
-                    <Field name={`${food}.quantity`} type="number" component={renderTextField} label="Quantity" />
-                </div>
-            </li>
+            <div>
+                <li index={index}>
+                <EditableChip1 field={food} index={index} fields={fields} onDelete={remove}/>
+                </li>
+            </div>
         )
     }
 
     renderMealPreferences = () => {
         let selectPreference = this.props.mealsPreferences.map(preference => {
-            return <MenuItem value={preference} primaryText={preference.name} key={preference.name}/>
+            return <MenuItem value={preference} primaryText={preference.name} key={preference.name} />
         })
         return (
             <div className="mealPreferences">
@@ -86,7 +93,7 @@ class MealForm extends React.Component {
         )
     }
 
-    clearAndSubmit= values => {
+    clearAndSubmit = values => {
         this.props.addMeal(values, this.props.date);
         this.props.reset();
     }
@@ -107,7 +114,7 @@ class MealForm extends React.Component {
                         <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
                     </div>
                 </form>
-                    <MealsDetailsContainer/>
+                <MealsDetailsContainer />
             </div>
         )
     }
