@@ -38,7 +38,23 @@ const validate = values => {
 
 class MealForm extends React.Component {
     renderFoods = foods => {
-        const addFood = (name, food) => foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+        const addFood = (name, food) => {
+            if (foods.fields.length === 0) {
+                foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+            }
+            else {
+                let itEquals = false;
+                for (let i = 0; i < foods.fields.length; i++) {
+                    if (foods.fields.get(i).name === name) {
+                        itEquals = true;
+                    }
+                }
+                if(itEquals === false) {
+                    return foods.fields.push({ name: food.name, id: food.id, units: "grams" });
+                }
+            }
+        };
+
         return (
             <div>
                 <AutoComplete
@@ -75,7 +91,7 @@ class MealForm extends React.Component {
 
     renderMealPreferences = () => {
         let selectPreference = this.props.mealsPreferences.map(preference => {
-            return <MenuItem value={preference} primaryText={preference.name} key={preference.name}/>
+            return <MenuItem value={preference} primaryText={preference.name} key={preference.name} />
         })
         return (
             <div className="mealPreferences">
@@ -86,7 +102,7 @@ class MealForm extends React.Component {
         )
     }
 
-    clearAndSubmit= values => {
+    clearAndSubmit = values => {
         this.props.addMeal(values, this.props.date);
         this.props.reset();
     }
@@ -107,7 +123,7 @@ class MealForm extends React.Component {
                         <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
                     </div>
                 </form>
-                    <MealsDetailsContainer/>
+                <MealsDetailsContainer />
             </div>
         )
     }
