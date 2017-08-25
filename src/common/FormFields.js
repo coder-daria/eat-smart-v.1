@@ -55,6 +55,7 @@ const RenderAddButton = props => {
 export const renderFieldArray = fieldArray => {
   const defaultMeal = { name: "meal", seconds: 0 };
   const addMeal = () => fieldArray.fields.push(defaultMeal);
+  
   const addField = (field, index, fields) => {
     const removeField = () => fieldArray.fields.remove(index);
     return (

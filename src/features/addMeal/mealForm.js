@@ -10,6 +10,9 @@ import { pink500 } from 'material-ui/styles/colors';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
 import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
+import ActionDone from 'material-ui/svg-icons/action/done';
+import { cyan500 } from 'material-ui/styles/colors';
+import Chip from 'material-ui/Chip';
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -35,8 +38,11 @@ const validate = values => {
     return errors;
 }
 
-
 class MealForm extends React.Component {
+    state = {
+        editing: false
+    }
+
     renderFoods = foods => {
         const addFood = (name, food) => {
             if (foods.fields.length === 0) {
@@ -49,7 +55,7 @@ class MealForm extends React.Component {
                         itEquals = true;
                     }
                 }
-                if(itEquals === false) {
+                if (itEquals === false) {
                     return foods.fields.push({ name: food.name, id: food.id, units: "grams" });
                 }
             }
@@ -67,25 +73,63 @@ class MealForm extends React.Component {
             </div>
         )
     }
+
     renderSingleFood = (food, index, fields) => {
-        const remove = (index) => () => fields.remove(index);
+        const toggleEdit = () => {
+            console.log("hola");
+            this.setState({ editing: true });
+        }
         const renderFoodName = field => <div className="specificName">{field.input.value}</div>;
+        const remove = (index) => () => fields.remove(index);
+
+        const chip = () => {
+            return (
+                <li key={index}>
+                    <Chip
+                        key={index}
+                        className="Chip"
+                        onRequestDelete={() => {}}
+                        onClick={() => toggleEdit()}
+                        labelColor="#353738"
+                        backgroundColor="#BEDEE8">
+                        {index}
+                    </Chip>
+                </li>
+            )
+        }
+
+        const form = () => {
+            return (
+                <li key={index} className="mealContainer">
+                    <div className="mealHeader">
+                        <div className="name">
+                            <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name" />
+                        </div>
+                        <div className="icon">
+                            <div>
+                                <MaterialIcon type="button" label="Remove" secondary={true} onClick={remove(index)}>
+                                    <ContentClear hoverColor={pink500} />
+                                </MaterialIcon>
+                            </div>
+                            <div>
+                                <MaterialIcon type="button" label="Accept" onClick={toggleEdit}>
+                                    <ActionDone hoverColor={cyan500} />
+                                </MaterialIcon>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="quantity">
+                        <Field name={`${food}.quantity`} type="number" component={renderTextField} label="Quantity" />
+                    </div>
+                </li>
+            )
+        }
+
+        const content = this.state.editing ? chip() : form();
         return (
-            <li key={index} className="mealContainer">
-                <div className="mealHeader">
-                    <div className="name">
-                        <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name" />
-                    </div>
-                    <div className="icon">
-                        <MaterialIcon type="button" label="Remove" secondary={true} onClick={remove(index)}>
-                            <ContentClear hoverColor={pink500} />
-                        </MaterialIcon>
-                    </div>
-                </div>
-                <div className="quantity">
-                    <Field name={`${food}.quantity`} type="number" component={renderTextField} label="Quantity" />
-                </div>
-            </li>
+            <div>
+                {content}
+            </div>
         )
     }
 
