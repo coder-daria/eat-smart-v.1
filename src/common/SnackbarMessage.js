@@ -10,10 +10,8 @@ class SnackbarMessage extends React.Component {
         open: props.dataReceived
       })
     }
-     handleRequestClose = () => {
-    this.setState({
-      open: false,
-    });
+    handleRequestClose = () => {
+    this.props.clearStateDataReceived(false);
   };
   render() {
     return (

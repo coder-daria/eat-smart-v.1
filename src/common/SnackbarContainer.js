@@ -1,5 +1,6 @@
 import SnackbarMessage from './SnackbarMessage';
 import {connect} from 'react-redux';
+import {dataReceived} from '../Actions';
 
 const mapStateToProps = state => {
   return {
@@ -9,6 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    clearStateDataReceived: boolean => dispatch(dataReceived(boolean))
   }
 }
 
