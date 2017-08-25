@@ -7,6 +7,7 @@ import Divider from 'material-ui/Divider';
 import './menuIcon.css';
 import Avatar from 'material-ui/Avatar';
 
+
 class MenuIcon extends Component {
     state = {
         valueSingle: '2',
@@ -30,26 +31,36 @@ class MenuIcon extends Component {
             // window.location = 'http://localhost:3000/editFood';
         }
     }
+    icons = () => {
+        return (
+            <IconButton className="menuButtonsContainer">
+                <div className="menuButtonsContainer">
+                    <div>
+                        <Avatar
+                            src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
+                            size={30} />
+                    </div>
+                    <div>
+                        <MoreVertIcon />
+                    </div>
+                </div>
+            </IconButton>
+        )
+    }
     render() {
         const styles = {
             item: {
                 fontSize: "15px",
-            }
+            },
         }
         return (
             <div className="menuIconContainer">
                 <div>
-                    <Avatar
-                        src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
-                        size={30}
-                    />
-                </div>
-                <div>
                     <IconMenu
-                        iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                        iconButtonElement={this.icons()}
                         menuItemStyle={styles.item}
-                        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-                        targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+                        anchorOrigin={{ horizontal: 'middle', vertical: 'bottom' }}
+                        targetOrigin={{ horizontal: 'middle', vertical: 'top' }}
                         onChange={this.handleChangeSingle}
                         value={this.state.valueSingle}
                         onItemTouchTap={this.handleClick}
