@@ -38,27 +38,31 @@ class MenuIcon extends Component {
         }
         return (
             <div className="menuIconContainer">
-                <Avatar
-                    src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
-                    size={30}
-                />
-                <IconMenu
-                    iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-                    menuItemStyle={styles.item}
-                    anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    onChange={this.handleChangeSingle}
-                    value={this.state.valueSingle}
-                    onItemTouchTap={this.handleClick}
-                >
-                    <MenuItem value="1" primaryText="Signed in as Daria" />
-                    <Divider />
-                    <MenuItem value="2" primaryText="Preference" />
-                    <MenuItem value="3" primaryText="Add food" />
-                    <MenuItem value="4" primaryText="Edit food" />
-                    <Divider />
-                    <MenuItem primaryText="Sign out" />
-                </IconMenu>
+                <div>
+                    <Avatar
+                        src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
+                        size={30}
+                    />
+                </div>
+                <div>
+                    <IconMenu
+                        iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+                        menuItemStyle={styles.item}
+                        anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+                        targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+                        onChange={this.handleChangeSingle}
+                        value={this.state.valueSingle}
+                        onItemTouchTap={this.handleClick}
+                    >
+                        <MenuItem value="1" primaryText="Signed in as Daria" />
+                        <Divider />
+                        <MenuItem value="2" primaryText="Preference" />
+                        <MenuItem value="3" primaryText="Add food" />
+                        <MenuItem value="4" primaryText="Edit food" />
+                        <Divider />
+                        <MenuItem primaryText="Sign out" />
+                    </IconMenu>
+                </div>
             </div>
         )
     }
