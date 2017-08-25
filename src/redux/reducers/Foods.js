@@ -5,11 +5,13 @@ const foods = convertFoodsFromServer(fetchProducts());
 
 const initialState = {
     foods: foods,
-    dataReceived: false
+    asyncRequestStatus: actions.ASYNC_REQUEST_STATUS_ENUM.HIDE_NOTIFICATION
 };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
+        case actions.ASYNC_REQUEST_STATUS:
+            return Object.assign({}, state, {asyncRequestStatus: action.content})
         case actions.NEW_FOOD:
             let newItems = { ...state.foods, ...action.content };
             for (let key in state.foods) {

@@ -1,16 +1,16 @@
 import SnackbarMessage from './SnackbarMessage';
 import {connect} from 'react-redux';
-import {dataReceived} from '../Actions';
+import {asyncRequestStatus, ASYNC_REQUEST_STATUS_ENUM} from '../Actions';
 
 const mapStateToProps = state => {
   return {
-    dataReceived: state.foods.dataReceived
+    isOpen: state.foods.asyncRequestStatus === ASYNC_REQUEST_STATUS_ENUM.FINISHED
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    clearStateDataReceived: boolean => dispatch(dataReceived(boolean))
+    handleClose: () => dispatch(asyncRequestStatus(ASYNC_REQUEST_STATUS_ENUM.HIDE_NOTIFICATION))
   }
 }
 
