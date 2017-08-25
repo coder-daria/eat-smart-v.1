@@ -12,6 +12,7 @@ import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TimeFor from './TimeFor';
 import LoadingContainer from './common/LoadingContainer';
+import SnackbarContainer from './common/SnackbarContainer';
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
@@ -46,6 +47,9 @@ class App extends Component {
               </div>
               <div>
                 <LoadingContainer/>
+              </div>
+              <div>
+                <SnackbarContainer/>
               </div>
             </div>
           </Router>
