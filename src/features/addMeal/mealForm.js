@@ -3,16 +3,11 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import { renderTextField, renderSelectField } from '../../common/FormFields';
-import MaterialIcon from '../../common/MaterialIcon';
-import ContentClear from 'material-ui/svg-icons/content/clear';
-import { pink500 } from 'material-ui/styles/colors';
+import {  renderSelectField } from '../../common/FormFields';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
 import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
-import ActionDone from 'material-ui/svg-icons/action/done';
-import { cyan500 } from 'material-ui/styles/colors';
-import Chip from 'material-ui/Chip';
+import EditableChip1 from "../../common/EditableChip1";
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -75,60 +70,12 @@ class MealForm extends React.Component {
     }
 
     renderSingleFood = (food, index, fields) => {
-        const toggleEdit = () => {
-            console.log("hola");
-            this.setState({ editing: true });
-        }
-        const renderFoodName = field => <div className="specificName">{field.input.value}</div>;
-        const remove = (index) => () => fields.remove(index);
-
-        const chip = () => {
-            return (
-                <li key={index}>
-                    <Chip
-                        key={index}
-                        className="Chip"
-                        onRequestDelete={() => {}}
-                        onClick={() => toggleEdit()}
-                        labelColor="#353738"
-                        backgroundColor="#BEDEE8">
-                        {index}
-                    </Chip>
-                </li>
-            )
-        }
-
-        const form = () => {
-            return (
-                <li key={index} className="mealContainer">
-                    <div className="mealHeader">
-                        <div className="name">
-                            <Field name={`${food}.name`} type="text" component={renderFoodName} label="Name" />
-                        </div>
-                        <div className="icon">
-                            <div>
-                                <MaterialIcon type="button" label="Remove" secondary={true} onClick={remove(index)}>
-                                    <ContentClear hoverColor={pink500} />
-                                </MaterialIcon>
-                            </div>
-                            <div>
-                                <MaterialIcon type="button" label="Accept" onClick={toggleEdit}>
-                                    <ActionDone hoverColor={cyan500} />
-                                </MaterialIcon>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="quantity">
-                        <Field name={`${food}.quantity`} type="number" component={renderTextField} label="Quantity" />
-                    </div>
-                </li>
-            )
-        }
-
-        const content = this.state.editing ? chip() : form();
+        const remove = () => fields.remove(index);
         return (
             <div>
-                {content}
+                <li index={index}>
+                <EditableChip1 field={food} index={index} fields={fields} onDelete={remove}/>
+                </li>
             </div>
         )
     }
