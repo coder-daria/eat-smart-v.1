@@ -25,7 +25,7 @@ const validate = values => {
 
     values.foods.forEach((food, index) => {
       const foodErrors = {};
-      if (!food || !food.quantity) {
+      if (!food || !food.quantity || isNaN(food.quantity)) {
         foodErrors.quantity = 'Required';
         foodsArrayErrors[index] = foodErrors;
       }
@@ -38,9 +38,9 @@ const validate = values => {
 };
 
 class MealForm extends React.Component {
-  state = {
-    editing: false
-  };
+  componentWillUnmount() {
+    this.props.reset();
+  }
 
   renderFieldArray = fieldArray => {
     const addField = (name, food) => {
@@ -79,18 +79,6 @@ class MealForm extends React.Component {
 
   renderField = (field, index, fields) => {
     const remove = () => fields.remove(index);
-    const chipFields = (
-      <div>
-        <Field
-          name={`${field}.name`}
-          component={() => renderDiv(fields.get(index).name)}
-        />
-        <Field
-          name={`${field}.quantity`}
-          component={() => renderDiv(fields.get(index).quantity)}
-        />
-      </div>
-    );
     const formFields = (
       <div>
         <Field
@@ -102,6 +90,18 @@ class MealForm extends React.Component {
           name={`${field}.quantity`}
           component={renderTextField}
           label="Quantity"
+        />
+      </div>
+    );
+    const chipFields = (
+      <div>
+        <Field
+          name={`${field}.name`}
+          component={() => renderDiv(fields.get(index).name)}
+        />
+        <Field
+          name={`${field}.quantity`}
+          component={() => renderDiv(fields.get(index).quantity)}
         />
       </div>
     );
@@ -181,5 +181,6 @@ MealForm.propTypes = {
 
 export default reduxForm({
   form: 'addMeal',
+  destroyOnUnmount: false,
   validate
 })(MealForm);
