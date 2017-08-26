@@ -24,6 +24,7 @@
     align-content: flex-start;
 }
 .mealHeader{
+    /* border: 2px solid gold; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,8 +37,8 @@
 .quantity {
     /* border: 2px solid brown; */
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: flex-end;
     margin-top: -5%;
 }
 .mealPreferences h2 {
