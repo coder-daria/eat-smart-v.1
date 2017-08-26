@@ -3,13 +3,8 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import {
-  renderSelectField,
-  renderDiv,
-  renderTextField
-} from '../../common/FormFields';
+import { renderDiv, renderTextField } from '../../common/FormFields';
 import './mealForm.css';
-import MenuItem from 'material-ui/MenuItem';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import EditableChip from '../../common/EditableChip';
 
@@ -42,38 +37,42 @@ class MealForm extends React.Component {
         editing: false
     }
 
-    renderFoods = foods => {
-        const addFood = (name, food) => {
-            if (foods.fields.length === 0) {
-                foods.fields.push({ name: food.name, id: food.id, units: "grams" });
-            }
-            else {
-                let itEquals = false;
-                for (let i = 0; i < foods.fields.length; i++) {
-                    if (foods.fields.get(i).name === name) {
-                        itEquals = true;
-                    }
-                }
-                if (itEquals === false) {
-                    return foods.fields.push({ name: food.name, id: food.id, units: "grams" });
-                }
-            }
-        };
+  renderFieldArray = fieldArray => {
+    const addField = (name, food) => {
+      if (fieldArray.fields.length === 0) {
+        fieldArray.fields.push({
+          name: food.name,
+          id: food.id,
+          units: 'grams'
+        });
+      } else {
+        let itEquals = false;
+        for (let i = 0; i < fieldArray.fields.length; i++) {
+          if (fieldArray.fields.get(i).name === name) {
+            itEquals = true;
+          }
+        }
+        if (itEquals === false) {
+          return fieldArray.fields.push({
+            name: food.name,
+            id: food.id,
+            units: 'grams'
+          });
+        }
+      }
+    };
 
-        return (
-            <div>
-                <AutoComplete
-                    items={this.props.foodsToSearch}
-                    onSelect={addFood}
-                />
-                <ul>
-                    {foods.fields.map(this.renderSingleFood)}
-                </ul>
-            </div>
-        )
-    }
+    return (
+      <div>
+        <AutoComplete items={this.props.foodsToSearch} onSelect={addField} />
+        <ul>
+          {fieldArray.fields.map(this.renderField)}
+        </ul>
+      </div>
+    );
+  };
 
-  renderSingleFood = (field, index, fields) => {
+  renderField = (field, index, fields) => {
     const remove = () => fields.remove(index);
     const chipFields = (
       <div>
@@ -104,9 +103,6 @@ class MealForm extends React.Component {
     return (
       <li key={index}>
         <EditableChip
-          field={field}
-          index={index}
-          fields={fields}
           onDelete={remove}
           chipFields={chipFields}
           formFields={formFields}
@@ -115,44 +111,33 @@ class MealForm extends React.Component {
     );
   };
 
-    renderMealPreferences = () => {
-        let selectPreference = this.props.mealsPreferences.map(preference => {
-            return <MenuItem value={preference} primaryText={preference.name} key={preference.name} />
-        })
-        return (
-            <div className="mealPreferences">
-                <Field name="meal" component={renderSelectField} className="someClass" label="Meal">
-                    {selectPreference}
-                </Field>
-            </div>
-        )
-    }
+  clearAndSubmit = values => {
+    this.props.addMeal(values, this.props.date);
+    this.props.reset();
+  };
 
-    clearAndSubmit = values => {
-        this.props.addMeal(values, this.props.date);
-        this.props.reset();
-    }
-
-    render() {
-        const submit = this.props.handleSubmit(this.clearAndSubmit);
-        const disabled = this.props.invalid || this.props.pristine;
-        return (
-            <div className="addMealContainer">
-                <form className="mealParentContainer" onSubmit={submit}>
-                    <div>
-                        {this.renderMealPreferences()}
-                    </div>
-                    <div>
-                        <FieldArray name="foods" component={this.renderFoods} />
-                    </div>
-                    <div className="mealRaisedButton">
-                        <RaisedButton type="submit" label="Submit" primary={true} disabled={disabled} />
-                    </div>
-                </form>
-                <MealsDetailsContainer />
-            </div>
-        )
-    }
+  render() {
+    const submit = this.props.handleSubmit(this.clearAndSubmit);
+    const disabled = this.props.invalid || this.props.pristine;
+    return (
+      <div className="addMealContainer">
+        <form className="mealParentContainer" onSubmit={submit}>
+          <div>
+            <FieldArray name="foods" component={this.renderFieldArray} />
+          </div>
+          <div className="mealRaisedButton">
+            <RaisedButton
+              type="submit"
+              label="Submit"
+              primary={true}
+              disabled={disabled}
+            />
+          </div>
+        </form>
+        <MealsDetailsContainer />
+      </div>
+    );
+  }
 }
 
 MealForm.propTypes = {

@@ -7,11 +7,7 @@ import React from 'react';
 import moment from 'moment';
 import { Field } from 'redux-form';
 import SelectField from 'material-ui/SelectField';
-<<<<<<< HEAD:src/common/form/FormFields.js
-import '../../features/preferences/preferencesParent.css';
-=======
 import '../features/preferences/preferencesForm.css';
->>>>>>> chips:src/common/FormFields.js
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
@@ -67,6 +63,44 @@ const RenderAddButton = props => {
   );
 }
 
+const renderField = (field, index, fields) => {
+  const remove = () => fields.remove(index);
+  const updateTime = () => {
+    let chosenUnixTimestamp = moment(fields.get(index).seconds).unix() * 1000;
+    return moment(chosenUnixTimestamp).format('HH:mm');
+  };
+  const chipFields = (
+    <div>
+      <Field
+        name={`${field}.name`}
+        component={() => renderDiv(fields.get(index).name)}
+      />
+      <Field
+        name={`${field}.seconds`}
+        component={() => renderDiv(updateTime())}
+      />
+    </div>
+  );
+  const formFields = (
+    <div>
+      <Field name={`${field}.name`} component={renderTextField} label="Name" />
+      <Field
+        name={`${field}.seconds`}
+        component={renderTimePicker}
+        label="Time"
+      />
+    </div>
+  );
+  return (
+    <li key={index} className="chip">
+      <EditableChip
+        onDelete={remove}
+        chipFields={chipFields}
+        formFields={formFields}
+      />
+    </li>
+  );
+};
 export const renderFieldArray = fieldArray => {
   const defaultMeal = { name: "meal", seconds: 0 };
   const addMeal = () => fieldArray.fields.push(defaultMeal);
@@ -120,11 +154,11 @@ export const renderFieldArray = fieldArray => {
     <div className="fieldsAndButtonContainer">
       <div className="array">
         <ul className="fieldsContainer">
-          {fieldArray.fields.map(addField)}
+          {fieldArray.fields.map(renderField)}
         </ul>
       </div>
-      <div className="button" >
-        <RenderAddButton onClick={addMeal}/>
+      <div className="button">
+        <RenderAddButton onClick={addField} />
       </div>
     </div>
   )
