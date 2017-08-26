@@ -17,18 +17,19 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
     module.hot.accept('./App', () => {
       ReactDOM.render(
         <Provider store={store}>
           <App />
         </Provider>,
-        document.getElementById('root'),
-      )
-    })
+        document.getElementById('root')
+      );
+    });
   }
 }
 
@@ -58,33 +59,33 @@ store.dispatch({
   }
 });
 
-store.dispatch({
-  type: 'SAVE_PREFERENCES',
-  content: {
-    kcal: 12345,
-    meals: [
-      {
-        name: 'Breakfast',
-        seconds: 25200000
-      },
-      {
-        name: 'Morning snack',
-        seconds: 34200000
-      },
-      {
-        name: 'Lunch',
-        seconds: 45000000
-      },
-      {
-        name: 'Dinner',
-        seconds: 61200000
-      },
-      {
-        seconds: 73800000,
-        name: 'Evening snack'
-      }
-    ]
-  }
-})
+// store.dispatch({
+//   type: 'SAVE_PREFERENCES',
+//   content: {
+//     kcal: 12345,
+//     meals: [
+//       {
+//         name: 'Breakfast',
+//         seconds: 25200000
+//       },
+//       {
+//         name: 'Morning snack',
+//         seconds: 34200000
+//       },
+//       {
+//         name: 'Lunch',
+//         seconds: 45000000
+//       },
+//       {
+//         name: 'Dinner',
+//         seconds: 61200000
+//       },
+//       {
+//         seconds: 73800000,
+//         name: 'Evening snack'
+//       }
+//     ]
+//   }
+// })
 
 registerServiceWorker();

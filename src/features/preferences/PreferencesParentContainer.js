@@ -1,28 +1,29 @@
 import { connect } from 'react-redux';
-import {savePreferences} from '../../Actions';
+import { savePreferences } from '../../Actions';
 import { reduxForm } from 'redux-form';
 import PreferencesParent from './PreferencesParent';
 
 const mapStateToProps = state => {
   return {
-    initialValues: {kcal: state.preferences.kcal, meals: state.preferences.meals}
-  }
-}
+    initialValues: {
+      kcal: state.preferences.kcal,
+      meals: state.preferences.meals
+    }
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSubmit: preferences => dispatch(savePreferences(preferences)),
-  }
-}
+    onSubmit: preferences => dispatch(savePreferences(preferences))
+  };
+};
 
-
-const PreferencesParentForm =  reduxForm({
+const PreferencesParentForm = reduxForm({
   form: 'preferences'
-})(PreferencesParent)
+})(PreferencesParent);
 
-const PreferencesParentContainer = connect(
-  mapStateToProps, 
-  mapDispatchToProps
-)(PreferencesParentForm)
+const PreferencesParentContainer = connect(mapStateToProps, mapDispatchToProps)(
+  PreferencesParentForm
+);
 
 export default PreferencesParentContainer;

@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import { reducer as form } from 'redux-form'
+import { reducer as form } from 'redux-form';
 import FoodsReducer from './reducers/Foods';
 import PreferencesReducer from './reducers/Preferences';
 import MealsReducer from './reducers/Meals';
@@ -9,29 +9,37 @@ import * as actions from '../Actions';
 import thunk from 'redux-thunk';
 
 const configureStore = () => {
-
   const logger = store => next => action => {
-
     //   console.log('dispatching', action)
-    let result = next(action)
+    let result = next(action);
     //   console.log('next state', store.getState())
     // return result
-  }
+  };
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const rootReducer = combineReducers({foods: FoodsReducer, preferences: PreferencesReducer, meals: MealsReducer, form});
-  let store = createStore(rootReducer, undefined, composeEnhancers(applyMiddleware(logger, thunk)));
+  const composeEnhancers =
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const rootReducer = combineReducers({
+    foods: FoodsReducer,
+    preferences: PreferencesReducer,
+    meals: MealsReducer,
+    form
+  });
+  let store = createStore(
+    rootReducer,
+    undefined,
+    composeEnhancers(applyMiddleware(logger, thunk))
+  );
 
-  if (process.env.NODE_ENV !== "production") {
+  if (process.env.NODE_ENV !== 'production') {
     if (module.hot) {
       module.hot.accept('./reducers/Foods', () => {
-        store.replaceReducer(rootReducer)
-      })
+        store.replaceReducer(rootReducer);
+      });
     }
   }
 
-  return store
-}
+  return store;
+};
 
 const addFoodToServer = store => next => action => {
   switch (action.type) {
@@ -55,12 +63,11 @@ const addFoodToServer = store => next => action => {
       next(action);
     //   console.log('next state', store.getState();
   }
-}
+};
 
 function callServerAndConvertForUi(foodFromUi) {
   let newFoodInServer = server.addNewFood(foodFromUi);
   return convertFoodsFromServer(newFoodInServer);
 }
 
-
-export default configureStore
+export default configureStore;
