@@ -7,18 +7,25 @@ import React from 'react';
 import moment from 'moment';
 import { Field } from 'redux-form';
 import SelectField from 'material-ui/SelectField';
-import '../features/preferences/preferencesForm.css';
+import '../../features/preferences/preferencesForm.css';
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
     <div className="textFieldContainer">
       <div className={field.className}>
-        <TextField floatingLabelText={field.label} floatingLabelFixed={true} {...field.input} type={field.type} errorText={errorText} autoComplete="off" />
+        <TextField
+          floatingLabelText={field.label}
+          floatingLabelFixed={true}
+          {...field.input}
+          type={field.type}
+          errorText={errorText}
+          autoComplete="off"
+        />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const renderDiv = string =>
   <div>
@@ -28,14 +35,13 @@ export const renderDiv = string =>
 export const renderTimePicker = field => {
   const onChange = (_null, date) => {
     let data = moment(date);
-    let chosenUnixTimestamp = (moment(data).unix()) * 1000;
+    let chosenUnixTimestamp = moment(data).unix() * 1000;
 
     if (date === null) {
       return;
     }
     field.input.onChange(chosenUnixTimestamp);
-
-  }
+  };
   return (
     <div>
       <div>
@@ -50,8 +56,8 @@ export const renderTimePicker = field => {
         <br />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const RenderAddButton = props => {
   return (
@@ -61,7 +67,7 @@ const RenderAddButton = props => {
       </FloatingActionButton>
     </div>
   );
-}
+};
 
 const renderField = (field, index, fields) => {
   const remove = () => fields.remove(index);
@@ -102,9 +108,9 @@ const renderField = (field, index, fields) => {
   );
 };
 export const renderFieldArray = fieldArray => {
-  const defaultMeal = { name: "meal", seconds: 0 };
+  const defaultMeal = { name: 'meal', seconds: 0 };
   const addMeal = () => fieldArray.fields.push(defaultMeal);
-  
+
   const addField = (field, index, fields) => {
     const remove = () => fields.remove(index);
     const updateTime = () => {
@@ -148,8 +154,8 @@ export const renderFieldArray = fieldArray => {
           formFields={formFields}
         />
       </li>
-    )
-  }
+    );
+  };
   return (
     <div className="fieldsAndButtonContainer">
       <div className="array">
@@ -161,17 +167,18 @@ export const renderFieldArray = fieldArray => {
         <RenderAddButton onClick={addField} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const renderSelectField = field => {
   return (
-      <div className={field.className}>
-          <SelectField
-              floatingLabelText={field.label}
-              {...field.input}
-              children={field.children}
-              onChange={(event, index, value) => field.input.onChange(value)} />
-      </div>
-  )
-}
+    <div className={field.className}>
+      <SelectField
+        floatingLabelText={field.label}
+        {...field.input}
+        children={field.children}
+        onChange={(event, index, value) => field.input.onChange(value)}
+      />
+    </div>
+  );
+};

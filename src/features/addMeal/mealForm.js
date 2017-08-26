@@ -3,39 +3,39 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import { renderDiv, renderTextField } from '../../common/FormFields';
+import { renderDiv, renderTextField } from '../../common/form/FormFields';
 import './mealForm.css';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import EditableChip from '../../common/EditableChip';
 
 const validate = values => {
-    const errors = { meal: "", foods: [] }
-    if (!values.meal) {
-        errors.meal = 'Required'
-    }
-    if (!values.foods || !values.foods.length) {
-        errors.foods = { _error: 'Select at least one food' };
-    } else {
-        const foodsArrayErrors = [];
+  const errors = { meal: '', foods: [] };
+  if (!values.meal) {
+    errors.meal = 'Required';
+  }
+  if (!values.foods || !values.foods.length) {
+    errors.foods = { _error: 'Select at least one food' };
+  } else {
+    const foodsArrayErrors = [];
 
-        values.foods.forEach((food, index) => {
-            const foodErrors = {};
-            if (!food || !food.quantity) {
-                foodErrors.quantity = 'Required';
-                foodsArrayErrors[index] = foodErrors;
-            }
-        });
-        if (foodsArrayErrors.length) {
-            errors.foods = foodsArrayErrors;
-        }
+    values.foods.forEach((food, index) => {
+      const foodErrors = {};
+      if (!food || !food.quantity) {
+        foodErrors.quantity = 'Required';
+        foodsArrayErrors[index] = foodErrors;
+      }
+    });
+    if (foodsArrayErrors.length) {
+      errors.foods = foodsArrayErrors;
     }
-    return errors;
-}
+  }
+  return errors;
+};
 
 class MealForm extends React.Component {
-    state = {
-        editing: false
-    }
+  state = {
+    editing: false
+  };
 
   renderFieldArray = fieldArray => {
     const addField = (name, food) => {
@@ -141,13 +141,13 @@ class MealForm extends React.Component {
 }
 
 MealForm.propTypes = {
-    foods: PropTypes.object.isRequired,
-    date: PropTypes.object.isRequired,
-    foodsToSearch: PropTypes.array.isRequired,
-    addMeal: PropTypes.func.isRequired,
+  foods: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
+  foodsToSearch: PropTypes.array.isRequired,
+  addMeal: PropTypes.func.isRequired
 };
 
 export default reduxForm({
-    form: 'addMeal',
-    validate
+  form: 'addMeal',
+  validate
 })(MealForm);
