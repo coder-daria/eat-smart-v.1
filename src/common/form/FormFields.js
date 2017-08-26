@@ -57,10 +57,15 @@ export const renderFieldArray = fieldArray => {
   const addMeal = () => fieldArray.fields.push(defaultMeal);
   
   const addField = (field, index, fields) => {
-    const removeField = () => fieldArray.fields.remove(index);
+    const remove = () => fieldArray.fields.remove(index);
     return (
       <li key={index} className="chip">
-        <EditableChip name={field} onDelete={removeField} preference={fields.get(index)} onSave={() => { }} />
+        <EditableChip
+          field={field}
+          index={index}
+          fields={fields}
+          onDelete={remove}
+        />
       </li>
     )
   }

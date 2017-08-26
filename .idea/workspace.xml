@@ -2,48 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c3a777f-e089-4c49-adc6-4a591bc1515e" name="Default" comment="navigation menu and react-router">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/EditableChip1.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/Loading.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/common/SnackbarMessage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/features/addFood/addNewFoodToServer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/features/addMeal/addMealToServer.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/features/changeDate/DayPicker.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/features/changeDate/fetchMealsForDate.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Actions.js" afterPath="$PROJECT_DIR$/src/Actions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddButton.js" afterPath="$PROJECT_DIR$/src/AddButton.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Chart.js" afterPath="$PROJECT_DIR$/src/Chart.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MenuIcon.js" afterPath="$PROJECT_DIR$/src/MenuIcon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Nav.js" afterPath="$PROJECT_DIR$/src/Nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Time.js" afterPath="$PROJECT_DIR$/src/Time.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TimeFor.js" afterPath="$PROJECT_DIR$/src/TimeFor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/AutoComplete.js" afterPath="$PROJECT_DIR$/src/common/AutoComplete.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/LoadingContainer.js" afterPath="$PROJECT_DIR$/src/common/LoadingContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/MaterialIcon.js" afterPath="$PROJECT_DIR$/src/common/MaterialIcon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/SnackbarContainer.js" afterPath="$PROJECT_DIR$/src/common/SnackbarContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/addFood/AddFoodContainer.js" afterPath="$PROJECT_DIR$/src/features/addFood/AddFoodContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/addMeal/MealParentContainer.js" afterPath="$PROJECT_DIR$/src/features/addMeal/MealParentContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/changeDate/DayPickerContainer.js" afterPath="$PROJECT_DIR$/src/features/changeDate/DayPickerContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/editFood/EditFoodContainer.js" afterPath="$PROJECT_DIR$/src/features/editFood/EditFoodContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/mealDetails/MealsDetails.js" afterPath="$PROJECT_DIR$/src/features/mealDetails/MealsDetails.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/mealDetails/MealsDetailsContainer.js" afterPath="$PROJECT_DIR$/src/features/mealDetails/MealsDetailsContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/features/preferences/PreferencesParentContainer.js" afterPath="$PROJECT_DIR$/src/features/preferences/PreferencesParentContainer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/functions.js" afterPath="$PROJECT_DIR$/src/functions.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/functions.test.js" afterPath="$PROJECT_DIR$/src/functions.test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/EditableChip.js" afterPath="$PROJECT_DIR$/src/common/EditableChip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/common/form/FormFields.js" afterPath="$PROJECT_DIR$/src/common/form/FormFields.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/createStore.js" afterPath="$PROJECT_DIR$/src/redux/createStore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Foods.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Foods.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Foods.test.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Foods.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Meals.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Meals.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Meals.test.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Meals.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Preferences.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Preferences.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/redux/reducers/Preferences.test.js" afterPath="$PROJECT_DIR$/src/redux/reducers/Preferences.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/products.js" afterPath="$PROJECT_DIR$/src/server/products.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/serverMock.js" afterPath="$PROJECT_DIR$/src/server/serverMock.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/server/serverMock.test.js" afterPath="$PROJECT_DIR$/src/server/serverMock.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,8 +18,8 @@
       <file leaf-file-name="mealForm.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/features/addMeal/mealForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-323">
-              <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            <state relative-caret-position="374">
+              <caret line="58" column="15" lean-forward="false" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
               <folding>
                 <marker date="1503774477573" expanded="true" signature="7:18" ph="..." />
               </folding>
@@ -127,16 +88,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="373" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1186" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -260,6 +218,18 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="demo-app" />
+      <envs />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -288,17 +258,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32846716" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26332623" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -443,23 +412,23 @@
         <state relative-caret-position="561">
           <caret line="39" column="30" lean-forward="false" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
           <folding>
-            <marker date="1503774477537" expanded="false" signature="7:34" ph="..." />
-            <marker date="1503774477537" expanded="true" signature="373:1560" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="385:408" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="432:504" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="529:980" ph="&lt;div/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="558:796" ph="&lt;div/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="572:783" ph="&lt;MaterialIcon/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="803:969" ph="&lt;div/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="817:956" ph="&lt;MaterialIcon/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="998:1131" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="1019:1120" ph="&lt;div/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="1149:1408" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="1170:1397" ph="&lt;Chip/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="1422:1558" ph="{...}" />
-            <marker date="1503774477537" expanded="true" signature="1511:1547" ph="&lt;div/&gt;" />
-            <marker date="1503774477537" expanded="true" signature="1587:1714" ph="{&quot;chipFields&quot;: PropTypes.object.isRequired...}" />
-            <marker date="1503774477537" expanded="true" signature="1675:1714" ph="{&quot;field&quot;: PropTypes.string.isRequired...}" />
+            <marker date="1503774697711" expanded="false" signature="7:34" ph="..." />
+            <marker date="1503774697711" expanded="true" signature="373:1560" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="385:408" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="432:504" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="529:980" ph="&lt;div/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="558:796" ph="&lt;div/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="572:783" ph="&lt;MaterialIcon/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="803:969" ph="&lt;div/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="817:956" ph="&lt;MaterialIcon/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="998:1131" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="1019:1120" ph="&lt;div/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="1149:1408" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="1170:1397" ph="&lt;Chip/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="1422:1558" ph="{...}" />
+            <marker date="1503774697711" expanded="true" signature="1511:1547" ph="&lt;div/&gt;" />
+            <marker date="1503774697711" expanded="true" signature="1587:1714" ph="{&quot;chipFields&quot;: PropTypes.object.isRequired...}" />
+            <marker date="1503774697711" expanded="true" signature="1675:1714" ph="{&quot;field&quot;: PropTypes.string.isRequired...}" />
           </folding>
         </state>
       </provider>
@@ -702,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/features/addMeal/mealForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="17" column="40" lean-forward="false" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        <state relative-caret-position="374">
+          <caret line="58" column="15" lean-forward="false" selection-start-line="58" selection-start-column="15" selection-end-line="58" selection-end-column="15" />
           <folding>
             <marker date="1503774477573" expanded="true" signature="7:18" ph="..." />
           </folding>

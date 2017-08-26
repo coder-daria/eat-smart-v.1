@@ -14,10 +14,9 @@ class EditableChip extends React.Component {
   }
 
   toggleEdit = () => {
-    this.setState({ editing: false });
-  }
-
-  form = (preference) => {
+    this.setState(prevState => ({ editing: !prevState.editing }));
+  };
+  form = (field, index, fields) => {
     return (
       <div className="chipContainer">
         <div className="chipName">
@@ -25,7 +24,11 @@ class EditableChip extends React.Component {
             <h3>Meal name:</h3>
           </div>
           <div className="chipTextField">
-            <Field name={`${this.props.name}.name`} type="text" component={renderTextField} />
+            <Field
+              name={`${field}.name`}
+              type="text"
+              component={renderTextField}
+            />
           </div>
         </div>
         <div className="chipTime">
@@ -33,7 +36,7 @@ class EditableChip extends React.Component {
             <h3>Time:</h3>
           </div>
           <div>
-            <Field name={`${this.props.name}.seconds`} component={renderTimePicker} />
+            <Field name={`${field}.seconds`} component={renderTimePicker} />
           </div>
         </div>
         <div className="chipButton">
@@ -45,25 +48,40 @@ class EditableChip extends React.Component {
     )
   }
 
-  chip = () => {
-    const preference = this.props.preference;
-    let chosenUnixTimestamp = (moment(preference.seconds).unix()) * 1000;
-    let formatedTime = moment(chosenUnixTimestamp).format("HH:mm");
+  chip = (field, index, fields) => {
+    const preference = fields.get(index);
+    const renderPreferenceName = field =>
+      <div>
+        {preference.name}
+      </div>;
+    const renderPreferenceTime = field => {
+      let chosenUnixTimestamp = moment(preference.seconds).unix() * 1000;
+      let formatedTime = moment(chosenUnixTimestamp).format('HH:mm');
+      return (
+        <div>
+          {formatedTime}
+        </div>
+      );
+    };
     return (
       <Chip
         className="Chip"
-        key={preference.name}
         onRequestDelete={this.props.onDelete}
-        onClick={() => this.setState({ editing: true })}
+        onClick={this.toggleEdit}
         labelColor="#353738"
-        backgroundColor="#BEDEE8">
-        {preference.name} at {formatedTime}
+        backgroundColor="#BEDEE8"
+      >
+        <Field name={`${field}.name`} component={renderPreferenceName} />
+        <Field name={`${field}.seconds`} component={renderPreferenceTime} />
       </Chip>
     )
   }
 
   render() {
-    const content = this.state.editing ? this.form() : this.chip();
+    const { field, index, fields } = this.props;
+    const content = this.state.editing
+      ? this.form(field, index, fields)
+      : this.chip(field, index, fields);
     return (
       <div>
         {content}
@@ -73,9 +91,10 @@ class EditableChip extends React.Component {
 }
 
 EditableChip.propTypes = {
-  preference: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  field: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  fields: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired
 };
 
 export default EditableChip;
