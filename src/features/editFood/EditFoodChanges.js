@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
-import { renderTextField } from '../../common/FormFields';
+import { renderTextField } from '../../common/form/FormFields';
 import AutoComplete from '../../common/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
 import './editFoodChanges.css';

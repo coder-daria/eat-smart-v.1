@@ -3,7 +3,7 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import {  renderSelectField } from '../../common/FormFields';
+import {  renderSelectField } from '../../common/form/FormFields';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
 import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";

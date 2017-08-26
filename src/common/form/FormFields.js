@@ -2,18 +2,18 @@ import TextField from 'material-ui/TextField';
 import TimePicker from 'material-ui/TimePicker';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import EditableChip from './EditableChip';
+import EditableChip from '../EditableChip';
 import React from 'react';
 import moment from 'moment';
 import SelectField from 'material-ui/SelectField';
-import '../features/preferences/preferencesParent.css';
+import '../../features/preferences/preferencesParent.css';
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
     <div className="textFieldContainer">
       <div className={field.className}>
-        <TextField floatingLabelText={field.label} {...field.input} type={field.type} errorText={errorText} autoComplete="off" />
+        <TextField floatingLabelText={field.label} floatingLabelFixed={true} {...field.input} type={field.type} errorText={errorText} autoComplete="off" />
       </div>
     </div>
   )

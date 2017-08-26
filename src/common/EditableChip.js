@@ -3,7 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import Chip from 'material-ui/Chip';
 import { Field } from 'redux-form';
-import { renderTextField, renderTimePicker } from './FormFields'
+import { renderTextField, renderTimePicker } from './form/FormFields'
 import MaterialIcon from './MaterialIcon';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import { cyan500 } from 'material-ui/styles/colors';
