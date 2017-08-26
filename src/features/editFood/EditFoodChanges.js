@@ -46,7 +46,14 @@ const EditFoodChanges = props => {
     return (
       <div className="innerEditFoodFormContainer">
         <div>
-          <Field className="editFoodField" name="selected.name" type="text" component={renderTextField} label="Name" />
+          <Field
+            className="editFoodField"
+            name="selected.name"
+            type="text"
+            component={renderTextField}
+            label="Name"
+            readOnly="true"
+          />
         </div>
         <div>
           <Field className="editFoodField" name="selected.fat" type="number" component={renderTextField} label="Fat" />

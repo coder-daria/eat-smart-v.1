@@ -5,8 +5,13 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import EditableChip from '../EditableChip';
 import React from 'react';
 import moment from 'moment';
+import { Field } from 'redux-form';
 import SelectField from 'material-ui/SelectField';
+<<<<<<< HEAD:src/common/form/FormFields.js
 import '../../features/preferences/preferencesParent.css';
+=======
+import '../features/preferences/preferencesForm.css';
+>>>>>>> chips:src/common/FormFields.js
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
@@ -18,6 +23,11 @@ export const renderTextField = field => {
     </div>
   )
 }
+
+export const renderDiv = string =>
+  <div>
+    {string}
+  </div>;
 
 export const renderTimePicker = field => {
   const onChange = (_null, date) => {
@@ -32,11 +42,16 @@ export const renderTimePicker = field => {
   }
   return (
     <div>
-      <label>
-        {field.label}
-      </label>
       <div>
-        <TimePicker format="24hr" hintText={field.label} name={field.input.name} value={new Date(field.input.value)} onChange={onChange} /><br />
+        <TimePicker
+          format="24hr"
+          floatingLabelText={field.label}
+          hintText={field.label}
+          name={field.input.name}
+          value={new Date(field.input.value)}
+          onChange={onChange}
+        />
+        <br />
       </div>
     </div>
   )
@@ -57,7 +72,37 @@ export const renderFieldArray = fieldArray => {
   const addMeal = () => fieldArray.fields.push(defaultMeal);
   
   const addField = (field, index, fields) => {
-    const remove = () => fieldArray.fields.remove(index);
+    const remove = () => fields.remove(index);
+    const updateTime = () => {
+      let chosenUnixTimestamp = moment(fields.get(index).seconds).unix() * 1000;
+      return moment(chosenUnixTimestamp).format('HH:mm');
+    };
+    const chipFields = (
+      <div>
+        <Field
+          name={`${field}.name`}
+          component={() => renderDiv(fields.get(index).name)}
+        />
+        <Field
+          name={`${field}.seconds`}
+          component={() => renderDiv(updateTime())}
+        />
+      </div>
+    );
+    const formFields = (
+      <div>
+        <Field
+          name={`${field}.name`}
+          component={renderTextField}
+          label="Name"
+        />
+        <Field
+          name={`${field}.seconds`}
+          component={renderTimePicker}
+          label="Time"
+        />
+      </div>
+    );
     return (
       <li key={index} className="chip">
         <EditableChip
@@ -65,6 +110,8 @@ export const renderFieldArray = fieldArray => {
           index={index}
           fields={fields}
           onDelete={remove}
+          chipFields={chipFields}
+          formFields={formFields}
         />
       </li>
     )

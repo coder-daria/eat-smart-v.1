@@ -3,11 +3,15 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import {  renderSelectField } from '../../common/form/FormFields';
+import {
+  renderSelectField,
+  renderDiv,
+  renderTextField
+} from '../../common/FormFields';
 import './mealForm.css';
 import MenuItem from 'material-ui/MenuItem';
-import MealsDetailsContainer from "../mealDetails/MealsDetailsContainer";
-import EditableChip1 from "../../common/EditableChip1";
+import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
+import EditableChip from '../../common/EditableChip';
 
 const validate = values => {
     const errors = { meal: "", foods: [] }
@@ -69,16 +73,47 @@ class MealForm extends React.Component {
         )
     }
 
-    renderSingleFood = (food, index, fields) => {
-        const remove = () => fields.remove(index);
-        return (
-            <div>
-                <li index={index}>
-                <EditableChip1 field={food} index={index} fields={fields} onDelete={remove}/>
-                </li>
-            </div>
-        )
-    }
+  renderSingleFood = (field, index, fields) => {
+    const remove = () => fields.remove(index);
+    const chipFields = (
+      <div>
+        <Field
+          name={`${field}.name`}
+          component={() => renderDiv(fields.get(index).name)}
+        />
+        <Field
+          name={`${field}.quantity`}
+          component={() => renderDiv(fields.get(index).quantity)}
+        />
+      </div>
+    );
+    const formFields = (
+      <div>
+        <Field
+          name={`${field}.name`}
+          component={renderTextField}
+          label="Name"
+        />
+        <Field
+          name={`${field}.quantity`}
+          component={renderTextField}
+          label="Quantity"
+        />
+      </div>
+    );
+    return (
+      <li key={index}>
+        <EditableChip
+          field={field}
+          index={index}
+          fields={fields}
+          onDelete={remove}
+          chipFields={chipFields}
+          formFields={formFields}
+        />
+      </li>
+    );
+  };
 
     renderMealPreferences = () => {
         let selectPreference = this.props.mealsPreferences.map(preference => {

@@ -1,68 +1,51 @@
 import React from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
 import Chip from 'material-ui/Chip';
 import { Field } from 'redux-form';
 import { renderTextField, renderTimePicker } from './form/FormFields'
 import MaterialIcon from './MaterialIcon';
 import ActionDone from 'material-ui/svg-icons/action/done';
-import { cyan500 } from 'material-ui/styles/colors';
+import { cyan500, pink500 } from 'material-ui/styles/colors';
+import ContentClear from 'material-ui/svg-icons/content/clear';
 
 class EditableChip extends React.Component {
   state = {
-    editing: false
-  }
+    editing: true
+  };
 
   toggleEdit = () => {
     this.setState(prevState => ({ editing: !prevState.editing }));
   };
-  form = (field, index, fields) => {
+
+  buttons = () =>
+    <div className="icon">
+      <div>
+        <MaterialIcon
+          type="button"
+          label="Remove"
+          secondary={true}
+          onClick={this.props.onDelete}
+        >
+          <ContentClear hoverColor={pink500} />
+        </MaterialIcon>
+      </div>
+      <div>
+        <MaterialIcon type="button" label="Accept" onClick={this.toggleEdit}>
+          <ActionDone hoverColor={cyan500} />
+        </MaterialIcon>
+      </div>
+    </div>;
+
+  form = () => {
     return (
       <div className="chipContainer">
-        <div className="chipName">
-          <div>
-            <h3>Meal name:</h3>
-          </div>
-          <div className="chipTextField">
-            <Field
-              name={`${field}.name`}
-              type="text"
-              component={renderTextField}
-            />
-          </div>
-        </div>
-        <div className="chipTime">
-          <div>
-            <h3>Time:</h3>
-          </div>
-          <div>
-            <Field name={`${field}.seconds`} component={renderTimePicker} />
-          </div>
-        </div>
-        <div className="chipButton">
-          <MaterialIcon onClick={this.toggleEdit}>
-            <ActionDone hoverColor={cyan500} />
-          </MaterialIcon>
-        </div>
+        {this.props.formFields}
+        {this.buttons()}
       </div>
     )
   }
 
-  chip = (field, index, fields) => {
-    const preference = fields.get(index);
-    const renderPreferenceName = field =>
-      <div>
-        {preference.name}
-      </div>;
-    const renderPreferenceTime = field => {
-      let chosenUnixTimestamp = moment(preference.seconds).unix() * 1000;
-      let formatedTime = moment(chosenUnixTimestamp).format('HH:mm');
-      return (
-        <div>
-          {formatedTime}
-        </div>
-      );
-    };
+  chip = () => {
     return (
       <Chip
         className="Chip"
@@ -71,8 +54,7 @@ class EditableChip extends React.Component {
         labelColor="#353738"
         backgroundColor="#BEDEE8"
       >
-        <Field name={`${field}.name`} component={renderPreferenceName} />
-        <Field name={`${field}.seconds`} component={renderPreferenceTime} />
+        {this.props.chipFields}
       </Chip>
     )
   }
@@ -93,6 +75,9 @@ class EditableChip extends React.Component {
 EditableChip.propTypes = {
   field: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  fields: PropTypes.object.isRequired,
+  chipFields: PropTypes.object.isRequired,
+  formFields: PropTypes.object.isRequired,
   fields: PropTypes.object.isRequired,
   onDelete: PropTypes.func.isRequired
 };

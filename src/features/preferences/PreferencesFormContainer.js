@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { savePreferences } from '../../Actions';
 import { reduxForm } from 'redux-form';
-import PreferencesParent from './PreferencesParent';
+import PreferencesParent from './PreferencesForm';
 
 const mapStateToProps = state => {
   return {

@@ -3,7 +3,7 @@ import './App.css';
 import AddFoodContainer from './features/addFood/AddFoodContainer';
 import MealParentContainer from './features/addMeal/MealParentContainer';
 import EditFoodContainer from './features/editFood/EditFoodContainer';
-import PreferencesParentContainer from './features/preferences/PreferencesParentContainer';
+import PreferencesParentContainer from './features/preferences/PreferencesFormContainer';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Time from './Time';
