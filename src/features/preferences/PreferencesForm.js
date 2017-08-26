@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { renderTextField, renderFieldArray } from '../../common/form/FormFields';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, FieldArray } from 'redux-form';
-import './preferencesParent.css';
+import './preferencesForm.css';
 
 class PreferencesParent extends React.Component {
   render() {

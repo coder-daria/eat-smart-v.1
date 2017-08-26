@@ -15,11 +15,11 @@ export default function reducer(state = initialState, action) {
 
     case actions.SHOW_MEAL_DETAILS:
       let mealName = action.content;
-      let yourMeal = {}
+      let yourMeal = {};
 
       for (let key in state.meals) {
         if (state.meals[key].mealName === mealName) {
-          yourMeal = state.meals[key]
+          yourMeal = state.meals[key];
         }
       }
       return Object.assign({}, state, { selectedMeal: yourMeal });

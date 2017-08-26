@@ -5,18 +5,17 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
   return {
     date: state.meals.date
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-      onSelect: date => dispatch(fetchMealsForDate(date))
-  }
-}
+    onSelect: date => dispatch(fetchMealsForDate(date))
+  };
+};
 
-const DayPickerContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(DayPicker)
+const DayPickerContainer = connect(mapStateToProps, mapDispatchToProps)(
+  DayPicker
+);
 
 export default DayPickerContainer;

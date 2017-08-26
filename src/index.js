@@ -17,18 +17,19 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   if (module.hot) {
     module.hot.accept('./App', () => {
       ReactDOM.render(
         <Provider store={store}>
           <App />
         </Provider>,
-        document.getElementById('root'),
-      )
-    })
+        document.getElementById('root')
+      );
+    });
   }
 }
 
@@ -85,6 +86,6 @@ store.dispatch({
       }
     ]
   }
-})
+});
 
 registerServiceWorker();

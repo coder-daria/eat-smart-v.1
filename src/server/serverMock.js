@@ -18,7 +18,6 @@ output
 {name: "twarog", fat: 4, carbohydrate: 5, protein: 4, id:12345}
  */
 function addFood(food) {
-
   // const fetchOptions = { mode: 'cors', method: 'GET' };
   //   fetch('http://localhost:3001', fetchOptions)
   // .then(data => data.json())
@@ -27,7 +26,7 @@ function addFood(food) {
     setTimeout(() => {
       const objectFromServer = Object.assign({}, food, { id: uuidv4() });
       resolve(objectFromServer);
-    }, 1000)
+    }, 1000);
   }
 
   return new Promise(fn);
@@ -35,7 +34,8 @@ function addFood(food) {
 
 const randomMeals = [
   {
-    mealName: "Morning snack", details: [
+    mealName: 'Morning snack',
+    details: [
       {
         id: 'f400558e-251a-4f7e-8d05-66e35btomato',
         quantity: '50',
@@ -44,7 +44,8 @@ const randomMeals = [
     ]
   },
   {
-    mealName: "Evening snack", details: [
+    mealName: 'Evening snack',
+    details: [
       {
         id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
         quantity: '70',
@@ -64,7 +65,6 @@ output
 {meals: [{mealName: "breakfast", details: [foods...]}, {mealName: "lunch", details: [foods...]}]}
  */
 function findMealsIn(date) {
-
   // const fetchOptions = { mode: 'cors', method: 'GET' };
   //   fetch('http://localhost:3001', fetchOptions)
   // .then(data => data.json())
@@ -76,18 +76,18 @@ function findMealsIn(date) {
     }
     setTimeout(() => {
       resolve(mealsAddedByUser[seconds]);
-    }, 1000)
+    }, 1000);
   }
 
   return new Promise(fn);
 }
 
-function addMeal(meal, date){
+function addMeal(meal, date) {
   return findMealsIn(date).then(meals => {
     const seconds = moment(date).startOf('day').unix();
     mealsAddedByUser[seconds].push(meal);
     return mealsAddedByUser[seconds];
-  })
+  });
 }
 
 const exports = { listAllProducts, addFood, findMealsIn, addMeal };

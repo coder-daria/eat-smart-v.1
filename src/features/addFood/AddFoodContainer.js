@@ -5,18 +5,15 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
   return {
     isLoading: state.foods.isLoading
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
-      onSubmit: food => dispatch(addNewFoodToServer(food))
-  }
-}
+    onSubmit: food => dispatch(addNewFoodToServer(food))
+  };
+};
 
-const AddFoodContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddFood)
+const AddFoodContainer = connect(mapStateToProps, mapDispatchToProps)(AddFood);
 
 export default AddFoodContainer;

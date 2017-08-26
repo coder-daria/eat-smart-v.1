@@ -3,12 +3,12 @@ import Snackbar from 'material-ui/Snackbar';
 
 class SnackbarMessage extends React.Component {
   state = {
-    isOpen: this.props.isOpen,
+    isOpen: this.props.isOpen
   };
   componentWillReceiveProps = props => {
     this.setState({
       isOpen: props.isOpen
-    })
+    });
   };
   render() {
     return (
