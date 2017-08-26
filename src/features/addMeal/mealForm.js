@@ -3,10 +3,15 @@ import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
-import { renderDiv, renderTextField } from '../../common/form/FormFields';
+import {
+  renderSelectField,
+  renderDiv,
+  renderTextField
+} from '../../common/form/FormFields';
 import './mealForm.css';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import EditableChip from '../../common/EditableChip';
+import MenuItem from 'material-ui/MenuItem';
 
 const validate = values => {
   const errors = { meal: '', foods: [] };
@@ -111,6 +116,30 @@ class MealForm extends React.Component {
     );
   };
 
+  renderMealPreferences = () => {
+    let selectPreference = this.props.mealsPreferences.map(preference => {
+      return (
+        <MenuItem
+          value={preference}
+          primaryText={preference.name}
+          key={preference.name}
+        />
+      );
+    });
+    return (
+      <div className="mealPreferences">
+        <Field
+          name="meal"
+          component={renderSelectField}
+          className="someClass"
+          label="Meal"
+        >
+          {selectPreference}
+        </Field>
+      </div>
+    );
+  };
+
   clearAndSubmit = values => {
     this.props.addMeal(values, this.props.date);
     this.props.reset();
@@ -122,6 +151,9 @@ class MealForm extends React.Component {
     return (
       <div className="addMealContainer">
         <form className="mealParentContainer" onSubmit={submit}>
+          <div>
+            {this.renderMealPreferences()}
+          </div>
           <div>
             <FieldArray name="foods" component={this.renderFieldArray} />
           </div>

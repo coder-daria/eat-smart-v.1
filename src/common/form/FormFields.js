@@ -164,7 +164,7 @@ export const renderFieldArray = fieldArray => {
         </ul>
       </div>
       <div className="button">
-        <RenderAddButton onClick={addField} />
+        <RenderAddButton onClick={addMeal} />
       </div>
     </div>
   );
