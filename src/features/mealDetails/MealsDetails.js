@@ -3,70 +3,100 @@ import PropTypes from 'prop-types';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Chart from '../../Chart.js';
+import { sumFoods, countKcalInFood, countKcalInMeal } from '../../functions';
 import './mealsDetails.css';
 
 class MealsDetails extends React.Component {
-  state = {
-    value: 1
-  };
-  showItem = (item, value) =>
-    item.mealName.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  state = {};
+
   handleChange = (event, index, value) => {
     console.log(`event: ${event}, value: ${value}, index: ${index}`);
     if (value !== 'empty') {
-      this.props.onSelect(value);
+      this.setState({ selectedMeal: this.props.meals[index] });
     }
   };
-  handleChange1 = (event, index, value) => {
-    console.log(value);
-    this.setState({ value });
+
+  calculateSummaryOfDay = meals => {
+    const summary = {};
+    summary.kcal = meals.map(countKcalInMeal).reduce((x, y) => x + y, 0);
+    return summary;
+  };
+
+  renderDailyCalories = () => {
+    const summary = this.calculateSummaryOfDay(this.props.meals);
+    return (
+      <div>
+        Kcal eaten: {summary.kcal}
+        Kcal to reach daily goal: {this.props.dailyKcal - summary.kcal}
+      </div>
+    );
+  };
+
+  dailySummary = () => {
+    const total =
+      this.props.meals.length === 0
+        ? <p>You have not eaten anything yet! </p>
+        : this.renderDailyCalories();
+    return (
+      <div>
+        {total}
+      </div>
+    );
+  };
+
+  renderSelectedMeal = () => {
+    const selectedMealSummary = this.state.selectedMeal.foods.reduce(sumFoods, {
+      fat: 0,
+      carbs: 0,
+      protein: 0
+    });
+    return (
+      <ul className="specificDetails">
+        <li>
+          <h3>Name</h3>
+          <div>
+            {this.state.selectedMeal.name}
+          </div>
+        </li>
+        <li>
+          <h3>Fat</h3>
+          <div>
+            {selectedMealSummary.fat} g
+          </div>
+        </li>
+        <li>
+          <h3>Protein</h3>
+          <div>
+            {selectedMealSummary.protein} g
+          </div>
+        </li>
+        <li>
+          <h3>Carbs</h3>
+          <div>
+            {selectedMealSummary.carbs} g
+          </div>
+        </li>
+      </ul>
+    );
   };
 
   render() {
-    let { theWholeMeal } = this.props;
-    const foodDetailsList =
-      theWholeMeal.mealName === ''
-        ? ''
-        : <ul className="specificDetails">
-            <li>
-              <h3>Name</h3>
-              <div>
-                {theWholeMeal.mealName}
-              </div>
-            </li>
-            <li>
-              <h3>Fat</h3>
-              <div>
-                {theWholeMeal.mealDetails.fat} g
-              </div>
-            </li>
-            <li>
-              <h3>Protein</h3>
-              <div>
-                {theWholeMeal.mealDetails.protein} g
-              </div>
-            </li>
-            <li>
-              <h3>Carbs</h3>
-              <div>
-                {theWholeMeal.mealDetails.carbs} g
-              </div>
-            </li>
-          </ul>;
+    const selectedMealDetails = this.state.selectedMeal
+      ? this.renderSelectedMeal()
+      : null;
 
-    const meals = this.props.meals;
-    const meal = meals.map(item => {
+    const mealList = this.props.meals.map(item => {
       return (
-        <MenuItem
-          key={item.mealName}
-          value={item.mealName}
-          primaryText={item.mealName}
-        />
+        <MenuItem key={item.meal} value={item.meal} primaryText={item.meal} />
       );
     });
 
     return (
       <div className="mealsDetailsContainer">
+        <div>
+          <h2>Your daily summary</h2>
+          {this.dailySummary()}
+        </div>
         <div>
           <h2>Meal details</h2>
         </div>
@@ -75,14 +105,14 @@ class MealsDetails extends React.Component {
             onChange={this.handleChange}
             floatingLabelText="Choose a meal"
           >
-            {meal}
+            {mealList}
           </SelectField>
         </div>
         <div className="chart">
           <Chart />
         </div>
         <div>
-          {foodDetailsList}
+          {selectedMealDetails}
         </div>
       </div>
     );
@@ -91,7 +121,6 @@ class MealsDetails extends React.Component {
 
 MealsDetails.propTypes = {
   onSelect: PropTypes.func.isRequired,
-  theWholeMeal: PropTypes.object.isRequired,
   meals: PropTypes.array.isRequired
 };
 

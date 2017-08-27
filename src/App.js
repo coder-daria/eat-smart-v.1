@@ -4,8 +4,7 @@ import AddFoodContainer from './features/addFood/AddFoodContainer';
 import MealParentContainer from './features/addMeal/MealParentContainer';
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesParentContainer from './features/preferences/PreferencesFormContainer';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Nav from './Nav';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Time from './Time';
 import DayPickerContainer from './features/changeDate/DayPickerContainer';
 import MenuIcon from './MenuIcon';
@@ -25,12 +24,6 @@ class App extends Component {
             <div className="appContainer">
               <div className="header">
                 <div>
-                  <Time />
-                </div>
-                <div>
-                  <TimeFor />
-                </div>
-                <div>
                   <DayPickerContainer />
                 </div>
                 <div>
@@ -38,15 +31,16 @@ class App extends Component {
                 </div>
               </div>
               <div className="body">
-                <Nav />
-                <br />
-                <Route path="/addFood" component={AddFoodContainer} />
-                <Route path="/editFood" component={EditFoodContainer} />
-                <Route path="/addMeal" component={MealParentContainer} />
-                <Route
-                  path="/preferences"
-                  component={PreferencesParentContainer}
-                />
+                <Switch>
+                  <Route path="/addFood" component={AddFoodContainer} />
+                  <Route path="/editFood" component={EditFoodContainer} />
+                  <Route path="/addMeal" component={MealParentContainer} />
+                  <Route
+                    path="/preferences"
+                    component={PreferencesParentContainer}
+                  />
+                  <Route component={MealParentContainer} />
+                </Switch>
               </div>
               <div>
                 <LoadingContainer />

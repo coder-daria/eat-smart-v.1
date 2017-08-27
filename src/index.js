@@ -38,9 +38,9 @@ store.dispatch({
   content: {
     'f400558e-251a-4f7e-8d05-66e35btomato': {
       name: 'tomato',
-      fat: '50',
-      protein: '100',
-      carbs: '50',
+      fat: 50,
+      protein: 100,
+      carbs: 50,
       id: 'f400558e-251a-4f7e-8d05-66e35btomato'
     }
   }
@@ -51,9 +51,9 @@ store.dispatch({
   content: {
     'f400558e-251a-4f7e-8d05-66e35b729egg': {
       name: 'egg',
-      fat: '100',
-      protein: '50',
-      carbs: '100',
+      fat: 100,
+      protein: 50,
+      carbs: 100,
       id: 'f400558e-251a-4f7e-8d05-66e35b729egg'
     }
   }

@@ -51,7 +51,7 @@ class DayPicker extends React.Component {
         <div>
           {calendarIcon}
         </div>
-        <div>
+        <div style={{ visibility: '1' }}>
           <DatePicker
             autoOk={true}
             defaultDate={this.props.date}
