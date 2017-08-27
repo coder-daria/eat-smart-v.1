@@ -67,7 +67,7 @@ class MenuIcon extends Component {
           >
             <MenuItem value="1" primaryText="Signed in as Daria" />
             <Divider />
-            <MenuItem value="2" primaryText="Preference" />
+            <MenuItem value="2" primaryText="Preferences" />
             <MenuItem value="3" primaryText="Add food" />
             <MenuItem value="4" primaryText="Edit food" />
             <Divider />
