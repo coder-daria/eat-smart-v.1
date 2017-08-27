@@ -7,11 +7,16 @@ import PreferencesParentContainer from './features/preferences/PreferencesFormCo
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Time from './Time';
 import DayPickerContainer from './features/changeDate/DayPickerContainer';
+import UserIcon from './UserIcon';
 import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TimeFor from './TimeFor';
 import LoadingContainer from './common/LoadingContainer';
 import SnackbarContainer from './common/SnackbarContainer';
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
@@ -22,12 +27,14 @@ class App extends Component {
         <MuiThemeProvider>
           <Router>
             <div className="appContainer">
+              <AppBar
+                title="Eat Smart"
+                iconElementLeft={<MenuIcon />}
+                iconElementRight={<UserIcon />}
+              />
               <div className="header">
                 <div>
                   <DayPickerContainer />
-                </div>
-                <div>
-                  <MenuIcon />
                 </div>
               </div>
               <div className="body">
