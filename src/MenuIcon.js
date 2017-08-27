@@ -62,13 +62,13 @@ class MenuIcon extends Component {
             value={this.state.value}
             onItemTouchTap={this.handleClick}
           >
-            <MenuItem value="1" primaryText="Signed in as Daria" />
+            <MenuItem disabled={true} primaryText="Signed in as Daria" />
             <Divider />
             <MenuItem value="/preferences" primaryText="Preferences" />
             <MenuItem value="/addFood" primaryText="Add food" />
             <MenuItem value="/editFood" primaryText="Edit food" />
             <Divider />
-            <MenuItem primaryText="Sign out" />
+            <MenuItem disabled={true} primaryText="Sign out" />
           </IconMenu>
         </div>
       </div>
