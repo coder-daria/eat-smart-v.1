@@ -34,9 +34,10 @@ function addFood(food) {
 
 const randomMeals = [
   {
-    mealName: 'Morning snack',
-    details: [
+    meal: 'Morning snack',
+    foods: [
       {
+        name: 'tomato',
         id: 'f400558e-251a-4f7e-8d05-66e35btomato',
         quantity: '50',
         unit: 'grams'
@@ -44,9 +45,10 @@ const randomMeals = [
     ]
   },
   {
-    mealName: 'Evening snack',
-    details: [
+    meal: 'Evening snack',
+    foods: [
       {
+        name: 'egg',
         id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
         quantity: '70',
         unit: 'grams'
@@ -62,7 +64,7 @@ input
 {year: 2017, month: 12, day: 5,}
 
 output
-{meals: [{mealName: "breakfast", details: [foods...]}, {mealName: "lunch", details: [foods...]}]}
+{meals: [{meal: "breakfast", foods: [foods...]}, {meal: "lunch", foods: [foods...]}]}
  */
 function findMealsIn(date) {
   // const fetchOptions = { mode: 'cors', method: 'GET' };

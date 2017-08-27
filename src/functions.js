@@ -31,10 +31,22 @@ export function aliment(fat, protein, carbs) {
 
 export function sumFoods(food1, food2) {
   return {
-    fat: Number(food1.fat) + Number(food2.fat),
-    protein: Number(food1.protein) + Number(food2.protein),
-    carbs: Number(food1.carbs) + Number(food2.carbs)
+    fat: food1.fat + food2.fat,
+    protein: food1.protein + food2.protein,
+    carbs: food1.carbs + food2.carbs
   };
+}
+
+export function sumMeals(meal1, meal2) {}
+
+export function countKcalInFood(food) {
+  return food.fat * 9 + food.protein * 4 + food.carbs * 4;
+}
+
+export function countKcalInMeal(meal) {
+  return countKcalInFood(
+    meal.foods.reduce(sumFoods, { fat: 0, carbs: 0, protein: 0 })
+  );
 }
 
 export function portion(aliment, quantity) {
