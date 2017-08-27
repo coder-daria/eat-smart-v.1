@@ -44,37 +44,46 @@ class MealsDetails extends React.Component {
     );
   };
 
+  renderSelectedMeal = () => {
+    const selectedMealSummary = this.state.selectedMeal.foods.reduce(sumFoods, {
+      fat: 0,
+      carbs: 0,
+      protein: 0
+    });
+    return (
+      <ul className="specificDetails">
+        <li>
+          <h3>Name</h3>
+          <div>
+            {this.state.selectedMeal.name}
+          </div>
+        </li>
+        <li>
+          <h3>Fat</h3>
+          <div>
+            {selectedMealSummary.fat} g
+          </div>
+        </li>
+        <li>
+          <h3>Protein</h3>
+          <div>
+            {selectedMealSummary.protein} g
+          </div>
+        </li>
+        <li>
+          <h3>Carbs</h3>
+          <div>
+            {selectedMealSummary.carbs} g
+          </div>
+        </li>
+      </ul>
+    );
+  };
+
   render() {
-    if (this.state.selectedMeal) {
-      return (
-        <ul className="specificDetails">
-          <li>
-            <h3>Name</h3>
-            <div>
-              {this.state.selectedMeal.name}
-            </div>
-          </li>
-          <li>
-            <h3>Fat</h3>
-            <div>
-              {this.state.selectedMeal.fat} g
-            </div>
-          </li>
-          <li>
-            <h3>Protein</h3>
-            <div>
-              {this.state.selectedMeal.protein} g
-            </div>
-          </li>
-          <li>
-            <h3>Carbs</h3>
-            <div>
-              {this.state.selectedMeal.carbs} g
-            </div>
-          </li>
-        </ul>
-      );
-    }
+    const selectedMealDetails = this.state.selectedMeal
+      ? this.renderSelectedMeal()
+      : null;
 
     const mealList = this.props.meals.map(item => {
       return (
@@ -103,7 +112,7 @@ class MealsDetails extends React.Component {
           <Chart />
         </div>
         <div>
-          {/*foodDetailsList*/}
+          {selectedMealDetails}
         </div>
       </div>
     );

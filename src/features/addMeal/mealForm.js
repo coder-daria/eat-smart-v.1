@@ -120,7 +120,7 @@ class MealForm extends React.Component {
     let selectPreference = this.props.mealsPreferences.map(preference => {
       return (
         <MenuItem
-          value={preference}
+          value={preference.name}
           primaryText={preference.name}
           key={preference.name}
         />
