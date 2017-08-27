@@ -95,7 +95,9 @@ export function findMealByClosestTime(currentTime, meals) {
   let twoDifferences = [];
   let theClosestMeal = {};
 
-  if (meals.length === 1) {
+  if (!meals || meals.length === 0) {
+    return {};
+  } else if (meals.length === 1) {
     theClosestMeal = meals[0];
   } else {
     for (let i = 0; i < meals.length - 1; i++) {

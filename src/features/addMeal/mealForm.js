@@ -12,30 +12,7 @@ import './mealForm.css';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import EditableChip from '../../common/EditableChip';
 import MenuItem from 'material-ui/MenuItem';
-
-const validate = values => {
-  const errors = { meal: '', foods: [] };
-  if (!values.meal) {
-    errors.meal = 'Required';
-  }
-  if (!values.foods || !values.foods.length) {
-    errors.foods = { _error: 'Select at least one food' };
-  } else {
-    const foodsArrayErrors = [];
-
-    values.foods.forEach((food, index) => {
-      const foodErrors = {};
-      if (!food || !food.quantity || isNaN(food.quantity)) {
-        foodErrors.quantity = 'Required';
-        foodsArrayErrors[index] = foodErrors;
-      }
-    });
-    if (foodsArrayErrors.length) {
-      errors.foods = foodsArrayErrors;
-    }
-  }
-  return errors;
-};
+import SelectableList from '../../common/SelectableList';
 
 class MealForm extends React.Component {
   componentWillUnmount() {
@@ -152,7 +129,16 @@ class MealForm extends React.Component {
       <div className="addMealContainer">
         <form className="mealParentContainer" onSubmit={submit}>
           <div>
-            {this.renderMealPreferences()}
+            <Field
+              name="meal"
+              component={field =>
+                <SelectableList
+                  initialValue={field.input.value}
+                  items={this.props.mealsPreferences}
+                  onSelect={field.input.onChange}
+                />}
+            />
+            {/*{this.renderMealPreferences()}*/}
           </div>
           <div>
             <FieldArray name="foods" component={this.renderFieldArray} />
@@ -175,12 +161,10 @@ class MealForm extends React.Component {
 MealForm.propTypes = {
   foods: PropTypes.object.isRequired,
   date: PropTypes.object.isRequired,
+  mealsPreferences: PropTypes.array.isRequired,
   foodsToSearch: PropTypes.array.isRequired,
+  currentMealIndex: PropTypes.number.isRequired,
   addMeal: PropTypes.func.isRequired
 };
 
-export default reduxForm({
-  form: 'addMeal',
-  destroyOnUnmount: false,
-  validate
-})(MealForm);
+export default MealForm;
