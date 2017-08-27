@@ -4,43 +4,42 @@ import { Field, reduxForm } from 'redux-form';
 import { renderTextField } from '../../common/form/FormFields';
 import AutoComplete from '../../common/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
-import './editFoodChanges.css';
+import ReturnButton from '../../common/form/ReturnButton';
+import './editFoodForm.css';
 import R from 'ramda';
 
 const validate = values => {
-  const errors = {}
-  if(!values.selected){
+  const errors = {};
+  if (!values.selected) {
     return errors;
   }
   errors.selected = {};
   if (!values.selected.name) {
-    errors.selected.name = 'Required'
-  }
-  else if (values.selected.name.length < 2) {
-    errors.selected.name = 'Chosen name is too short'
+    errors.selected.name = 'Required';
+  } else if (values.selected.name.length < 2) {
+    errors.selected.name = 'Chosen name is too short';
   }
   if (!values.selected.fat) {
-    errors.selected.fat = 'Required'
+    errors.selected.fat = 'Required';
   }
   if (!values.selected.protein) {
-    errors.selected.protein = "Required";
+    errors.selected.protein = 'Required';
   }
   if (!values.selected.carbs) {
-    errors.selected.carbs = "Required";
+    errors.selected.carbs = 'Required';
   }
-  if(R.isEmpty(errors.selected)){
+  if (R.isEmpty(errors.selected)) {
     return {};
   } else {
     return errors;
   }
-}
+};
 
-const EditFoodChanges = props => {
-
+const EditFoodForm = props => {
   const clearAndSubmit = values => {
     props.onSubmit(values.selected);
     props.reset();
-  }
+  };
 
   const renderEditFood = () => {
     return (
@@ -56,18 +55,42 @@ const EditFoodChanges = props => {
           />
         </div>
         <div>
-          <Field className="editFoodField" name="selected.fat" type="number" component={renderTextField} label="Fat" />
+          <Field
+            className="editFoodField"
+            name="selected.fat"
+            type="number"
+            component={renderTextField}
+            label="Fat"
+          />
         </div>
         <div>
-          <Field className="editFoodField" name="selected.protein" type="number" component={renderTextField} label="Protein" />
+          <Field
+            className="editFoodField"
+            name="selected.protein"
+            type="number"
+            component={renderTextField}
+            label="Protein"
+          />
         </div>
         <div>
-          <Field className="editFoodField" name="selected.carbs" type="number" component={renderTextField} label="Carbs" />
+          <Field
+            className="editFoodField"
+            name="selected.carbs"
+            type="number"
+            component={renderTextField}
+            label="Carbs"
+          />
         </div>
-        <RaisedButton className="editFoodRaisedButton" label="Submit" type="submit" primary={true} disabled={disabled} />
+        <RaisedButton
+          className="editFoodRaisedButton"
+          label="Submit"
+          type="submit"
+          primary={true}
+          disabled={disabled}
+        />
       </div>
-    )
-  }
+    );
+  };
 
   const renderAutoComplete = field => {
     return (
@@ -77,8 +100,8 @@ const EditFoodChanges = props => {
           onSelect={(name, food) => field.input.onChange(food)}
         />
       </div>
-    )
-  }
+    );
+  };
 
   const submit = props.handleSubmit(clearAndSubmit);
   const disabled = props.invalid || props.pristine;
@@ -87,26 +110,36 @@ const EditFoodChanges = props => {
     <div className="editFoodParentContainer">
       <form onSubmit={submit} className="outerEditFormContainer">
         <div className="search">
-          <Field name="selected" component={renderAutoComplete} label="Select food" />
+          <Field
+            name="selected"
+            component={renderAutoComplete}
+            label="Select food"
+          />
         </div>
         <div>
-        {editFood}
+          {editFood}
         </div>
       </form>
       <div className="img">
-        <img alt="img" width="250px" height="200px" src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg" />
+        <img
+          alt="img"
+          width="250px"
+          height="200px"
+          src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
+        />
       </div>
+      <ReturnButton />
     </div>
-  )
-}
+  );
+};
 
-EditFoodChanges.propTypes = {
+EditFoodForm.propTypes = {
   onSubmit: PropTypes.func,
   foods: PropTypes.array
 };
 
 export default reduxForm({
-  form: 'EditFoodChanges',
+  form: 'EditFoodForm',
   enableReinitialize: true,
   validate
-})(EditFoodChanges)
+})(EditFoodForm);

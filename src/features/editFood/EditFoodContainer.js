@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import EditFoodChanges from './EditFoodChanges';
+import EditFoodForm from './EditFoodForm';
 import { editFood } from '../../Actions';
 import { convertObjectToArray } from '../../functions.js';
 import { formValueSelector } from 'redux-form';
@@ -21,7 +21,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 const EditFoodContainer = connect(mapStateToProps, mapDispatchToProps)(
-  EditFoodChanges
+  EditFoodForm
 );
 
 export default EditFoodContainer;

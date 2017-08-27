@@ -6,30 +6,28 @@ import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
 import './menuIcon.css';
 import Avatar from 'material-ui/Avatar';
+import { withRouter } from 'react-router-dom';
+
+const MenuWithHistory = withRouter(({ history }) =>
+  <MenuIcon history={history} />
+);
 
 class MenuIcon extends Component {
-  state = {
-    valueSingle: '2'
-  };
-
-  handleChangeSingle = (event, value) => {
-    this.setState({
-      valueSingle: value
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '/'
+    };
+  }
 
   handleClick = (event, child) => {
     let value = child.props.value;
-    if (value === '2') {
-      // window.location.assign = 'http://localhost:3000/preferences';
-    }
-    if (value === '3') {
-      // window.location = 'http://localhost:3000/addFood';
-    }
-    if (value === '4') {
-      // window.location = 'http://localhost:3000/editFood';
-    }
+    this.setState({
+      value: value
+    });
+    this.props.history.push(value);
   };
+
   icons = () => {
     return (
       <IconButton className="menuButtonsContainer">
@@ -37,7 +35,7 @@ class MenuIcon extends Component {
           <div>
             <Avatar
               src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
-              size={30}
+              size={25}
             />
           </div>
           <div>
@@ -61,15 +59,14 @@ class MenuIcon extends Component {
             menuItemStyle={styles.item}
             anchorOrigin={{ horizontal: 'middle', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'middle', vertical: 'top' }}
-            onChange={this.handleChangeSingle}
-            value={this.state.valueSingle}
+            value={this.state.value}
             onItemTouchTap={this.handleClick}
           >
             <MenuItem value="1" primaryText="Signed in as Daria" />
             <Divider />
-            <MenuItem value="2" primaryText="Preferences" />
-            <MenuItem value="3" primaryText="Add food" />
-            <MenuItem value="4" primaryText="Edit food" />
+            <MenuItem value="/preferences" primaryText="Preferences" />
+            <MenuItem value="/addFood" primaryText="Add food" />
+            <MenuItem value="/editFood" primaryText="Edit food" />
             <Divider />
             <MenuItem primaryText="Sign out" />
           </IconMenu>
@@ -79,4 +76,12 @@ class MenuIcon extends Component {
   }
 }
 
-export default MenuIcon;
+const Menu = () => {
+  return (
+    <div>
+      <MenuWithHistory />
+    </div>
+  );
+};
+
+export default Menu;
