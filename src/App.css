@@ -1,44 +1,46 @@
- .appContainer {
-      /* border: 2px solid red;       */
-    display: flex; 
-    flex-direction: column; 
-    align-items: left;
-    width: 52%;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 500px;
+.appContainer {
+  /* border: 2px solid red;       */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 52%;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 500px;
 }
 /*HEADER - TIME, DATE, SETTING*/
 .header {
-    /* border: 2px solid #96CB2C;   */
-    width: 100%;
-    flex: 1; 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1% auto 1% auto;
+  /* border: 2px solid #96CB2C;   */
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1% auto 1% auto;
 }
-Time, TimeFor, Date, MenuIcon {
-     flex: 1; 
+Time,
+TimeFor,
+Date,
+UserIcon {
+  flex: 1;
 }
 /*BODY - NAVIGATION BAR, COMPONENTS*/
- .body {
-     /* border: 2px solid blueviolet;  */
-    flex: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-} 
+.body {
+  /* border: 2px solid blueviolet;  */
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-.body Nav, .body Route {
-    flex:1;
-    width: 100%;
+.body Nav,
+.body Route {
+  flex: 1;
+  width: 100%;
 }
 .tabs {
-    flex: 1;
-    display: flex;
-    flex-flow: column wrap;
+  flex: 1;
+  display: flex;
+  flex-flow: column wrap;
 }
-
-

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
-import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import IconButton from 'material-ui/IconButton';
 import Divider from 'material-ui/Divider';
-import './menuIcon.css';
+import './userIcon.css';
 import Avatar from 'material-ui/Avatar';
 import { withRouter } from 'react-router-dom';
 
-const IconWithHistory = withRouter(({ history }) =>
-  <MenuIcon history={history} />
+const MenuWithHistory = withRouter(({ history }) =>
+  <UserIcon history={history} />
 );
 
-class MenuIcon extends Component {
+class UserIcon extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,8 +30,18 @@ class MenuIcon extends Component {
 
   icons = () => {
     return (
-      <IconButton>
-        <NavigationMenu />
+      <IconButton className="menuButtonsContainer">
+        <div className="menuButtonsContainer">
+          <div>
+            <Avatar
+              src="https://cdn2.iconfinder.com/data/icons/avatar-2/512/iri_girl_face-128.png"
+              size={25}
+            />
+          </div>
+          <div>
+            <MoreVertIcon />
+          </div>
+        </div>
       </IconButton>
     );
   };
@@ -52,9 +62,11 @@ class MenuIcon extends Component {
             value={this.state.value}
             onItemTouchTap={this.handleClick}
           >
-            <MenuItem value="/addMeal" primaryText="Add Meal" />
-            <MenuItem value="/addFood" primaryText="Add food" />
-            <MenuItem value="/editFood" primaryText="Edit food" />
+            <MenuItem disabled={true} primaryText="Signed in as Daria" />
+            <Divider />
+            <MenuItem value="/preferences" primaryText="Preferences" />
+            <Divider />
+            <MenuItem disabled={true} primaryText="Sign out" />
           </IconMenu>
         </div>
       </div>
@@ -65,7 +77,7 @@ class MenuIcon extends Component {
 const Menu = () => {
   return (
     <div>
-      <IconWithHistory />
+      <MenuWithHistory />
     </div>
   );
 };
