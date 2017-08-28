@@ -107,8 +107,9 @@ const EditFoodForm = props => {
   const disabled = props.invalid || props.pristine;
   const editFood = props.isSelected ? renderEditFood() : null;
   return (
-    <div className="editFoodParentContainer">
-      <form onSubmit={submit} className="outerEditFormContainer">
+    <div className="editFoodAndReturnButtonContainer">
+      <div className="editFoodContainer">
+      <form onSubmit={submit} className="searchAndFormContainer">
         <div className="search">
           <Field
             name="selected"
@@ -116,7 +117,7 @@ const EditFoodForm = props => {
             label="Select food"
           />
         </div>
-        <div>
+        <div className="outerEditFormContainer">
           {editFood}
         </div>
       </form>
@@ -128,7 +129,10 @@ const EditFoodForm = props => {
           src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
         />
       </div>
+       </div>
+        <div className="editFoodReturnButton">
       <ReturnButton />
+       </div>
     </div>
   );
 };

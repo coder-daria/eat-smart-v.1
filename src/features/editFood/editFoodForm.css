@@ -1,38 +1,53 @@
-.editFoodParentContainer {
-  /* border: 2px solid green;       */
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-.outerEditFormContainer {
-  /* border: 2px solid greenyellow;    */
-  display: flex;
-  flex: 2;
-  justify-content: space-between;
-}
-.innerEditFoodFormContainer {
-  /* border: 2px solid red;    */
+.editFoodAndReturnButtonContainer {
+    /* border: 2px solid green;           */
   display: flex;
   flex-flow: column wrap;
+   width: 100%; 
+}
+.editFoodContainer {
+    /* border: 2px solid blue;             */
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+.editFoodReturnButton {
+   /* border: 2px solid gold;  */
+  align-self: center;
+  margin-top: 10%;
+}
+.searchAndFormContainer {
+   /* border: 2px solid greenyellow;      */
+  display: flex;
+  flex: 3;
+  justify-content: space-between;
+}
+.outerEditFormContainer {
+   /* border: 2px solid red;        */
+   flex: 1;
+}
+.search {
+   /* border: 2px solid pink; */
+   flex: 1;
+}
+.innerEditFoodFormContainer {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
 }
 .editFoodRaisedButton {
   align-self: flex-end;
   margin-top: 10px;
-}
-.search {
-  /* border: 2px solid pink;     */
-  margin-right: 15px;
 }
 .img {
   /* border: 2px solid blueviolet;      */
   display: flex;
   justify-content: center;
   flex: 2;
+  margin-right: -8%;
 }
 img {
   align-self: flex-start;
   max-width: 300px;
-  margin-left: 15px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px darkgray;
 }
