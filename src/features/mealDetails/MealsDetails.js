@@ -92,7 +92,7 @@ class MealsDetails extends React.Component {
     });
 
     return (
-      <div className="mealsDetailsContainer">
+      <div className="summary">
         <div>
           <h2>Your daily summary</h2>
           {this.dailySummary()}

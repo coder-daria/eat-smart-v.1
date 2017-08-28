@@ -45,7 +45,7 @@ class EditableChip extends React.Component {
         <div className="icons">
           {this.removeButton()}
         </div>
-        <div>
+        <div className="content">
           {this.props.formFields}
         </div>
         <div className="icons">
