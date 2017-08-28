@@ -48,7 +48,7 @@ class DayPicker extends React.Component {
     );
     return (
       <div className="dateContainer">
-        <div style={{ visibility: '1' }} className="dateDisplay">
+        <div style={{ visibility: 'hidden' }}>
           <DatePicker
             autoOk={true}
             defaultDate={this.props.date}
