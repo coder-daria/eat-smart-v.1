@@ -32,11 +32,6 @@ class App extends Component {
                 iconElementLeft={<MenuIcon />}
                 iconElementRight={<UserIcon />}
               />
-              <div className="header">
-                <div>
-                  <DayPickerContainer />
-                </div>
-              </div>
               <div className="body">
                 <Switch>
                   <Route path="/addFood" component={AddFoodContainer} />

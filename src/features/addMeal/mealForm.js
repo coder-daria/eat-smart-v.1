@@ -13,6 +13,7 @@ import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import EditableChip from '../../common/EditableChip';
 import MenuItem from 'material-ui/MenuItem';
 import SelectableList from '../../common/SelectableList';
+import DayPickerContainer from '../../features/changeDate/DayPickerContainer';
 
 class MealForm extends React.Component {
   componentWillUnmount() {
@@ -127,6 +128,9 @@ class MealForm extends React.Component {
     const disabled = this.props.invalid || this.props.pristine;
     return (
       <div className="addMealContainer">
+        <div>
+          <DayPickerContainer />
+        </div>
         <form className="mealParentContainer" onSubmit={submit}>
           <div>
             <Field
