@@ -52,7 +52,7 @@ class MenuIcon extends Component {
             value={this.state.value}
             onItemTouchTap={this.handleClick}
           >
-            <MenuItem value="/addMeal" primaryText="Add Meal" />
+            <MenuItem value="/addMeal" primaryText="Add meal" />
             <MenuItem value="/addFood" primaryText="Add food" />
             <MenuItem value="/editFood" primaryText="Edit food" />
           </IconMenu>

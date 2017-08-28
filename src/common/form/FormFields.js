@@ -12,7 +12,6 @@ import '../../features/preferences/preferencesForm.css';
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
-    <div className="textFieldContainer">
       <div className={field.className}>
         <TextField
           floatingLabelText={field.label}
@@ -23,7 +22,6 @@ export const renderTextField = field => {
           autoComplete="off"
         />
       </div>
-    </div>
   );
 };
 
