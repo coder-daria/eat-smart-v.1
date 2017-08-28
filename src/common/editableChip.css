@@ -1,3 +1,4 @@
+/* chip */
 .chip {
   min-width: 200px;
   display: flex;
@@ -22,7 +23,7 @@
   margin-bottom: 10px;
 } 
 
-/* FORM */
+/* form */
 .eachFormContainer {
   border: 2px solid rgba(103, 205, 230, .7); 
   background-color: rgba(103, 205, 230, .06);
