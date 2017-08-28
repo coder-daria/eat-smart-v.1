@@ -1,14 +1,8 @@
 .editFoodAndReturnButtonContainer {
-    /* border: 2px solid green;           */
+     /* border: 2px solid green;            */
   display: flex;
   flex-flow: column wrap;
    width: 100%; 
-}
-.editFoodContainer {
-    /* border: 2px solid blue;             */
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
 }
 .editFoodReturnButton {
    /* border: 2px solid gold;  */
@@ -16,20 +10,16 @@
   margin-top: 10%;
 }
 .searchAndFormContainer {
-   /* border: 2px solid greenyellow;      */
+     /* border: 2px solid greenyellow;        */
   display: flex;
-  flex: 3;
-  justify-content: space-between;
-}
-.outerEditFormContainer {
-   /* border: 2px solid red;        */
-   flex: 1;
+  justify-content: center;
+  width: 100%;
 }
 .search {
-   /* border: 2px solid pink; */
-   flex: 1;
+    /* border: 2px solid pink;  */
+    margin-right: 5%;
 }
-.innerEditFoodFormContainer {
+.editFoodFormContainer {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
@@ -38,19 +28,20 @@
   align-self: flex-end;
   margin-top: 10px;
 }
-.img {
-  /* border: 2px solid blueviolet;      */
+ /* .img {
+   border: 2px solid blueviolet;      
   display: flex;
   justify-content: center;
   flex: 2;
   margin-right: -8%;
-}
-img {
+} */
+
+  img {
   align-self: flex-start;
   max-width: 300px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px darkgray;
-}
+}    
 .raisedButton {
   margin-top: 22px;
 }

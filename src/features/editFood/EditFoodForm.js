@@ -43,7 +43,7 @@ const EditFoodForm = props => {
 
   const renderEditFood = () => {
     return (
-      <div className="innerEditFoodFormContainer">
+      <div className="editFoodFormContainer">
         <div>
           <Field
             className="editFoodField"
@@ -102,13 +102,25 @@ const EditFoodForm = props => {
       </div>
     );
   };
-
+  const img = () => {
+    return (
+       <div className="img">
+        <img
+          alt="img"
+          width="250px"
+          height="200px"
+          src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
+        />
+      </div>
+    )
+    
+  }
   const submit = props.handleSubmit(clearAndSubmit);
   const disabled = props.invalid || props.pristine;
-  const editFood = props.isSelected ? renderEditFood() : null;
+  const editFood = props.isSelected ? renderEditFood() :  img();
   return (
     <div className="editFoodAndReturnButtonContainer">
-      <div className="editFoodContainer">
+      <div>
       <form onSubmit={submit} className="searchAndFormContainer">
         <div className="search">
           <Field
@@ -117,18 +129,10 @@ const EditFoodForm = props => {
             label="Select food"
           />
         </div>
-        <div className="outerEditFormContainer">
+        <div>
           {editFood}
         </div>
       </form>
-      <div className="img">
-        <img
-          alt="img"
-          width="250px"
-          height="200px"
-          src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
-        />
-      </div>
        </div>
         <div className="editFoodReturnButton">
       <ReturnButton />
