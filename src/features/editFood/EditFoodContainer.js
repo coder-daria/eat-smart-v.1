@@ -5,7 +5,7 @@ import { convertObjectToArray } from '../../functions.js';
 import { formValueSelector } from 'redux-form';
 
 const mapStateToProps = state => {
-  const selector = formValueSelector('EditFoodChanges');
+  const selector = formValueSelector('EditFoodForm');
   return {
     isSelected: selector(state, 'selected'),
     foods: convertObjectToArray(state.foods.foods)
