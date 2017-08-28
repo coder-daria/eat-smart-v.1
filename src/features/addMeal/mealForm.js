@@ -184,7 +184,6 @@ MealForm.propTypes = {
   date: PropTypes.object.isRequired,
   mealsPreferences: PropTypes.array.isRequired,
   foodsToSearch: PropTypes.array.isRequired,
-  currentMealIndex: PropTypes.number.isRequired,
   addMeal: PropTypes.func.isRequired
 };
 
