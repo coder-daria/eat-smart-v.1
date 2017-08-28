@@ -5,10 +5,6 @@
     flex-direction: column; 
     flex-wrap: wrap;
 }
-.dayPicker {
-     align-self: center; 
-     margin-bottom: 3%;
-}
 .addMealFormAndDetailsContainer{
      /* border: 2px solid red;    */
      display: flex;
