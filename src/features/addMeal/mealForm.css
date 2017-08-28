@@ -35,11 +35,11 @@
 }
 
 .quantity {
-    /* border: 2px solid brown; */
-    display: flex;
+       /* border: 2px solid brown;  */
+     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: -5%;
+     margin-top: -5%;    
 }
 .mealPreferences h2 {
     font-size: 19px;
@@ -49,6 +49,9 @@
 .someClass {
     /* border: 2px solid rgba(103, 205, 230, .5);  */
     /* background-color: rgba(103, 205, 230, .06);   */
-    border-style: ridge; 
-    border-radius: 4px; 
+     /* border-style: ridge;   */
+     /* border-radius: 4px;   */
+}
+.quantityContainer {
+    display: flex;
 }
