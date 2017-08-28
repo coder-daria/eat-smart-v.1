@@ -51,7 +51,7 @@ class MealsDetails extends React.Component {
       protein: 0
     });
     return (
-      <ul className="specificDetails">
+      <ul className="chartDetails">
         <li>
           <h3>Name</h3>
           <div>

@@ -32,35 +32,38 @@
 
 /*Chart and details*/
 .chartAndDetailsContainer {
-  border: 2px solid red;
+   /* border: 2px solid red;  */
   display: flex;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
 }
 
 
 /*Details list*/
-.specificDetails {
-   /* border: 2px solid red;  */
+.chartDetails {
    margin-top: 10px; 
   display: flex;
   flex-direction: column;
 }
 
-.specificDetails li {
-  margin-top: 15px;
+.chartDetails li {
+  /* border: 2px solid red;    */
+   margin-top: 12%; 
   display: flex;
-  max-width: 120px;
+  min-width: 100px;
+  justify-content: space-around;
 }
-.specificDetails li h3 {
-   flex: 1 0 30px; 
-   font-size: 17px;
-   text-shadow: 0px 0px black;
+ .chartDetails li h3 {
+  flex: 1 0 30px;  
+  font-size: 17px;
+  text-shadow: 0px 0px grey; 
+  margin-right: 15%;
 }
 
-.specificDetails li div {
-   flex: 1 0 20px; 
-}
+.chartDetails li div {
+     flex: 1 0 20px;   
+} 
 
 /*********/
 

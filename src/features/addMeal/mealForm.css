@@ -15,14 +15,16 @@
 
 }
 .addMealFormContainer {
-     /* border: 2px solid blueviolet;      */
+    /* border: 2px solid blueviolet;  */
+    border-right: 2px solid #D0D9DB;     
     display: flex;
     flex-direction: column;
     flex:1;
-    width:50%;
+    width: 50%;
+    padding-right: 12%;
 }
 .detailsContainer {
-    /* border: 2px  solid green;  */
+    /* border: 2px  solid green; */
     flex:2;
 }
 .addMealFormContainer .addMealRaisedButton {
