@@ -77,7 +77,7 @@ const AddFood = props => {
               label="Carbs"
             />
           </div>
-          <div className="buttons">
+          <div className="addFoodButtons">
             <RaisedButton
               className="addFoodSubmitButton"
               label="Submit"
@@ -85,18 +85,10 @@ const AddFood = props => {
               primary={true}
               disabled={invalid}
             />
-            <RaisedButton
-              className="addFoodCleanButton"
-              label=" Clear values"
-              type="submit"
-              disabled={pristine}
-              onClick={reset}
-              backgroundColor="#6DBEC2"
-              labelColor="#F0F2F2"
-            />
           </div>
         </form>
-
+      </div>
+      <div className="addFoodReturnButton">
         <ReturnButton />
       </div>
     </div>
