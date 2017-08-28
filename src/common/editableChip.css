@@ -1,0 +1,48 @@
+.chip {
+  min-width: 200px;
+  display: flex;
+}
+.chip span {
+  flex: 2;
+  display: flex;
+  justify-content: center;  
+}
+
+.chipContentContainer {
+     /* border: 2px solid red;     */
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.chipContentContainer div {
+  margin-right: 4%;
+}
+.chipItem {
+  margin-right: 10px;
+  margin-bottom: 10px;
+} 
+
+/* FORM */
+.eachFormContainer {
+  border: 2px solid rgba(103, 205, 230, .7); 
+  background-color: rgba(103, 205, 230, .06);
+  border-style: ridge;
+  border-radius: 4px;
+  display: flex;
+  flex-flow: column wrap; 
+   width: 100%; 
+}
+
+.eachFormContainer .icons {
+  align-self: flex-end;
+}
+.acceptButton {
+   margin-top: 20%; 
+   margin-bottom: -15%;
+}
+.formContentContainer{
+    /* border: 2px solid yellow;                     */
+  display: flex;
+   flex-direction: column;
+   margin: -20% 0 -10% 1%;
+}

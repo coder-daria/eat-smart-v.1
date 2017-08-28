@@ -5,6 +5,7 @@ import MaterialIcon from './MaterialIcon';
 import ActionDone from 'material-ui/svg-icons/action/done';
 import { cyan500, pink500 } from 'material-ui/styles/colors';
 import ContentClear from 'material-ui/svg-icons/content/clear';
+import "./editableChip.css";
 
 class EditableChip extends React.Component {
   state = {
@@ -15,8 +16,17 @@ class EditableChip extends React.Component {
     this.setState(prevState => ({ editing: !prevState.editing }));
   };
 
-  buttons = () =>
-    <div className="icon">
+  acceptButton = () => {
+    return (
+      <div className="acceptButton">
+        <MaterialIcon type="button" label="Accept" onClick={this.toggleEdit}>
+          <ActionDone hoverColor={cyan500} />
+        </MaterialIcon>
+      </div>
+    )
+  }
+  removeButton = () => {
+    return (
       <div>
         <MaterialIcon
           type="button"
@@ -27,18 +37,20 @@ class EditableChip extends React.Component {
           <ContentClear hoverColor={pink500} />
         </MaterialIcon>
       </div>
-      <div>
-        <MaterialIcon type="button" label="Accept" onClick={this.toggleEdit}>
-          <ActionDone hoverColor={cyan500} />
-        </MaterialIcon>
-      </div>
-    </div>;
-
+    )
+  }
   form = () => {
     return (
-      <div className="chipContainer">
-        {this.props.formFields}
-        {this.buttons()}
+      <div className="eachFormContainer">
+        <div className="icons">
+          {this.removeButton()}
+        </div>
+        <div>
+          {this.props.formFields}
+        </div>
+        <div className="icons">
+          {this.acceptButton()}
+        </div>
       </div>
     )
   }
@@ -46,7 +58,7 @@ class EditableChip extends React.Component {
   chip = () => {
     return (
       <Chip
-        className="Chip"
+        className="chip"
         onRequestDelete={this.props.onDelete}
         onClick={this.toggleEdit}
         labelColor="#353738"

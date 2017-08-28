@@ -13,10 +13,9 @@ class PreferencesParent extends React.Component {
   render() {
     const disabled = this.props.invalid || this.props.pristine;
     return (
-      <div>
+      <div className="preferencesContainer">
         <form
           onSubmit={this.props.handleSubmit}
-          className="preferencesContainer"
         >
           <div className="preferencesKcalContainer">
             <Field
@@ -38,7 +37,9 @@ class PreferencesParent extends React.Component {
             />
           </div>
         </form>
-        <ReturnButton />
+        <div className="preferenesReturnButton">
+        <ReturnButton className="returnButton"/>
+        </div>
       </div>
     );
   }

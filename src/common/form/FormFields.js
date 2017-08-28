@@ -28,7 +28,8 @@ export const renderTextField = field => {
 export const renderDiv = string =>
   <div>
     {string}
-  </div>;
+</div>;
+
 
 export const renderTimePicker = field => {
   const onChange = (_null, date) => {
@@ -42,7 +43,6 @@ export const renderTimePicker = field => {
   };
   return (
     <div>
-      <div>
         <TimePicker
           format="24hr"
           floatingLabelText={field.label}
@@ -51,8 +51,6 @@ export const renderTimePicker = field => {
           value={new Date(field.input.value)}
           onChange={onChange}
         />
-        <br />
-      </div>
     </div>
   );
 };
@@ -74,19 +72,24 @@ const renderField = (field, index, fields) => {
     return moment(chosenUnixTimestamp).format('HH:mm');
   };
   const chipFields = (
-    <div>
-      <Field
-        name={`${field}.name`}
-        component={() => renderDiv(fields.get(index).name)}
-      />
+    <div className="chipContentContainer">
+      <div>
       <Field
         name={`${field}.seconds`}
         component={() => renderDiv(updateTime())}
       />
+      </div>
+      <div>
+      <Field
+        name={`${field}.name`}
+        component={() => renderDiv(fields.get(index).name)}
+      />
+      </div>
     </div>
   );
+
   const formFields = (
-    <div>
+    <div className="formContentContainer">
       <Field name={`${field}.name`} component={renderTextField} label="Name" />
       <Field
         name={`${field}.seconds`}
@@ -95,8 +98,9 @@ const renderField = (field, index, fields) => {
       />
     </div>
   );
+
   return (
-    <li key={index} className="chip">
+    <li key={index} className="chipItem">
       <EditableChip
         onDelete={remove}
         chipFields={chipFields}
@@ -155,13 +159,13 @@ export const renderFieldArray = fieldArray => {
     );
   };
   return (
-    <div className="fieldsAndButtonContainer">
-      <div className="array">
+    <div className="preferencesAndAddButtonContainer">
+      <div>
         <ul className="fieldsContainer">
           {fieldArray.fields.map(renderField)}
         </ul>
       </div>
-      <div className="button">
+      <div className="preferencesAddButton">
         <RenderAddButton onClick={addMeal} />
       </div>
     </div>
