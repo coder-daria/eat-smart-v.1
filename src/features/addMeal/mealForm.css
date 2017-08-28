@@ -10,12 +10,12 @@
      margin-bottom: 3%;
 }
 .addMealFormAndDetailsContainer{
-    /* border: 2px solid red;   */
+     /* border: 2px solid red;    */
      display: flex;
 
 }
 .addMealFormContainer {
-    /* border: 2px solid blueviolet;  */
+     /* border: 2px solid blueviolet;   */
     border-right: 2px solid #D0D9DB;     
     display: flex;
     flex-direction: column;
@@ -24,12 +24,12 @@
     padding-right: 12%;
 }
 .detailsContainer {
-    /* border: 2px  solid green; */
+     /* border: 2px  solid green;  */
     flex:2;
 }
 .addMealFormContainer .addMealRaisedButton {
     margin-top: 1%;
-    margin-left: 50%;
+     margin-left: 50%; 
 }
 
 .mealPreferences h2 {
@@ -42,10 +42,10 @@
 }
 
 .searchAndChipsContainer{
-     /* border: 2px solid red;  */
+      /* border: 2px solid red;   */
     display: flex;
     flex-direction: column;
-    width: 81%;
+    width: 270px;
 }
 .addMealAutocomplete {
     margin-bottom: 5%;

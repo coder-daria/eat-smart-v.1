@@ -10,7 +10,7 @@
 }
 
 .chipContentContainer {
-     /* border: 2px solid red;     */
+   /* border: 2px solid red;      */
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -31,7 +31,10 @@
   border-radius: 4px;
   display: flex;
   flex-flow: column wrap; 
-    width: 100%;  
+  width: 100%;
+}
+.eachFormContainer .content {
+  margin-right: 200px;
 }
 
 .eachFormContainer .icons {
@@ -41,8 +44,7 @@
    margin-top: 20%; 
    margin-bottom: -15%;
 }
-.formContentContainer{
-   /* border: 2px solid yellow;                       */
+.formContentContainer{                   
   display: flex;
   flex-direction: column; 
   margin: -20% 0 -10% 1%;
