@@ -22,8 +22,8 @@
     width:50%;
 }
 .detailsContainer {
-     /* border: 2px  solid green; */
-     flex:2;
+    /* border: 2px  solid green;  */
+    flex:2;
 }
 .addMealFormContainer .addMealRaisedButton {
     margin-top: 1%;

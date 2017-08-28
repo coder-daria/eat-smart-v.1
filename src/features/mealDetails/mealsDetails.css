@@ -1,14 +1,43 @@
 .summary {
   display: flex;
   flex-flow: column wrap;
-   align-items: center; 
+   align-items: center;  
 }
 .summary h2 {
-  font-size: 19px;
+  font-size: 20px;
+  margin-bottom: 8%;
 }
 .summary div {
   margin-bottom: 3%;
 }
+
+/*Daily summary information*/
+.information {
+  font-size: 18px;
+}
+.kcalEaten {
+   /* border: 2px solid red;  */
+  display: flex;
+  flex-direction: column;
+  width: 120%;
+}
+.kcalEaten p {
+  margin-bottom: 4%;
+}
+
+.kcal {
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+/*Chart and details*/
+.chartAndDetailsContainer {
+  border: 2px solid red;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
 
 /*Details list*/
 .specificDetails {

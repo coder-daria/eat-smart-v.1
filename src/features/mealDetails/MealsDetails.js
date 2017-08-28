@@ -25,9 +25,9 @@ class MealsDetails extends React.Component {
   renderDailyCalories = () => {
     const summary = this.calculateSummaryOfDay(this.props.meals);
     return (
-      <div>
-        Kcal eaten: {summary.kcal}
-        Kcal to reach daily goal: {this.props.dailyKcal - summary.kcal}
+      <div className="kcalEaten">
+        <p>Kcal eaten:<span className="kcal">{summary.kcal}</span></p>
+        <p>Kcal to reach daily goal:<span className="kcal">{this.props.dailyKcal - summary.kcal}</span></p>
       </div>
     );
   };
@@ -38,7 +38,7 @@ class MealsDetails extends React.Component {
         ? <p>You have not eaten anything yet! </p>
         : this.renderDailyCalories();
     return (
-      <div>
+      <div className="information">
         {total}
       </div>
     );
@@ -108,11 +108,13 @@ class MealsDetails extends React.Component {
             {mealList}
           </SelectField>
         </div>
+        <div className="chartAndDetailsContainer">
         <div className="chart">
           <Chart />
         </div>
         <div>
           {selectedMealDetails}
+        </div>
         </div>
       </div>
     );
