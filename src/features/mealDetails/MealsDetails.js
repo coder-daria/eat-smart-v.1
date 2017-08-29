@@ -26,8 +26,14 @@ class MealsDetails extends React.Component {
     const summary = this.calculateSummaryOfDay(this.props.meals);
     return (
       <div className="kcalEaten">
-        <p>Kcal eaten:<span className="kcal">{summary.kcal}</span></p>
-        <p>Kcal to reach daily goal:<span className="kcal">{this.props.dailyKcal - summary.kcal}</span></p>
+        <p>
+          Kcal eaten:<span className="kcal">{summary.kcal}</span>
+        </p>
+        <p>
+          Kcal to reach daily goal:<span className="kcal">
+            {this.props.dailyKcal - summary.kcal}
+          </span>
+        </p>
       </div>
     );
   };
@@ -50,28 +56,34 @@ class MealsDetails extends React.Component {
       carbs: 0,
       protein: 0
     });
+    console.log(this.state.selectedMeal);
     return (
       <ul className="chartDetails">
         <li>
-          <h3>Name</h3>
-          <div>
-            {this.state.selectedMeal.name}
+          <div className="chartDetailsMealName">
+            {this.state.selectedMeal.meal}
           </div>
         </li>
         <li>
-          <h3>Fat</h3>
+          <div>
+            <h3>Fat</h3>
+          </div>
           <div>
             {selectedMealSummary.fat} g
           </div>
         </li>
         <li>
-          <h3>Protein</h3>
+          <div>
+            <h3>Protein</h3>
+          </div>
           <div>
             {selectedMealSummary.protein} g
           </div>
         </li>
         <li>
-          <h3>Carbs</h3>
+          <div>
+            <h3>Carbs</h3>
+          </div>
           <div>
             {selectedMealSummary.carbs} g
           </div>
@@ -109,12 +121,12 @@ class MealsDetails extends React.Component {
           </SelectField>
         </div>
         <div className="chartAndDetailsContainer">
-        <div className="chart">
-          <Chart />
-        </div>
-        <div>
-          {selectedMealDetails}
-        </div>
+          <div className="chart">
+            <Chart />
+          </div>
+          <div>
+            {selectedMealDetails}
+          </div>
         </div>
       </div>
     );
