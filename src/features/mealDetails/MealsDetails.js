@@ -25,9 +25,15 @@ class MealsDetails extends React.Component {
   renderDailyCalories = () => {
     const summary = this.calculateSummaryOfDay(this.props.meals);
     return (
-      <div>
-        Kcal eaten: {summary.kcal}
-        Kcal to reach daily goal: {this.props.dailyKcal - summary.kcal}
+      <div className="kcalEaten">
+        <p>
+          Kcal eaten:<span className="kcal">{summary.kcal}</span>
+        </p>
+        <p>
+          Kcal to reach daily goal:<span className="kcal">
+            {this.props.dailyKcal - summary.kcal}
+          </span>
+        </p>
       </div>
     );
   };
@@ -38,7 +44,7 @@ class MealsDetails extends React.Component {
         ? <p>You have not eaten anything yet! </p>
         : this.renderDailyCalories();
     return (
-      <div>
+      <div className="information">
         {total}
       </div>
     );
@@ -50,28 +56,34 @@ class MealsDetails extends React.Component {
       carbs: 0,
       protein: 0
     });
+    console.log(this.state.selectedMeal);
     return (
-      <ul className="specificDetails">
+      <ul className="chartDetails">
         <li>
-          <h3>Name</h3>
-          <div>
-            {this.state.selectedMeal.name}
+          <div className="chartDetailsMealName">
+            {this.state.selectedMeal.meal}
           </div>
         </li>
         <li>
-          <h3>Fat</h3>
+          <div>
+            <h3>Fat</h3>
+          </div>
           <div>
             {selectedMealSummary.fat} g
           </div>
         </li>
         <li>
-          <h3>Protein</h3>
+          <div>
+            <h3>Protein</h3>
+          </div>
           <div>
             {selectedMealSummary.protein} g
           </div>
         </li>
         <li>
-          <h3>Carbs</h3>
+          <div>
+            <h3>Carbs</h3>
+          </div>
           <div>
             {selectedMealSummary.carbs} g
           </div>
@@ -92,7 +104,7 @@ class MealsDetails extends React.Component {
     });
 
     return (
-      <div className="mealsDetailsContainer">
+      <div className="summary">
         <div>
           <h2>Your daily summary</h2>
           {this.dailySummary()}
@@ -108,11 +120,13 @@ class MealsDetails extends React.Component {
             {mealList}
           </SelectField>
         </div>
-        <div className="chart">
-          <Chart />
-        </div>
-        <div>
-          {selectedMealDetails}
+        <div className="chartAndDetailsContainer">
+          <div className="chart">
+            <Chart />
+          </div>
+          <div>
+            {selectedMealDetails}
+          </div>
         </div>
       </div>
     );

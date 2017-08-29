@@ -46,11 +46,15 @@ class MealForm extends React.Component {
     };
 
     return (
-      <div>
+      <div className="searchAndChipsContainer">
+        <div className="addMealAutocomplete">
         <AutoComplete items={this.props.foodsToSearch} onSelect={addField} />
+        </div>
+        <div>
         <ul>
           {fieldArray.fields.map(this.renderField)}
         </ul>
+        </div>
       </div>
     );
   };
@@ -64,6 +68,7 @@ class MealForm extends React.Component {
           component={renderTextField}
           label="Name"
         />
+
         <Field
           name={`${field}.quantity`}
           component={renderTextField}
@@ -85,8 +90,8 @@ class MealForm extends React.Component {
               name={`${field}.quantity`}
               component={() => renderDiv(fields.get(index).quantity)}
             />
-          <div>
-            g
+            <div>
+              g
           </div>
           </div>
         </div>
@@ -137,35 +142,38 @@ class MealForm extends React.Component {
     const disabled = this.props.invalid || this.props.pristine;
     return (
       <div className="addMealContainer">
-        <div>
+        <div className="dayPicker">
           <DayPickerContainer />
         </div>
-        <form className="mealParentContainer" onSubmit={submit}>
-          <div>
-            <Field
-              name="meal"
-              component={field =>
-                <SelectableList
-                  initialValue={field.input.value}
-                  items={this.props.mealsPreferences}
-                  onSelect={field.input.onChange}
-                />}
-            />
-            {/*{this.renderMealPreferences()}*/}
+        <div className="addMealFormAndDetailsContainer">
+            <form onSubmit={submit} className="addMealFormContainer">
+              <div>
+                <Field
+                  name="meal"
+                  component={field =>
+                    <SelectableList
+                      initialValue={field.input.value}
+                      items={this.props.mealsPreferences}
+                      onSelect={field.input.onChange}
+                    />}
+                />
+              </div>
+              <div>
+                <FieldArray name="foods" component={this.renderFieldArray} />
+              </div>
+              <div className="addMealRaisedButton">
+                <RaisedButton
+                  type="submit"
+                  label="Submit"
+                  primary={true}
+                  disabled={disabled}
+                />
+              </div>
+            </form>
+          <div className="detailsContainer">
+            <MealsDetailsContainer />
           </div>
-          <div>
-            <FieldArray name="foods" component={this.renderFieldArray} />
-          </div>
-          <div className="mealRaisedButton">
-            <RaisedButton
-              type="submit"
-              label="Submit"
-              primary={true}
-              disabled={disabled}
-            />
-          </div>
-        </form>
-        <MealsDetailsContainer />
+        </div>
       </div>
     );
   }
@@ -176,7 +184,6 @@ MealForm.propTypes = {
   date: PropTypes.object.isRequired,
   mealsPreferences: PropTypes.array.isRequired,
   foodsToSearch: PropTypes.array.isRequired,
-  currentMealIndex: PropTypes.number.isRequired,
   addMeal: PropTypes.func.isRequired
 };
 

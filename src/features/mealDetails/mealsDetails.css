@@ -1,39 +1,68 @@
-.mealsDetailsContainer {
-   /* border: 2px solid blueviolet;   */
+.summary {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  flex: 2;
 }
-.mealsDetailsContainer h2 {
-  font-size: 19px;
+.summary h2 {
+  font-size: 20px;
+  margin-bottom: 8%;
 }
-.mealsDetailsContainer div {
+.summary div {
   margin-bottom: 3%;
 }
 
+/*Daily summary information*/
+.information {
+  font-size: 18px;
+}
+.kcalEaten {
+  /* border: 2px solid red;  */
+  display: flex;
+  flex-direction: column;
+  width: 120%;
+}
+.kcalEaten p {
+  margin-bottom: 4%;
+}
+
+.kcal {
+  font-weight: bold;
+  margin-left: 5%;
+}
+
+/*Chart and details*/
+.chartAndDetailsContainer {
+  /* border: 2px solid red;  */
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /*Details list*/
-.specificDetails {
-   /* border: 2px solid red;  */
-   margin-top: 10px; 
+.chartDetails {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
 }
+.chartDetailsMealName {
+  font-size: 18px;
+  text-shadow: 1px 0px grey;
+}
 
-.specificDetails li {
-  margin-top: 15px;
+.chartDetails li {
+  /* border: 2px solid red; */
+  margin-top: 12%;
   display: flex;
-  max-width: 120px;
+  min-width: 150px;
+  justify-content: space-between;
 }
-.specificDetails li h3 {
-   flex: 1 0 30px; 
-   font-size: 17px;
-   text-shadow: 0px 0px black;
-}
-
-.specificDetails li div {
-   flex: 1 0 20px; 
+.chartDetails li h3 {
+  font-size: 17px;
+  text-shadow: 0px 0px grey;
+  margin-right: 15%;
 }
 
-/*********/
-
+.chartDetails li div {
+  align-self: flex-end;
+}
