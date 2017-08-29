@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Chart from '../../Chart.js';
+import DailyPercentagesGraph from '../statistics/DailyPercentagesGraph';
+import MealPercentagesGraph from '../statistics/MealPercentagesGraph';
+import TextTileStatistic from '../statistics/TextTileStatistic';
 import { sumFoods, countKcalInMeal } from '../../functions';
 import './mealsDetails.css';
 
@@ -102,8 +104,19 @@ class MealsDetails extends React.Component {
       );
     });
 
+    const roundedBorders = {
+      borderRadius: '2em',
+      border: '0.1em solid #90C3D4',
+      padding: '1em',
+      width: '15em',
+      height: '15em'
+    };
+
     return (
       <div className="summary">
+        <div style={roundedBorders}>
+          <TextTileStatistic />
+        </div>
         <div>
           <h2>Your daily summary</h2>
           {this.dailySummary()}
@@ -121,7 +134,12 @@ class MealsDetails extends React.Component {
         </div>
         <div className="chartAndDetailsContainer">
           <div className="chart">
-            <Chart />
+            <div style={roundedBorders}>
+              <MealPercentagesGraph />
+            </div>
+            <div style={roundedBorders}>
+              <DailyPercentagesGraph />
+            </div>
           </div>
           <div>
             {selectedMealDetails}
