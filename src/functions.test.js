@@ -51,7 +51,7 @@ it('creates a portion object', () => {
 it('fetches the products from the server', () => {
   const products = utils.fetchProducts();
   const productsLength = Object.keys(products).length;
-  const expectedProducts = 19;
+  const expectedProducts = 15;
   expect(productsLength).toEqual(expectedProducts);
 });
 
