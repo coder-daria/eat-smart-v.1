@@ -30,7 +30,7 @@ class AutoComplete extends React.Component {
       <div>
         <AutoComplete1
           searchText={this.searchText()}
-          maxSearchResults={20}
+          maxSearchResults={15}
           floatingLabelText="Choose food"
           openOnFocus={true}
           filter={AutoComplete1.fuzzyFilter}

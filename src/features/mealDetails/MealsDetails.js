@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Chart from '../../Chart.js';
-import { sumFoods, countKcalInFood, countKcalInMeal } from '../../functions';
+import { sumFoods, countKcalInMeal } from '../../functions';
 import './mealsDetails.css';
 
 class MealsDetails extends React.Component {
@@ -56,7 +56,6 @@ class MealsDetails extends React.Component {
       carbs: 0,
       protein: 0
     });
-    console.log(this.state.selectedMeal);
     return (
       <ul className="chartDetails">
         <li>

@@ -3,9 +3,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
-import Divider from 'material-ui/Divider';
 import './menuIcon.css';
-import Avatar from 'material-ui/Avatar';
 import { withRouter } from 'react-router-dom';
 
 const IconWithHistory = withRouter(({ history }) =>

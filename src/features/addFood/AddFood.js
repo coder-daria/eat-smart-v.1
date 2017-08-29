@@ -34,7 +34,7 @@ const AddFood = props => {
     props.reset();
   };
 
-  const { pristine, reset, invalid, handleSubmit } = props;
+  const { invalid, handleSubmit } = props;
   const submit = handleSubmit(clearAndSubmit);
   return (
     <div className="addFoodContainer">
