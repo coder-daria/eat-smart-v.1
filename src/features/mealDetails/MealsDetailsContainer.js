@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import MealsDetails from './MealsDetails';
 import { showMealDetails } from '../../Actions';
-import { sumFoods } from '../../functions';
 import R from 'ramda';
 
 const mapStateToProps = state => {

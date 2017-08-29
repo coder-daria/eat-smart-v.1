@@ -5,15 +5,12 @@ import MealParentContainer from './features/addMeal/MealParentContainer';
 import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesParentContainer from './features/preferences/PreferencesFormContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import DayPickerContainer from './features/changeDate/DayPickerContainer';
 import UserIcon from './UserIcon';
 import MenuIcon from './MenuIcon';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LoadingContainer from './common/LoadingContainer';
 import SnackbarContainer from './common/SnackbarContainer';
 import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
 // import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
@@ -26,11 +23,11 @@ class App extends Component {
           <Router>
             <div className="appContainer">
               <div className="header">
-              <AppBar
-                title="Eat Smart"
-                iconElementLeft={<MenuIcon />}
-                iconElementRight={<UserIcon />}
-              />
+                <AppBar
+                  title="Eat Smart"
+                  iconElementLeft={<MenuIcon />}
+                  iconElementRight={<UserIcon />}
+                />
               </div>
               <div className="body">
                 <Switch>

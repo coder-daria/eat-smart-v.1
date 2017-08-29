@@ -1,7 +1,7 @@
 import React from 'react';
 import AutoComplete from '../../common/AutoComplete';
 import PropTypes from 'prop-types';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { Field, FieldArray } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import {
   renderSelectField,
@@ -48,12 +48,12 @@ class MealForm extends React.Component {
     return (
       <div className="searchAndChipsContainer">
         <div className="addMealAutocomplete">
-        <AutoComplete items={this.props.foodsToSearch} onSelect={addField} />
+          <AutoComplete items={this.props.foodsToSearch} onSelect={addField} />
         </div>
         <div>
-        <ul>
-          {fieldArray.fields.map(this.renderField)}
-        </ul>
+          <ul>
+            {fieldArray.fields.map(this.renderField)}
+          </ul>
         </div>
       </div>
     );
@@ -90,9 +90,7 @@ class MealForm extends React.Component {
               name={`${field}.quantity`}
               component={() => renderDiv(fields.get(index).quantity)}
             />
-            <div>
-              g
-          </div>
+            <div>g</div>
           </div>
         </div>
       </div>
@@ -146,30 +144,30 @@ class MealForm extends React.Component {
           <DayPickerContainer />
         </div>
         <div className="addMealFormAndDetailsContainer">
-            <form onSubmit={submit} className="addMealFormContainer">
-              <div>
-                <Field
-                  name="meal"
-                  component={field =>
-                    <SelectableList
-                      initialValue={field.input.value}
-                      items={this.props.mealsPreferences}
-                      onSelect={field.input.onChange}
-                    />}
-                />
-              </div>
-              <div>
-                <FieldArray name="foods" component={this.renderFieldArray} />
-              </div>
-              <div className="addMealRaisedButton">
-                <RaisedButton
-                  type="submit"
-                  label="Submit"
-                  primary={true}
-                  disabled={disabled}
-                />
-              </div>
-            </form>
+          <form onSubmit={submit} className="addMealFormContainer">
+            <div>
+              <Field
+                name="meal"
+                component={field =>
+                  <SelectableList
+                    initialValue={field.input.value}
+                    items={this.props.mealsPreferences}
+                    onSelect={field.input.onChange}
+                  />}
+              />
+            </div>
+            <div>
+              <FieldArray name="foods" component={this.renderFieldArray} />
+            </div>
+            <div className="addMealRaisedButton">
+              <RaisedButton
+                type="submit"
+                label="Submit"
+                primary={true}
+                disabled={disabled}
+              />
+            </div>
+          </form>
           <div className="detailsContainer">
             <MealsDetailsContainer />
           </div>

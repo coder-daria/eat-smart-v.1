@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import mealForm from './mealForm';
 import addMealToServer from './addMealToServer';
-import { convertObjectToArray, findMealByClosestTime } from '../../functions';
+import { convertObjectToArray } from '../../functions';
 import { reduxForm } from 'redux-form';
 
 const validate = values => {
