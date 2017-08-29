@@ -16,17 +16,14 @@ class SelectableList extends Component {
   };
 
   render() {
-    const SelectableList = makeSelectable(List);
+    const Selectable = makeSelectable(List);
     const listItems = this.props.items.map((item, index) => {
       return <ListItem key={index} value={item.name} primaryText={item.name} />;
     });
     return (
-      <SelectableList
-        value={this.state.selectedValue}
-        onChange={this.handleChange}
-      >
+      <Selectable value={this.state.selectedValue} onChange={this.handleChange}>
         {listItems}
-      </SelectableList>
+      </Selectable>
     );
   }
 }
