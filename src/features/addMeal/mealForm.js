@@ -164,6 +164,12 @@ class MealForm extends React.Component {
                       initialValue={field.input.value}
                       items={this.props.mealsPreferences}
                       onSelect={field.input.onChange}
+                      commonNestedItems={[
+                          <FieldArray
+                              name="foods"
+                              component={this.renderFieldArray}
+                          />
+                      ]}
                     />}
                 />
               </div>

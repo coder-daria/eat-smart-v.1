@@ -18,7 +18,14 @@ class SelectableList extends Component {
   render() {
     const Selectable = makeSelectable(List);
     const listItems = this.props.items.map((item, index) => {
-      return <ListItem key={index} value={item.name} primaryText={item.name} />;
+      return (
+        <ListItem
+          key={index}
+          value={item.name}
+          primaryText={item.name}
+          nestedItems={this.props.commonNestedItems}
+        />
+      );
     });
     return (
       <Selectable value={this.state.selectedValue} onChange={this.handleChange}>
@@ -30,7 +37,8 @@ class SelectableList extends Component {
 
 SelectableList.propTypes = {
   items: PropTypes.array.isRequired,
-  initialValue: PropTypes.string.isRequired,
+  commonNestedItems: PropTypes.array.isRequired,
+  initialValue: PropTypes.number.isRequired,
   onSelect: PropTypes.func.isRequired
 };
 SelectableList.defaultProps = {};
