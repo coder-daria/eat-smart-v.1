@@ -102,6 +102,7 @@ const renderField = (field, index, fields) => {
   return (
     <li key={index} className="chipItem">
       <EditableChip
+        initiallyOpen={fields.get(index).isNew}
         onDelete={remove}
         chipFields={chipFields}
         formFields={formFields}
@@ -110,7 +111,7 @@ const renderField = (field, index, fields) => {
   );
 };
 export const renderFieldArray = fieldArray => {
-  const defaultMeal = { name: 'meal', seconds: 0 };
+  const defaultMeal = { name: '', seconds: 0, isNew: true };
   const addMeal = () => fieldArray.fields.push(defaultMeal);
 
   return (

@@ -8,9 +8,12 @@ import ContentClear from 'material-ui/svg-icons/content/clear';
 import './editableChip.css';
 
 class EditableChip extends React.Component {
-  state = {
-    editing: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      editing: props.initiallyOpen
+    };
+  }
 
   toggleEdit = () => {
     this.setState(prevState => ({ editing: !prevState.editing }));
@@ -84,7 +87,12 @@ class EditableChip extends React.Component {
 EditableChip.propTypes = {
   chipFields: PropTypes.object.isRequired,
   formFields: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  initiallyOpen: PropTypes.bool
+};
+
+EditableChip.defaultProps = {
+  initiallyOpen: false
 };
 
 export default EditableChip;
