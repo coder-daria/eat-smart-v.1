@@ -5,6 +5,7 @@ import Close from 'material-ui/svg-icons/navigation/close';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
 import ArrowUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
 import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import { cyan500, blue600, pink500 } from 'material-ui/styles/colors';
 import { Collapse } from 'react-collapse';
 
 class TextTileStatistic extends React.Component {
@@ -27,12 +28,12 @@ class TextTileStatistic extends React.Component {
   render() {
     let arrowUp = (
       <MaterialIcon type="button" onClick={this.hide}>
-        <ArrowUp />{' '}
+        <ArrowUp hoverColor={cyan500} />
       </MaterialIcon>
     );
     let arrowDown = (
       <MaterialIcon type="button" onClick={this.show}>
-        <ArrowDown />{' '}
+        <ArrowDown hoverColor={cyan500} />
       </MaterialIcon>
     );
 
@@ -40,16 +41,16 @@ class TextTileStatistic extends React.Component {
     return (
       <div className="staticticContainer">
         <div className="header">
-          <h3>Title</h3>
-          <div className="icons">
+          <h3>Your daily summary</h3>
+          <div className="statisticIcons">
             <div>
-              <MaterialIcon>
-                <Edit />
+              <MaterialIcon secondary={true} className="edit">
+                <Edit hoverColor={blue600} />
               </MaterialIcon>
             </div>
             <div>
               <MaterialIcon>
-                <Close />
+                <Close hoverColor={pink500} />
               </MaterialIcon>
             </div>
           </div>
@@ -59,8 +60,7 @@ class TextTileStatistic extends React.Component {
           theme={{ collapse: 'foo', content: 'bar' }}
         >
           <div className="body">
-            <div className="number">1900</div>
-            <div className="information">Some information</div>
+            {this.props.dailySummary}
           </div>
         </Collapse>
         <div className="footer">

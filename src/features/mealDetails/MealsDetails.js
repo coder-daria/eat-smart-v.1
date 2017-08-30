@@ -27,15 +27,19 @@ class MealsDetails extends React.Component {
   renderDailyCalories = () => {
     const summary = this.calculateSummaryOfDay(this.props.meals);
     return (
-      <div className="kcalEaten">
-        <p>
-          Kcal eaten:<span className="kcal">{summary.kcal}</span>
-        </p>
-        <p>
-          Kcal to reach daily goal:<span className="kcal">
-            {this.props.dailyKcal - summary.kcal}
-          </span>
-        </p>
+      <div className="kcalEatenContainer">
+        <div className="kcalEatenNumber">
+          <h3>
+            {summary.kcal}
+          </h3>
+          <h4>Eaten kcal</h4>
+        </div>
+        <div>
+          <h3>
+            {' '}{this.props.dailyKcal - summary.kcal}
+          </h3>
+          <h4>Kcal left to reach daily goal</h4>
+        </div>
       </div>
     );
   };
@@ -115,14 +119,7 @@ class MealsDetails extends React.Component {
     return (
       <div className="summary">
         <div className="statistic">
-          <TextTileStatistic />
-        </div>
-        <div>
-          <h2>Your daily summary</h2>
-          {this.dailySummary()}
-        </div>
-        <div>
-          <h2>Meal details</h2>
+          <TextTileStatistic dailySummary={this.dailySummary()} />
         </div>
         <div className="chooseMeal">
           <SelectField
