@@ -1,0 +1,50 @@
+.staticticContainer {
+  border-radius: 0.5em;
+  border: 2px solid rgb(107, 178, 188);
+  background-color: rgba(103, 205, 230, .06);
+  width: 200%;
+  display: flex;
+  flex-flow: column wrap;
+  box-sizing: border-box;
+}
+
+.staticticContainer div {
+  box-sizing: inherit;
+  /* border: 2px solid red; */
+}
+.staticticContainer .header {
+  align-self: stretch;
+  background-color: rgb(182, 217, 222);
+  border-radius: 0.5em 0.5em 0 0;
+  border-bottom: 2px solid rgb(107, 178, 188);
+  height: 3em;
+  margin-top: -0.03em;
+  display: flex;
+  align-items: baseline;
+}
+.staticticContainer .header h3 {
+  font-size: 20px;
+  color: grey;
+  padding-left: 0.5em;
+  align-self: center;
+}
+.staticticContainer .header .icons {
+  display: flex;
+}
+.staticticContainer .body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.staticticContainer .body div {
+  align-self: center;
+}
+.staticticContainer .body .number {
+  font-size: 2em;
+}
+
+.staticticContainer .footer {
+  display: flex;
+  align-self: center;
+  margin-bottom: -0.7em;
+}

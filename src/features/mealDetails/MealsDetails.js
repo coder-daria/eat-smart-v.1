@@ -114,7 +114,7 @@ class MealsDetails extends React.Component {
 
     return (
       <div className="summary">
-        <div style={roundedBorders}>
+        <div>
           <TextTileStatistic />
         </div>
         <div>
