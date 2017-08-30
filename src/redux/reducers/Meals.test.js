@@ -26,10 +26,37 @@ xit('handles SELECTED_DATE', () => {
 });
 
 xit('handles MEAL_HISTORY_FOR_DAY', () => {
-  let action = {};
-
+  let action = actions.mealHistoryForDay([
+    {
+      meal: 'Morning snack',
+      foods: [
+        {
+          name: 'tomato',
+          id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+          quantity: '50',
+          unit: 'grams'
+        }
+      ]
+    },
+    {
+      meal: 'Evening snack',
+      foods: [
+        {
+          name: 'egg',
+          id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
+          quantity: '70',
+          unit: 'grams'
+        }
+      ]
+    }
+  ]);
   let newState = reducer(initialState, action);
+
   expect(newState).not.toEqual(initialState);
+  expect(newState.meals[0].meal).not.toEqual('Morning snack');
+  expect(newState.meals[1].id).not.toEqual(
+    'f400558e-251a-4f7e-8d05-66e35b729egg'
+  );
 });
 
 it('handle SHOW_MEAL_DETAILS', () => {
