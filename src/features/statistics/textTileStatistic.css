@@ -1,6 +1,8 @@
 .staticticContainer {
   border-radius: 0.5em;
-  border: 2px solid rgb(107, 178, 188);
+  border-bottom: 2px solid rgb(107, 178, 188);
+  border-right: 2px solid rgb(107, 178, 188);
+  border-left: 2px solid rgb(107, 178, 188);
   background-color: rgba(103, 205, 230, .06);
   display: flex;
   flex-flow: column wrap;
@@ -16,8 +18,8 @@
   background-color: rgb(182, 217, 222);
   border-radius: 0.5em 0.5em 0 0;
   border-bottom: 2px solid rgb(107, 178, 188);
-  height: 3em;
-  margin-top: -0.02em;
+  border-top: 2px solid rgb(107, 178, 188);
+  margin-top: -0.01em;
   display: flex;
   align-items: baseline;
 }
@@ -26,11 +28,13 @@
   color: grey;
   padding-left: 0.5em;
   align-self: center;
+  /* border: 2px solid red; */
 }
 .staticticContainer .header .statisticIcons {
   display: flex;
-  /* border: 2px solid red; */
   justify-content: flex-end;
+  /* border: 2px solid red; */
+  position: relative;
 }
 
 /* .statisticIcons svg {

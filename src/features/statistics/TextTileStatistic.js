@@ -43,16 +43,13 @@ class TextTileStatistic extends React.Component {
         <div className="header">
           <h3>Your daily summary</h3>
           <div className="statisticIcons">
-            <div>
-              <MaterialIcon secondary={true} className="edit">
-                <Edit hoverColor={blue600} />
-              </MaterialIcon>
-            </div>
-            <div>
-              <MaterialIcon>
-                <Close hoverColor={pink500} />
-              </MaterialIcon>
-            </div>
+            <MaterialIcon secondary={true} className="edit">
+              <Edit hoverColor={blue600} />
+            </MaterialIcon>
+
+            <MaterialIcon>
+              <Close hoverColor={pink500} />
+            </MaterialIcon>
           </div>
         </div>
         <Collapse
