@@ -23,6 +23,14 @@ it('does not change the state if the action type is unknown', () => {
   expect(newState).toEqual(initialState);
 });
 
+xit('handles ASYNC_REQUEST_STATUS', () => {
+  let action = actions.asyncRequestStatus('HIDE_NOTIFICATION');
+  let newState = reducer(initialState, action);
+
+  expect(newState).not.toEqual(initialState);
+  expect(newState.asyncRequestStatus).not.toEqual('HIDE_NOTIFICATION');
+});
+
 it('handles NEW_FOOD', () => {
   let action = actions.newFood({
     101: {
@@ -34,10 +42,10 @@ it('handles NEW_FOOD', () => {
     }
   });
 
-  let newState = reducer(initialState, action); // foods:{101: {name: "honey"}, }
+  let newState = reducer(initialState, action);
 
-  let keysInFoods = Object.keys(newState.foods); //array [101]
-  let newNumberOfFoods = keysInFoods.length; //1
+  let keysInFoods = Object.keys(newState.foods);
+  let newNumberOfFoods = keysInFoods.length;
 
   expect(newState).not.toEqual(initialState);
   expect(newNumberOfFoods).toEqual(1);
@@ -79,6 +87,13 @@ it('handle IS_LOADING', () => {
 
   expect(newState).not.toEqual(initialState);
   expect(newState.isLoading).toEqual(true);
+});
+
+xit('handle DATA_RECEIVED', () => {
+  let action = {};
+
+  let newState = reducer(initialState, action);
+  expect(newState).not.toEqual(initialState);
 });
 
 xit('TEMPLATE', () => {

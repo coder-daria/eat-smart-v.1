@@ -18,6 +18,20 @@ it('does not change the state if the action type is unknown', () => {
   expect(newState).toEqual(initialState);
 });
 
+xit('handles SELECTED_DATE', () => {
+  let action = {};
+
+  let newState = reducer(initialState, action);
+  expect(newState).not.toEqual(initialState);
+});
+
+xit('handles MEAL_HISTORY_FOR_DAY', () => {
+  let action = {};
+
+  let newState = reducer(initialState, action);
+  expect(newState).not.toEqual(initialState);
+});
+
 it('handle SHOW_MEAL_DETAILS', () => {
   initialState = {
     ...initialState,
