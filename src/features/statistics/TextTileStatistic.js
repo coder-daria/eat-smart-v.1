@@ -4,18 +4,39 @@ import MaterialIcon from '../../common/MaterialIcon';
 import Close from 'material-ui/svg-icons/navigation/close';
 import Edit from 'material-ui/svg-icons/editor/mode-edit';
 import ArrowUp from 'material-ui/svg-icons/hardware/keyboard-arrow-up';
+import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import { Collapse } from 'react-collapse';
 
 class TextTileStatistic extends React.Component {
-  show = () => {
-    return (
-      <div className="showedBody">
-        <div className="number">1900</div>
-        <div className="information">Some information</div>
-      </div>
-    );
+  state = {
+    isOpen: true
   };
-  hide = () => {};
+
+  hide = () => {
+    this.setState({
+      isOpen: false
+    });
+  };
+  show = () => {
+    this.setState(prevState => {
+      return {
+        isOpen: !prevState.isOpen
+      };
+    });
+  };
   render() {
+    let arrowUp = (
+      <MaterialIcon type="button" onClick={this.hide}>
+        <ArrowUp />{' '}
+      </MaterialIcon>
+    );
+    let arrowDown = (
+      <MaterialIcon type="button" onClick={this.show}>
+        <ArrowDown />{' '}
+      </MaterialIcon>
+    );
+
+    let arrowButton = this.state.isOpen ? arrowUp : arrowDown;
     return (
       <div className="staticticContainer">
         <div className="header">
@@ -33,15 +54,18 @@ class TextTileStatistic extends React.Component {
             </div>
           </div>
         </div>
-        <div className="body">
-          <div className="number">1900</div>
-          <div className="information">Some information</div>
-        </div>
+        <Collapse
+          isOpened={this.state.isOpen}
+          theme={{ collapse: 'foo', content: 'bar' }}
+        >
+          <div className="body">
+            <div className="number">1900</div>
+            <div className="information">Some information</div>
+          </div>
+        </Collapse>
         <div className="footer">
           <div>
-            <MaterialIcon type="button" onClick={this.hide}>
-              <ArrowUp />
-            </MaterialIcon>
+            {arrowButton}
           </div>
         </div>
       </div>

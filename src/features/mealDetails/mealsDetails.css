@@ -1,16 +1,22 @@
 .summary {
   display: flex;
-  flex-flow: column wrap;
+  flex-wrap: wrap;
+  max-width: 100%;
+  flex-direction: column;
   align-items: center;
+  /* border: 2px solid red;  */
 }
 .summary h2 {
   font-size: 20px;
   margin-bottom: 8%;
 }
 .summary div {
-  margin-bottom: 3%;
+  margin-bottom: 4%;
 }
 
+.statistic {
+  width: 50%;
+}
 /*Daily summary information*/
 .information {
   font-size: 18px;
@@ -32,7 +38,6 @@
 
 /*Chart and details*/
 .chartAndDetailsContainer {
-  /* border: 2px solid red;  */
   display: flex;
   width: 100%;
   justify-content: space-around;
