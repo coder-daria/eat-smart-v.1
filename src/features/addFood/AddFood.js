@@ -78,18 +78,21 @@ const AddFood = props => {
             />
           </div>
           <div className="addFoodButtons">
-            <RaisedButton
-              className="addFoodSubmitButton"
-              label="Submit"
-              type="submit"
-              primary={true}
-              disabled={invalid}
-            />
+            <div>
+              <RaisedButton
+                className="addFoodSubmitButton"
+                label="Submit"
+                type="submit"
+                primary={true}
+                disabled={invalid}
+              />
+            </div>
+            <div className="addFoodReturnButton">
+              <ReturnButton />
+            </div>
           </div>
         </form>
-      </div>
-      <div className="addFoodReturnButton">
-        <ReturnButton />
+        <div />
       </div>
     </div>
   );
