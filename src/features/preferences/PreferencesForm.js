@@ -8,6 +8,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Field, FieldArray } from 'redux-form';
 import './preferencesForm.css';
 import ReturnButton from '../../common/form/ReturnButton';
+import Subheader from 'material-ui/Subheader';
 
 class PreferencesParent extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class PreferencesParent extends React.Component {
     return (
       <div className="preferencesContainer">
         <form onSubmit={this.props.handleSubmit}>
+          <Subheader>Your daily goals</Subheader>
           <div className="preferencesKcalContainer">
             <Field
               name="kcal"
@@ -24,6 +26,7 @@ class PreferencesParent extends React.Component {
             />
           </div>
           <div>
+            <Subheader>Your meal preferences</Subheader>
             <FieldArray name="meals" component={renderFieldArray} />
           </div>
           <div className="preferencesButtons">

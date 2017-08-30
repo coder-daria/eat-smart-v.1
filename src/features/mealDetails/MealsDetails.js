@@ -121,6 +121,12 @@ class MealsDetails extends React.Component {
         <div className="statistic">
           <TextTileStatistic dailySummary={this.dailySummary()} />
         </div>
+        <div className="statistic">
+          <TextTileStatistic dailySummary={this.dailySummary()} />
+        </div>
+        <div className="statistic">
+          <TextTileStatistic dailySummary={this.dailySummary()} />
+        </div>
         <div className="chooseMeal">
           <SelectField
             onChange={this.handleChange}

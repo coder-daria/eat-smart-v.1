@@ -1,32 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import { renderTextField } from '../../common/form/FormFields';
 import { stringToNumber } from '../../common/form/normalizers';
-import { numberBetween } from '../../common/form/validators';
 import ReturnButton from '../../common/form/ReturnButton';
 import './addFood.css';
-
-const validate = values => {
-  const errors = {};
-  const validRangeOfGrams = numberBetween(0, 100);
-  if (!values.name) {
-    errors.name = 'Required';
-  } else if (values.name.length < 2) {
-    errors.name = 'Chosen name is too short';
-  }
-  if (!validRangeOfGrams(values.fat)) {
-    errors.fat = 'Wrong value';
-  }
-  if (!validRangeOfGrams(values.protein)) {
-    errors.protein = 'Wrong value';
-  }
-  if (!validRangeOfGrams(values.carbs)) {
-    errors.carbs = 'Wrong value';
-  }
-  return errors;
-};
 
 const AddFood = props => {
   const clearAndSubmit = values => {
@@ -101,7 +80,4 @@ AddFood.propTypes = {
   isLoading: PropTypes.bool
 };
 
-export default reduxForm({
-  form: 'addFood',
-  validate
-})(AddFood);
+export default AddFood;

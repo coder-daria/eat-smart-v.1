@@ -13,12 +13,7 @@ class TextTileStatistic extends React.Component {
     isOpen: true
   };
 
-  hide = () => {
-    this.setState({
-      isOpen: false
-    });
-  };
-  show = () => {
+  toggle = () => {
     this.setState(prevState => {
       return {
         isOpen: !prevState.isOpen
@@ -27,23 +22,23 @@ class TextTileStatistic extends React.Component {
   };
   render() {
     let arrowUp = (
-      <MaterialIcon type="button" onClick={this.hide}>
+      <MaterialIcon type="button" onClick={this.toggle}>
         <ArrowUp hoverColor={cyan500} />
       </MaterialIcon>
     );
     let arrowDown = (
-      <MaterialIcon type="button" onClick={this.show}>
+      <MaterialIcon type="button" onClick={this.toggle}>
         <ArrowDown hoverColor={cyan500} />
       </MaterialIcon>
     );
 
     let arrowButton = this.state.isOpen ? arrowUp : arrowDown;
     return (
-      <div className="staticticContainer">
-        <div className="header">
-          <h3>Your daily summary</h3>
+      <div className="statisticContainer">
+        <div className="tile_header">
+          <h3 className="title">Your daily summary</h3>
           <div className="statisticIcons">
-            <MaterialIcon secondary={true} className="edit">
+            <MaterialIcon iconStyle={{ width: 15 }}>
               <Edit hoverColor={blue600} />
             </MaterialIcon>
 
@@ -52,10 +47,7 @@ class TextTileStatistic extends React.Component {
             </MaterialIcon>
           </div>
         </div>
-        <Collapse
-          isOpened={this.state.isOpen}
-          theme={{ collapse: 'foo', content: 'bar' }}
-        >
+        <Collapse isOpened={this.state.isOpen}>
           <div className="body">
             {this.props.dailySummary}
           </div>

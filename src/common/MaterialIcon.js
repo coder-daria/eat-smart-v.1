@@ -5,7 +5,7 @@ class MaterialIcon extends React.Component {
   render() {
     return (
       <div>
-        <IconButton onClick={this.props.onClick}>
+        <IconButton {...this.props} onClick={this.props.onClick}>
           {this.props.children}
         </IconButton>
       </div>
