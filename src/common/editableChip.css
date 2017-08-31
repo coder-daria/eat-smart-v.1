@@ -60,3 +60,6 @@
   /* border: 2px solid red; */
   width: 60px !important;
 }
+.addMealAutocomplete div div {
+  width: 234px !important;
+}
