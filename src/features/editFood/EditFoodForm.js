@@ -107,19 +107,6 @@ const EditFoodForm = props => {
       </div>
     );
   };
-  // const img = () => {
-  //   return (
-  //     <div className="img">
-  //       <img
-  //         alt="img"
-  //         width="250px"
-  //         height="200px"
-  //         src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
-  //       />
-  //     </div>
-  //   )
-
-  // }
   const submit = props.handleSubmit(clearAndSubmit);
   const disabled = props.invalid || props.pristine;
   const editFood = props.isSelected ? renderEditFood() : null;
