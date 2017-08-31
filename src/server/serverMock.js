@@ -34,7 +34,40 @@ function addFood(food) {
 
 const randomMeals = [
   {
-    meal: 'Morning snack',
+    name: 'Breakfastt',
+    foods: [
+      {
+        name: 'tomato',
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+        quantity: '10',
+        unit: 'grams'
+      }
+    ]
+  },
+  {
+    name: 'Morning snack',
+    foods: [
+      {
+        name: 'tomato',
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+        quantity: '20',
+        unit: 'grams'
+      }
+    ]
+  },
+  {
+    name: 'Lunch',
+    foods: [
+      {
+        name: 'tomato',
+        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
+        quantity: '30',
+        unit: 'grams'
+      }
+    ]
+  },
+  {
+    name: 'Dinner',
     foods: [
       {
         name: 'tomato',
@@ -45,7 +78,7 @@ const randomMeals = [
     ]
   },
   {
-    meal: 'Evening snack',
+    name: 'Evening snack',
     foods: [
       {
         name: 'egg',
@@ -84,13 +117,17 @@ function findMealsIn(date) {
   return new Promise(fn);
 }
 
-function addMeal(meal, date) {
-  return findMealsIn(date).then(meals => {
+function addMeals(meals, date) {
+  function fn(resolve, reject) {
     const seconds = moment(date).startOf('day').unix();
-    mealsAddedByUser[seconds].push(meal);
-    return mealsAddedByUser[seconds];
-  });
+    mealsAddedByUser[seconds] = meals;
+    setTimeout(() => {
+      resolve(mealsAddedByUser[seconds]);
+    }, 1000);
+  }
+
+  return new Promise(fn);
 }
 
-const exports = { listAllProducts, addFood, findMealsIn, addMeal };
+const exports = { listAllProducts, addFood, findMealsIn, addMeals };
 export default exports;
