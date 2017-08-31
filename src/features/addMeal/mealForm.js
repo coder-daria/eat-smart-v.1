@@ -91,10 +91,12 @@ class MealForm extends React.Component {
         </div>
         <div>
           <div className="chip-quantity">
-            <Field
-              name={`${field}.quantity`}
-              component={() => renderDiv(fields.get(index).quantity)}
-            />
+            <div>
+              <Field
+                name={`${field}.quantity`}
+                component={() => renderDiv(fields.get(index).quantity)}
+              />
+            </div>
             <div>g</div>
           </div>
         </div>
