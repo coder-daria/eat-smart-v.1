@@ -7,6 +7,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import ReturnButton from '../../common/form/ReturnButton';
 import './editFoodForm.css';
 import R from 'ramda';
+import MaterialIcon from '../../common/MaterialIcon';
+import SubmitButton from '../../common/form/SubmitButton';
 
 const validate = values => {
   const errors = {};
@@ -84,13 +86,7 @@ const EditFoodForm = props => {
           </div>
         </div>
         <div className="editFoodButtons">
-          <RaisedButton
-            className="editFoodRaisedButton"
-            label="Submit"
-            type="submit"
-            primary={true}
-            disabled={disabled}
-          />
+          <SubmitButton className="editFoodRaisedButton" />
           <ReturnButton />
         </div>
       </div>

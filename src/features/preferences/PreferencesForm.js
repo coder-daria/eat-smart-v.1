@@ -8,15 +8,23 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Field, FieldArray } from 'redux-form';
 import './preferencesForm.css';
 import ReturnButton from '../../common/form/ReturnButton';
-import Subheader from 'material-ui/Subheader';
+import PreferencesGroupName from './PreferencesGroupName';
+import MaterialIcon from '../../common/MaterialIcon';
+import SubmitButton from '../../common/form/SubmitButton';
 
 class PreferencesParent extends React.Component {
   render() {
     const disabled = this.props.invalid || this.props.pristine;
     return (
-      <div className="preferencesContainer">
-        <form onSubmit={this.props.handleSubmit}>
-          <Subheader>Your daily goals</Subheader>
+      <div>
+        <form
+          onSubmit={this.props.handleSubmit}
+          className="preferencesContainer"
+        >
+          <PreferencesGroupName
+            name="Kcal preferences"
+            className="title-kcal-preferences"
+          />
           <div className="preferencesKcalContainer">
             <Field
               name="kcal"
@@ -25,18 +33,20 @@ class PreferencesParent extends React.Component {
               label="Kcal"
             />
           </div>
-          <div>
-            <Subheader>Your meal preferences</Subheader>
-            <FieldArray name="meals" component={renderFieldArray} />
+          <div className="chips-preferences">
+            <div>
+              <PreferencesGroupName
+                name="Your meal preferences"
+                className="your-meal-preferences"
+              />
+            </div>
+            <div>
+              <FieldArray name="meals" component={renderFieldArray} />
+            </div>
           </div>
           <div className="preferencesButtons">
             <div>
-              <RaisedButton
-                label="Save"
-                type="submit"
-                primary={true}
-                disabled={disabled}
-              />
+              <SubmitButton className="submitPreferencesButton" />
             </div>
             <div>
               <ReturnButton className="returnButton" />

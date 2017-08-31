@@ -1,6 +1,8 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { withRouter } from 'react-router-dom';
+import Return from 'material-ui/svg-icons/hardware/keyboard-return';
+import { cyan500 } from 'material-ui/styles/colors';
 
 const ButtonWithHistory = withRouter(({ history }) =>
   <ReturnButton history={history} />
@@ -9,12 +11,13 @@ const ButtonWithHistory = withRouter(({ history }) =>
 const ReturnButton = props => {
   const goToAddMeal = () => props.history.push('/addMeal');
   return (
-    <div>
+    <div className="returnButton">
       <RaisedButton
         label="Return"
         type="button"
         secondary={true}
         onClick={goToAddMeal}
+        icon={<Return />}
       />
     </div>
   );

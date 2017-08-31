@@ -10,16 +10,19 @@
 }
 
 .chipContentContainer {
-  /* border: 2px solid red;      */
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 .chipContentContainer div {
-  margin-right: 4%;
+  margin-right: 5%;
 }
 .chipItem {
   margin-bottom: 10px;
+  margin-right: 1%;
+}
+.chip-quantity {
+  display: flex;
 }
 
 /* form */
@@ -46,6 +49,7 @@
 }
 .form-quantity {
   margin-right: 1%;
+  display: flex;
 }
 .form-quantity div div {
   width: 60px !important;
@@ -59,4 +63,7 @@
 .form-timePicker .importantChange {
   /* border: 2px solid red; */
   width: 60px !important;
+}
+.addMealAutocomplete div div {
+  width: 234px !important;
 }

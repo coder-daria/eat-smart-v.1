@@ -14,6 +14,8 @@ import EditableChip from '../../common/EditableChip';
 import MenuItem from 'material-ui/MenuItem';
 import SelectableList from '../../common/SelectableList';
 import DayPickerContainer from '../../features/changeDate/DayPickerContainer';
+import DoneAll from 'material-ui/svg-icons/action/done-all';
+import MaterialIcon from '../../common/MaterialIcon';
 
 class MealForm extends React.Component {
   componentWillUnmount() {
@@ -91,10 +93,12 @@ class MealForm extends React.Component {
         </div>
         <div>
           <div className="chip-quantity">
-            <Field
-              name={`${field}.quantity`}
-              component={() => renderDiv(fields.get(index).quantity)}
-            />
+            <div>
+              <Field
+                name={`${field}.quantity`}
+                component={() => renderDiv(fields.get(index).quantity)}
+              />
+            </div>
             <div>g</div>
           </div>
         </div>
@@ -171,6 +175,7 @@ class MealForm extends React.Component {
                 label="OK"
                 primary={true}
                 disabled={disabled}
+                icon={<DoneAll />}
               />
             </div>
           </form>

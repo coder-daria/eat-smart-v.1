@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  /* border: 2px solid orange;              */
 }
 .preferencesKcalContainer {
   border-bottom: 2px solid #d0d9db;
@@ -9,26 +10,35 @@
   padding-bottom: 3%;
   min-width: 100%;
 }
-
+.chips-preferences {
+  display: flex;
+  flex-direction: column;
+}
+.your-meal-preferences,
+.title-kcal-preferences {
+  font-size: 18px;
+  margin-bottom: 3%;
+}
 .preferencesAndAddButtonContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* border: 2px solid red; */
 }
 .preferencesAddButton {
-  /* border: 2px solid orange;          */
-  margin-top: 2%;
-  margin-bottom: 2%;
+  margin-top: 4%;
+  margin-bottom: 10%;
+  /* align-self: flex-end; */
 }
 .preferencesButtons {
   display: flex;
+  justify-content: flex-end;
 }
 .preferencesButtons > div {
   margin-right: 0.5%;
 }
-/*******Fields**********/
+/*******Fields in FormFields**********/
 .fieldsContainer {
+  /* border: 2px solid red;   */
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
 }
