@@ -168,7 +168,7 @@ class MealForm extends React.Component {
             <div className="addMealRaisedButton">
               <RaisedButton
                 type="submit"
-                label="Submit"
+                label="OK"
                 primary={true}
                 disabled={disabled}
               />

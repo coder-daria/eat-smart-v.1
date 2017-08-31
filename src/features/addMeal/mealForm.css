@@ -7,11 +7,11 @@
   flex-wrap: wrap;
 }
 .addMealFormAndDetailsContainer {
-  /* border: 2px solid red;     */
+  /* border: 2px solid red;      */
   display: flex;
 }
 .addMealFormContainer {
-  /* border: 2px solid blueviolet;    */
+  /* border: 2px solid blueviolet;      */
   border-right: 2px solid #d0d9db;
   display: flex;
   flex-direction: column;
@@ -22,10 +22,10 @@
 .addMealFormContainer .addMealRaisedButton {
   margin-top: 1%;
   align-self: flex-end;
-  margin-right: 7%;
+  margin-right: 19%;
 }
 .searchAndChipsContainer {
-  /* border: 2px solid red;    */
+  /* border: 2px solid red;     */
   display: flex;
   flex-direction: column;
   width: 270px;
