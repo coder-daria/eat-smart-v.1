@@ -18,56 +18,60 @@ const AddFood = props => {
   return (
     <div className="addFoodContainer">
       <div>
-        <form onSubmit={submit} className="addFoodFormContainer">
+        <form onSubmit={submit} className="addFoodFormAndButtonsContainer">
           <div>
-            <Field
-              className="addFoodField"
-              name="name"
-              type="text"
-              component={renderTextField}
-              label="Name"
-            />
-          </div>
-          <div>
-            <Field
-              className="addFoodField"
-              name="fat"
-              type="number"
-              component={renderTextField}
-              label="Fat"
-              normalize={stringToNumber}
-            />
-          </div>
-          <div>
-            <Field
-              className="addFoodField"
-              name="protein"
-              type="number"
-              component={renderTextField}
-              label="Protein"
-            />
-          </div>
-          <div>
-            <Field
-              className="addFoodField"
-              name="carbs"
-              type="number"
-              component={renderTextField}
-              label="Carbs"
-            />
-          </div>
-          <div className="addFoodButtons">
             <div>
-              <RaisedButton
-                className="addFoodSubmitButton"
-                label="Submit"
-                type="submit"
-                primary={true}
-                disabled={invalid}
+              <Field
+                className="addFoodField"
+                name="name"
+                type="text"
+                component={renderTextField}
+                label="Name"
               />
             </div>
-            <div className="addFoodReturnButton">
-              <ReturnButton />
+            <div>
+              <Field
+                className="addFoodField"
+                name="fat"
+                type="number"
+                component={renderTextField}
+                label="Fat"
+                normalize={stringToNumber}
+              />
+            </div>
+            <div>
+              <Field
+                className="addFoodField"
+                name="protein"
+                type="number"
+                component={renderTextField}
+                label="Protein"
+              />
+            </div>
+            <div>
+              <Field
+                className="addFoodField"
+                name="carbs"
+                type="number"
+                component={renderTextField}
+                label="Carbs"
+              />
+            </div>
+          </div>
+          <div>
+            <div className="addFoodButtons">
+              <div>
+                <RaisedButton
+                  className="addFoodSubmitButton"
+                  label="Submit"
+                  type="submit"
+                  primary={true}
+                  disabled={invalid}
+                />
+              </div>
+              <div className="addFoodReturnButton">
+                <ReturnButton />
+              </div>
             </div>
           </div>
         </form>

@@ -1,13 +1,15 @@
 .addFoodContainer {
   width: 100%;
   display: flex;
+  /* border: 2px solid red; */
+  justify-content: space-around;
 }
-.addFoodFormContainer {
+.addFoodFormAndButtonsContainer {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  align-items: flex-end;
 }
-.addFoodFormContainer div {
+.addFoodFormAndButtonsContainer div {
   display: flex;
 }
 .addFoodField {
@@ -19,6 +21,7 @@
 }
 
 .addFoodImg {
+  /* border: 2px solid yellow; */
   display: flex;
   align-self: center;
   /* border: 2px solid blue;             */
