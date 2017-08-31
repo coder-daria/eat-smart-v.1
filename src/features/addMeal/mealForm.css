@@ -1,48 +1,39 @@
+/*ADD MEAL*/
 .addMealContainer {
-     /* border: 2px solid palegreen;   */
-     display: flex; 
-    width: 100%;
-    flex-direction: column; 
-    flex-wrap: wrap;
+  /* border: 2px solid palegreen;   */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
-.addMealFormAndDetailsContainer{
-     /* border: 2px solid red;    */
-     display: flex;
-
+.addMealFormAndDetailsContainer {
+  /* border: 2px solid red;     */
+  display: flex;
 }
 .addMealFormContainer {
-     /* border: 2px solid blueviolet;   */
-    border-right: 2px solid #D0D9DB;     
-    display: flex;
-    flex-direction: column;
-    flex:1;
-    width: 50%;
-    padding-right: 12%;
-}
-.detailsContainer {
-     /* border: 2px  solid green;  */
-    flex:2;
+  /* border: 2px solid blueviolet;    */
+  border-right: 2px solid #d0d9db;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 50%;
+  padding-right: 12%;
 }
 .addMealFormContainer .addMealRaisedButton {
-    margin-top: 1%;
-     margin-left: 50%; 
+  margin-top: 1%;
+  align-self: flex-end;
+  margin-right: 7%;
 }
-
-.mealPreferences h2 {
-    font-size: 19px;
-    margin-bottom: 15px;
-}
-
-.quantityContainer {
-     display: flex; 
-}
-
-.searchAndChipsContainer{
-      /* border: 2px solid red;   */
-    display: flex;
-    flex-direction: column;
-    width: 270px;
+.searchAndChipsContainer {
+  /* border: 2px solid red;    */
+  display: flex;
+  flex-direction: column;
+  width: 270px;
 }
 .addMealAutocomplete {
-    margin-bottom: 5%;
+  margin-bottom: 5%;
+}
+/*SHOW DETAILS*/
+.detailsContainer {
+  flex: 2;
 }

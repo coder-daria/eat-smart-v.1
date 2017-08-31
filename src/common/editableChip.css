@@ -1,6 +1,6 @@
 /* chip */
 .chip {
-  min-width: 200px;
+  min-width: 150px;
   display: flex;
 }
 .chip span {
@@ -19,9 +19,7 @@
   margin-right: 4%;
 }
 .chipItem {
-  margin-right: 10px;
   margin-bottom: 10px;
-  width: 265px;
 }
 
 /* form */
@@ -30,18 +28,35 @@
   background-color: rgba(103, 205, 230, .06);
   border-style: ridge;
   border-radius: 4px;
+  max-width: 230px;
+  min-width: 190px;
   display: flex;
   flex-flow: column wrap;
 }
-
+.formContentContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.form-name-time,
+.form-name-quantity {
+  margin-left: 2%;
+}
+.form-name-time div div {
+  width: 108px !important;
+}
+.form-quantity {
+  margin-right: 1%;
+}
+.form-quantity div div {
+  width: 60px !important;
+}
 .eachFormContainer .icons {
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
-  /* border: 2px solid red; */
+  margin-top: -5%;
 }
-.formContentContainer {
-  display: flex;
-  flex-direction: column;
-  margin: -20% 0 0 1%;
+.form-timePicker .importantChange {
+  /* border: 2px solid red; */
+  width: 60px !important;
 }

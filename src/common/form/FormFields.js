@@ -17,7 +17,7 @@ export const renderTextField = field => {
         floatingLabelText={field.label}
         floatingLabelFixed={true}
         {...field.input}
-        style={{ width: '8em' }}
+        style={{ width: '9em' }}
         type={field.type}
         errorText={errorText}
         autoComplete="off"
@@ -42,7 +42,7 @@ export const renderTimePicker = field => {
     field.input.onChange(chosenUnixTimestamp);
   };
   return (
-    <div>
+    <div className="form-timePicker">
       <TimePicker
         format="24hr"
         floatingLabelText={field.label}
@@ -50,6 +50,7 @@ export const renderTimePicker = field => {
         name={field.input.name}
         value={new Date(field.input.value)}
         onChange={onChange}
+        className="importantChange"
       />
     </div>
   );
@@ -90,12 +91,20 @@ const renderField = (field, index, fields) => {
 
   const formFields = (
     <div className="formContentContainer">
-      <Field name={`${field}.name`} component={renderTextField} label="Name" />
-      <Field
-        name={`${field}.seconds`}
-        component={renderTimePicker}
-        label="Time"
-      />
+      <div className="form-name-time">
+        <Field
+          name={`${field}.name`}
+          component={renderTextField}
+          label="Name"
+        />
+      </div>
+      <div className="form-time">
+        <Field
+          name={`${field}.seconds`}
+          component={renderTimePicker}
+          label="Time"
+        />
+      </div>
     </div>
   );
 

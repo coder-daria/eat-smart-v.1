@@ -65,29 +65,32 @@ class MealForm extends React.Component {
     const remove = () => fields.remove(index);
     const formFields = (
       <div className="formContentContainer">
-        <Field
-          name={`${field}.name`}
-          component={renderTextField}
-          label="Name"
-        />
-
-        <Field
-          name={`${field}.quantity`}
-          component={renderTextField}
-          label="Quantity"
-        />
+        <div className="form-name-quantity">
+          <Field
+            name={`${field}.name`}
+            component={renderTextField}
+            label="Name"
+          />
+        </div>
+        <div className="form-quantity">
+          <Field
+            name={`${field}.quantity`}
+            component={renderTextField}
+            label="Quantity"
+          />
+        </div>
       </div>
     );
     const chipFields = (
       <div className="chipContentContainer">
-        <div>
+        <div className="chip-name">
           <Field
             name={`${field}.name`}
             component={() => renderDiv(fields.get(index).name)}
           />
         </div>
         <div>
-          <div className="quantityContainer">
+          <div className="chip-quantity">
             <Field
               name={`${field}.quantity`}
               component={() => renderDiv(fields.get(index).quantity)}
