@@ -45,6 +45,9 @@ class EditableChip extends React.Component {
   form = () => {
     return (
       <div className="eachFormContainer">
+        <div className="content">
+          {this.props.formFields}
+        </div>
         <div className="icons">
           <div>
             {this.acceptButton()}
@@ -52,9 +55,6 @@ class EditableChip extends React.Component {
           <div>
             {this.removeButton()}
           </div>
-        </div>
-        <div className="content">
-          {this.props.formFields}
         </div>
       </div>
     );
