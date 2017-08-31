@@ -1,21 +1,14 @@
 .addFoodContainer {
-  /* border: 2px solid blue;       */
-  width: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-content: flex-end;
-}
-.addFoodFormContainer {
   width: 100%;
   display: flex;
+}
+.addFoodFormContainer {
+  display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .addFoodFormContainer div {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .addFoodField {
   margin-bottom: 4%;
@@ -24,9 +17,11 @@
   display: flex;
   margin-top: 5%;
 }
-.addFoodReturnButton {
-  margin-right: 40%;
-  /* border: 2px solid orangered;       */
+
+.addFoodImg {
+  display: flex;
+  align-self: center;
+  /* border: 2px solid blue;             */
 }
 .addFoodLinearProgress {
   margin-top: 45%;

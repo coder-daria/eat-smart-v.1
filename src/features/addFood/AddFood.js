@@ -71,7 +71,14 @@ const AddFood = props => {
             </div>
           </div>
         </form>
-        <div />
+      </div>
+      <div className="addFoodImg">
+        <img
+          alt="img"
+          width="300px"
+          height="220px"
+          src="http://www.szczyptasoli.pl/wp-content/uploads/2016/03/pizza_cheat-1170x770.jpg"
+        />
       </div>
     </div>
   );

@@ -3,19 +3,15 @@
   flex-direction: row;
   width: 100%;
 }
-.dayPicker input {
+.datePicker input {
   font-size: 20px;
 }
-.dayPicker hr {
+.datePicker hr {
   display: none;
 }
-.date {
-  font-size: 20px;
-}
 .iconAndDateContainer {
-  /* border: 2px solid red;   */
   display: flex;
   align-items: center;
-  width: 30%;
+  width: 17%;
   margin-bottom: 60px;
 }

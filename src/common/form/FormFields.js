@@ -17,7 +17,7 @@ export const renderTextField = field => {
         floatingLabelText={field.label}
         floatingLabelFixed={true}
         {...field.input}
-        style={{ width: '5em' }}
+        style={{ width: '8em' }}
         type={field.type}
         errorText={errorText}
         autoComplete="off"
