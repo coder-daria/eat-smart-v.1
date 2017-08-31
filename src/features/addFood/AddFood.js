@@ -6,6 +6,10 @@ import { renderTextField } from '../../common/form/FormFields';
 import { stringToNumber } from '../../common/form/normalizers';
 import ReturnButton from '../../common/form/ReturnButton';
 import './addFood.css';
+import DoneAll from 'material-ui/svg-icons/action/done-all';
+import MaterialIcon from '../../common/MaterialIcon';
+
+import SubmitButton from '../../common/form/SubmitButton';
 
 const AddFood = props => {
   const clearAndSubmit = values => {
@@ -60,14 +64,8 @@ const AddFood = props => {
           </div>
           <div>
             <div className="addFoodButtons">
-              <div>
-                <RaisedButton
-                  className="addFoodSubmitButton"
-                  label="Submit"
-                  type="submit"
-                  primary={true}
-                  disabled={invalid}
-                />
+              <div className="addFoodSubmitButton">
+                <SubmitButton />
               </div>
               <div className="addFoodReturnButton">
                 <ReturnButton />

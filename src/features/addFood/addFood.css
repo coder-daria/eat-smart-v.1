@@ -19,13 +19,21 @@
   display: flex;
   margin-top: 5%;
 }
-
+.addFoodSubmitButton button div {
+  display: flex;
+  align-items: center;
+}
 .addFoodImg {
   /* border: 2px solid yellow; */
   display: flex;
   align-self: center;
-  /* border: 2px solid blue;             */
 }
 .addFoodLinearProgress {
   margin-top: 45%;
+}
+.addFoodSubmitButton {
+  display: flex;
+}
+.addFoodReturnButton svg {
+  margin-top: 5%;
 }

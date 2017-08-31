@@ -9,6 +9,8 @@ import { Field, FieldArray } from 'redux-form';
 import './preferencesForm.css';
 import ReturnButton from '../../common/form/ReturnButton';
 import PreferencesGroupName from './PreferencesGroupName';
+import MaterialIcon from '../../common/MaterialIcon';
+import SubmitButton from '../../common/form/SubmitButton';
 
 class PreferencesParent extends React.Component {
   render() {
@@ -44,12 +46,7 @@ class PreferencesParent extends React.Component {
           </div>
           <div className="preferencesButtons">
             <div>
-              <RaisedButton
-                label="OK"
-                type="submit"
-                primary={true}
-                disabled={disabled}
-              />
+              <SubmitButton className="submitPreferencesButton" />
             </div>
             <div>
               <ReturnButton className="returnButton" />
