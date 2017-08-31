@@ -1,4 +1,5 @@
 .summary {
+  /* border: 2px solid red; */
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
