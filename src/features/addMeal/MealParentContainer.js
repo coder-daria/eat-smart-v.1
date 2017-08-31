@@ -37,8 +37,8 @@ const mapStateToProps = state => {
     date: state.meals.date,
     initialValues: {
       meal:
-        state.preferences.meals.length > 0
-          ? state.preferences.meals[0].name
+        state.preferences.meals.length > state.meals.selectedMeal
+          ? state.preferences.meals[state.meals.selectedMeal].name
           : ''
     }
   };
@@ -53,6 +53,7 @@ const mapDispatchToProps = dispatch => {
 const MealFormParent = reduxForm({
   form: 'addMeal',
   destroyOnUnmount: false,
+  enableReinitialize: true,
   validate
 })(mealForm);
 

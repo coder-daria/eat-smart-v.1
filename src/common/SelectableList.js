@@ -33,7 +33,7 @@ class SelectableList extends Component {
 
 SelectableList.propTypes = {
   items: PropTypes.array.isRequired,
-  initialValue: PropTypes.number.isRequired,
+  initialValue: PropTypes.string.isRequired,
   onSelect: PropTypes.func.isRequired
 };
 SelectableList.defaultProps = {};

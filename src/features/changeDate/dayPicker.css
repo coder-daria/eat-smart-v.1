@@ -1,20 +1,17 @@
 .dateContainer {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
-.dayPicker{
-    width: 100%;
-    align-self: center; 
-    margin-bottom: 3%;
+.datePicker input {
+  font-size: 20px;
 }
-.date {
-    font-size: 20px;
+.datePicker hr {
+  display: none;
 }
 .iconAndDateContainer {
-    /* border: 2px solid red;  */
-    display: flex;
-    align-items: center;
-    width: 30%;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  width: 17%;
+  margin-bottom: 60px;
 }

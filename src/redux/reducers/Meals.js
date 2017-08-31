@@ -2,7 +2,8 @@ import * as actions from '../../Actions';
 
 const initialState = {
   date: new Date(),
-  meals: []
+  meals: [],
+  selectedMeal: 3
 };
 
 export default function reducer(state = initialState, action) {
@@ -11,6 +12,7 @@ export default function reducer(state = initialState, action) {
       return Object.assign({}, state, { date: action.content });
 
     case actions.MEAL_HISTORY_FOR_DAY:
+      console.log(action.content);
       return Object.assign({}, state, { meals: action.content });
 
     case actions.SHOW_MEAL_DETAILS:

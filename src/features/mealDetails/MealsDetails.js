@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
-import Chart from '../../Chart.js';
+import DailyPercentagesGraph from '../statistics/DailyPercentagesGraph';
+import MealPercentagesGraph from '../statistics/MealPercentagesGraph';
+import TextTileStatistic from '../statistics/TextTileStatistic';
 import { sumFoods, countKcalInMeal } from '../../functions';
 import './mealsDetails.css';
 
@@ -25,15 +27,19 @@ class MealsDetails extends React.Component {
   renderDailyCalories = () => {
     const summary = this.calculateSummaryOfDay(this.props.meals);
     return (
-      <div className="kcalEaten">
-        <p>
-          Kcal eaten:<span className="kcal">{summary.kcal}</span>
-        </p>
-        <p>
-          Kcal to reach daily goal:<span className="kcal">
-            {this.props.dailyKcal - summary.kcal}
-          </span>
-        </p>
+      <div className="kcalEatenContainer">
+        <div className="kcalEatenNumber">
+          <h3>
+            {summary.kcal}
+          </h3>
+          <h4>Eaten kcal</h4>
+        </div>
+        <div>
+          <h3>
+            {' '}{this.props.dailyKcal - summary.kcal}
+          </h3>
+          <h4>Kcal left to reach daily goal</h4>
+        </div>
       </div>
     );
   };
@@ -102,14 +108,18 @@ class MealsDetails extends React.Component {
       );
     });
 
+    const roundedBorders = {
+      borderRadius: '2em',
+      border: '0.1em solid #90C3D4',
+      padding: '1em',
+      width: '15em',
+      height: '15em'
+    };
+
     return (
       <div className="summary">
-        <div>
-          <h2>Your daily summary</h2>
-          {this.dailySummary()}
-        </div>
-        <div>
-          <h2>Meal details</h2>
+        <div className="statistic">
+          <TextTileStatistic dailySummary={this.dailySummary()} />
         </div>
         <div className="chooseMeal">
           <SelectField
@@ -121,7 +131,12 @@ class MealsDetails extends React.Component {
         </div>
         <div className="chartAndDetailsContainer">
           <div className="chart">
-            <Chart />
+            <div style={roundedBorders}>
+              <MealPercentagesGraph />
+            </div>
+            <div style={roundedBorders}>
+              <DailyPercentagesGraph />
+            </div>
           </div>
           <div>
             {selectedMealDetails}

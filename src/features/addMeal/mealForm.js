@@ -26,7 +26,8 @@ class MealForm extends React.Component {
         fieldArray.fields.push({
           name: food.name,
           id: food.id,
-          units: 'grams'
+          units: 'grams',
+          isNew: true
         });
       } else {
         let itEquals = false;
@@ -39,7 +40,8 @@ class MealForm extends React.Component {
           return fieldArray.fields.push({
             name: food.name,
             id: food.id,
-            units: 'grams'
+            units: 'grams',
+            isNew: true
           });
         }
       }
@@ -98,6 +100,7 @@ class MealForm extends React.Component {
     return (
       <li key={index} className="chipItem">
         <EditableChip
+          initiallyOpen={fields.get(index).isNew}
           onDelete={remove}
           chipFields={chipFields}
           formFields={formFields}

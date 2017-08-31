@@ -1,47 +1,38 @@
-.editFoodAndReturnButtonContainer {
-     /* border: 2px solid green;            */
+.editFoodAndImgContainer {
+  /* border: 2px solid green;              */
   display: flex;
-  flex-flow: column wrap;
-   width: 100%; 
-}
-.editFoodReturnButton {
-   /* border: 2px solid gold;  */
-  align-self: center;
-  margin-top: 5%;
-}
-.searchAndFormContainer {
-     /* border: 2px solid greenyellow;        */
-  display: flex;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 }
+
 .search {
-    /* border: 2px solid pink;  */
-    margin-right: 5%;
+  margin-bottom: 4%;
+}
+.searchAndFormContainer {
+  /* border: 2px solid greenyellow;         */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
 }
 .editFoodFormContainer {
   display: flex;
   flex-flow: column wrap;
-  align-content: center;
 }
-.editFoodRaisedButton {
-  align-self: flex-end;
-  margin-top: 10px;
-}
- /* .img {
-   border: 2px solid blueviolet;      
+.fieldsContainer {
   display: flex;
-  justify-content: center;
-  flex: 2;
-  margin-right: -8%;
-} */
+}
+.editFoodButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+.img {
+  /* border: 2px solid blueviolet;       */
+  display: flex;
+}
 
-  img {
-  align-self: flex-start;
-  max-width: 300px;
+img {
+  align-self: center;
   border-radius: 8px;
   box-shadow: 0px 0px 10px darkgray;
-}    
-.raisedButton {
-  margin-top: 22px;
 }

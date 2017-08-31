@@ -35,14 +35,13 @@
 }
 
 .eachFormContainer .icons {
-  align-self: flex-end;
-}
-.acceptButton {
-  margin-top: 20%;
-  margin-bottom: -15%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  /* border: 2px solid red; */
 }
 .formContentContainer {
   display: flex;
   flex-direction: column;
-  margin: -20% 0 -10% 1%;
+  margin: -20% 0 0 1%;
 }

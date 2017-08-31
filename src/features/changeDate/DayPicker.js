@@ -48,23 +48,20 @@ class DayPicker extends React.Component {
     );
     return (
       <div className="dateContainer">
-        <div style={{ visibility: 'hidden' }}>
-          <DatePicker
-            autoOk={true}
-            defaultDate={this.props.date}
-            hintText={this.state.fullDateDisplay}
-            onChange={this.handleChange}
-            ref={c => (datePicker = c)}
-            formatDate={this.formatDate}
-          />
-        </div>
         <div className="iconAndDateContainer">
-        <div className="calendarIcon">
-          {calendarIcon}
-        </div>
-        <div className="date">
-          {this.state.fullDateDisplay}
-        </div>
+          <div className="calendarIcon">
+            {calendarIcon}
+          </div>
+          <div style={{ visibility: 'initial' }} className="datePicker">
+            <DatePicker
+              autoOk={true}
+              defaultDate={this.props.date}
+              hintText={this.state.fullDateDisplay}
+              onChange={this.handleChange}
+              ref={c => (datePicker = c)}
+              formatDate={this.formatDate}
+            />
+          </div>
         </div>
       </div>
     );

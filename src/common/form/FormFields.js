@@ -12,24 +12,24 @@ import '../../features/preferences/preferencesForm.css';
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
   return (
-      <div className={field.className}>
-        <TextField
-          floatingLabelText={field.label}
-          floatingLabelFixed={true}
-          {...field.input}
-          type={field.type}
-          errorText={errorText}
-          autoComplete="off"
-        />
-      </div>
+    <div className={field.className}>
+      <TextField
+        floatingLabelText={field.label}
+        floatingLabelFixed={true}
+        {...field.input}
+        style={{ width: '8em' }}
+        type={field.type}
+        errorText={errorText}
+        autoComplete="off"
+      />
+    </div>
   );
 };
 
 export const renderDiv = string =>
   <div>
     {string}
-</div>;
-
+  </div>;
 
 export const renderTimePicker = field => {
   const onChange = (_null, date) => {
@@ -43,14 +43,14 @@ export const renderTimePicker = field => {
   };
   return (
     <div>
-        <TimePicker
-          format="24hr"
-          floatingLabelText={field.label}
-          hintText={field.label}
-          name={field.input.name}
-          value={new Date(field.input.value)}
-          onChange={onChange}
-        />
+      <TimePicker
+        format="24hr"
+        floatingLabelText={field.label}
+        hintText={field.label}
+        name={field.input.name}
+        value={new Date(field.input.value)}
+        onChange={onChange}
+      />
     </div>
   );
 };
@@ -74,16 +74,16 @@ const renderField = (field, index, fields) => {
   const chipFields = (
     <div className="chipContentContainer">
       <div>
-      <Field
-        name={`${field}.seconds`}
-        component={() => renderDiv(updateTime())}
-      />
+        <Field
+          name={`${field}.seconds`}
+          component={() => renderDiv(updateTime())}
+        />
       </div>
       <div>
-      <Field
-        name={`${field}.name`}
-        component={() => renderDiv(fields.get(index).name)}
-      />
+        <Field
+          name={`${field}.name`}
+          component={() => renderDiv(fields.get(index).name)}
+        />
       </div>
     </div>
   );
@@ -102,6 +102,7 @@ const renderField = (field, index, fields) => {
   return (
     <li key={index} className="chipItem">
       <EditableChip
+        initiallyOpen={fields.get(index).isNew}
         onDelete={remove}
         chipFields={chipFields}
         formFields={formFields}
@@ -110,54 +111,9 @@ const renderField = (field, index, fields) => {
   );
 };
 export const renderFieldArray = fieldArray => {
-  const defaultMeal = { name: 'meal', seconds: 0 };
+  const defaultMeal = { name: '', seconds: 0, isNew: true };
   const addMeal = () => fieldArray.fields.push(defaultMeal);
 
-  const addField = (field, index, fields) => {
-    const remove = () => fields.remove(index);
-    const updateTime = () => {
-      let chosenUnixTimestamp = moment(fields.get(index).seconds).unix() * 1000;
-      return moment(chosenUnixTimestamp).format('HH:mm');
-    };
-    const chipFields = (
-      <div>
-        <Field
-          name={`${field}.name`}
-          component={() => renderDiv(fields.get(index).name)}
-        />
-        <Field
-          name={`${field}.seconds`}
-          component={() => renderDiv(updateTime())}
-        />
-      </div>
-    );
-    const formFields = (
-      <div>
-        <Field
-          name={`${field}.name`}
-          component={renderTextField}
-          label="Name"
-        />
-        <Field
-          name={`${field}.seconds`}
-          component={renderTimePicker}
-          label="Time"
-        />
-      </div>
-    );
-    return (
-      <li key={index} className="chip">
-        <EditableChip
-          field={field}
-          index={index}
-          fields={fields}
-          onDelete={remove}
-          chipFields={chipFields}
-          formFields={formFields}
-        />
-      </li>
-    );
-  };
   return (
     <div className="preferencesAndAddButtonContainer">
       <div>

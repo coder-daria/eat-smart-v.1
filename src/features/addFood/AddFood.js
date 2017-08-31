@@ -1,32 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import { renderTextField } from '../../common/form/FormFields';
 import { stringToNumber } from '../../common/form/normalizers';
-import { numberBetween } from '../../common/form/validators';
 import ReturnButton from '../../common/form/ReturnButton';
 import './addFood.css';
-
-const validate = values => {
-  const errors = {};
-  const validRangeOfGrams = numberBetween(0, 100);
-  if (!values.name) {
-    errors.name = 'Required';
-  } else if (values.name.length < 2) {
-    errors.name = 'Chosen name is too short';
-  }
-  if (!validRangeOfGrams(values.fat)) {
-    errors.fat = 'Wrong value';
-  }
-  if (!validRangeOfGrams(values.protein)) {
-    errors.protein = 'Wrong value';
-  }
-  if (!validRangeOfGrams(values.carbs)) {
-    errors.carbs = 'Wrong value';
-  }
-  return errors;
-};
 
 const AddFood = props => {
   const clearAndSubmit = values => {
@@ -39,57 +18,71 @@ const AddFood = props => {
   return (
     <div className="addFoodContainer">
       <div>
-        <form onSubmit={submit} className="addFoodFormContainer">
+        <form onSubmit={submit} className="addFoodFormAndButtonsContainer">
           <div>
-            <Field
-              className="addFoodField"
-              name="name"
-              type="text"
-              component={renderTextField}
-              label="Name"
-            />
+            <div>
+              <Field
+                className="addFoodField"
+                name="name"
+                type="text"
+                component={renderTextField}
+                label="Name"
+              />
+            </div>
+            <div>
+              <Field
+                className="addFoodField"
+                name="fat"
+                type="number"
+                component={renderTextField}
+                label="Fat"
+                normalize={stringToNumber}
+              />
+            </div>
+            <div>
+              <Field
+                className="addFoodField"
+                name="protein"
+                type="number"
+                component={renderTextField}
+                label="Protein"
+              />
+            </div>
+            <div>
+              <Field
+                className="addFoodField"
+                name="carbs"
+                type="number"
+                component={renderTextField}
+                label="Carbs"
+              />
+            </div>
           </div>
           <div>
-            <Field
-              className="addFoodField"
-              name="fat"
-              type="number"
-              component={renderTextField}
-              label="Fat"
-              normalize={stringToNumber}
-            />
-          </div>
-          <div>
-            <Field
-              className="addFoodField"
-              name="protein"
-              type="number"
-              component={renderTextField}
-              label="Protein"
-            />
-          </div>
-          <div>
-            <Field
-              className="addFoodField"
-              name="carbs"
-              type="number"
-              component={renderTextField}
-              label="Carbs"
-            />
-          </div>
-          <div className="addFoodButtons">
-            <RaisedButton
-              className="addFoodSubmitButton"
-              label="Submit"
-              type="submit"
-              primary={true}
-              disabled={invalid}
-            />
+            <div className="addFoodButtons">
+              <div>
+                <RaisedButton
+                  className="addFoodSubmitButton"
+                  label="Submit"
+                  type="submit"
+                  primary={true}
+                  disabled={invalid}
+                />
+              </div>
+              <div className="addFoodReturnButton">
+                <ReturnButton />
+              </div>
+            </div>
           </div>
         </form>
       </div>
-      <div className="addFoodReturnButton">
-        <ReturnButton />
+      <div className="addFoodImg">
+        <img
+          alt="img"
+          width="300px"
+          height="220px"
+          src="http://www.szczyptasoli.pl/wp-content/uploads/2016/03/pizza_cheat-1170x770.jpg"
+        />
       </div>
     </div>
   );
@@ -98,7 +91,4 @@ AddFood.propTypes = {
   isLoading: PropTypes.bool
 };
 
-export default reduxForm({
-  form: 'addFood',
-  validate
-})(AddFood);
+export default AddFood;
