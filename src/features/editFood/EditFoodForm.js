@@ -44,50 +44,55 @@ const EditFoodForm = props => {
   const renderEditFood = () => {
     return (
       <div className="editFoodFormContainer">
-        <div>
-          <Field
-            className="editFoodField"
-            name="selected.name"
-            type="text"
-            component={renderTextField}
-            label="Name"
-            readOnly="true"
-          />
+        <div className="fieldsContainer">
+          <div>
+            <Field
+              className="editFoodField"
+              name="selected.name"
+              type="text"
+              component={renderTextField}
+              label="Name"
+              readOnly="true"
+            />
+          </div>
+          <div>
+            <Field
+              className="editFoodField"
+              name="selected.fat"
+              type="number"
+              component={renderTextField}
+              label="Fat"
+            />
+          </div>
+          <div>
+            <Field
+              className="editFoodField"
+              name="selected.protein"
+              type="number"
+              component={renderTextField}
+              label="Protein"
+            />
+          </div>
+          <div>
+            <Field
+              className="editFoodField"
+              name="selected.carbs"
+              type="number"
+              component={renderTextField}
+              label="Carbs"
+            />
+          </div>
         </div>
-        <div>
-          <Field
-            className="editFoodField"
-            name="selected.fat"
-            type="number"
-            component={renderTextField}
-            label="Fat"
+        <div className="editFoodButtons">
+          <RaisedButton
+            className="editFoodRaisedButton"
+            label="Submit"
+            type="submit"
+            primary={true}
+            disabled={disabled}
           />
+          <ReturnButton />
         </div>
-        <div>
-          <Field
-            className="editFoodField"
-            name="selected.protein"
-            type="number"
-            component={renderTextField}
-            label="Protein"
-          />
-        </div>
-        <div>
-          <Field
-            className="editFoodField"
-            name="selected.carbs"
-            type="number"
-            component={renderTextField}
-            label="Carbs"
-          />
-        </div>
-        <RaisedButton
-          className="editFoodRaisedButton"
-          label="Submit"
-          type="submit"
-          primary={true}
-          disabled={disabled}
-        />
       </div>
     );
   };
@@ -102,9 +107,39 @@ const EditFoodForm = props => {
       </div>
     );
   };
-  const img = () => {
-    return (
-       <div className="img">
+  // const img = () => {
+  //   return (
+  //     <div className="img">
+  //       <img
+  //         alt="img"
+  //         width="250px"
+  //         height="200px"
+  //         src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
+  //       />
+  //     </div>
+  //   )
+
+  // }
+  const submit = props.handleSubmit(clearAndSubmit);
+  const disabled = props.invalid || props.pristine;
+  const editFood = props.isSelected ? renderEditFood() : null;
+  return (
+    <div className="editFoodAndImgContainer">
+      <div>
+        <form onSubmit={submit} className="searchAndFormContainer">
+          <div className="search">
+            <Field
+              name="selected"
+              component={renderAutoComplete}
+              label="Select food"
+            />
+          </div>
+          <div>
+            {editFood}
+          </div>
+        </form>
+      </div>
+      <div className="img">
         <img
           alt="img"
           width="250px"
@@ -112,31 +147,6 @@ const EditFoodForm = props => {
           src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
         />
       </div>
-    )
-    
-  }
-  const submit = props.handleSubmit(clearAndSubmit);
-  const disabled = props.invalid || props.pristine;
-  const editFood = props.isSelected ? renderEditFood() :  img();
-  return (
-    <div className="editFoodAndReturnButtonContainer">
-      <div>
-      <form onSubmit={submit} className="searchAndFormContainer">
-        <div className="search">
-          <Field
-            name="selected"
-            component={renderAutoComplete}
-            label="Select food"
-          />
-        </div>
-        <div>
-          {editFood}
-        </div>
-      </form>
-       </div>
-        <div className="editFoodReturnButton">
-      <ReturnButton />
-       </div>
     </div>
   );
 };
