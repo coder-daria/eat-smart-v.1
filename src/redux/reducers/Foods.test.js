@@ -23,12 +23,12 @@ it('does not change the state if the action type is unknown', () => {
   expect(newState).toEqual(initialState);
 });
 
-xit('handles ASYNC_REQUEST_STATUS', () => {
+it('handles ASYNC_REQUEST_STATUS', () => {
   let action = actions.asyncRequestStatus('HIDE_NOTIFICATION');
   let newState = reducer(initialState, action);
 
   expect(newState).not.toEqual(initialState);
-  expect(newState.asyncRequestStatus).not.toEqual('HIDE_NOTIFICATION');
+  expect(newState.asyncRequestStatus).toEqual('HIDE_NOTIFICATION');
 });
 
 it('handles NEW_FOOD', () => {
@@ -89,24 +89,9 @@ it('handle IS_LOADING', () => {
   expect(newState.isLoading).toEqual(true);
 });
 
-xit('handle DATA_RECEIVED', () => {
-  let action = {};
+// xit('TEMPLATE', () => {
+//   let action = {};
 
-  let newState = reducer(initialState, action);
-  expect(newState).not.toEqual(initialState);
-});
-
-xit('TEMPLATE', () => {
-  let action = {};
-
-  let newState = reducer(initialState, action);
-  expect(newState).not.toEqual(initialState);
-});
-
-// expect(newState.foods.length).toEqual(y);
-// state.foods.push(1);
-// expect(newState.foods.length).toEqual(y);
-
-// expect(state.foods.length).toEqual(x);
-// newState.foods.push(1);
-// expect(state.foods.length).toEqual(x);
+//   let newState = reducer(initialState, action);
+//   expect(newState).not.toEqual(initialState);
+// });

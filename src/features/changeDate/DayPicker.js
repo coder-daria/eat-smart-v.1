@@ -18,6 +18,8 @@ class DayPicker extends React.Component {
   handleChange = (event, date) => {
     const momentDate = moment(date);
     let choosenDay = momentDate.format('DD MMMM YYYY');
+    console.log(choosenDay);
+
     this.setState({
       fullDateDisplay: choosenDay
     });
@@ -26,7 +28,6 @@ class DayPicker extends React.Component {
     let current = moment(date).month();
 
     if (previous !== current) {
-      console.dir('New month!!');
       this.setState({
         currentMonth: moment(date).month()
       });

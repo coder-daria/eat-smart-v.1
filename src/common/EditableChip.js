@@ -34,7 +34,6 @@ class EditableChip extends React.Component {
         <MaterialIcon
           type="button"
           label="Remove"
-          secondary={true}
           onClick={this.props.onDelete}
         >
           <ContentClear hoverColor={pink500} />
