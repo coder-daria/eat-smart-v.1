@@ -6,6 +6,7 @@ import './mealForm.css';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';
 import MealList from './MealList';
 import DayPickerContainer from '../../features/changeDate/DayPickerContainer';
+import DoneAll from 'material-ui/svg-icons/action/done-all';
 
 class MealForm extends React.Component {
   clearAndSubmit = values => {
@@ -22,8 +23,8 @@ class MealForm extends React.Component {
           <DayPickerContainer />
         </div>
         <div className="addMealFormAndDetailsContainer">
-          <form onSubmit={submit} className="addMealFormContainer">
-            <div>
+          <form onSubmit={submit} className="outerAddMealFormContainer">
+            <div className="innerAddMealFormContainer">
               <MealList
                 foods={this.props.foods}
                 meals={this.props.meals}
@@ -33,9 +34,10 @@ class MealForm extends React.Component {
             <div className="addMealRaisedButton">
               <RaisedButton
                 type="submit"
-                label="Submit"
+                label="OK"
                 primary={true}
                 disabled={disabled}
+                icon={<DoneAll />}
               />
             </div>
           </form>
