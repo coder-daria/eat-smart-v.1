@@ -85,10 +85,6 @@ const EditFoodForm = props => {
             />
           </div>
         </div>
-        <div className="editFoodButtons">
-          <SubmitButton className="editFoodRaisedButton" />
-          <ReturnButton />
-        </div>
       </div>
     );
   };
@@ -103,9 +99,17 @@ const EditFoodForm = props => {
       </div>
     );
   };
+
+  const renderButtons = () =>
+    <div className="editFoodButtons">
+      <SubmitButton className="editFoodRaisedButton" />
+      <ReturnButton />
+    </div>;
+
   const submit = props.handleSubmit(clearAndSubmit);
   const disabled = props.invalid || props.pristine;
   const editFood = props.isSelected ? renderEditFood() : null;
+  const buttons = props.isSelected ? renderButtons() : null;
   return (
     <div className="editFoodAndImgContainer">
       <div>
@@ -119,6 +123,9 @@ const EditFoodForm = props => {
           </div>
           <div>
             {editFood}
+          </div>
+          <div>
+            {buttons}
           </div>
         </form>
       </div>
