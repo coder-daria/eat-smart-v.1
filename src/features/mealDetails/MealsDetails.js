@@ -36,7 +36,7 @@ class MealsDetails extends React.Component {
         </div>
         <div>
           <h3>
-            {' '}{this.props.dailyKcal - summary.kcal}
+            {this.props.dailyKcal - summary.kcal}
           </h3>
           <h4>Kcal left to reach daily goal</h4>
         </div>
