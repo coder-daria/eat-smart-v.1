@@ -29,8 +29,6 @@ export default function reducer(state = initialState, action) {
 
     case actions.IS_LOADING:
       return Object.assign({}, state, { isLoading: action.content });
-    case actions.DATA_RECEIVED:
-      return Object.assign({}, state, { dataReceived: action.content });
     default:
       return state;
   }
