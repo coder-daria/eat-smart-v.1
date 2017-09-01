@@ -36,7 +36,7 @@ class MealsDetails extends React.Component {
         </div>
         <div>
           <h3>
-            {' '}{this.props.dailyKcal - summary.kcal}
+            {this.props.dailyKcal - summary.kcal}
           </h3>
           <h4>Kcal left to reach daily goal</h4>
         </div>
@@ -107,15 +107,6 @@ class MealsDetails extends React.Component {
         <MenuItem key={item.meal} value={item.meal} primaryText={item.meal} />
       );
     });
-
-    const roundedBorders = {
-      borderRadius: '2em',
-      border: '0.1em solid #90C3D4',
-      padding: '1em',
-      width: '15em',
-      height: '15em'
-    };
-
     return (
       <div className="summary">
         <div className="statistic">
@@ -130,13 +121,11 @@ class MealsDetails extends React.Component {
           </SelectField>
         </div>
         <div className="chartAndDetailsContainer">
-          <div className="chart">
-            <div style={roundedBorders}>
-              <MealPercentagesGraph />
-            </div>
-            <div style={roundedBorders}>
-              <DailyPercentagesGraph />
-            </div>
+          <div className="mealPercentagesGraph">
+            <MealPercentagesGraph />
+          </div>
+          <div className="dailyPercentagesGraph">
+            <DailyPercentagesGraph />
           </div>
           <div>
             {selectedMealDetails}

@@ -154,29 +154,31 @@ class MealForm extends React.Component {
           <DayPickerContainer />
         </div>
         <div className="addMealFormAndDetailsContainer">
-          <form onSubmit={submit} className="addMealFormContainer">
-            <div>
-              <Field
-                name="meal"
-                component={field =>
-                  <SelectableList
-                    initialValue={field.input.value}
-                    items={this.props.mealsPreferences}
-                    onSelect={field.input.onChange}
-                  />}
-              />
-            </div>
-            <div>
-              <FieldArray name="foods" component={this.renderFieldArray} />
-            </div>
-            <div className="addMealRaisedButton">
-              <RaisedButton
-                type="submit"
-                label="OK"
-                primary={true}
-                disabled={disabled}
-                icon={<DoneAll />}
-              />
+          <form onSubmit={submit} className="outerAddMealFormContainer">
+            <div className="innerAddMealFormContainer">
+              <div className="addMealSelectableList">
+                <Field
+                  name="meal"
+                  component={field =>
+                    <SelectableList
+                      initialValue={field.input.value}
+                      items={this.props.mealsPreferences}
+                      onSelect={field.input.onChange}
+                    />}
+                />
+              </div>
+              <div>
+                <FieldArray name="foods" component={this.renderFieldArray} />
+              </div>
+              <div className="addMealRaisedButton">
+                <RaisedButton
+                  type="submit"
+                  label="OK"
+                  primary={true}
+                  disabled={disabled}
+                  icon={<DoneAll />}
+                />
+              </div>
             </div>
           </form>
           <div className="detailsContainer">

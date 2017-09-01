@@ -35,14 +35,14 @@ class TextTileStatistic extends React.Component {
     let arrowButton = this.state.isOpen ? arrowUp : arrowDown;
     return (
       <div className="statisticContainer">
-        <div className="tile_header">
+        <div className="title_statistic">
           <h3 className="title">Your daily summary</h3>
           <div className="statisticIcons">
             <MaterialIcon iconStyle={{ width: 15 }}>
               <Edit hoverColor={blue600} />
             </MaterialIcon>
 
-            <MaterialIcon>
+            <MaterialIcon iconStyle={{ width: 18, marginLeft: '-40px' }}>
               <Close hoverColor={pink500} />
             </MaterialIcon>
           </div>

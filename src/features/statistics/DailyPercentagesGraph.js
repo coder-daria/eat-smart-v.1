@@ -10,7 +10,7 @@ var data = {
   datasets: [
     {
       label: 'Calories',
-      backgroundColor: ['#0097A7', '#90C3D4', '#49AFD1'],
+      backgroundColor: ['#2378d4', '#7298ff', '#15ADC1'],
       borderColor: '#FFFFFF',
       borderWidth: 2,
       hoverBackgroundColor: ['#6BD4D6', '#6BD4D6', '#6BD4D6'],

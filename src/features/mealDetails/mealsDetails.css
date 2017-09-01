@@ -1,18 +1,15 @@
 .summary {
-  /* border: 2px solid red; */
   display: flex;
   flex-wrap: wrap;
   max-width: 100%;
   flex-direction: column;
   align-items: center;
 }
-
 .summary div {
   margin-bottom: 1%;
 }
-
 .statistic {
-  width: 58%;
+  width: 43%;
 }
 /*Daily summary information*/
 .information {
@@ -22,8 +19,6 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-
-  /* width: 120%; */
 }
 .kcalEatenContainer div {
   display: flex;
@@ -31,7 +26,7 @@
   align-items: center;
   margin-bottom: 10%;
 }
-.kcalEatenContainer div h3 {
+.kcalEatenContainer h3 {
   font-size: 28px;
   text-shadow: 1px 0px grey;
   margin-bottom: 5%;
@@ -40,11 +35,15 @@
 /*Chart and details*/
 .chartAndDetailsContainer {
   display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
 }
-
+.mealPercentagesGraph,
+.dailyPercentagesGraph {
+  border-radius: 2em;
+  border: 0.1em solid #90c3d4;
+  padding: 1em;
+  width: 15em;
+  height: 15em;
+}
 /*Details list*/
 .chartDetails {
   margin-top: 10px;
