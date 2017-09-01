@@ -6,29 +6,33 @@
   flex-direction: column;
   flex-wrap: wrap;
 }
+.addMealSelectableList {
+  width: 100%;
+}
+
 .addMealFormAndDetailsContainer {
   /* border: 2px solid red;      */
   display: flex;
 }
-.addMealFormContainer {
-  /* border: 2px solid blueviolet;      */
+.outerAddMealFormContainer {
   border-right: 2px solid #d0d9db;
+  padding-right: 5%;
+}
+.innerAddMealFormContainer {
+  /* border: 2px solid blueviolet;      */
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 50%;
-  padding-right: 12%;
+  width: 100%;
 }
-.addMealFormContainer .addMealRaisedButton {
+.innerAddMealFormContainer .addMealRaisedButton {
   margin-top: 1%;
   align-self: flex-end;
-  margin-right: 19%;
 }
 .searchAndChipsContainer {
-  /* border: 2px solid red;     */
   display: flex;
   flex-direction: column;
-  width: 270px;
+  width: 72%;
 }
 .addMealAutocomplete {
   margin-bottom: 5%;

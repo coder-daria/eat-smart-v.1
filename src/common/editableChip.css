@@ -32,13 +32,13 @@
   border-style: ridge;
   border-radius: 4px;
   max-width: 230px;
-  min-width: 190px;
+  min-width: 210px;
   display: flex;
   flex-flow: column wrap;
 }
 .formContentContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .form-name-time,
 .form-name-quantity {
@@ -48,11 +48,10 @@
   width: 108px !important;
 }
 .form-quantity {
-  margin-right: 1%;
-  display: flex;
+  margin-left: 4%;
 }
 .form-quantity div div {
-  width: 60px !important;
+  width: 50px !important;
 }
 .eachFormContainer .icons {
   display: flex;
