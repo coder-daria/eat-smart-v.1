@@ -1,6 +1,5 @@
 .dateContainer {
   display: flex;
-  flex-direction: row;
   width: 100%;
 }
 .datePicker input {
@@ -11,7 +10,12 @@
 }
 .iconAndDateContainer {
   display: flex;
-  align-items: center;
   width: 17%;
-  margin-bottom: 60px;
+}
+.datePicker button input {
+  cursor: pointer !important;
+}
+.datePicker button {
+  background-color: #f0f4f5;
+  border: none;
 }

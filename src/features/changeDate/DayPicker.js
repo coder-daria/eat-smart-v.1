@@ -54,14 +54,16 @@ class DayPicker extends React.Component {
             {calendarIcon}
           </div>
           <div style={{ visibility: 'initial' }} className="datePicker">
-            <DatePicker
-              autoOk={true}
-              defaultDate={this.props.date}
-              hintText={this.state.fullDateDisplay}
-              onChange={this.handleChange}
-              ref={c => (datePicker = c)}
-              formatDate={this.formatDate}
-            />
+            <button>
+              <DatePicker
+                autoOk={true}
+                defaultDate={this.props.date}
+                hintText={this.state.fullDateDisplay}
+                onChange={this.handleChange}
+                ref={c => (datePicker = c)}
+                formatDate={this.formatDate}
+              />
+            </button>
           </div>
         </div>
       </div>
