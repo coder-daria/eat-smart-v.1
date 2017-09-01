@@ -30,6 +30,7 @@ export function aliment(fat, protein, carbs) {
 }
 
 export function sumFoods(food1, food2) {
+  // no test
   return {
     fat: food1.fat + food2.fat,
     protein: food1.protein + food2.protein,
@@ -37,13 +38,14 @@ export function sumFoods(food1, food2) {
   };
 }
 
-export function sumMeals(meal1, meal2) {}
+export function sumMeals(meal1, meal2) {} // no test
 
 export function countKcalInFood(food) {
   return food.fat * 9 + food.protein * 4 + food.carbs * 4;
 }
 
 export function countKcalInMeal(meal) {
+  // no test
   return countKcalInFood(
     meal.foods.reduce(sumFoods, { fat: 0, carbs: 0, protein: 0 })
   );
@@ -64,6 +66,7 @@ export function fetchProducts() {
 }
 
 export function convertFoodsFromServer(productsFromServer) {
+  //no test
   const products = {};
   for (let name in productsFromServer) {
     const productFromServer = productsFromServer[name];
@@ -74,10 +77,12 @@ export function convertFoodsFromServer(productsFromServer) {
 }
 
 export function convertFoodFromServer(object) {
+  // no test
   return { [object.id]: object };
 }
 
 export function convertObjectToArray(object) {
+  //no test
   const newArray = [];
   for (let key in object) {
     newArray.push(object[key]);
