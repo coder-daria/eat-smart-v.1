@@ -4,12 +4,10 @@ import {
   renderTextField,
   renderFieldArray
 } from '../../common/form/FormFields';
-import RaisedButton from 'material-ui/RaisedButton';
 import { Field, FieldArray } from 'redux-form';
 import './preferencesForm.css';
 import ReturnButton from '../../common/form/ReturnButton';
-import PreferencesGroupName from './PreferencesGroupName';
-import MaterialIcon from '../../common/MaterialIcon';
+import PreferencesGroup from './PreferencesGroup';
 import SubmitButton from '../../common/form/SubmitButton';
 
 class PreferencesParent extends React.Component {
@@ -22,24 +20,21 @@ class PreferencesParent extends React.Component {
           className="preferencesContainer"
         >
           <div className="preferencesKcalContainer">
-            <div>
-              <PreferencesGroupName
-                name="Kcal preferences"
-                className="title-kcal-preferences"
-              />
-            </div>
-            <div>
+            <PreferencesGroup
+              name="Kcal preferences"
+              className="title-kcal-preferences"
+            >
               <Field
                 name="kcal"
                 type="number"
                 component={renderTextField}
                 label="Kcal"
               />
-            </div>
+            </PreferencesGroup>
           </div>
           <div className="chips-preferences">
             <div>
-              <PreferencesGroupName
+              <PreferencesGroup
                 name="Your meal preferences"
                 className="your-meal-preferences"
               />
