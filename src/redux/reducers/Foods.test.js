@@ -89,9 +89,9 @@ it('handle IS_LOADING', () => {
   expect(newState.isLoading).toEqual(true);
 });
 
-xit('TEMPLATE', () => {
-  let action = {};
+// xit('TEMPLATE', () => {
+//   let action = {};
 
-  let newState = reducer(initialState, action);
-  expect(newState).not.toEqual(initialState);
-});
+//   let newState = reducer(initialState, action);
+//   expect(newState).not.toEqual(initialState);
+// });

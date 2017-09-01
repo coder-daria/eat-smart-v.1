@@ -83,9 +83,9 @@ it('handle SHOW_MEAL_DETAILS', () => {
   expect(newState.selectedMeal.details[0]).toEqual(928482960);
 });
 
-xit('TEMPLATE', () => {
-  let action = {};
+// xit('TEMPLATE', () => {
+//   let action = {};
 
-  let newState = reducer(initialState, action);
-  expect(newState).not.toEqual(initialState);
-});
+//   let newState = reducer(initialState, action);
+//   expect(newState).not.toEqual(initialState);
+// });
