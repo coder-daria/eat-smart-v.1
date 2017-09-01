@@ -21,17 +21,21 @@ class PreferencesParent extends React.Component {
           onSubmit={this.props.handleSubmit}
           className="preferencesContainer"
         >
-          <PreferencesGroupName
-            name="Kcal preferences"
-            className="title-kcal-preferences"
-          />
           <div className="preferencesKcalContainer">
-            <Field
-              name="kcal"
-              type="number"
-              component={renderTextField}
-              label="Kcal"
-            />
+            <div>
+              <PreferencesGroupName
+                name="Kcal preferences"
+                className="title-kcal-preferences"
+              />
+            </div>
+            <div>
+              <Field
+                name="kcal"
+                type="number"
+                component={renderTextField}
+                label="Kcal"
+              />
+            </div>
           </div>
           <div className="chips-preferences">
             <div>
