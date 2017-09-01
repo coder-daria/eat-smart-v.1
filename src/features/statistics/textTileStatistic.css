@@ -3,11 +3,11 @@
   display: flex;
   flex-flow: column wrap;
   box-shadow: 0 0 1px #989b9c;
+  width: 78%;
 }
 
 .statisticContainer .title_statistic {
   background-color: #dbdbdb;
-  /* border-radius: 0.25em 0.25em 0 0; */
   display: flex;
   flex-flow: row wrap;
   align-items: baseline;
