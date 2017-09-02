@@ -9,6 +9,7 @@ import './preferencesForm.css';
 import ReturnButton from '../../common/form/ReturnButton';
 import PreferencesGroup from './PreferencesGroup';
 import SubmitButton from '../../common/form/SubmitButton';
+import MealDetailsPreferences from './MealDetailsPreferences';
 
 class PreferencesParent extends React.Component {
   render() {
@@ -17,13 +18,11 @@ class PreferencesParent extends React.Component {
       <div>
         <form
           onSubmit={this.props.handleSubmit}
-          className="preferencesContainer"
-        >
+          className="preferencesContainer">
           <div className="preferencesKcalContainer">
             <PreferencesGroup
               name="Kcal preferences"
-              className="title-kcal-preferences"
-            >
+              className="title-kcal-preferences">
               <Field
                 name="kcal"
                 type="number"
@@ -36,13 +35,16 @@ class PreferencesParent extends React.Component {
             <div>
               <PreferencesGroup
                 name="Your meal preferences"
-                className="your-meal-preferences"
-              />
-            </div>
-            <div>
-              <FieldArray name="meals" component={renderFieldArray} />
+                className="your-meal-preferences">
+                <div>
+                  <FieldArray name="meals" component={renderFieldArray} />
+                </div>
+              </PreferencesGroup>
             </div>
           </div>
+          <PreferencesGroup>
+            <MealDetailsPreferences />
+          </PreferencesGroup>
           <div className="preferencesButtons">
             <div>
               <SubmitButton className="submitPreferencesButton" />

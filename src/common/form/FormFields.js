@@ -8,6 +8,7 @@ import moment from 'moment';
 import { Field } from 'redux-form';
 import SelectField from 'material-ui/SelectField';
 import '../../features/preferences/preferencesForm.css';
+import Checkbox from 'material-ui/Checkbox';
 
 export const renderTextField = field => {
   const errorText = field.meta.touched ? field.meta.error : null;
@@ -23,6 +24,16 @@ export const renderTextField = field => {
         autoComplete="off"
       />
     </div>
+  );
+};
+
+export const renderCheckbox = field => {
+  return (
+    <Checkbox
+      defaultChecked={field.input.value}
+      label={field.label}
+      onCheck={(e, checked) => field.input.onChange(checked)}
+    />
   );
 };
 
