@@ -38,8 +38,7 @@ class MenuIcon extends Component {
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'middle', vertical: 'top' }}
             value={this.props.currentPage}
-            onItemTouchTap={this.handleClick}
-          >
+            onItemTouchTap={this.handleClick}>
             <MenuItem value="/addMeal" primaryText="Add meal" />
             <MenuItem value="/addFood" primaryText="Add food" />
             <MenuItem value="/editFood" primaryText="Edit food" />

@@ -34,8 +34,7 @@ class EditableChip extends React.Component {
         <MaterialIcon
           type="button"
           label="Remove"
-          onClick={this.props.onDelete}
-        >
+          onClick={this.props.onDelete}>
           <ContentClear hoverColor={pink500} />
         </MaterialIcon>
       </div>
@@ -66,8 +65,7 @@ class EditableChip extends React.Component {
         onRequestDelete={this.props.onDelete}
         onClick={this.toggleEdit}
         labelColor="#353738"
-        backgroundColor="#BEDEE8"
-      >
+        backgroundColor="#BEDEE8">
         {this.props.chipFields}
       </Chip>
     );
