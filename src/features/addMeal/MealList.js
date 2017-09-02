@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { List, ListItem, makeSelectable } from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import { Field, FieldArray } from 'redux-form';
 import R from 'ramda';
 import AutoComplete from '../../common/AutoComplete';
@@ -26,17 +26,21 @@ class MealList extends Component {
     const remove = () => fields.remove(index);
     const formFields = (
       <div className="formContentContainer">
-        <Field
-          name={`${field}.name`}
-          component={renderTextField}
-          label="Name"
-        />
+        <div className="form-name-quantity">
+          <Field
+            name={`${field}.name`}
+            component={renderTextField}
+            label="Name"
+          />
+        </div>
 
-        <Field
-          name={`${field}.quantity`}
-          component={renderTextField}
-          label="Quantity"
-        />
+        <div className="form-quantity">
+          <Field
+            name={`${field}.quantity`}
+            component={renderTextField}
+            label="Quantity"
+          />
+        </div>
       </div>
     );
     const chipFields = (
@@ -48,7 +52,7 @@ class MealList extends Component {
           />
         </div>
         <div>
-          <div className="quantityContainer">
+          <div className="chip-quantity">
             <Field
               name={`${field}.quantity`}
               component={() => renderDiv(fields.get(index).quantity)}
@@ -61,6 +65,7 @@ class MealList extends Component {
     return (
       <li key={index} className="chipItem">
         <EditableChip
+          initiallyOpen={fields.get(index).isNew}
           onDelete={remove}
           chipFields={chipFields}
           formFields={formFields}
@@ -75,7 +80,8 @@ class MealList extends Component {
         fieldArray.fields.push({
           name: food.name,
           id: food.id,
-          units: 'grams'
+          units: 'grams',
+          isNew: true
         });
       } else {
         let itEquals = false;
@@ -88,7 +94,8 @@ class MealList extends Component {
           return fieldArray.fields.push({
             name: food.name,
             id: food.id,
-            units: 'grams'
+            units: 'grams',
+            isNew: true
           });
         }
       }
@@ -111,7 +118,6 @@ class MealList extends Component {
   };
 
   render() {
-    const Selectable = makeSelectable(List);
     const listItems = this.props.meals
       ? this.props.meals.map((meal, index) => {
           const nestedItems = [
@@ -132,10 +138,8 @@ class MealList extends Component {
         })
       : null;
     return (
-      <div>
-        {/*<Selectable value={this.state.selectedValue} onChange={this.handleChange}>*/}
+      <div className="addMealSelectableList">
         {listItems}
-        {/*</Selectable>*/}
       </div>
     );
   }
