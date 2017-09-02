@@ -6,7 +6,7 @@ import EditFoodContainer from './features/editFood/EditFoodContainer';
 import PreferencesParentContainer from './features/preferences/PreferencesFormContainer';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import UserIcon from './UserIcon';
-import MenuIcon from './MenuIcon';
+import ChangeLocation from './features/changeLocation/ChangeLocationContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LoadingContainer from './common/LoadingContainer';
 import SnackbarContainer from './common/SnackbarContainer';
@@ -25,7 +25,7 @@ class App extends Component {
               <div className="header">
                 <AppBar
                   title="Eat Smart"
-                  iconElementLeft={<MenuIcon />}
+                  iconElementLeft={<ChangeLocation />}
                   iconElementRight={<UserIcon />}
                 />
               </div>

@@ -7,6 +7,7 @@ export const SELECTED_DATE = 'SELECTED_DATE';
 export const EDIT_FOOD = 'EDIT_FOOD';
 export const IS_LOADING = 'IS_LOADING';
 export const DATA_RECEIVED = 'DATA_RECEIVED';
+export const GO_TO = 'GO_TO';
 
 export const ASYNC_REQUEST_STATUS = 'ASYNC_REQUEST_STATUS';
 export const ASYNC_REQUEST_STATUS_ENUM = {
@@ -45,3 +46,6 @@ export function mealHistoryForDay(meals) {
 export function asyncRequestStatus(status) {
   return { type: ASYNC_REQUEST_STATUS, content: status };
 }
+export const changeLocation = location => {
+  return { type: GO_TO, content: location };
+};

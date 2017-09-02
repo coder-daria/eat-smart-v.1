@@ -4,26 +4,16 @@ import MenuItem from 'material-ui/MenuItem';
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import IconButton from 'material-ui/IconButton';
 import './menuIcon.css';
-import { withRouter } from 'react-router-dom';
-
-const IconWithHistory = withRouter(({ history }) =>
-  <MenuIcon history={history} />
-);
 
 class MenuIcon extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      value: '/'
-    };
   }
 
   handleClick = (event, child) => {
     let value = child.props.value;
-    this.setState({
-      value: value
-    });
     this.props.history.push(value);
+    this.props.onSelect(value);
   };
 
   icons = () => {
@@ -47,7 +37,7 @@ class MenuIcon extends Component {
             menuItemStyle={styles.item}
             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'middle', vertical: 'top' }}
-            value={this.state.value}
+            value={this.props.currentPage}
             onItemTouchTap={this.handleClick}
           >
             <MenuItem value="/addMeal" primaryText="Add meal" />
@@ -60,12 +50,4 @@ class MenuIcon extends Component {
   }
 }
 
-const Menu = () => {
-  return (
-    <div>
-      <IconWithHistory />
-    </div>
-  );
-};
-
-export default Menu;
+export default MenuIcon;

@@ -3,6 +3,7 @@ import { reducer as form } from 'redux-form';
 import FoodsReducer from './reducers/Foods';
 import PreferencesReducer from './reducers/Preferences';
 import MealsReducer from './reducers/Meals';
+import PageChangesReducer from './reducers/PageChanges';
 import { convertFoodsFromServer } from '../functions';
 import server from '../server/serverMock';
 import * as actions from '../Actions';
@@ -22,7 +23,8 @@ const configureStore = () => {
     foods: FoodsReducer,
     preferences: PreferencesReducer,
     meals: MealsReducer,
-    form
+    pagechanges: PageChangesReducer,
+    form: form
   });
   let store = createStore(
     rootReducer,
