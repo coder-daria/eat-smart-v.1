@@ -100,7 +100,6 @@ class MealList extends Component {
         }
       }
     };
-
     return (
       <div className="searchAndChipsContainer">
         <ul>
@@ -128,12 +127,15 @@ class MealList extends Component {
             />
           ];
           return (
-            <ListItem
-              key={index}
-              value={index}
-              primaryText={meal.name}
-              nestedItems={nestedItems}
-            />
+            <div className="addMealListItem">
+              <ListItem
+                className="listItem"
+                key={index}
+                value={index}
+                primaryText={meal.name}
+                nestedItems={nestedItems}
+              />
+            </div>
           );
         })
       : null;

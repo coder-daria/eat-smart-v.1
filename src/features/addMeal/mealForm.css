@@ -1,4 +1,3 @@
-/*ADD MEAL*/
 .addMealContainer {
   /* border: 2px solid palegreen;   */
   display: flex;
@@ -15,16 +14,27 @@
   display: flex;
 }
 .outerAddMealFormContainer {
-  /* border: 2px solid blueviolet;   */
-  min-width: 25%;
+  min-width: 30%;
 }
 .innerAddMealFormContainer {
+  /* border: 2px solid blueviolet;   */
   display: flex;
   flex-direction: column;
   flex: 1;
 }
+/******MealList.js********/
+
+.listItem {
+  box-shadow: 0 2px 5px #aaaaaa;
+}
+.listItem:hover {
+  box-shadow: 4px 0 5px #aaaaaa;
+}
+
+/************************/
 .addMealRaisedButton {
   margin-top: 2%;
+  margin-right: 2%;
   align-self: flex-end;
 }
 /******Search and Chips********/
