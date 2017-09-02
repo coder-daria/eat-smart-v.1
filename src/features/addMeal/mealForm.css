@@ -15,29 +15,30 @@
   display: flex;
 }
 .outerAddMealFormContainer {
-  border-right: 2px solid #d0d9db;
-  padding-right: 5%;
+  /* border: 2px solid blueviolet;   */
+  min-width: 25%;
 }
 .innerAddMealFormContainer {
-  /* border: 2px solid blueviolet;      */
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 100%;
 }
-.innerAddMealFormContainer .addMealRaisedButton {
-  margin-top: 1%;
+.addMealRaisedButton {
+  margin-top: 2%;
   align-self: flex-end;
 }
+/******Search and Chips********/
 .searchAndChipsContainer {
   display: flex;
   flex-direction: column;
-  width: 72%;
+  margin-left: 4%;
 }
-.addMealAutocomplete {
-  margin-bottom: 5%;
-}
-/*SHOW DETAILS*/
+/******Show details********/
 .detailsContainer {
   flex: 2;
+}
+
+/*Divider*/
+.verticalDivider {
+  border-right: 2px solid #d0d9db;
 }
