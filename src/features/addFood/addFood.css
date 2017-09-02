@@ -1,39 +1,28 @@
 .addFoodContainer {
   width: 100%;
   display: flex;
-  /* border: 2px solid red; */
-  justify-content: space-around;
 }
-.addFoodFormAndButtonsContainer {
+.addFoodFieldsContainer {
+  display: flex;
+}
+.addFoodimgAndButtonsContainer {
+  /* border: 2px solid blue; */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-}
-.addFoodFormAndButtonsContainer div {
-  display: flex;
+  align-items: center;
 }
 .addFoodField {
   margin-bottom: 4%;
 }
 .addFoodButtons {
   display: flex;
-  margin-top: 5%;
-}
-.addFoodSubmitButton button div {
-  display: flex;
-  align-items: center;
-}
-.addFoodImg {
-  /* border: 2px solid yellow; */
-  display: flex;
-  align-self: center;
+  margin-top: 3%;
 }
 .addFoodLinearProgress {
   margin-top: 45%;
 }
-.addFoodSubmitButton {
-  display: flex;
-}
-.addFoodReturnButton svg {
-  margin-top: 5%;
+.renderAddFoodContainer {
+  align-self: center;
+  flex: 2;
 }

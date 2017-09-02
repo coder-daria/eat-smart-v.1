@@ -31,7 +31,7 @@ class AutoComplete extends React.Component {
         <AutoComplete1
           searchText={this.searchText()}
           maxSearchResults={15}
-          floatingLabelText="Choose food"
+          floatingLabelText={this.props.floatingLabelText}
           openOnFocus={true}
           filter={AutoComplete1.fuzzyFilter}
           dataSource={this.props.items}
@@ -50,6 +50,10 @@ AutoComplete.propTypes = {
   onSelect: PropTypes.func.isRequired,
   onChange: PropTypes.func,
   getItemValue: PropTypes.func
+};
+
+AutoComplete.defaultProps = {
+  floatingLabelText: 'Choose food'
 };
 
 export default AutoComplete;
