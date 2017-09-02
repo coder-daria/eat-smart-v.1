@@ -13,8 +13,7 @@ class AddButton extends React.Component {
         <FloatingActionButton
           mini={true}
           style={style}
-          onTouchTap={this.props.onTouchTap}
-        >
+          onTouchTap={this.props.onTouchTap}>
           <ContentAdd />
         </FloatingActionButton>
       </div>

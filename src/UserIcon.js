@@ -60,8 +60,7 @@ class UserIcon extends Component {
             anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'middle', vertical: 'top' }}
             value={this.state.value}
-            onItemTouchTap={this.handleClick}
-          >
+            onItemTouchTap={this.handleClick}>
             <MenuItem disabled={true} primaryText="Signed in as Daria" />
             <Divider />
             <MenuItem value="/preferences" primaryText="Preferences" />
