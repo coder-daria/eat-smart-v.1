@@ -107,37 +107,37 @@ const EditFoodForm = props => {
     </div>;
 
   const submit = props.handleSubmit(clearAndSubmit);
-  const disabled = props.invalid || props.pristine;
-  const editFood = props.isSelected ? renderEditFood() : null;
-  const buttons = props.isSelected ? renderButtons() : null;
+  const editFood = props.isSelected ? renderEditFood() : renderEditFood();
+  const buttons = props.isSelected ? renderButtons() : renderButtons();
+
   return (
-    <div className="editFoodAndImgContainer">
-      <div>
-        <form onSubmit={submit} className="searchAndFormContainer">
-          <div className="search">
-            <Field
-              name="selected"
-              component={renderAutoComplete}
-              label="Select food"
-            />
-          </div>
-          <div>
-            {editFood}
-          </div>
-          <div>
-            {buttons}
-          </div>
-        </form>
+    <form onSubmit={submit} className="editFoodAndImgContainer">
+      <div className="searchAndFormContainer">
+        <div className="search">
+          <Field
+            name="selected"
+            component={renderAutoComplete}
+            label="Select food"
+          />
+        </div>
+        <div>
+          {editFood}
+        </div>
       </div>
-      <div className="img">
-        <img
-          alt="img"
-          width="250px"
-          height="200px"
-          src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
-        />
+      <div className="imgAndButtonsContainer">
+        <div className="img">
+          <img
+            alt="img"
+            width="250px"
+            height="200px"
+            src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
+          />
+        </div>
+        <div className="editFoodButtonsContainer">
+          {buttons}
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 

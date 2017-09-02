@@ -30,11 +30,16 @@ const validate = values => {
 
 const mapStateToProps = state => {
   return {
-    foods: convertObjectToArray(state.foods.foods),
+    foods: state.foods.foods,
+    foodsToSearch: convertObjectToArray(state.foods.foods),
+    mealsPreferences: state.preferences.meals,
     meals: state.meals.meals,
     date: state.meals.date,
     initialValues: {
-      meals: state.meals.meals
+      meal:
+        state.preferences.meals.length > 0
+          ? state.preferences.meals[0].name
+          : ''
     }
   };
 };
@@ -47,7 +52,8 @@ const mapDispatchToProps = dispatch => {
 
 const MealFormParent = reduxForm({
   form: 'addMeal',
-  enableReinitialize: true
+  destroyOnUnmount: false,
+  validate
 })(mealForm);
 
 const MealParentContainer = connect(mapStateToProps, mapDispatchToProps)(

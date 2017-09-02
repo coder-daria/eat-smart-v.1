@@ -19,70 +19,72 @@ const AddFood = props => {
 
   const { invalid, handleSubmit } = props;
   const submit = handleSubmit(clearAndSubmit);
+
+  const renderAddFood = () => {
+    return (
+      <div className="addFoodFieldsContainer">
+        <div>
+          <Field
+            className="addFoodField"
+            name="name"
+            type="text"
+            component={renderTextField}
+            label="Name"
+          />
+        </div>
+        <div>
+          <Field
+            className="addFoodField"
+            name="fat"
+            type="number"
+            component={renderTextField}
+            label="Fat"
+            normalize={stringToNumber}
+          />
+        </div>
+        <div>
+          <Field
+            className="addFoodField"
+            name="protein"
+            type="number"
+            component={renderTextField}
+            label="Protein"
+          />
+        </div>
+        <div>
+          <Field
+            className="addFoodField"
+            name="carbs"
+            type="number"
+            component={renderTextField}
+            label="Carbs"
+          />
+        </div>
+      </div>
+    );
+  };
   return (
-    <div className="addFoodContainer">
-      <div>
-        <form onSubmit={submit} className="addFoodFormAndButtonsContainer">
-          <div>
-            <div>
-              <Field
-                className="addFoodField"
-                name="name"
-                type="text"
-                component={renderTextField}
-                label="Name"
-              />
-            </div>
-            <div>
-              <Field
-                className="addFoodField"
-                name="fat"
-                type="number"
-                component={renderTextField}
-                label="Fat"
-                normalize={stringToNumber}
-              />
-            </div>
-            <div>
-              <Field
-                className="addFoodField"
-                name="protein"
-                type="number"
-                component={renderTextField}
-                label="Protein"
-              />
-            </div>
-            <div>
-              <Field
-                className="addFoodField"
-                name="carbs"
-                type="number"
-                component={renderTextField}
-                label="Carbs"
-              />
-            </div>
-          </div>
-          <div>
-            <div className="addFoodButtons">
-              <div className="addFoodSubmitButton">
-                <SubmitButton />
-              </div>
-              <div className="addFoodReturnButton">
-                <ReturnButton />
-              </div>
-            </div>
-          </div>
-        </form>
+    <form onSubmit={submit} className="addFoodContainer">
+      <div className="renderAddFoodContainer">
+        <div>
+          {renderAddFood()}
+        </div>
       </div>
-      <div className="addFoodImg">
-        <img
-          alt="img"
-          width="300px"
-          height="220px"
-          src="http://www.szczyptasoli.pl/wp-content/uploads/2016/03/pizza_cheat-1170x770.jpg"
-        />
+      <div className="addFoodimgAndButtonsContainer">
+        <div>
+          <img
+            alt="img"
+            width="250px"
+            height="200px"
+            src="http://www.szczyptasoli.pl/wp-content/uploads/2016/03/pizza_cheat-1170x770.jpg"
+          />
+        </div>
+        <div className="addFoodButtons">
+          <SubmitButton className="addFoodSubmitButton" />
+          <ReturnButton />
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 AddFood.propTypes = {

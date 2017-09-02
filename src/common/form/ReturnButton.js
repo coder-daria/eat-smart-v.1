@@ -2,7 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { withRouter } from 'react-router-dom';
 import Return from 'material-ui/svg-icons/hardware/keyboard-return';
-import { cyan500 } from 'material-ui/styles/colors';
+import './returnButton.css';
 
 const ButtonWithHistory = withRouter(({ history }) =>
   <ReturnButton history={history} />
