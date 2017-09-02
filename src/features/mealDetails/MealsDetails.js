@@ -115,8 +115,7 @@ class MealsDetails extends React.Component {
         <div className="chooseMeal">
           <SelectField
             onChange={this.handleChange}
-            floatingLabelText="Choose a meal"
-          >
+            floatingLabelText="Choose a meal">
             {mealList}
           </SelectField>
         </div>
