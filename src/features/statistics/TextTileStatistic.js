@@ -8,7 +8,7 @@ import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import { cyan500, blue600, pink500 } from 'material-ui/styles/colors';
 import { Collapse } from 'react-collapse';
 
-class TextTileStatistic extends React.Component {
+class VisibleTextTileStatistic extends React.Component {
   state = {
     isOpen: true
   };
@@ -60,6 +60,17 @@ class TextTileStatistic extends React.Component {
       </div>
     );
   }
+}
+
+function TextTileStatistic(props) {
+  const result = props.isVisible
+    ? <VisibleTextTileStatistic {...props} />
+    : null;
+  return (
+    <div>
+      {result}
+    </div>
+  );
 }
 
 export default TextTileStatistic;

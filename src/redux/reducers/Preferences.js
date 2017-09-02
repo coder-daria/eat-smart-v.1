@@ -2,7 +2,8 @@ import * as actions from '../../Actions';
 
 const initialState = {
   kcal: 0,
-  meals: []
+  meals: [],
+  details: {}
 };
 
 export default function reducer(state = initialState, action) {
