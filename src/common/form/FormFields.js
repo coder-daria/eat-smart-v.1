@@ -28,7 +28,13 @@ export const renderTextField = field => {
 };
 
 export const renderCheckbox = field => {
-  return <Checkbox label={field.label} onCheck={field.input.onChange} />;
+  return (
+    <Checkbox
+      defaultChecked={field.input.value}
+      label={field.label}
+      onCheck={(e, checked) => field.input.onChange(checked)}
+    />
+  );
 };
 
 export const renderDiv = string =>
