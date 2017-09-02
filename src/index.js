@@ -7,6 +7,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import fetchMealsForDate from './features/changeDate/fetchMealsForDate';
 
 injectTapEventPlugin();
 let store = createStore();
@@ -84,8 +85,17 @@ store.dispatch({
         seconds: 73800000,
         name: 'Evening snack'
       }
-    ]
+    ],
+    details: {
+      dailyCalories: true,
+      mealCalories: false,
+      caloriesLeftToDailyGoal: true,
+      mealCaloriesGraph: true,
+      dailyCaloriesGraph: true
+    }
   }
 });
+
+store.dispatch(fetchMealsForDate(new Date()));
 
 registerServiceWorker();
