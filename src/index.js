@@ -50,6 +50,45 @@ store.dispatch({
 store.dispatch({
   type: 'NEW_FOOD',
   content: {
+    'f400558e-251a-4f7e-8d05-66e35csalad': {
+      name: 'caesar salad',
+      fat: 12,
+      protein: 20,
+      carbs: 12,
+      id: 'f400558e-251a-4f7e-8d05-66e35csalad'
+    }
+  }
+});
+
+store.dispatch({
+  type: 'NEW_FOOD',
+  content: {
+    'f400558e-251a-4f7e-8d05-66e35fsalad': {
+      name: 'feta salad',
+      fat: 20,
+      protein: 25,
+      carbs: 12,
+      id: 'f400558e-251a-4f7e-8d05-66e35fsalad'
+    }
+  }
+});
+
+store.dispatch({
+  type: 'NEW_FOOD',
+  content: {
+    'f400558e-251a-4f7e-8d05-66e351burger': {
+      name: 'beef burger',
+      fat: 25,
+      protein: 35,
+      carbs: 10,
+      id: 'f400558e-251a-4f7e-8d05-66e351burger'
+    }
+  }
+});
+
+store.dispatch({
+  type: 'NEW_FOOD',
+  content: {
     'f400558e-251a-4f7e-8d05-66e35b729egg': {
       name: 'egg',
       fat: 100,

@@ -17,9 +17,9 @@ class MealList extends Component {
     };
   }
 
-  handleChange = (_e, selectedValue) => {
+  handleSelected = selectedValue => {
     this.setState({ selectedValue });
-    // this.props.onSelect(selectedValue);
+    this.props.onSelect(selectedValue);
   };
 
   renderField = (field, index, fields) => {
@@ -132,6 +132,7 @@ class MealList extends Component {
                 key={index}
                 value={index}
                 primaryText={meal.name}
+                onClick={() => this.handleSelected(index)}
                 nestedItems={nestedItems}
               />
             </div>

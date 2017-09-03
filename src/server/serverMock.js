@@ -48,9 +48,9 @@ const randomMeals = [
     name: 'Morning snack',
     foods: [
       {
-        name: 'tomato',
-        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
-        quantity: '20',
+        name: 'caesar salad',
+        id: 'f400558e-251a-4f7e-8d05-66e35csalad',
+        quantity: '40',
         unit: 'grams'
       }
     ]
@@ -59,9 +59,9 @@ const randomMeals = [
     name: 'Lunch',
     foods: [
       {
-        name: 'tomato',
-        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
-        quantity: '30',
+        name: 'beef burger',
+        id: 'f400558e-251a-4f7e-8d05-66e351burger',
+        quantity: '200',
         unit: 'grams'
       }
     ]
@@ -70,9 +70,9 @@ const randomMeals = [
     name: 'Dinner',
     foods: [
       {
-        name: 'tomato',
-        id: 'f400558e-251a-4f7e-8d05-66e35btomato',
-        quantity: '50',
+        name: 'feta salad',
+        id: 'f400558e-251a-4f7e-8d05-66e35fsalad',
+        quantity: '200',
         unit: 'grams'
       }
     ]

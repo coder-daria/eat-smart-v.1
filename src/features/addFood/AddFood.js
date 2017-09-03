@@ -66,9 +66,7 @@ const AddFood = props => {
   return (
     <form onSubmit={submit} className="addFoodContainer">
       <div className="renderAddFoodContainer">
-        <div>
-          {renderAddFood()}
-        </div>
+        <div>{renderAddFood()}</div>
       </div>
       <div className="addFoodimgAndButtonsContainer">
         <div>
