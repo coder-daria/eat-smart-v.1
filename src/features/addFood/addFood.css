@@ -6,7 +6,6 @@
   display: flex;
 }
 .addFoodimgAndButtonsContainer {
-  /* border: 2px solid blue; */
   flex: 1;
   display: flex;
   flex-direction: column;

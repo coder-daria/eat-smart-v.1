@@ -22,9 +22,11 @@
   flex: 1;
 }
 /******MealList.js********/
-
+.addMealListItem {
+  margin-top: 2%;
+}
 .listItem {
-  box-shadow: 5px 0 4px #aaaaaa;
+  box-shadow: 4px -1px 4px #aaaaaa;
 }
 /************************/
 .addMealRaisedButton {

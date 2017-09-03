@@ -16,7 +16,7 @@ function MealDetailsPreferences() {
   }
 
   return (
-    <div>
+    <div className="checkbox-preferences">
       <Field
         name="details.dailyCalories"
         label={buildLabel('Daily calories')}
