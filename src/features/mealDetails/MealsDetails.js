@@ -27,7 +27,7 @@ class MealsDetails extends React.Component {
       <div className="kcalEatenContainer">
         <div className="kcalEatenNumber">
           <h3>{summary.kcal}</h3>
-          <h4>Eaten kcal</h4>
+          <h4>kcal eaten</h4>
         </div>
       </div>
     );
@@ -38,7 +38,7 @@ class MealsDetails extends React.Component {
       <div className="kcalEatenContainer">
         <div>
           <h3>{this.props.dailyKcal - summary.kcal}</h3>
-          <h4>Kcal left to reach daily goal</h4>
+          <h4>kcal left</h4>
         </div>
       </div>
     );
@@ -90,14 +90,14 @@ class MealsDetails extends React.Component {
             onClose={() => this.props.toggleStatisticCard('dailyCalories')}
             visible={this.props.details.dailyCalories}
             content={this.dailySummary()}
-            title={'Your daily summary'}
+            title={'Daily'}
           />
           <StatisticCard
             onClose={() =>
               this.props.toggleStatisticCard('caloriesLeftToDailyGoal')}
             visible={this.props.details.caloriesLeftToDailyGoal}
             content={this.dailyKcalLeft()}
-            title={'Your daily summary'}
+            title={'Goal'}
           />
         </div>
         <div className="bigStatistic">

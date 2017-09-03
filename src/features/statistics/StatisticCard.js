@@ -21,13 +21,16 @@ class VisibleCardTileStatistic extends React.Component {
     });
   };
   header = () => {
+    const editButton = this.props.editable ? (
+      <MaterialIcon size="small">
+        <Edit hoverColor={blue600} />
+      </MaterialIcon>
+    ) : null;
     return (
       <div className="title_statistic">
         <div className="title">{this.props.title}</div>
         <div className="statisticIcons">
-          <MaterialIcon size="small">
-            <Edit hoverColor={blue600} />
-          </MaterialIcon>
+          {editButton}
           <MaterialIcon size="small" onClick={this.props.onClose}>
             <Close hoverColor={pink500} />
           </MaterialIcon>
@@ -84,5 +87,7 @@ function StatisticCard(props) {
   const result = props.visible ? <VisibleCardTileStatistic {...props} /> : null;
   return <div>{result}</div>;
 }
+
+StatisticCard.defaultProps = { editable: false };
 
 export default StatisticCard;
