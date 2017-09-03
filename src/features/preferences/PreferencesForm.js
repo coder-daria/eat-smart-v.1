@@ -10,6 +10,7 @@ import ReturnButton from '../../common/form/ReturnButton';
 import PreferencesGroup from './PreferencesGroup';
 import SubmitButton from '../../common/form/SubmitButton';
 import MealDetailsPreferences from './MealDetailsPreferences';
+import HorizontalDivider from '../../common/HorizontalDivider';
 
 class PreferencesParent extends React.Component {
   render() {
@@ -31,20 +32,24 @@ class PreferencesParent extends React.Component {
               />
             </PreferencesGroup>
           </div>
+          <HorizontalDivider className="divider-preferences" />
           <div className="chips-preferences">
-            <div>
-              <PreferencesGroup
-                name="Your meal preferences"
-                className="your-meal-preferences">
-                <div>
-                  <FieldArray name="meals" component={renderFieldArray} />
-                </div>
-              </PreferencesGroup>
-            </div>
+            <PreferencesGroup
+              name="Your meal preferences"
+              className="your-meal-preferences">
+              <div>
+                <FieldArray name="meals" component={renderFieldArray} />
+              </div>
+            </PreferencesGroup>
           </div>
-          <PreferencesGroup>
-            <MealDetailsPreferences />
-          </PreferencesGroup>
+          <HorizontalDivider className="divider-preferences" />
+          <div className="displaying-details">
+            <PreferencesGroup
+              name="Meal details preferences"
+              className="meal-details-preferences">
+              <MealDetailsPreferences />
+            </PreferencesGroup>
+          </div>
           <div className="preferencesButtons">
             <div>
               <SubmitButton className="submitPreferencesButton" />
