@@ -1,7 +1,7 @@
 .preferencesContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  min-width: 985px;
 }
 .preferencesKcalContainer {
   border-bottom: 2px solid #d0d9db;
