@@ -39,8 +39,7 @@
   flex-direction: column;
 }
 .preferencesAddButton {
-  margin-top: 4%;
-  margin-bottom: 10%;
+  margin-top: 1%;
 }
 .preferencesButtons {
   display: flex;

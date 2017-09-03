@@ -34,15 +34,13 @@ class PreferencesParent extends React.Component {
           </div>
           <HorizontalDivider className="divider-preferences" />
           <div className="chips-preferences">
-            <div>
-              <PreferencesGroup
-                name="Your meal preferences"
-                className="your-meal-preferences">
-                <div>
-                  <FieldArray name="meals" component={renderFieldArray} />
-                </div>
-              </PreferencesGroup>
-            </div>
+            <PreferencesGroup
+              name="Your meal preferences"
+              className="your-meal-preferences">
+              <div>
+                <FieldArray name="meals" component={renderFieldArray} />
+              </div>
+            </PreferencesGroup>
           </div>
           <HorizontalDivider className="divider-preferences" />
           <div className="displaying-details">
