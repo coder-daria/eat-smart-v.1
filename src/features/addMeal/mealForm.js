@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, FieldArray } from 'redux-form';
 import RaisedButton from 'material-ui/RaisedButton';
 import './mealForm.css';
 import MealsDetailsContainer from '../mealDetails/MealsDetailsContainer';

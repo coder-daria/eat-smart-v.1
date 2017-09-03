@@ -52,7 +52,10 @@ class PreferencesParent extends React.Component {
           </div>
           <div className="preferencesButtons">
             <div>
-              <SubmitButton className="submitPreferencesButton" />
+              <SubmitButton
+                disabled={disabled}
+                className="submitPreferencesButton"
+              />
             </div>
             <div>
               <ReturnButton className="returnButton" />
