@@ -93,17 +93,21 @@ class MealsDetails extends React.Component {
       <div className="summary">
         <div className="smallStatistic">
           <StatisticCard
+            onClose={() => this.props.toggleStatisticCard('dailyCalories')}
+            visible={this.props.details.dailyCalories}
             content={this.dailySummary()}
             title={'Your daily summary'}
           />
         </div>
         <div className="bigStatistic">
           <StatisticCard
+            visible={this.props.details.mealCaloriesGraph}
             size="big"
             content={<MealPercentagesGraph size={250} />}
             title={'Meal chart'}
           />
           <StatisticCard
+            visible={this.props.details.dailyCaloriesGraph}
             size="big"
             content={<DailyPercentagesGraph size={250} />}
             title={'Daily chart'}

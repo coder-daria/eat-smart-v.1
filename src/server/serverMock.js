@@ -34,7 +34,7 @@ function addFood(food) {
 
 const randomMeals = [
   {
-    name: 'Breakfastt',
+    name: 'Breakfast',
     foods: [
       {
         name: 'tomato',
@@ -91,6 +91,7 @@ const randomMeals = [
 ];
 
 const mealsAddedByUser = {};
+window.meals = mealsAddedByUser;
 
 /*
 input
@@ -105,7 +106,9 @@ function findMealsIn(date) {
   // .then(data => data.json())
 
   function fn(resolve, reject) {
-    const seconds = moment(date).startOf('day').unix();
+    const seconds = moment(date)
+      .startOf('day')
+      .unix();
     if (!mealsAddedByUser[seconds]) {
       mealsAddedByUser[seconds] = R.clone(randomMeals);
     }
@@ -119,7 +122,9 @@ function findMealsIn(date) {
 
 function addMeals(meals, date) {
   function fn(resolve, reject) {
-    const seconds = moment(date).startOf('day').unix();
+    const seconds = moment(date)
+      .startOf('day')
+      .unix();
     mealsAddedByUser[seconds] = meals;
     setTimeout(() => {
       resolve(mealsAddedByUser[seconds]);

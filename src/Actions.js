@@ -8,6 +8,7 @@ export const EDIT_FOOD = 'EDIT_FOOD';
 export const IS_LOADING = 'IS_LOADING';
 export const DATA_RECEIVED = 'DATA_RECEIVED';
 export const GO_TO = 'GO_TO';
+export const TOGGLE_STATISTIC_CARD = 'TOGGLE_STATISTIC_CARD';
 
 export const ASYNC_REQUEST_STATUS = 'ASYNC_REQUEST_STATUS';
 export const ASYNC_REQUEST_STATUS_ENUM = {
@@ -48,4 +49,7 @@ export function asyncRequestStatus(status) {
 }
 export const changeLocation = location => {
   return { type: GO_TO, content: location };
+};
+export const toggleStatisticCard = statistic => {
+  return { type: TOGGLE_STATISTIC_CARD, content: statistic };
 };
