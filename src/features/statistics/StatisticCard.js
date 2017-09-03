@@ -8,7 +8,7 @@ import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import { cyan500, blue600, pink500 } from 'material-ui/styles/colors';
 import { Collapse } from 'react-collapse';
 
-class StatisticCard extends React.Component {
+class VisibleCardTileStatistic extends React.Component {
   state = {
     isOpen: true
   };
@@ -78,6 +78,11 @@ class StatisticCard extends React.Component {
       </div>
     );
   }
+}
+
+function StatisticCard(props) {
+  const result = props.visible ? <VisibleCardTileStatistic {...props} /> : null;
+  return <div>{result}</div>;
 }
 
 export default StatisticCard;
