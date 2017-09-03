@@ -51,4 +51,6 @@
 /*Divider*/
 .verticalDivider {
   border-right: 2px solid #d0d9db;
+  margin-left: 1%;
+  margin-right: 1%;
 }

@@ -4,7 +4,7 @@ import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import DailyPercentagesGraph from '../statistics/DailyPercentagesGraph';
 import MealPercentagesGraph from '../statistics/MealPercentagesGraph';
-import TextTileStatistic from '../statistics/TextTileStatistic';
+import StatisticCard from '../statistics/StatisticCard';
 import { sumFoods, countKcalInMeal } from '../../functions';
 import './mealsDetails.css';
 
@@ -101,32 +101,14 @@ class MealsDetails extends React.Component {
     const selectedMealDetails = this.state.selectedMeal
       ? this.renderSelectedMeal()
       : null;
-
-    const mealList = this.props.meals.map(item => {
-      return (
-        <MenuItem key={item.meal} value={item.meal} primaryText={item.meal} />
-      );
-    });
     return (
       <div className="summary">
-        <div className="statistic">
-          <TextTileStatistic dailySummary={this.dailySummary()} />
+        <div className="smallStatistic">
+          <StatisticCard content={this.dailySummary()} title={"Your daily summary"} />
         </div>
-        <div className="chooseMeal">
-          <SelectField
-            onChange={this.handleChange}
-            floatingLabelText="Choose a meal"
-          >
-            {mealList}
-          </SelectField>
-        </div>
-        <div className="chartAndDetailsContainer">
-          <div className="mealPercentagesGraph">
-            <MealPercentagesGraph />
-          </div>
-          <div className="dailyPercentagesGraph">
-            <DailyPercentagesGraph />
-          </div>
+        <div className="bigStatistic"> 
+          <StatisticCard size="big" content={<MealPercentagesGraph size={250}/>} title={"Meal chart"} />
+          <StatisticCard size="big" content={<DailyPercentagesGraph size={250}/>} title={"Daily chart"} />
           <div>
             {selectedMealDetails}
           </div>

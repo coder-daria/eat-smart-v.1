@@ -22,7 +22,7 @@ var data = {
 
 class DailyPercentagesGraph extends React.Component {
   render() {
-    return <Chart data={data} />;
+    return <Chart data={data} {...this.props}/>;
   }
 }
 
