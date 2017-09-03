@@ -9,11 +9,8 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.SELECTED_DATE:
-      console.log(action.content);
       return Object.assign({}, state, { date: action.content });
-
     case actions.MEAL_HISTORY_FOR_DAY:
-      console.log(action.content);
       return Object.assign({}, state, { meals: action.content });
 
     case actions.SHOW_MEAL_DETAILS:

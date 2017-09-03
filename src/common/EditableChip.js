@@ -43,16 +43,10 @@ class EditableChip extends React.Component {
   form = () => {
     return (
       <div className="eachFormContainer">
-        <div className="content">
-          {this.props.formFields}
-        </div>
+        <div className="content">{this.props.formFields}</div>
         <div className="icons">
-          <div>
-            {this.acceptButton()}
-          </div>
-          <div>
-            {this.removeButton()}
-          </div>
+          <div>{this.acceptButton()}</div>
+          <div>{this.removeButton()}</div>
         </div>
       </div>
     );
@@ -73,11 +67,7 @@ class EditableChip extends React.Component {
 
   render() {
     const content = this.state.editing ? this.form() : this.chip();
-    return (
-      <div>
-        {content}
-      </div>
-    );
+    return <div>{content}</div>;
   }
 }
 

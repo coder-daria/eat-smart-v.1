@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { renderTextField } from '../../common/form/FormFields';
 import AutoComplete from '../../common/AutoComplete';
-import RaisedButton from 'material-ui/RaisedButton';
 import ReturnButton from '../../common/form/ReturnButton';
 import './editFoodForm.css';
 import R from 'ramda';
-import MaterialIcon from '../../common/MaterialIcon';
 import SubmitButton from '../../common/form/SubmitButton';
 
 const validate = values => {
@@ -100,15 +98,20 @@ const EditFoodForm = props => {
     );
   };
 
-  const renderButtons = () =>
+  const renderButtons = disabledSubmit => (
     <div className="editFoodButtons">
-      <SubmitButton className="editFoodRaisedButton" />
+      <SubmitButton
+        disabled={disabledSubmit}
+        className="editFoodRaisedButton"
+      />
       <ReturnButton />
-    </div>;
+    </div>
+  );
 
   const submit = props.handleSubmit(clearAndSubmit);
-  const editFood = props.isSelected ? renderEditFood() : renderEditFood();
-  const buttons = props.isSelected ? renderButtons() : renderButtons();
+  const editFood = props.isSelected ? renderEditFood() : null;
+  const disabledSubmit = props.invalid || props.pristine;
+  const buttons = renderButtons(disabledSubmit);
 
   return (
     <form onSubmit={submit} className="editFoodAndImgContainer">
@@ -120,9 +123,7 @@ const EditFoodForm = props => {
             label="Select food"
           />
         </div>
-        <div>
-          {editFood}
-        </div>
+        <div>{editFood}</div>
       </div>
       <div className="imgAndButtonsContainer">
         <div className="img">
@@ -133,9 +134,7 @@ const EditFoodForm = props => {
             src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
           />
         </div>
-        <div className="editFoodButtonsContainer">
-          {buttons}
-        </div>
+        <div className="editFoodButtonsContainer">{buttons}</div>
       </div>
     </form>
   );

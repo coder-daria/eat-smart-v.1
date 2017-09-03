@@ -4,15 +4,12 @@ import FoodsReducer from './reducers/Foods';
 import PreferencesReducer from './reducers/Preferences';
 import MealsReducer from './reducers/Meals';
 import PageChangesReducer from './reducers/PageChanges';
-import { convertFoodsFromServer } from '../functions';
-import server from '../server/serverMock';
-import * as actions from '../Actions';
 import thunk from 'redux-thunk';
 
 const configureStore = () => {
   const logger = store => next => action => {
     //   console.log('dispatching', action)
-    let result = next(action);
+    next(action);
     //   console.log('next state', store.getState())
     // return result
   };
@@ -42,34 +39,5 @@ const configureStore = () => {
 
   return store;
 };
-
-const addFoodToServer = store => next => action => {
-  switch (action.type) {
-    case actions.NEW_FOOD:
-      store.dispatch(actions.isLoading(true));
-
-      const fetchOptions = { mode: 'cors', method: 'GET' };
-      fetch('http://localhost:3001', fetchOptions)
-        .then(data => data.json())
-        .then(data => {
-          console.log(`the server says ${data}`);
-          const newFoodFromServer = callServerAndConvertForUi(action.content);
-
-          action.content = newFoodFromServer;
-          next(action);
-          store.dispatch(actions.isLoading(false));
-        });
-
-      break;
-    default:
-      next(action);
-    //   console.log('next state', store.getState();
-  }
-};
-
-function callServerAndConvertForUi(foodFromUi) {
-  let newFoodInServer = server.addNewFood(foodFromUi);
-  return convertFoodsFromServer(newFoodInServer);
-}
 
 export default configureStore;

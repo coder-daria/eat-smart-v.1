@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
 import DailyPercentagesGraph from '../statistics/DailyPercentagesGraph';
 import MealPercentagesGraph from '../statistics/MealPercentagesGraph';
 import StatisticCard from '../statistics/StatisticCard';
-import { sumFoods, countKcalInMeal } from '../../functions';
+import { countKcalInMeal, sumFoods } from '../../functions';
 import './mealsDetails.css';
 
 class MealsDetails extends React.Component {
   state = {};
 
   handleChange = (event, index, value) => {
-    console.log(`event: ${event}, value: ${value}, index: ${index}`);
     if (value !== 'empty') {
       this.setState({ selectedMeal: this.props.meals[index] });
     }

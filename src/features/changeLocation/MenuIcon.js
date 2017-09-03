@@ -6,10 +6,6 @@ import IconButton from 'material-ui/IconButton';
 import './menuIcon.css';
 
 class MenuIcon extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleClick = (event, child) => {
     let value = child.props.value;
     this.props.history.push(value);

@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
-import RaisedButton from 'material-ui/RaisedButton';
 import { renderTextField } from '../../common/form/FormFields';
 import { stringToNumber } from '../../common/form/normalizers';
 import ReturnButton from '../../common/form/ReturnButton';
 import './addFood.css';
-import DoneAll from 'material-ui/svg-icons/action/done-all';
-import MaterialIcon from '../../common/MaterialIcon';
 
 import SubmitButton from '../../common/form/SubmitButton';
 
@@ -17,7 +14,8 @@ const AddFood = props => {
     props.reset();
   };
 
-  const { invalid, handleSubmit } = props;
+  const { handleSubmit } = props;
+  const disabled = props.invalid || props.pristine;
   const submit = handleSubmit(clearAndSubmit);
 
   const renderAddFood = () => {
@@ -66,9 +64,7 @@ const AddFood = props => {
   return (
     <form onSubmit={submit} className="addFoodContainer">
       <div className="renderAddFoodContainer">
-        <div>
-          {renderAddFood()}
-        </div>
+        <div>{renderAddFood()}</div>
       </div>
       <div className="addFoodimgAndButtonsContainer">
         <div>
@@ -80,7 +76,7 @@ const AddFood = props => {
           />
         </div>
         <div className="addFoodButtons">
-          <SubmitButton className="addFoodSubmitButton" />
+          <SubmitButton disabled={disabled} className="addFoodSubmitButton" />
           <ReturnButton />
         </div>
       </div>

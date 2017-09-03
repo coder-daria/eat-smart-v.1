@@ -18,7 +18,6 @@ class DayPicker extends React.Component {
   handleChange = (event, date) => {
     const momentDate = moment(date);
     let choosenDay = momentDate.format('DD MMMM YYYY');
-    console.log(choosenDay);
 
     this.setState({
       fullDateDisplay: choosenDay
@@ -50,9 +49,7 @@ class DayPicker extends React.Component {
     return (
       <div className="dateContainer">
         <div className="iconAndDateContainer">
-          <div className="calendarIcon">
-            {calendarIcon}
-          </div>
+          <div className="calendarIcon">{calendarIcon}</div>
           <div style={{ visibility: 'initial' }} className="datePicker">
             <button>
               <DatePicker

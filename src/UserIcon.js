@@ -8,9 +8,9 @@ import './userIcon.css';
 import Avatar from 'material-ui/Avatar';
 import { withRouter } from 'react-router-dom';
 
-const MenuWithHistory = withRouter(({ history }) =>
+const MenuWithHistory = withRouter(({ history }) => (
   <UserIcon history={history} />
-);
+));
 
 class UserIcon extends Component {
   constructor(props) {

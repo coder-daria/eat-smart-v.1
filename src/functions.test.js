@@ -94,7 +94,9 @@ describe('shows the closest meal based on the current time', () => {
     }
   ];
   it('with a single meal, it returns it no matter what time is it', () => {
-    const currentTime = moment().hour(10).minutes(0);
+    const currentTime = moment()
+      .hour(10)
+      .minutes(0);
     const result = utils.findMealByClosestTime(
       currentTime,
       mealsPreferences.slice(0, 1)
@@ -104,49 +106,65 @@ describe('shows the closest meal based on the current time', () => {
   });
   describe('with multiple meals', () => {
     it('returns breakfast if the time is 3:00', () => {
-      const currentTime = moment().hour(3).minutes(0);
+      const currentTime = moment()
+        .hour(3)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[0]);
     });
     it('returns breakfast if the time is 8:00', () => {
-      const currentTime = moment().hour(8).minutes(0);
+      const currentTime = moment()
+        .hour(8)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[0]);
     });
     it('returns breakfast if the time is 10:00', () => {
-      const currentTime = moment().hour(10).minutes(0);
+      const currentTime = moment()
+        .hour(10)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[0]);
     });
     it('returns lunch if the time is 12:00', () => {
-      const currentTime = moment().hour(12).minutes(0);
+      const currentTime = moment()
+        .hour(12)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[1]);
     });
     it('returns dinner if the time is 15:00', () => {
-      const currentTime = moment().hour(15).minutes(0);
+      const currentTime = moment()
+        .hour(15)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[2]);
     });
     it('returns supper if the time is 18:30', () => {
-      const currentTime = moment().hour(18).minutes(30);
+      const currentTime = moment()
+        .hour(18)
+        .minutes(30);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[3]);
     });
     it('returns dessert if the time is 22:55', () => {
-      const currentTime = moment().hour(22).minutes(55);
+      const currentTime = moment()
+        .hour(22)
+        .minutes(55);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[4]);
     });
     it('returns dessert if the time is 2:00', () => {
-      const currentTime = moment().hour(2).minutes(0);
+      const currentTime = moment()
+        .hour(2)
+        .minutes(0);
       const result = utils.findMealByClosestTime(currentTime, mealsPreferences);
 
       expect(result).toEqual(mealsPreferences[4]);

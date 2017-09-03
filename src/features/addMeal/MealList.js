@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { List, ListItem } from 'material-ui/List';
+import { ListItem } from 'material-ui/List';
 import { Field, FieldArray } from 'redux-form';
 import R from 'ramda';
 import AutoComplete from '../../common/AutoComplete';
@@ -109,9 +109,7 @@ class MealList extends Component {
             onSelect={addField}
           />
         </div>
-        <ul>
-          {fieldArray.fields.map(this.renderField)}
-        </ul>
+        <ul>{fieldArray.fields.map(this.renderField)}</ul>
       </div>
     );
   };
@@ -139,11 +137,7 @@ class MealList extends Component {
           );
         })
       : null;
-    return (
-      <div className="addMealSelectableList">
-        {listItems}
-      </div>
-    );
+    return <div className="addMealSelectableList">{listItems}</div>;
   }
 }
 
