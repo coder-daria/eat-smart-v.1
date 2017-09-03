@@ -3,6 +3,7 @@ import mealForm from './mealForm';
 import addMealToServer from './addMealToServer';
 import { convertObjectToArray } from '../../functions';
 import { reduxForm } from 'redux-form';
+import { selectedMeal } from '../../Actions';
 
 const validate = values => {
   const errors = { meal: '', foods: [] };
@@ -41,7 +42,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addMeal: (meal, date) => dispatch(addMealToServer(meal, date))
+    addMeal: (meal, date) => dispatch(addMealToServer(meal, date)),
+    onSelect: selectedMealIndex => dispatch(selectedMeal(selectedMealIndex))
   };
 };
 

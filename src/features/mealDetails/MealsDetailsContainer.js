@@ -12,7 +12,8 @@ const mapStateToProps = state => {
   return {
     meals: meals,
     dailyKcal: state.preferences.kcal,
-    details: state.preferences.details
+    details: state.preferences.details,
+    selectedMeal: state.meals.selectedMeal
   };
 };
 

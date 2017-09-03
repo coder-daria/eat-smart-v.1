@@ -29,7 +29,7 @@ class MealForm extends React.Component {
               <MealList
                 foods={this.props.foods}
                 meals={this.props.meals}
-                // onSelect={field.input.onChange}
+                onSelect={this.props.onSelect}
               />
               <div className="addMealRaisedButton">
                 <RaisedButton
