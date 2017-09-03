@@ -18,7 +18,7 @@ function MealDetailsPreferences(props) {
   }
 
   return (
-    <div>
+    <div className="checkbox-preferences">
       <Field
         name="details.dailyCalories"
         label={buildLabel('Daily calories')}
