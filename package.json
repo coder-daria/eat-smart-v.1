@@ -1,9 +1,12 @@
 {
-  "name": "demo-app",
+  "name": "eat-smart",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "homepage": "https://darilla.github.io/eat-smart",
   "dependencies": {
     "chart.js": "^2.6.0",
+    "gh-pages": "^1.0.0",
     "lint-staged": "^4.0.4",
     "material-design-icons": "^3.0.1",
     "material-ui": "^0.19.0",
@@ -41,6 +44,8 @@
     "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
