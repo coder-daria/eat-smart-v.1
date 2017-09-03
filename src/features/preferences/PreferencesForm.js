@@ -42,7 +42,9 @@ class PreferencesParent extends React.Component {
               </PreferencesGroup>
             </div>
           </div>
-          <PreferencesGroup>
+          <PreferencesGroup
+            name="Meal details preferences"
+            className="meal-details-preferences">
             <MealDetailsPreferences />
           </PreferencesGroup>
           <div className="preferencesButtons">

@@ -16,9 +16,7 @@
 }
 
 .smallStatisticContainer .title_statistic {
-  background-color: #dbdbdb;
-  display: flex;
-  border-bottom: 1px solid #d1d1d1;
+  justify-content: flex-start;
 }
 .title_statistic .title {
   font-size: 18px;
