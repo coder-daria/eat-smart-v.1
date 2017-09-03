@@ -28,13 +28,13 @@ class StatisticCard extends React.Component {
           <MaterialIcon size="small">
             <Edit hoverColor={blue600} />
           </MaterialIcon>
-          <MaterialIcon  size="small">
+          <MaterialIcon size="small">
             <Close hoverColor={pink500} />
           </MaterialIcon>
         </div>
       </div>
-    )
-  }
+    );
+  };
   collapseButton = () => {
     let arrowUp = (
       <MaterialIcon type="button" onClick={this.toggle}>
@@ -50,24 +50,23 @@ class StatisticCard extends React.Component {
     let arrowButton = this.state.isOpen ? arrowUp : arrowDown;
     return (
       <div className="footer">
-        <div>
-          {arrowButton}
-        </div>
+        <div>{arrowButton}</div>
       </div>
-    )
-  }
+    );
+  };
 
   content = () => (
     <div>
       <Collapse isOpened={this.state.isOpen}>
-        <div className="body">
-          {this.props.content}
-        </div>
+        <div className="body">{this.props.content}</div>
       </Collapse>
     </div>
-  )
+  );
   render() {
-    let size = this.props.size === "big" ? "bigStatisticContainer" : "smallStatisticContainer";
+    let size =
+      this.props.size === 'big'
+        ? 'bigStatisticContainer'
+        : 'smallStatisticContainer';
     const header = this.header();
     const content = this.content();
     const collapseButton = this.collapseButton();
@@ -76,7 +75,7 @@ class StatisticCard extends React.Component {
         {header}
         {content}
         {collapseButton}
-      </div >
+      </div>
     );
   }
 }

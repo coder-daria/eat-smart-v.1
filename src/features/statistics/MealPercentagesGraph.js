@@ -22,7 +22,7 @@ var data = {
 
 class MealPercentagesGraph extends React.Component {
   render() {
-    return  <Chart data={data} {...this.props} />
+    return <Chart data={data} {...this.props} />;
   }
 }
 
