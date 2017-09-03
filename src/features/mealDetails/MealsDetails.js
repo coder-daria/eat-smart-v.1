@@ -49,25 +49,21 @@ class MealsDetails extends React.Component {
 
   dailySummary = () => {
     const total =
-      this.props.meals.length === 0
-        ? <p>You have not eaten anything yet! </p>
-        : this.renderDailyCalories();
-    return (
-      <div className="information">
-        {total}
-      </div>
-    );
+      this.props.meals.length === 0 ? (
+        <p>You have not eaten anything yet! </p>
+      ) : (
+        this.renderDailyCalories()
+      );
+    return <div className="information">{total}</div>;
   };
   dailyKcalLeft = () => {
     const total =
-      this.props.meals.length === 0
-        ? <p>You have not eaten anything yet! </p>
-        : this.renderKcalLeft();
-    return (
-      <div className="information">
-        {total}
-      </div>
-    );
+      this.props.meals.length === 0 ? (
+        <p>You have not eaten anything yet! </p>
+      ) : (
+        this.renderKcalLeft()
+      );
+    return <div className="information">{total}</div>;
   };
 
   calculateSelectedMeal = () => {

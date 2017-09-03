@@ -26,11 +26,7 @@ class Time extends React.Component {
     });
   };
   render() {
-    return (
-      <p style={timeStyles}>
-        {this.state.date}
-      </p>
-    );
+    return <p style={timeStyles}>{this.state.date}</p>;
   }
 }
 

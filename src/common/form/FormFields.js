@@ -37,10 +37,7 @@ export const renderCheckbox = field => {
   );
 };
 
-export const renderDiv = string =>
-  <div>
-    {string}
-  </div>;
+export const renderDiv = string => <div>{string}</div>;
 
 export const renderTimePicker = field => {
   const onChange = (_null, date) => {

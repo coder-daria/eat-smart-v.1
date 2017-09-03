@@ -100,11 +100,12 @@ const EditFoodForm = props => {
     );
   };
 
-  const renderButtons = () =>
+  const renderButtons = () => (
     <div className="editFoodButtons">
       <SubmitButton className="editFoodRaisedButton" />
       <ReturnButton />
-    </div>;
+    </div>
+  );
 
   const submit = props.handleSubmit(clearAndSubmit);
   const editFood = props.isSelected ? renderEditFood() : renderEditFood();
@@ -120,9 +121,7 @@ const EditFoodForm = props => {
             label="Select food"
           />
         </div>
-        <div>
-          {editFood}
-        </div>
+        <div>{editFood}</div>
       </div>
       <div className="imgAndButtonsContainer">
         <div className="img">
@@ -133,9 +132,7 @@ const EditFoodForm = props => {
             src="http://usercontent.s3.amazonaws.com/editorial/wp-content/uploads/2010/12/healthy-food-for-pregnancy-page.jpg"
           />
         </div>
-        <div className="editFoodButtonsContainer">
-          {buttons}
-        </div>
+        <div className="editFoodButtonsContainer">{buttons}</div>
       </div>
     </form>
   );

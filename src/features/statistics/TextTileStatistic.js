@@ -48,14 +48,10 @@ class VisibleTextTileStatistic extends React.Component {
           </div>
         </div>
         <Collapse isOpened={this.state.isOpen}>
-          <div className="body">
-            {this.props.dailySummary}
-          </div>
+          <div className="body">{this.props.dailySummary}</div>
         </Collapse>
         <div className="footer">
-          <div>
-            {arrowButton}
-          </div>
+          <div>{arrowButton}</div>
         </div>
       </div>
     );
@@ -63,14 +59,10 @@ class VisibleTextTileStatistic extends React.Component {
 }
 
 function TextTileStatistic(props) {
-  const result = props.isVisible
-    ? <VisibleTextTileStatistic {...props} />
-    : null;
-  return (
-    <div>
-      {result}
-    </div>
-  );
+  const result = props.isVisible ? (
+    <VisibleTextTileStatistic {...props} />
+  ) : null;
+  return <div>{result}</div>;
 }
 
 export default TextTileStatistic;

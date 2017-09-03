@@ -50,9 +50,7 @@ class DayPicker extends React.Component {
     return (
       <div className="dateContainer">
         <div className="iconAndDateContainer">
-          <div className="calendarIcon">
-            {calendarIcon}
-          </div>
+          <div className="calendarIcon">{calendarIcon}</div>
           <div style={{ visibility: 'initial' }} className="datePicker">
             <button>
               <DatePicker
