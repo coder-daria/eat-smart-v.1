@@ -1,8 +1,7 @@
 .preferencesContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  /* border: 2px solid orange;               */
+  min-width: 985px;
 }
 .preferencesKcalContainer {
   border-bottom: 2px solid #d0d9db;
@@ -23,6 +22,7 @@
   margin-bottom: 3%;
 }
 .preferencesAndAddButtonContainer {
+  margin-top: 2%;
   display: flex;
   flex-direction: column;
 }
