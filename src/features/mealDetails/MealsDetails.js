@@ -29,15 +29,11 @@ class MealsDetails extends React.Component {
     return (
       <div className="kcalEatenContainer">
         <div className="kcalEatenNumber">
-          <h3>
-            {summary.kcal}
-          </h3>
+          <h3>{summary.kcal}</h3>
           <h4>Eaten kcal</h4>
         </div>
         <div>
-          <h3>
-            {this.props.dailyKcal - summary.kcal}
-          </h3>
+          <h3>{this.props.dailyKcal - summary.kcal}</h3>
           <h4>Kcal left to reach daily goal</h4>
         </div>
       </div>
@@ -46,14 +42,12 @@ class MealsDetails extends React.Component {
 
   dailySummary = () => {
     const total =
-      this.props.meals.length === 0
-        ? <p>You have not eaten anything yet! </p>
-        : this.renderDailyCalories();
-    return (
-      <div className="information">
-        {total}
-      </div>
-    );
+      this.props.meals.length === 0 ? (
+        <p>You have not eaten anything yet! </p>
+      ) : (
+        this.renderDailyCalories()
+      );
+    return <div className="information">{total}</div>;
   };
 
   renderSelectedMeal = () => {
@@ -73,25 +67,19 @@ class MealsDetails extends React.Component {
           <div>
             <h3>Fat</h3>
           </div>
-          <div>
-            {selectedMealSummary.fat} g
-          </div>
+          <div>{selectedMealSummary.fat} g</div>
         </li>
         <li>
           <div>
             <h3>Protein</h3>
           </div>
-          <div>
-            {selectedMealSummary.protein} g
-          </div>
+          <div>{selectedMealSummary.protein} g</div>
         </li>
         <li>
           <div>
             <h3>Carbs</h3>
           </div>
-          <div>
-            {selectedMealSummary.carbs} g
-          </div>
+          <div>{selectedMealSummary.carbs} g</div>
         </li>
       </ul>
     );
@@ -104,14 +92,23 @@ class MealsDetails extends React.Component {
     return (
       <div className="summary">
         <div className="smallStatistic">
-          <StatisticCard content={this.dailySummary()} title={"Your daily summary"} />
+          <StatisticCard
+            content={this.dailySummary()}
+            title={'Your daily summary'}
+          />
         </div>
-        <div className="bigStatistic"> 
-          <StatisticCard size="big" content={<MealPercentagesGraph size={250}/>} title={"Meal chart"} />
-          <StatisticCard size="big" content={<DailyPercentagesGraph size={250}/>} title={"Daily chart"} />
-          <div>
-            {selectedMealDetails}
-          </div>
+        <div className="bigStatistic">
+          <StatisticCard
+            size="big"
+            content={<MealPercentagesGraph size={250} />}
+            title={'Meal chart'}
+          />
+          <StatisticCard
+            size="big"
+            content={<DailyPercentagesGraph size={250} />}
+            title={'Daily chart'}
+          />
+          <div>{selectedMealDetails}</div>
         </div>
       </div>
     );
