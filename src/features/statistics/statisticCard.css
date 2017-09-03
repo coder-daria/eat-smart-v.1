@@ -1,0 +1,62 @@
+
+.card {
+  border: 1px ridge #bcc2c4;
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 0 0 1px #989b9c;
+  margin-bottom: 2%;
+}
+
+.title_statistic {
+  background-color: #dbdbdb;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.smallStatisticContainer .title_statistic {
+  background-color: #dbdbdb;
+  display: flex;
+  border-bottom: 1px solid #d1d1d1;
+}
+.title_statistic .title {
+  font-size: 18px;
+  color: #434b54;
+  padding-left: 0.2em;
+  margin-right: 5%;
+  align-self: center;
+}
+.statisticIcons {
+  display: flex;
+}
+
+.smallStatisticContainer .body {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1%;
+}
+
+.smallStatisticContainer .footer {
+  display: flex;
+  align-self: center;
+  margin-bottom: -0.7em;
+  margin-top: -1em;
+}
+
+/**Big statistic card**/
+.bigStatisticContainer {
+  min-width: 70%;
+}
+.bigStatisticContainer .title_statistic{
+}
+
+.bigStatisticContainer .statisticIcons {
+  display: flex;
+  width: 21%;
+}
+.bigStatisticContainer .footer {
+  display: flex;
+  align-self: center;
+  margin-bottom: -0.7em;
+  margin-top: -1em;
+}
