@@ -102,9 +102,6 @@ class MealList extends Component {
     };
     return (
       <div className="searchAndChipsContainer">
-        <ul>
-          {fieldArray.fields.map(this.renderField)}
-        </ul>
         <div className="addMealAutocomplete">
           <AutoComplete
             floatingLabelText={'Add a food'}
@@ -112,6 +109,9 @@ class MealList extends Component {
             onSelect={addField}
           />
         </div>
+        <ul>
+          {fieldArray.fields.map(this.renderField)}
+        </ul>
       </div>
     );
   };

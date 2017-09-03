@@ -43,6 +43,9 @@
   margin-top: 1%;
 }
 
+.smallStatisticContainer .statisticIcons {
+  padding-left: 3%;
+}
 .bigStatisticContainer {
   min-width: 125%;
 }
