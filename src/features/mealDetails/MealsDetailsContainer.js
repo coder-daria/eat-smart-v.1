@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MealsDetails from './MealsDetails';
-import { showMealDetails } from '../../Actions';
+import { showMealDetails, toggleStatisticCard } from '../../Actions';
 import R from 'ramda';
 
 const mapStateToProps = state => {
@@ -20,6 +20,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onSelect: meal => {
       dispatch(showMealDetails(meal));
+    },
+    toggleStatisticCard: statisticCard => {
+      dispatch(toggleStatisticCard(statisticCard));
     }
   };
 };

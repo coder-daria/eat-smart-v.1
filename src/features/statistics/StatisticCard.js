@@ -28,7 +28,7 @@ class VisibleCardTileStatistic extends React.Component {
           <MaterialIcon size="small">
             <Edit hoverColor={blue600} />
           </MaterialIcon>
-          <MaterialIcon size="small">
+          <MaterialIcon size="small" onClick={this.props.onClose}>
             <Close hoverColor={pink500} />
           </MaterialIcon>
         </div>

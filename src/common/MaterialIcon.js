@@ -35,12 +35,7 @@ class MaterialIcon extends React.Component {
     const style = this.stylesForSize(this.props.size);
     return (
       <div>
-        <IconButton
-          style={style}
-          iconStyle={iconStyle}
-          {...this.props}
-          onClick={this.props.onClick}
-        >
+        <IconButton style={style} iconStyle={iconStyle} {...this.props}>
           {this.props.children}
         </IconButton>
       </div>
