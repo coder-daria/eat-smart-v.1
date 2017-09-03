@@ -67,6 +67,7 @@ class MealList extends Component {
         <EditableChip
           initiallyOpen={fields.get(index).isNew}
           onDelete={remove}
+          onToggle={() => delete fields.get(index).isNew}
           chipFields={chipFields}
           formFields={formFields}
         />
@@ -109,9 +110,7 @@ class MealList extends Component {
             onSelect={addField}
           />
         </div>
-        <ul>
-          {fieldArray.fields.map(this.renderField)}
-        </ul>
+        <ul>{fieldArray.fields.map(this.renderField)}</ul>
       </div>
     );
   };
@@ -139,11 +138,7 @@ class MealList extends Component {
           );
         })
       : null;
-    return (
-      <div className="addMealSelectableList">
-        {listItems}
-      </div>
-    );
+    return <div className="addMealSelectableList">{listItems}</div>;
   }
 }
 
