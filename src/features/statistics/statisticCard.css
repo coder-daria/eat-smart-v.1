@@ -4,6 +4,7 @@
   flex-flow: column wrap;
   box-shadow: 0 0 1px #989b9c;
   margin-bottom: 2%;
+  align-items: center;
 }
 
 .title_statistic {
@@ -11,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #d1d1d1;
+  align-self: stretch;
 }
 
 .smallStatisticContainer .title_statistic {
@@ -39,4 +41,8 @@
   align-self: center;
   margin-bottom: -0.7em;
   margin-top: 1%;
+}
+
+.bigStatisticContainer {
+  min-width: 125%;
 }
