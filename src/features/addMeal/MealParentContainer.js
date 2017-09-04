@@ -5,30 +5,6 @@ import { convertObjectToArray } from '../../functions';
 import { reduxForm } from 'redux-form';
 import { selectedMeal } from '../../Actions';
 
-const validate = values => {
-  const errors = { meal: '', foods: [] };
-  if (!values.meal) {
-    errors.meal = 'Required';
-  }
-  if (!values.foods || !values.foods.length) {
-    errors.foods = { _error: 'Select at least one food' };
-  } else {
-    const foodsArrayErrors = [];
-
-    values.foods.forEach((food, index) => {
-      const foodErrors = {};
-      if (!food || !food.quantity || isNaN(food.quantity)) {
-        foodErrors.quantity = 'Required';
-        foodsArrayErrors[index] = foodErrors;
-      }
-    });
-    if (foodsArrayErrors.length) {
-      errors.foods = foodsArrayErrors;
-    }
-  }
-  return errors;
-};
-
 const mapStateToProps = state => {
   return {
     foods: convertObjectToArray(state.foods.foods),

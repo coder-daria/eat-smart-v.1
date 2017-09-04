@@ -1,6 +1,5 @@
 import React from 'react';
 import Chart from '../../Chart';
-import { countGrams, caloriesPerDay } from '../../functions';
 
 class MealPercentagesGraph extends React.Component {
   render() {

@@ -6,6 +6,7 @@ import R from 'ramda';
 import AutoComplete from '../../common/AutoComplete';
 import { renderDiv, renderTextField } from '../../common/form/FormFields';
 import EditableChip from '../../common/EditableChip';
+import { stringToNumber } from '../../common/form/normalizers';
 
 window.R = R;
 
@@ -39,6 +40,7 @@ class MealList extends Component {
             name={`${field}.quantity`}
             component={renderTextField}
             label="Quantity"
+            normalize={stringToNumber}
           />
         </div>
       </div>
@@ -81,6 +83,7 @@ class MealList extends Component {
         fieldArray.fields.push({
           name: food.name,
           id: food.id,
+          quantity: 0,
           units: 'grams',
           isNew: true
         });
@@ -95,6 +98,7 @@ class MealList extends Component {
           return fieldArray.fields.push({
             name: food.name,
             id: food.id,
+            quantity: 0,
             units: 'grams',
             isNew: true
           });
@@ -126,10 +130,9 @@ class MealList extends Component {
             />
           ];
           return (
-            <div className="addMealListItem">
+            <div className="addMealListItem" key={index}>
               <ListItem
                 className="listItem"
-                key={index}
                 value={index}
                 primaryText={meal.name}
                 onClick={() => this.handleSelected(index)}

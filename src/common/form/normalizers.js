@@ -1,3 +1,3 @@
-export const stringToNumber = value => {
-  return Number(value);
+export const stringToNumber = (value, previous) => {
+  return Number(value) || previous;
 };

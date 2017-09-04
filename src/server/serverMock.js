@@ -39,7 +39,7 @@ const randomMeals = [
       {
         name: 'tomato',
         id: 'f400558e-251a-4f7e-8d05-66e35btomato',
-        quantity: '10',
+        quantity: 10,
         unit: 'grams'
       }
     ]
@@ -50,7 +50,7 @@ const randomMeals = [
       {
         name: 'caesar salad',
         id: 'f400558e-251a-4f7e-8d05-66e35csalad',
-        quantity: '40',
+        quantity: 40,
         unit: 'grams'
       }
     ]
@@ -61,7 +61,7 @@ const randomMeals = [
       {
         name: 'beef burger',
         id: 'f400558e-251a-4f7e-8d05-66e351burger',
-        quantity: '200',
+        quantity: 200,
         unit: 'grams'
       }
     ]
@@ -72,7 +72,7 @@ const randomMeals = [
       {
         name: 'feta salad',
         id: 'f400558e-251a-4f7e-8d05-66e35fsalad',
-        quantity: '200',
+        quantity: 200,
         unit: 'grams'
       }
     ]
@@ -83,7 +83,7 @@ const randomMeals = [
       {
         name: 'egg',
         id: 'f400558e-251a-4f7e-8d05-66e35b729egg',
-        quantity: '70',
+        quantity: 70,
         unit: 'grams'
       }
     ]
