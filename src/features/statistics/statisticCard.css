@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column wrap;
   box-shadow: 0 0 1px #989b9c;
-  margin-bottom: 2%;
+  margin-bottom: 3%;
   align-items: center;
 }
 
@@ -13,10 +13,6 @@
   justify-content: space-between;
   border-bottom: 1px solid #d1d1d1;
   align-self: stretch;
-}
-
-.smallStatisticContainer .title_statistic {
-  justify-content: flex-start;
 }
 .title_statistic .title {
   font-size: 18px;
