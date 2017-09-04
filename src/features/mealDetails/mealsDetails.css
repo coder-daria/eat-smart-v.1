@@ -1,14 +1,13 @@
 .summary {
-  /* border: 2px solid red; */
   display: flex;
 }
 .smallStatistic {
   margin-right: 3%;
+  min-width: 35%;
 }
 .bigStatistic {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 /*Daily summary information*/
