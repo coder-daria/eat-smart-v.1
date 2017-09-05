@@ -11,28 +11,15 @@ class DayPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullDateDisplay: 'Choose a date',
-      currentMonth: moment().month()
+      fullDateDisplay: 'Choose a date'
     };
   }
   handleChange = (event, date) => {
-    const momentDate = moment(date);
-    let choosenDay = momentDate.format('DD MMMM YYYY');
-
     this.setState({
-      fullDateDisplay: choosenDay
+      fullDateDisplay: this.formatDate(date)
     });
 
-    let previous = this.state.currentMonth;
-    let current = moment(date).month();
-
-    if (previous !== current) {
-      this.setState({
-        currentMonth: moment(date).month()
-      });
-    }
-
-    this.props.onSelect(momentDate);
+    this.props.onSelect(moment(date));
   };
   formatDate = date => {
     return moment(date).format('DD MMMM YYYY');

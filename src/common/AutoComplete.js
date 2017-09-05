@@ -6,6 +6,7 @@ class AutoComplete extends React.Component {
   state = {
     input: ''
   };
+
   onChange = e => {
     const value = e;
     this.setState({ input: value });
