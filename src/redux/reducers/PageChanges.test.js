@@ -1,4 +1,4 @@
-import reducer from './Meals.js';
+import reducer from './PagesChanges.js';
 import * as actions from '../../Actions';
 import { createStore } from 'redux';
 
@@ -6,16 +6,37 @@ let initialState;
 let store;
 
 beforeEach(() => {
-  initialState = { date: new Date(), meals: [] };
+  initialState = {
+    location: '/',
+    asyncRequestStatus: 'HIDE_NOTIFICATION',
+    isLoading: false
+  };
   store = createStore(reducer, initialState);
 });
 
-xit('handles ASYNC_REQUEST_STATUS', () => {});
+it('handles ASYNC_REQUEST_STATUS', () => {
+  let action = actions.asyncRequestStatus('STARTED');
+  let newState = reducer(initialState, action);
 
-xit('handles IS_LOADING', () => {});
-xit('handles SELECTED_MEAL', () => {});
+  expect(newState).not.toEqual(initialState);
+  expect(newState.asyncRequestStatus).toEqual('STARTED');
+});
 
-it('handles GO_TO', () => {});
+it('handles IS_LOADING', () => {
+  let action = actions.isLoading(true);
+  let newState = reducer(initialState, action);
+
+  expect(newState).not.toEqual(initialState);
+  expect(newState.isLoading).toEqual(true);
+});
+
+it('handles GO_TO', () => {
+  let action = actions.changeLocation('/preferences');
+  let newState = reducer(initialState, action);
+
+  expect(newState).not.toEqual(initialState);
+  expect(newState.location).toEqual('/preferences');
+});
 
 // xit('TEMPLATE', () => {
 //   let action = {};
