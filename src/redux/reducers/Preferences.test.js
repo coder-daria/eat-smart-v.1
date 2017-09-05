@@ -6,10 +6,19 @@ let initialState;
 beforeEach(() => {
   initialState = {
     kcal: 0,
-    meals: []
+    meals: [],
+    details: {}
   };
 });
 
+it('handles TOGGLE_STATISTIC_CARD', () => {
+  let action = actions.toggleStatisticCard('dailyCalories');
+  let newState = reducer(initialState, action);
+
+  expect(newState.details.dailyCalories).not.toEqual(
+    initialState.details.dailyCalories
+  );
+});
 it('handles SAVE_PREFERENCES', () => {
   let preference = {
     kcal: 2000,
