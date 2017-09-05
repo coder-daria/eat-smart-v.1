@@ -1,5 +1,5 @@
-import reducer from './Meals.js';
-import * as actions from '../../Actions';
+import reducer from '../../../redux/reducers/Meals';
+import * as actions from '../../../Actions';
 import { createStore } from 'redux';
 
 let initialState;

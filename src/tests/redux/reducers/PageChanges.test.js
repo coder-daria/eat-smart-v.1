@@ -1,5 +1,5 @@
-import reducer from './PageChanges';
-import * as actions from '../../Actions';
+import reducer from '../../../redux/reducers/PageChanges';
+import * as actions from '../../../Actions';
 import { createStore } from 'redux';
 
 let initialState;

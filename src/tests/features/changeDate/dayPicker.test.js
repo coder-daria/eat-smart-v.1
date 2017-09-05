@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import DayPicker from '../features/changeDate/DayPicker';
+import DayPicker from '../../../features/changeDate/DayPicker';
 import DatePicker from 'material-ui/DatePicker';
 import moment from 'moment';
 

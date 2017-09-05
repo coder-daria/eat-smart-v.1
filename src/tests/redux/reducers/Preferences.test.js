@@ -1,5 +1,5 @@
-import * as actions from '../../Actions';
-import reducer from './Preferences.js';
+import reducer from '../../../redux/reducers/Preferences';
+import * as actions from '../../../Actions';
 
 let initialState;
 
