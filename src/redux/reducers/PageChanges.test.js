@@ -1,4 +1,4 @@
-import reducer from './PagesChanges.js';
+import reducer from './PageChanges';
 import * as actions from '../../Actions';
 import { createStore } from 'redux';
 
