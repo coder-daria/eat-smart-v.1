@@ -6,9 +6,7 @@ import moment from 'moment';
 
 function setup() {
   const props = { addTodo: jest.fn(), date: new Date(), onSelect: jest.fn() };
-
   const enzymeWrapper = shallow(<DayPicker {...props} />);
-
   return {
     props,
     enzymeWrapper

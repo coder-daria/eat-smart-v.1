@@ -53,8 +53,11 @@ class MealForm extends React.Component {
 
 MealForm.propTypes = {
   date: PropTypes.object.isRequired,
+  meals: PropTypes.array.isRequired,
   foods: PropTypes.array.isRequired,
-  addMeal: PropTypes.func.isRequired
+  addMeal: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  onSelect: PropTypes.func.isRequired
 };
 
 export default MealForm;
