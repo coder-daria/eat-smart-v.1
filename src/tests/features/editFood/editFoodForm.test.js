@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import EditFoodForm from '../../../features/editFood/EditFoodForm';
 import { Field, reduxForm } from 'redux-form';
 
-function setup(defaultProps) {
+function setup() {
   const props = Object.assign({
     handleSubmit: jest.fn(),
     reset: jest.fn(),
