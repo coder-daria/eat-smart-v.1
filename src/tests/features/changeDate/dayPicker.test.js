@@ -13,7 +13,7 @@ function setup() {
   };
 }
 
-describe('DayPicker', () => {
+xdescribe('DayPicker', () => {
   let enzymeWrapper, props;
   beforeEach(() => {
     let result = setup();

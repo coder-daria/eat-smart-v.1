@@ -126,7 +126,7 @@ describe('MealForm', () => {
     });
   });
 
-  it('cant commit when the form is invalid', () => {
+  it("can't commit when the form is invalid", () => {
     const { enzymeWrapper } = setup({ invalid: true });
     const raisedButtonProps = enzymeWrapper
       .find('form')
@@ -135,7 +135,7 @@ describe('MealForm', () => {
     expect(raisedButtonProps.disabled).toBe(true);
   });
 
-  it('cant commit when the form is pristine', () => {
+  it("can't commit when the form is pristine", () => {
     const { enzymeWrapper } = setup({ invalid: false, pristine: true });
     const raisedButtonProps = enzymeWrapper
       .find('form')

@@ -45,4 +45,9 @@ class MenuIcon extends Component {
   }
 }
 
+MenuIcon.propTypes = {
+  onSelect: PropTypes.func,
+  handleClick: PropTypes.func,
+  value: PropTypes.number
+};
 export default MenuIcon;
