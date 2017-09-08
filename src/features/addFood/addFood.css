@@ -25,3 +25,62 @@
   align-self: center;
   flex: 2;
 }
+
+@media screen and (max-width: 599px) {
+  .addFoodContainer {
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+  }
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .addFoodContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    /* border: 2px solid blue; */
+  }
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .addFoodimgAndButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    /* border: 2px solid green; */
+  }
+  .renderAddFoodContainer {
+    /* border: 2px solid red; */
+    align-self: flex-start;
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .addFoodContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .addFoodimgAndButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+  .renderAddFoodContainer {
+    align-self: flex-start;
+    flex: 1;
+  }
+}
