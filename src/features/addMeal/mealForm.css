@@ -68,6 +68,11 @@
   .smallStatistic {
     width: 100%;
   }
+  .smallStatisticContainer .statisticIcons {
+    display: flex;
+    padding-right: 7%;
+  }
+
   .addMealAutocomplete hr {
     width: 90% !important;
   }

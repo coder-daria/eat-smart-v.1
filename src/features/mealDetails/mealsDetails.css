@@ -4,7 +4,6 @@
 .smallStatistic {
   margin-right: 3%;
   min-width: 35%;
-  /* width: 100%; */
 }
 .bigStatistic {
   display: flex;
