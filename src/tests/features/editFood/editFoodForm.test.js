@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import EditFoodForm from '../../../features/editFood/EditFoodForm';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 
 function setup() {
   const props = Object.assign({

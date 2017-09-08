@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import MealDetails from '../../../features/mealDetails/MealDetails';
+import StatisticCard from '../../features/statistic/StatisticCard';
 
 function setup() {
   const props = Object.assign({
@@ -15,13 +16,14 @@ function setup() {
   };
 }
 
-fdescribe('MealDetails', () => {
+xdescribe('MealDetails', () => {
   let enzymeWrapper, props;
   beforeEach(() => {
     let result = setup();
     enzymeWrapper = result.enzymeWrapper;
     props = result.props;
   });
+
   it('should render 4 StatisticCard', () => {});
   describe('should render 4 StatisticCard', () => {
     it('with the right props: onClose', () => {
