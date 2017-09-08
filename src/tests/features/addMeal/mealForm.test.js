@@ -14,7 +14,7 @@ function setup(defaultProps) {
       onSelect: jest.fn(),
       addMeal: jest.fn(),
       reset: jest.fn(),
-      foods: [],
+      foods: [1, 2, 3],
       meals: [],
       date: new Date()
     },

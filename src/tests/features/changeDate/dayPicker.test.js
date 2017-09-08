@@ -13,7 +13,7 @@ function setup() {
   };
 }
 
-xdescribe('DayPicker', () => {
+describe('DayPicker', () => {
   let enzymeWrapper, props;
   beforeEach(() => {
     let result = setup();
@@ -66,6 +66,16 @@ xdescribe('DayPicker', () => {
 
       expect(datePickerProps.onChange).toBeDefined();
     });
+  });
+  it('with the right props: formatDate', () => {
+    const datePickerProps = enzymeWrapper
+      .find('button')
+      .find(DatePicker)
+      .props();
+
+    expect(datePickerProps.formatDate).toBe(
+      enzymeWrapper.instance().formatDate
+    );
   });
   describe('when calling handleChange', () => {
     it('TODO: updates the state with the new date', () => {
