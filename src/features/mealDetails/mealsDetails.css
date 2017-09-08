@@ -4,6 +4,7 @@
 .smallStatistic {
   margin-right: 3%;
   min-width: 35%;
+  /* width: 100%; */
 }
 .bigStatistic {
   display: flex;
@@ -43,7 +44,6 @@
 }
 
 .chartDetails li {
-  /* border: 2px solid red; */
   margin-top: 12%;
   display: flex;
   min-width: 150px;
@@ -57,4 +57,14 @@
 
 .chartDetails li div {
   align-self: flex-end;
+}
+
+@media screen and (min-width: 801px) and (max-width: 1600px) {
+  .summary {
+    display: flex;
+    flex-direction: column;
+  }
+  .bigStatisticContainer {
+    min-width: 100%;
+  }
 }

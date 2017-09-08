@@ -10,7 +10,6 @@
 }
 
 .addMealFormAndDetailsContainer {
-  /* border: 2px solid red;      */
   display: flex;
 }
 .outerAddMealFormContainer {
@@ -31,10 +30,12 @@
 /************************/
 .addMealRaisedButton {
   margin-top: 3%;
+  margin-bottom: 2%;
   align-self: flex-end;
 }
 /******Search and Chips********/
 .searchAndChipsContainer {
+  /* border: 2px solid red;      */
   display: flex;
   flex-direction: column;
   margin-left: 4%;
@@ -52,8 +53,22 @@
   margin-right: 4%;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 800px) {
   .addMealFormAndDetailsContainer {
     flex-direction: column;
+  }
+  .searchAndChipsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1%;
+    margin-top: -1%;
+  }
+}
+@media screen and (min-width: 801px) and (max-width: 1600px) {
+  .smallStatistic {
+    width: 100%;
+  }
+  .addMealAutocomplete hr {
+    width: 90% !important;
   }
 }
