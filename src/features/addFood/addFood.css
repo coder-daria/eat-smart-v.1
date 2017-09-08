@@ -25,3 +25,50 @@
   align-self: center;
   flex: 2;
 }
+
+@media screen and (max-width: 599px) {
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 768px) {
+  .addFoodContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .addFoodimgAndButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid green; */
+  }
+  .renderAddFoodContainer {
+    /* border: 2px solid red; */
+    align-self: flex-start;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1500px) {
+  .addFoodContainer {
+    display: flex;
+    width: 100%;
+  }
+  .addFoodFieldsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .addFoodimgAndButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .renderAddFoodContainer {
+    align-self: flex-start;
+  }
+}
