@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MealDetails from '../../../features/mealDetails/MealDetails';
-import StatisticCard from '../../features/statistic/StatisticCard';
+import MealDetails from '../../../features/mealDetails/MealsDetails';
+import StatisticCard from '../../../features/statistics/StatisticCard';
 
 function setup() {
   const props = Object.assign({

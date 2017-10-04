@@ -95,7 +95,7 @@ describe('AddFood', () => {
       expect(enzymeWrapper.find(Field).get(3).props.type).toBe('number');
     });
   });
-  fdescribe('should render Fields', () => {
+  describe('should render Fields', () => {
     it('with the right props: component', () => {
       enzymeWrapper.find(Field).forEach(node => {
         expect(node.props().component).toBeDefined();
