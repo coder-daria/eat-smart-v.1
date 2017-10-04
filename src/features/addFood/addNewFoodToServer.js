@@ -12,7 +12,12 @@ const addNewFoodToServer = food => dispatch => {
     const newFoodFromServer = convertFoodFromServer(data);
 
     dispatch(newFood(newFoodFromServer));
-    dispatch(asyncRequestStatus(ASYNC_REQUEST_STATUS_ENUM.FINISHED));
+    dispatch(
+      asyncRequestStatus(
+        ASYNC_REQUEST_STATUS_ENUM.FINISHED,
+        'Data has been saved'
+      )
+    );
     setTimeout(
       () =>
         dispatch(

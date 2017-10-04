@@ -9,7 +9,12 @@ export const fetchMoreBeersFromAPI = pageNumber => dispatch => {
   fetchMoreBeersFromServer(pageNumber)
     .then(data => {
       if (data.length === 0) {
-        dispatch(actions.asyncRequestStatus('FINISHED'));
+        dispatch(
+          actions.asyncRequestStatus(
+            'FINISHED',
+            'Sorry, there are no more beers'
+          )
+        );
         setTimeout(() => {
           dispatch(actions.asyncRequestStatus('HIDE_NOTIFICATION'));
         }, 3000);

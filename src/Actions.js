@@ -45,8 +45,8 @@ export function selectedDate(date) {
 export function mealHistoryForDay(meals) {
   return { type: MEAL_HISTORY_FOR_DAY, content: meals };
 }
-export function asyncRequestStatus(status) {
-  return { type: ASYNC_REQUEST_STATUS, content: status };
+export function asyncRequestStatus(status, message) {
+  return { type: ASYNC_REQUEST_STATUS, content: status, message };
 }
 export const changeLocation = location => {
   return { type: GO_TO, content: location };

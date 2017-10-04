@@ -8,7 +8,7 @@ class SnackbarMessage extends React.Component {
       <div>
         <Snackbar
           open={this.props.isOpen}
-          message="Food has been saved"
+          message={this.props.snackbarMessage}
           onRequestClose={this.props.handleClose}
         />
       </div>
