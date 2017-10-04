@@ -1,5 +1,6 @@
 import React from 'react';
 import Snackbar from 'material-ui/Snackbar';
+import PropTypes from 'prop-types';
 
 class SnackbarMessage extends React.Component {
   state = {
@@ -22,5 +23,8 @@ class SnackbarMessage extends React.Component {
     );
   }
 }
+SnackbarMessage.propTypes = {
+  isOpen: PropTypes.bool.isRequired
+};
 
 export default SnackbarMessage;

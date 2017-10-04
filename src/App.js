@@ -10,6 +10,8 @@ import ChangeLocation from './features/changeLocation/ChangeLocationContainer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LoadingContainer from './common/LoadingContainer';
 import SnackbarContainer from './common/SnackbarContainer';
+import FoodListContainer from './features/searchFood/FoodListContainer';
+import ModalDialogContainer from './features/modal-dialog/ModalDialogContainer';
 import AppBar from 'material-ui/AppBar';
 
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -37,6 +39,11 @@ class App extends Component {
                   <Route
                     path="/preferences"
                     component={PreferencesParentContainer}
+                  />
+                  <Route path="/searchFood" component={FoodListContainer} />
+                  <Route
+                    path={`/details/:beerId`}
+                    component={ModalDialogContainer}
                   />
                   <Route component={MealParentContainer} />
                 </Switch>
