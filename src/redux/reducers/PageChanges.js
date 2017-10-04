@@ -2,7 +2,8 @@ import * as actions from '../../Actions';
 
 const initialState = {
   location: '/',
-  asyncRequestStatus: actions.ASYNC_REQUEST_STATUS_ENUM.HIDE_NOTIFICATION
+  asyncRequestStatus: actions.ASYNC_REQUEST_STATUS_ENUM.HIDE_NOTIFICATION,
+  isLoading: false
 };
 
 export default function reducer(state = initialState, action) {

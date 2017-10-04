@@ -16,7 +16,6 @@ class EditableChip extends React.Component {
   }
 
   toggleEdit = () => {
-    this.props.onToggle();
     this.setState(prevState => ({ editing: !prevState.editing }));
   };
 

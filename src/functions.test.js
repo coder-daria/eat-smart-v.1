@@ -1,7 +1,7 @@
 import * as utils from './functions';
 import moment from 'moment';
 
-it('counts calories', () => {
+it('counts calories per day', () => {
   expect(utils.caloriesPerDay(2000, 20, 30, 50)).toEqual({
     fat: 400,
     protein: 600,

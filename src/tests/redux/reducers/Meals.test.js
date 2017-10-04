@@ -1,12 +1,15 @@
-import reducer from './Meals.js';
-import * as actions from '../../Actions';
+import reducer from '../../../redux/reducers/Meals';
+import * as actions from '../../../Actions';
 import { createStore } from 'redux';
 
 let initialState;
 let store;
 
 beforeEach(() => {
-  initialState = { date: new Date(), meals: [] };
+  initialState = {
+    date: new Date(),
+    meals: []
+  };
   store = createStore(reducer, initialState);
 });
 

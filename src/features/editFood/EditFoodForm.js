@@ -141,8 +141,10 @@ const EditFoodForm = props => {
 };
 
 EditFoodForm.propTypes = {
-  onSubmit: PropTypes.func,
-  foods: PropTypes.array
+  handleSubmit: PropTypes.func,
+  reset: PropTypes.func.isRequired,
+  foods: PropTypes.array,
+  isSelected: PropTypes.bool
 };
 
 export default reduxForm({

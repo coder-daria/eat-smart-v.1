@@ -10,15 +10,6 @@ export function caloriesPerDay(calories, fat, protein, carbs) {
   return howMuchKcal;
 }
 
-export function countGrams(aliment) {
-  var howMuchCalories = {
-    fat: Math.floor(aliment.fat / 9),
-    protein: Math.floor(aliment.protein / 4),
-    carbs: Math.floor(aliment.carbs / 4)
-  };
-  return howMuchCalories;
-}
-
 export function aliment(fat, protein, carbs) {
   // Nutritions in grams
   const aliment = {
@@ -27,6 +18,15 @@ export function aliment(fat, protein, carbs) {
     carbs: carbs * 4
   };
   return aliment; // Object contains nutritions in kcal
+}
+
+export function countGrams(aliment) {
+  var howMuchCalories = {
+    fat: Math.floor(aliment.fat / 9),
+    protein: Math.floor(aliment.protein / 4),
+    carbs: Math.floor(aliment.carbs / 4)
+  };
+  return howMuchCalories;
 }
 
 export function sumFoods(food1, food2) {

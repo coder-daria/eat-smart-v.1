@@ -1,5 +1,5 @@
-import reducer from './Foods.js';
-import * as actions from '../../Actions';
+import reducer from '../../../redux/reducers/Foods';
+import * as actions from '../../../Actions';
 import { createStore } from 'redux';
 
 let initialState;
