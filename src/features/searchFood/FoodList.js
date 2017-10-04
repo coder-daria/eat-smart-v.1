@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './foodList.css';
 import InfiniteScroll from 'react-infinite-scroller';
-// import { CircularProgress } from 'material-ui/CircularProgress';
+import { CircularProgress } from 'material-ui/CircularProgress';
 import { BEER_DESCRIPTION_LENGTH_IN_LIST } from '../../common/constants';
 import { trim } from '../../common/common';
 
@@ -48,11 +48,11 @@ class FoodList extends React.Component {
           pageStart={0}
           loadMore={this.loadItems}
           hasMore={this.props.serverHasMoreBeers}
-          loader={
+          loader={() => (
             <div className="loader">
-              {/* <CircularProgress color="accent" size={50} /> */}
+              <CircularProgress color="accent" size={50} />
             </div>
-          }
+          )}
           useWindow={true}>
           <ul className="list">{this.renderBeers()}</ul>
         </InfiniteScroll>

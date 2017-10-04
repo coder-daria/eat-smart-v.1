@@ -61,7 +61,6 @@ export const selectedMeal = selectedMealIndex => {
 //Beers actions
 
 export const NEW_BEERS = 'NEW_BEERS';
-export const NO_MORE_BEERS = 'NO_MORE_BEERS';
 export const FETCH_SIMILAR_BEERS = 'FETCH_SIMILAR_BEERS';
 export const MODAL_CLOSED = 'MODAL_CLOSED';
 
@@ -72,9 +71,6 @@ export const fetchSimilarBeers = beers => {
   return { type: FETCH_SIMILAR_BEERS, content: beers };
 };
 
-export const toggleNoMoreBeers = () => {
-  return { type: NO_MORE_BEERS };
-};
 export const modalClosed = () => {
   return { type: MODAL_CLOSED };
 };

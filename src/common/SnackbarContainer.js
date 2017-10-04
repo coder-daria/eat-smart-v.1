@@ -5,7 +5,8 @@ import { asyncRequestStatus, ASYNC_REQUEST_STATUS_ENUM } from '../Actions';
 const mapStateToProps = state => {
   return {
     isOpen:
-      state.foods.asyncRequestStatus === ASYNC_REQUEST_STATUS_ENUM.FINISHED
+      state.foods.asyncRequestStatus === ASYNC_REQUEST_STATUS_ENUM.FINISHED ||
+      state.showNoMoreBeers
   };
 };
 

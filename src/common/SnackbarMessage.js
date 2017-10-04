@@ -3,9 +3,6 @@ import Snackbar from 'material-ui/Snackbar';
 import PropTypes from 'prop-types';
 
 class SnackbarMessage extends React.Component {
-  state = {
-    isOpen: this.props.isOpen
-  };
   componentWillReceiveProps = props => {
     this.setState({
       isOpen: props.isOpen
@@ -15,7 +12,7 @@ class SnackbarMessage extends React.Component {
     return (
       <div>
         <Snackbar
-          open={this.state.isOpen}
+          open={this.props.isOpen}
           message="Food has been saved"
           onRequestClose={this.props.handleClose}
         />
