@@ -21,9 +21,6 @@
 }
 /*BODY - COMPONENTS*/
 .body {
-  /* border: 2px solid blueviolet;       */
-  flex: 1;
+  /* border: 2px solid blueviolet; */
   width: 100%;
-  display: flex;
-  margin-top: 2%;
 }
