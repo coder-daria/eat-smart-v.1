@@ -1,0 +1,21 @@
+.wizardContainer {
+  display: flex;
+  width: 100%;
+}
+.wizard {
+  display: flex;
+  flex-basis: 50%;
+}
+.wizardButtons {
+  flex-basis: 50%;
+}
+.wizard li {
+  background-color: #e4e4e4;
+  border-radius: 5px;
+  padding: 10px 30px 10px 40px;
+}
+
+.wizard li.selected {
+  background-color: #ff4f65;
+  color: #fff;
+}

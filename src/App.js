@@ -12,6 +12,7 @@ import LoadingContainer from './common/LoadingContainer';
 import SnackbarContainer from './common/SnackbarContainer';
 import FoodListContainer from './features/searchFood/FoodListContainer';
 import ModalDialogContainer from './features/modal-dialog/ModalDialogContainer';
+import WizardContainer from './features/wizard/WizardContainer';
 import AppBar from 'material-ui/AppBar';
 
 // import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -45,7 +46,7 @@ class App extends Component {
                     path={`/details/:beerId`}
                     component={ModalDialogContainer}
                   />
-                  <Route component={MealParentContainer} />
+                  <Route component={WizardContainer} />
                 </Switch>
               </div>
               <div>

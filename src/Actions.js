@@ -10,6 +10,7 @@ export const DATA_RECEIVED = 'DATA_RECEIVED';
 export const GO_TO = 'GO_TO';
 export const TOGGLE_STATISTIC_CARD = 'TOGGLE_STATISTIC_CARD';
 export const SELECTED_MEAL = 'SELECTED_MEAL';
+export const CHANGE_WIZARD_PAGE = 'CHANGE_WIZARD_PAGE';
 
 export const ASYNC_REQUEST_STATUS = 'ASYNC_REQUEST_STATUS';
 export const ASYNC_REQUEST_STATUS_ENUM = {
@@ -56,6 +57,9 @@ export const toggleStatisticCard = statistic => {
 };
 export const selectedMeal = selectedMealIndex => {
   return { type: SELECTED_MEAL, content: selectedMealIndex };
+};
+export const chageWizardPage = number => {
+  return { type: CHANGE_WIZARD_PAGE, content: number };
 };
 
 //Beers actions
