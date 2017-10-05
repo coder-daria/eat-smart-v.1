@@ -15,7 +15,7 @@
   padding: 10px 30px 10px 40px;
 }
 
-.wizard li.selected {
+.wizard li.active {
   background-color: #ff4f65;
   color: #fff;
 }

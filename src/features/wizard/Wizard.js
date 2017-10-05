@@ -9,14 +9,15 @@ import RaisedButton from 'material-ui/RaisedButton';
 class Wizard extends React.Component {
   render() {
     const steps = [<Step1 />, <Step2 />, <Step3 />];
-    const isFirstStep = this.props.wizardStep === 1 ? true : false;
-    const isLastStep = this.props.wizardStep === steps.length ? true : false;
+    const currentStep = this.props.wizardStep;
+    const isFirstStep = currentStep === 1 ? true : false;
+    const isLastStep = currentStep === steps.length ? true : false;
     return (
       <div className="wizardContainer">
         <ul className="wizard">
-          <Step1 />
-          <Step2 />
-          <Step3 />
+          <Step1 currentStep={currentStep} />
+          <Step2 currentStep={currentStep} />
+          <Step3 currentStep={currentStep} />
         </ul>
         <div className="wizardButtons">
           <RaisedButton
