@@ -39,6 +39,7 @@ class MenuIcon extends Component {
             <MenuItem value="/addMeal" primaryText="Add meal" />
             <MenuItem value="/addFood" primaryText="Add food" />
             <MenuItem value="/editFood" primaryText="Edit food" />
+            <MenuItem value="/searchFood" primaryText="Search food" />
           </IconMenu>
         </div>
       </div>

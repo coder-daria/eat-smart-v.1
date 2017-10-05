@@ -4,6 +4,7 @@ import FoodsReducer from './reducers/Foods';
 import PreferencesReducer from './reducers/Preferences';
 import MealsReducer from './reducers/Meals';
 import PageChangesReducer from './reducers/PageChanges';
+import FoodListReducer from './reducers/FoodList';
 import thunk from 'redux-thunk';
 
 const configureStore = () => {
@@ -21,8 +22,10 @@ const configureStore = () => {
     preferences: PreferencesReducer,
     meals: MealsReducer,
     pagechanges: PageChangesReducer,
+    foodList: FoodListReducer,
     form: form
   });
+
   let store = createStore(
     rootReducer,
     undefined,

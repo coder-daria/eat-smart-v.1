@@ -45,8 +45,8 @@ export function selectedDate(date) {
 export function mealHistoryForDay(meals) {
   return { type: MEAL_HISTORY_FOR_DAY, content: meals };
 }
-export function asyncRequestStatus(status) {
-  return { type: ASYNC_REQUEST_STATUS, content: status };
+export function asyncRequestStatus(status, message) {
+  return { type: ASYNC_REQUEST_STATUS, content: status, message };
 }
 export const changeLocation = location => {
   return { type: GO_TO, content: location };
@@ -56,4 +56,21 @@ export const toggleStatisticCard = statistic => {
 };
 export const selectedMeal = selectedMealIndex => {
   return { type: SELECTED_MEAL, content: selectedMealIndex };
+};
+
+//Beers actions
+
+export const NEW_BEERS = 'NEW_BEERS';
+export const FETCH_SIMILAR_BEERS = 'FETCH_SIMILAR_BEERS';
+export const MODAL_CLOSED = 'MODAL_CLOSED';
+
+export const newBeers = beers => {
+  return { type: NEW_BEERS, content: beers };
+};
+export const fetchSimilarBeers = beers => {
+  return { type: FETCH_SIMILAR_BEERS, content: beers };
+};
+
+export const modalClosed = () => {
+  return { type: MODAL_CLOSED };
 };
